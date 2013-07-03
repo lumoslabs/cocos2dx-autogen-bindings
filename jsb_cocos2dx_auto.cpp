@@ -29029,32 +29029,6 @@ JSBool js_cocos2dx_Director_stopAnimation(JSContext *cx, uint32_t argc, jsval *v
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Director_setKeypadDispatcher(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Director* cobj = (cocos2d::Director *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::KeypadDispatcher* arg0;
-		do {
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			proxy = jsb_get_js_proxy(tmpObj);
-			arg0 = (cocos2d::KeypadDispatcher*)(proxy ? proxy->ptr : NULL);
-			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
-		} while (0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setKeypadDispatcher(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_Director_popToSceneStackLevel(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -29088,32 +29062,6 @@ JSBool js_cocos2dx_Director_resume(JSContext *cx, uint32_t argc, jsval *vp)
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_Director_setTouchDispatcher(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Director* cobj = (cocos2d::Director *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::TouchDispatcher* arg0;
-		do {
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			proxy = jsb_get_js_proxy(tmpObj);
-			arg0 = (cocos2d::TouchDispatcher*)(proxy ? proxy->ptr : NULL);
-			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
-		} while (0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setTouchDispatcher(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_Director_isNextDeltaTimeZero(JSContext *cx, uint32_t argc, jsval *vp)
@@ -29656,10 +29604,8 @@ void js_register_cocos2dx_Director(JSContext *cx, JSObject *global) {
 		JS_FN("getRunningScene", js_cocos2dx_Director_getRunningScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setViewport", js_cocos2dx_Director_setViewport, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("stopAnimation", js_cocos2dx_Director_stopAnimation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setKeypadDispatcher", js_cocos2dx_Director_setKeypadDispatcher, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("popToSceneStackLevel", js_cocos2dx_Director_popToSceneStackLevel, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resume", js_cocos2dx_Director_resume, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setTouchDispatcher", js_cocos2dx_Director_setTouchDispatcher, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isNextDeltaTimeZero", js_cocos2dx_Director_isNextDeltaTimeZero, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDelegate", js_cocos2dx_Director_getDelegate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setOpenGLView", js_cocos2dx_Director_setOpenGLView, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -34924,6 +34870,23 @@ JSBool js_cocos2dx_Layer_ccTouchBegan(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_Layer_isKeyboardEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		bool ret = cobj->isKeyboardEnabled();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_Layer_setAccelerometerInterval(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -35084,6 +35047,26 @@ JSBool js_cocos2dx_Layer_setAccelerometerEnabled(JSContext *cx, uint32_t argc, j
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_Layer_keyReleased(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->keyReleased(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_Layer_init(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -35220,19 +35203,44 @@ JSBool js_cocos2dx_Layer_setTouchEnabled(JSContext *cx, uint32_t argc, jsval *vp
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Layer_unregisterScriptKeypadHandler(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_Layer_setKeyboardEnabled(JSContext *cx, uint32_t argc, jsval *vp)
 {
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy = jsb_get_js_proxy(obj);
 	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->unregisterScriptKeypadHandler();
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setKeyboardEnabled(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_Layer_keyPressed(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->keyPressed(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_Layer_isKeypadEnabled(JSContext *cx, uint32_t argc, jsval *vp)
@@ -35317,6 +35325,21 @@ JSBool js_cocos2dx_Layer_isAccelerometerEnabled(JSContext *cx, uint32_t argc, js
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_Layer_unregisterScriptKeypadHandler(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->unregisterScriptKeypadHandler();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
@@ -35697,6 +35720,7 @@ void js_register_cocos2dx_Layer(JSContext *cx, JSObject *global) {
 		JS_FN("unregisterScriptTouchHandler", js_cocos2dx_Layer_unregisterScriptTouchHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("keyBackClicked", js_cocos2dx_Layer_keyBackClicked, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchBegan", js_cocos2dx_Layer_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isKeyboardEnabled", js_cocos2dx_Layer_isKeyboardEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAccelerometerInterval", js_cocos2dx_Layer_setAccelerometerInterval, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchesCancelled", js_cocos2dx_Layer_ccTouchesCancelled, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("unregisterScriptAccelerateHandler", js_cocos2dx_Layer_unregisterScriptAccelerateHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -35704,17 +35728,20 @@ void js_register_cocos2dx_Layer(JSContext *cx, JSObject *global) {
 		JS_FN("registerScriptAccelerateHandler", js_cocos2dx_Layer_registerScriptAccelerateHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTouchMode", js_cocos2dx_Layer_getTouchMode, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAccelerometerEnabled", js_cocos2dx_Layer_setAccelerometerEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("keyReleased", js_cocos2dx_Layer_keyReleased, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_Layer_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isTouchEnabled", js_cocos2dx_Layer_isTouchEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getScriptAccelerateHandlerEntry", js_cocos2dx_Layer_getScriptAccelerateHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getScriptKeypadHandlerEntry", js_cocos2dx_Layer_getScriptKeypadHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchMoved", js_cocos2dx_Layer_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTouchEnabled", js_cocos2dx_Layer_setTouchEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("unregisterScriptKeypadHandler", js_cocos2dx_Layer_unregisterScriptKeypadHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setKeyboardEnabled", js_cocos2dx_Layer_setKeyboardEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("keyPressed", js_cocos2dx_Layer_keyPressed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isKeypadEnabled", js_cocos2dx_Layer_isKeypadEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchesEnded", js_cocos2dx_Layer_ccTouchesEnded, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTouchMode", js_cocos2dx_Layer_setTouchMode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isAccelerometerEnabled", js_cocos2dx_Layer_isAccelerometerEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unregisterScriptKeypadHandler", js_cocos2dx_Layer_unregisterScriptKeypadHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchEnded", js_cocos2dx_Layer_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("registerScriptTouchHandler", js_cocos2dx_Layer_registerScriptTouchHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchCancelled", js_cocos2dx_Layer_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
