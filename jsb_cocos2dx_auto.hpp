@@ -2019,7 +2019,6 @@ JSBool js_cocos2dx_Layer_ccTouchesMoved(JSContext *cx, uint32_t argc, jsval *vp)
 JSBool js_cocos2dx_Layer_registerScriptAccelerateHandler(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_getTouchMode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_setAccelerometerEnabled(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Layer_keyReleased(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_isTouchEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_getScriptAccelerateHandlerEntry(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2027,12 +2026,10 @@ JSBool js_cocos2dx_Layer_getScriptKeypadHandlerEntry(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_Layer_ccTouchMoved(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_setTouchEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_setKeyboardEnabled(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Layer_keyPressed(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_isKeypadEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_ccTouchesEnded(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_setTouchMode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_isAccelerometerEnabled(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Layer_unregisterScriptKeypadHandler(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_ccTouchEnded(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_registerScriptTouchHandler(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_ccTouchCancelled(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2702,6 +2699,30 @@ JSBool js_cocos2dx_ClippingNode_getStencil(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_ClippingNode_setAlphaThreshold(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ClippingNode_isInverted(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ClippingNode_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_MotionStreak_class;
+extern JSObject *jsb_MotionStreak_prototype;
+
+JSBool js_cocos2dx_MotionStreak_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_MotionStreak_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_MotionStreak(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_MotionStreak_reset(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_setTexture(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_getTexture(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_tintWithColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_setOpacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_initWithFade(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_isFastMode(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_getOpacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_setPosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_setStartingPositionInitialized(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_setFastMode(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_isStartingPositionInitialized(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_MotionStreak_MotionStreak(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_ProgressTimer_class;
 extern JSObject *jsb_ProgressTimer_prototype;

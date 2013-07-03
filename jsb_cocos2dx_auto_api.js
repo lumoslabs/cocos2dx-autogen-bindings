@@ -7320,12 +7320,6 @@ getTouchMode : function () {},
 setAccelerometerEnabled : function () {},
 
 /**
- * @method keyReleased
- * @param {int}
- */
-keyReleased : function () {},
-
-/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
@@ -7369,12 +7363,6 @@ setTouchEnabled : function () {},
 setKeyboardEnabled : function () {},
 
 /**
- * @method keyPressed
- * @param {int}
- */
-keyPressed : function () {},
-
-/**
  * @method isKeypadEnabled
  * @return A value converted from C/C++ "bool"
  */
@@ -7398,11 +7386,6 @@ setTouchMode : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isAccelerometerEnabled : function () {},
-
-/**
- * @method unregisterScriptKeypadHandler
- */
-unregisterScriptKeypadHandler : function () {},
 
 /**
  * @method ccTouchEnded
@@ -9319,6 +9302,96 @@ setAlphaThreshold : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isInverted : function () {},
+
+};
+
+/**
+ * @class MotionStreak
+ */
+cc.MotionStreak = {
+
+/**
+ * @method reset
+ */
+reset : function () {},
+
+/**
+ * @method setTexture
+ * @param {cocos2d::Texture2D*}
+ */
+setTexture : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
+ * @method getTexture
+ * @return A value converted from C/C++ "cocos2d::Texture2D*"
+ */
+getTexture : function () {},
+
+/**
+ * @method tintWithColor
+ * @param {cocos2d::ccColor3B}
+ */
+tintWithColor : function () {},
+
+/**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
+ * @method isFastMode
+ * @return A value converted from C/C++ "bool"
+ */
+isFastMode : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
+
+/**
+ * @method setPosition
+ * @param {cocos2d::Point}
+ */
+setPosition : function () {},
+
+/**
+ * @method setStartingPositionInitialized
+ * @param {bool}
+ */
+setStartingPositionInitialized : function () {},
+
+/**
+ * @method setFastMode
+ * @param {bool}
+ */
+setFastMode : function () {},
+
+/**
+ * @method isStartingPositionInitialized
+ * @return A value converted from C/C++ "bool"
+ */
+isStartingPositionInitialized : function () {},
+
+/**
+ * @method MotionStreak
+ * @constructor
+ */
+MotionStreak : function () {},
 
 };
 
