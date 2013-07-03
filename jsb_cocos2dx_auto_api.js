@@ -6089,12 +6089,6 @@ setViewport : function () {},
 stopAnimation : function () {},
 
 /**
- * @method setKeypadDispatcher
- * @param {cocos2d::KeypadDispatcher*}
- */
-setKeypadDispatcher : function () {},
-
-/**
  * @method popToSceneStackLevel
  * @param {int}
  */
@@ -6104,12 +6098,6 @@ popToSceneStackLevel : function () {},
  * @method resume
  */
 resume : function () {},
-
-/**
- * @method setTouchDispatcher
- * @param {cocos2d::TouchDispatcher*}
- */
-setTouchDispatcher : function () {},
 
 /**
  * @method isNextDeltaTimeZero
@@ -7283,6 +7271,12 @@ keyBackClicked : function () {},
 ccTouchBegan : function () {},
 
 /**
+ * @method isKeyboardEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isKeyboardEnabled : function () {},
+
+/**
  * @method setAccelerometerInterval
  * @param {double}
  */
@@ -7326,6 +7320,12 @@ getTouchMode : function () {},
 setAccelerometerEnabled : function () {},
 
 /**
+ * @method keyReleased
+ * @param {int}
+ */
+keyReleased : function () {},
+
+/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
@@ -7363,9 +7363,16 @@ ccTouchMoved : function () {},
 setTouchEnabled : function () {},
 
 /**
- * @method unregisterScriptKeypadHandler
+ * @method setKeyboardEnabled
+ * @param {bool}
  */
-unregisterScriptKeypadHandler : function () {},
+setKeyboardEnabled : function () {},
+
+/**
+ * @method keyPressed
+ * @param {int}
+ */
+keyPressed : function () {},
 
 /**
  * @method isKeypadEnabled
@@ -7391,6 +7398,11 @@ setTouchMode : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isAccelerometerEnabled : function () {},
+
+/**
+ * @method unregisterScriptKeypadHandler
+ */
+unregisterScriptKeypadHandler : function () {},
 
 /**
  * @method ccTouchEnded
