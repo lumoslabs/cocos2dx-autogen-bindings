@@ -3840,6 +3840,21 @@ JSBool js_cocos2dx_Node_addComponent(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_Node_visit(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Node* cobj = (cocos2d::Node *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->visit();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_Node_setShaderProgram(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -5169,6 +5184,7 @@ void js_register_cocos2dx_Node(JSContext *cx, JSObject *global) {
 		JS_FN("setAnchorPoint", js_cocos2dx_Node_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("convertToNodeSpaceAR", js_cocos2dx_Node_convertToNodeSpaceAR, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addComponent", js_cocos2dx_Node_addComponent, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_Node_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setShaderProgram", js_cocos2dx_Node_setShaderProgram, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getRotation", js_cocos2dx_Node_getRotation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resumeSchedulerAndActions", js_cocos2dx_Node_resumeSchedulerAndActions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -33375,6 +33391,21 @@ JSBool js_cocos2dx_SpriteBatchNode_addChild(JSContext *cx, uint32_t argc, jsval 
 	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_SpriteBatchNode_visit(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::SpriteBatchNode* cobj = (cocos2d::SpriteBatchNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->visit();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_SpriteBatchNode_setTexture(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -34063,6 +34094,7 @@ void js_register_cocos2dx_SpriteBatchNode(JSContext *cx, JSObject *global) {
 		JS_FN("appendChild", js_cocos2dx_SpriteBatchNode_appendChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reorderBatch", js_cocos2dx_SpriteBatchNode_reorderBatch, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addChild", js_cocos2dx_SpriteBatchNode_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_SpriteBatchNode_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTexture", js_cocos2dx_SpriteBatchNode_setTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeChildAtIndex", js_cocos2dx_SpriteBatchNode_removeChildAtIndex, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeSpriteFromAtlas", js_cocos2dx_SpriteBatchNode_removeSpriteFromAtlas, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -46102,6 +46134,21 @@ JSBool js_cocos2dx_ClippingNode_setInverted(JSContext *cx, uint32_t argc, jsval 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_ClippingNode_visit(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::ClippingNode* cobj = (cocos2d::ClippingNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->visit();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_ClippingNode_setStencil(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -46327,6 +46374,7 @@ void js_register_cocos2dx_ClippingNode(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("setInverted", js_cocos2dx_ClippingNode_setInverted, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_ClippingNode_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setStencil", js_cocos2dx_ClippingNode_setStencil, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAlphaThreshold", js_cocos2dx_ClippingNode_getAlphaThreshold, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_ClippingNode_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -47580,6 +47628,21 @@ JSBool js_cocos2dx_RenderTexture_initWithWidthAndHeight(JSContext *cx, uint32_t 
 	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_RenderTexture_visit(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::RenderTexture* cobj = (cocos2d::RenderTexture *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->visit();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_RenderTexture_getSprite(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -48187,6 +48250,7 @@ void js_register_cocos2dx_RenderTexture(JSContext *cx, JSObject *global) {
 		JS_FN("end", js_cocos2dx_RenderTexture_end, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setClearStencil", js_cocos2dx_RenderTexture_setClearStencil, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithWidthAndHeight", js_cocos2dx_RenderTexture_initWithWidthAndHeight, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_RenderTexture_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getSprite", js_cocos2dx_RenderTexture_getSprite, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isAutoDraw", js_cocos2dx_RenderTexture_isAutoDraw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setClearFlags", js_cocos2dx_RenderTexture_setClearFlags, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -48448,6 +48512,21 @@ JSBool js_cocos2dx_ParticleBatchNode_getTexture(JSContext *cx, uint32_t argc, js
 			}
 		} while (0);
 		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_ParticleBatchNode_visit(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::ParticleBatchNode* cobj = (cocos2d::ParticleBatchNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->visit();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
@@ -48814,6 +48893,7 @@ void js_register_cocos2dx_ParticleBatchNode(JSContext *cx, JSObject *global) {
 		JS_FN("initWithFile", js_cocos2dx_ParticleBatchNode_initWithFile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("disableParticle", js_cocos2dx_ParticleBatchNode_disableParticle, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTexture", js_cocos2dx_ParticleBatchNode_getTexture, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_ParticleBatchNode_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_ParticleBatchNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTextureAtlas", js_cocos2dx_ParticleBatchNode_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeChild", js_cocos2dx_ParticleBatchNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -55315,6 +55395,21 @@ JSBool js_cocos2dx_ParallaxNode_addChild(JSContext *cx, uint32_t argc, jsval *vp
 	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_ParallaxNode_visit(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::ParallaxNode* cobj = (cocos2d::ParallaxNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->visit();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_ParallaxNode_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -55484,6 +55579,7 @@ void js_register_cocos2dx_ParallaxNode(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("addChild", js_cocos2dx_ParallaxNode_addChild, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_ParallaxNode_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_ParallaxNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeChild", js_cocos2dx_ParallaxNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getParallaxArray", js_cocos2dx_ParallaxNode_getParallaxArray, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),

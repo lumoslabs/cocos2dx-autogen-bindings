@@ -930,6 +930,11 @@ convertToNodeSpaceAR : function () {},
 addComponent : function () {},
 
 /**
+ * @method visit
+ */
+visit : function () {},
+
+/**
  * @method setShaderProgram
  * @param {cocos2d::GLProgram*}
  */
@@ -6922,6 +6927,11 @@ appendChild : function () {},
 reorderBatch : function () {},
 
 /**
+ * @method visit
+ */
+visit : function () {},
+
+/**
  * @method setTexture
  * @param {cocos2d::Texture2D*}
  */
@@ -9274,6 +9284,11 @@ cc.ClippingNode = {
 setInverted : function () {},
 
 /**
+ * @method visit
+ */
+visit : function () {},
+
+/**
  * @method setStencil
  * @param {cocos2d::Node*}
  */
@@ -9557,6 +9572,11 @@ end : function () {},
 setClearStencil : function () {},
 
 /**
+ * @method visit
+ */
+visit : function () {},
+
+/**
  * @method getSprite
  * @return A value converted from C/C++ "cocos2d::Sprite*"
  */
@@ -9697,6 +9717,11 @@ disableParticle : function () {},
  * @return A value converted from C/C++ "cocos2d::Texture2D*"
  */
 getTexture : function () {},
+
+/**
+ * @method visit
+ */
+visit : function () {},
 
 /**
  * @method removeAllChildrenWithCleanup
@@ -11313,6 +11338,11 @@ TextureCache : function () {},
  * @class ParallaxNode
  */
 cc.ParallaxNode = {
+
+/**
+ * @method visit
+ */
+visit : function () {},
 
 /**
  * @method removeAllChildrenWithCleanup
