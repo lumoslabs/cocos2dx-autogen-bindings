@@ -2549,8 +2549,8 @@ JSBool js_cocos2dx_Texture2D_initWithString(JSContext *cx, uint32_t argc, jsval 
 			const char* arg0;
 			std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
 			if (!ok) { ok = JS_TRUE; break; }
-			ccFontDefinition* arg1;
-			#pragma warning NO CONVERSION TO NATIVE FOR ccFontDefinition*;
+			cocos2d::FontDefinition arg1;
+			ok &= jsval_to_FontDefinition(cx, argv[1], &arg1);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithString(arg0, arg1);
 			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
@@ -5292,7 +5292,7 @@ JSBool js_cocos2dx_NodeRGBA_updateDisplayedColor(JSContext *cx, uint32_t argc, j
 	cocos2d::NodeRGBA* cobj = (cocos2d::NodeRGBA *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->updateDisplayedColor(arg0);
@@ -5312,7 +5312,7 @@ JSBool js_cocos2dx_NodeRGBA_setColor(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::NodeRGBA* cobj = (cocos2d::NodeRGBA *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setColor(arg0);
@@ -5347,7 +5347,7 @@ JSBool js_cocos2dx_NodeRGBA_getColor(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::NodeRGBA* cobj = (cocos2d::NodeRGBA *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getColor();
+		cocos2d::Color3B ret = cobj->getColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -5549,7 +5549,7 @@ JSBool js_cocos2dx_NodeRGBA_getDisplayedColor(JSContext *cx, uint32_t argc, jsva
 	cocos2d::NodeRGBA* cobj = (cocos2d::NodeRGBA *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getDisplayedColor();
+		cocos2d::Color3B ret = cobj->getDisplayedColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -20228,28 +20228,6 @@ void js_register_cocos2dx_GridAction(JSContext *cx, JSObject *global) {
 JSClass  *jsb_Grid3DAction_class;
 JSObject *jsb_Grid3DAction_prototype;
 
-JSBool js_cocos2dx_Grid3DAction_setVertex(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Grid3DAction* cobj = (cocos2d::Grid3DAction *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 2) {
-		cocos2d::Point arg0;
-		cocos2d::ccVertex3F arg1;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		#pragma warning NO CONVERSION TO NATIVE FOR const ccVertex3F;
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setVertex(arg0, arg1);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_Grid3DAction_clone(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -20298,50 +20276,6 @@ JSBool js_cocos2dx_Grid3DAction_getGrid(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Grid3DAction_vertex(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Grid3DAction* cobj = (cocos2d::Grid3DAction *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::Point arg0;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		ccVertex3F ret = cobj->vertex(arg0);
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccVertex3F;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_Grid3DAction_originalVertex(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Grid3DAction* cobj = (cocos2d::Grid3DAction *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::Point arg0;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		ccVertex3F ret = cobj->originalVertex(arg0);
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccVertex3F;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 
 
 extern JSObject *jsb_GridAction_prototype;
@@ -20366,11 +20300,8 @@ void js_register_cocos2dx_Grid3DAction(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setVertex", js_cocos2dx_Grid3DAction_setVertex, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("clone", js_cocos2dx_Grid3DAction_clone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getGrid", js_cocos2dx_Grid3DAction_getGrid, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("vertex", js_cocos2dx_Grid3DAction_vertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("originalVertex", js_cocos2dx_Grid3DAction_originalVertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
 	};
 
@@ -20408,28 +20339,6 @@ void js_register_cocos2dx_Grid3DAction(JSContext *cx, JSObject *global) {
 JSClass  *jsb_TiledGrid3DAction_class;
 JSObject *jsb_TiledGrid3DAction_prototype;
 
-JSBool js_cocos2dx_TiledGrid3DAction_tile(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::TiledGrid3DAction* cobj = (cocos2d::TiledGrid3DAction *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::Point arg0;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		ccQuad3 ret = cobj->tile(arg0);
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccQuad3;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_TiledGrid3DAction_clone(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -20452,50 +20361,6 @@ JSBool js_cocos2dx_TiledGrid3DAction_clone(JSContext *cx, uint32_t argc, jsval *
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_TiledGrid3DAction_setTile(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::TiledGrid3DAction* cobj = (cocos2d::TiledGrid3DAction *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 2) {
-		cocos2d::Point arg0;
-		cocos2d::ccQuad3 arg1;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		#pragma warning NO CONVERSION TO NATIVE FOR const ccQuad3;
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setTile(arg0, arg1);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_TiledGrid3DAction_originalTile(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::TiledGrid3DAction* cobj = (cocos2d::TiledGrid3DAction *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::Point arg0;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		ccQuad3 ret = cobj->originalTile(arg0);
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccQuad3;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_TiledGrid3DAction_getGrid(JSContext *cx, uint32_t argc, jsval *vp)
@@ -20546,10 +20411,7 @@ void js_register_cocos2dx_TiledGrid3DAction(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("tile", js_cocos2dx_TiledGrid3DAction_tile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("clone", js_cocos2dx_TiledGrid3DAction_clone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setTile", js_cocos2dx_TiledGrid3DAction_setTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("originalTile", js_cocos2dx_TiledGrid3DAction_originalTile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getGrid", js_cocos2dx_TiledGrid3DAction_getGrid, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
 	};
@@ -27478,7 +27340,7 @@ JSBool js_cocos2dx_AtlasNode_setColor(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::AtlasNode* cobj = (cocos2d::AtlasNode *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setColor(arg0);
@@ -27643,7 +27505,7 @@ JSBool js_cocos2dx_AtlasNode_getColor(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::AtlasNode* cobj = (cocos2d::AtlasNode *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getColor();
+		cocos2d::Color3B ret = cobj->getColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -27932,7 +27794,7 @@ JSBool js_cocos2dx_DrawNode_drawDot(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 3) {
 		cocos2d::Point arg0;
 		double arg1;
-		cocos2d::ccColor4F arg2;
+		cocos2d::Color4F arg2;
 		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
 		ok &= JS_ValueToNumber(cx, argv[1], &arg1);
 		ok &= jsval_to_cccolor4f(cx, argv[2], &arg2);
@@ -27957,7 +27819,7 @@ JSBool js_cocos2dx_DrawNode_drawSegment(JSContext *cx, uint32_t argc, jsval *vp)
 		cocos2d::Point arg0;
 		cocos2d::Point arg1;
 		double arg2;
-		cocos2d::ccColor4F arg3;
+		cocos2d::Color4F arg3;
 		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
 		ok &= jsval_to_ccpoint(cx, argv[1], &arg1);
 		ok &= JS_ValueToNumber(cx, argv[2], &arg2);
@@ -30342,28 +30204,6 @@ JSBool js_cocos2dx_Grid3D_calculateVertexPoints(JSContext *cx, uint32_t argc, js
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Grid3D_setVertex(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Grid3D* cobj = (cocos2d::Grid3D *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 2) {
-		cocos2d::Point arg0;
-		cocos2d::ccVertex3F arg1;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		#pragma warning NO CONVERSION TO NATIVE FOR const ccVertex3F;
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setVertex(arg0, arg1);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_Grid3D_reuse(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -30379,28 +30219,6 @@ JSBool js_cocos2dx_Grid3D_reuse(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Grid3D_vertex(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Grid3D* cobj = (cocos2d::Grid3D *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::Point arg0;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		ccVertex3F ret = cobj->vertex(arg0);
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccVertex3F;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_Grid3D_blit(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -30414,28 +30232,6 @@ JSBool js_cocos2dx_Grid3D_blit(JSContext *cx, uint32_t argc, jsval *vp)
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_Grid3D_originalVertex(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Grid3D* cobj = (cocos2d::Grid3D *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::Point arg0;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		ccVertex3F ret = cobj->originalVertex(arg0);
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccVertex3F;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_Grid3D_create(JSContext *cx, uint32_t argc, jsval *vp)
@@ -30561,11 +30357,8 @@ void js_register_cocos2dx_Grid3D(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("calculateVertexPoints", js_cocos2dx_Grid3D_calculateVertexPoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setVertex", js_cocos2dx_Grid3D_setVertex, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reuse", js_cocos2dx_Grid3D_reuse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("vertex", js_cocos2dx_Grid3D_vertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("blit", js_cocos2dx_Grid3D_blit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("originalVertex", js_cocos2dx_Grid3D_originalVertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_Grid3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
 	};
@@ -30635,72 +30428,6 @@ JSBool js_cocos2dx_TiledGrid3D_reuse(JSContext *cx, uint32_t argc, jsval *vp)
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_TiledGrid3D_originalTile(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::TiledGrid3D* cobj = (cocos2d::TiledGrid3D *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::Point arg0;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		ccQuad3 ret = cobj->originalTile(arg0);
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccQuad3;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_TiledGrid3D_tile(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::TiledGrid3D* cobj = (cocos2d::TiledGrid3D *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::Point arg0;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		ccQuad3 ret = cobj->tile(arg0);
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccQuad3;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_TiledGrid3D_setTile(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::TiledGrid3D* cobj = (cocos2d::TiledGrid3D *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 2) {
-		cocos2d::Point arg0;
-		cocos2d::ccQuad3 arg1;
-		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
-		#pragma warning NO CONVERSION TO NATIVE FOR const ccQuad3;
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setTile(arg0, arg1);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_TiledGrid3D_blit(JSContext *cx, uint32_t argc, jsval *vp)
@@ -30842,9 +30569,6 @@ void js_register_cocos2dx_TiledGrid3D(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("calculateVertexPoints", js_cocos2dx_TiledGrid3D_calculateVertexPoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reuse", js_cocos2dx_TiledGrid3D_reuse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("originalTile", js_cocos2dx_TiledGrid3D_originalTile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("tile", js_cocos2dx_TiledGrid3D_tile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setTile", js_cocos2dx_TiledGrid3D_setTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("blit", js_cocos2dx_TiledGrid3D_blit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_TiledGrid3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
@@ -31912,7 +31636,7 @@ JSBool js_cocos2dx_Sprite_setColor(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::Sprite* cobj = (cocos2d::Sprite *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setColor(arg0);
@@ -32046,7 +31770,7 @@ JSBool js_cocos2dx_Sprite_updateDisplayedColor(JSContext *cx, uint32_t argc, jsv
 	cocos2d::Sprite* cobj = (cocos2d::Sprite *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->updateDisplayedColor(arg0);
@@ -32563,8 +32287,8 @@ JSBool js_cocos2dx_LabelTTF_setTextDefinition(JSContext *cx, uint32_t argc, jsva
 	cocos2d::LabelTTF* cobj = (cocos2d::LabelTTF *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		ccFontDefinition* arg0;
-		#pragma warning NO CONVERSION TO NATIVE FOR ccFontDefinition*;
+		cocos2d::FontDefinition arg0;
+		ok &= jsval_to_FontDefinition(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setTextDefinition(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
@@ -32621,9 +32345,9 @@ JSBool js_cocos2dx_LabelTTF_initWithStringAndTextDefinition(JSContext *cx, uint3
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 2) {
 		const char* arg0;
-		cocos2d::ccFontDefinition arg1;
+		cocos2d::FontDefinition arg1;
 		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
-		ok &= jsval_to_ccfontdefinition(cx, argv[1], &arg1);
+		ok &= jsval_to_FontDefinition(cx, argv[1], &arg1);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		bool ret = cobj->initWithStringAndTextDefinition(arg0, arg1);
 		jsval jsret;
@@ -32764,7 +32488,7 @@ JSBool js_cocos2dx_LabelTTF_setFontFillColor(JSContext *cx, uint32_t argc, jsval
 	cocos2d::LabelTTF* cobj = (cocos2d::LabelTTF *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setFontFillColor(arg0);
@@ -32772,7 +32496,7 @@ JSBool js_cocos2dx_LabelTTF_setFontFillColor(JSContext *cx, uint32_t argc, jsval
 		return JS_TRUE;
 	}
 	if (argc == 2) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		JSBool arg1;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
@@ -32794,7 +32518,7 @@ JSBool js_cocos2dx_LabelTTF_enableStroke(JSContext *cx, uint32_t argc, jsval *vp
 	cocos2d::LabelTTF* cobj = (cocos2d::LabelTTF *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 2) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		double arg1;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		ok &= JS_ValueToNumber(cx, argv[1], &arg1);
@@ -32804,7 +32528,7 @@ JSBool js_cocos2dx_LabelTTF_enableStroke(JSContext *cx, uint32_t argc, jsval *vp
 		return JS_TRUE;
 	}
 	if (argc == 3) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		double arg1;
 		JSBool arg2;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
@@ -32900,9 +32624,9 @@ JSBool js_cocos2dx_LabelTTF_getTextDefinition(JSContext *cx, uint32_t argc, jsva
 	cocos2d::LabelTTF* cobj = (cocos2d::LabelTTF *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		ccFontDefinition* ret = cobj->getTextDefinition();
+		cocos2d::FontDefinition ret = cobj->getTextDefinition();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccFontDefinition*;
+		jsret = FontDefinition_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -33120,9 +32844,9 @@ JSBool js_cocos2dx_LabelTTF_createWithFontDefinition(JSContext *cx, uint32_t arg
 	JSBool ok = JS_TRUE;
 	if (argc == 2) {
 		const char* arg0;
-		cocos2d::ccFontDefinition arg1;
+		cocos2d::FontDefinition arg1;
 		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
-		ok &= jsval_to_ccfontdefinition(cx, argv[1], &arg1);
+		ok &= jsval_to_FontDefinition(cx, argv[1], &arg1);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cocos2d::LabelTTF* ret = cocos2d::LabelTTF::createWithFontDefinition(arg0, arg1);
 		jsval jsret;
@@ -34605,7 +34329,7 @@ JSBool js_cocos2dx_LabelBMFont_getColor(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::LabelBMFont* cobj = (cocos2d::LabelBMFont *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getColor();
+		cocos2d::Color3B ret = cobj->getColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -34658,7 +34382,7 @@ JSBool js_cocos2dx_LabelBMFont_setColor(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::LabelBMFont* cobj = (cocos2d::LabelBMFont *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setColor(arg0);
@@ -34696,7 +34420,7 @@ JSBool js_cocos2dx_LabelBMFont_getDisplayedColor(JSContext *cx, uint32_t argc, j
 	cocos2d::LabelBMFont* cobj = (cocos2d::LabelBMFont *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getDisplayedColor();
+		cocos2d::Color3B ret = cobj->getDisplayedColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -34715,7 +34439,7 @@ JSBool js_cocos2dx_LabelBMFont_updateDisplayedColor(JSContext *cx, uint32_t argc
 	cocos2d::LabelBMFont* cobj = (cocos2d::LabelBMFont *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->updateDisplayedColor(arg0);
@@ -35982,7 +35706,7 @@ JSBool js_cocos2dx_LayerRGBA_updateDisplayedColor(JSContext *cx, uint32_t argc, 
 	cocos2d::LayerRGBA* cobj = (cocos2d::LayerRGBA *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->updateDisplayedColor(arg0);
@@ -36002,7 +35726,7 @@ JSBool js_cocos2dx_LayerRGBA_setColor(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::LayerRGBA* cobj = (cocos2d::LayerRGBA *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setColor(arg0);
@@ -36037,7 +35761,7 @@ JSBool js_cocos2dx_LayerRGBA_getColor(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::LayerRGBA* cobj = (cocos2d::LayerRGBA *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getColor();
+		cocos2d::Color3B ret = cobj->getColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -36239,7 +35963,7 @@ JSBool js_cocos2dx_LayerRGBA_getDisplayedColor(JSContext *cx, uint32_t argc, jsv
 	cocos2d::LayerRGBA* cobj = (cocos2d::LayerRGBA *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getDisplayedColor();
+		cocos2d::Color3B ret = cobj->getDisplayedColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -36428,7 +36152,7 @@ JSBool js_cocos2dx_LayerColor_setColor(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::LayerColor* cobj = (cocos2d::LayerColor *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setColor(arg0);
@@ -36494,7 +36218,7 @@ JSBool js_cocos2dx_LayerColor_initWithColor(JSContext *cx, uint32_t argc, jsval 
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	do {
 		if (argc == 3) {
-			cocos2d::ccColor4B arg0;
+			cocos2d::Color4B arg0;
 			ok &= jsval_to_cccolor4b(cx, argv[0], &arg0);
 			if (!ok) { ok = JS_TRUE; break; }
 			double arg1;
@@ -36521,7 +36245,7 @@ JSBool js_cocos2dx_LayerColor_initWithColor(JSContext *cx, uint32_t argc, jsval 
 
 	do {
 		if (argc == 1) {
-			cocos2d::ccColor4B arg0;
+			cocos2d::Color4B arg0;
 			ok &= jsval_to_cccolor4b(cx, argv[0], &arg0);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithColor(arg0);
@@ -36621,7 +36345,7 @@ JSBool js_cocos2dx_LayerColor_create(JSContext *cx, uint32_t argc, jsval *vp)
 	
 	do {
 		if (argc == 3) {
-			cocos2d::ccColor4B arg0;
+			cocos2d::Color4B arg0;
 			ok &= jsval_to_cccolor4b(cx, argv[0], &arg0);
 			if (!ok) { ok = JS_TRUE; break; }
 			double arg1;
@@ -36664,7 +36388,7 @@ JSBool js_cocos2dx_LayerColor_create(JSContext *cx, uint32_t argc, jsval *vp)
 	
 	do {
 		if (argc == 1) {
-			cocos2d::ccColor4B arg0;
+			cocos2d::Color4B arg0;
 			ok &= jsval_to_cccolor4b(cx, argv[0], &arg0);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::LayerColor* ret = cocos2d::LayerColor::create(arg0);
@@ -36804,7 +36528,7 @@ JSBool js_cocos2dx_LayerGradient_getStartColor(JSContext *cx, uint32_t argc, jsv
 	cocos2d::LayerGradient* cobj = (cocos2d::LayerGradient *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getStartColor();
+		cocos2d::Color3B ret = cobj->getStartColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -36958,10 +36682,10 @@ JSBool js_cocos2dx_LayerGradient_initWithColor(JSContext *cx, uint32_t argc, jsv
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	do {
 		if (argc == 2) {
-			cocos2d::ccColor4B arg0;
+			cocos2d::Color4B arg0;
 			ok &= jsval_to_cccolor4b(cx, argv[0], &arg0);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::ccColor4B arg1;
+			cocos2d::Color4B arg1;
 			ok &= jsval_to_cccolor4b(cx, argv[1], &arg1);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithColor(arg0, arg1);
@@ -36982,10 +36706,10 @@ JSBool js_cocos2dx_LayerGradient_initWithColor(JSContext *cx, uint32_t argc, jsv
 
 	do {
 		if (argc == 3) {
-			cocos2d::ccColor4B arg0;
+			cocos2d::Color4B arg0;
 			ok &= jsval_to_cccolor4b(cx, argv[0], &arg0);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::ccColor4B arg1;
+			cocos2d::Color4B arg1;
 			ok &= jsval_to_cccolor4b(cx, argv[1], &arg1);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::Point arg2;
@@ -37010,7 +36734,7 @@ JSBool js_cocos2dx_LayerGradient_setEndColor(JSContext *cx, uint32_t argc, jsval
 	cocos2d::LayerGradient* cobj = (cocos2d::LayerGradient *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setEndColor(arg0);
@@ -37028,7 +36752,7 @@ JSBool js_cocos2dx_LayerGradient_getEndColor(JSContext *cx, uint32_t argc, jsval
 	cocos2d::LayerGradient* cobj = (cocos2d::LayerGradient *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getEndColor();
+		cocos2d::Color3B ret = cobj->getEndColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -37064,7 +36788,7 @@ JSBool js_cocos2dx_LayerGradient_setStartColor(JSContext *cx, uint32_t argc, jsv
 	cocos2d::LayerGradient* cobj = (cocos2d::LayerGradient *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setStartColor(arg0);
@@ -37082,10 +36806,10 @@ JSBool js_cocos2dx_LayerGradient_create(JSContext *cx, uint32_t argc, jsval *vp)
 	
 	do {
 		if (argc == 2) {
-			cocos2d::ccColor4B arg0;
+			cocos2d::Color4B arg0;
 			ok &= jsval_to_cccolor4b(cx, argv[0], &arg0);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::ccColor4B arg1;
+			cocos2d::Color4B arg1;
 			ok &= jsval_to_cccolor4b(cx, argv[1], &arg1);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::LayerGradient* ret = cocos2d::LayerGradient::create(arg0, arg1);
@@ -37122,10 +36846,10 @@ JSBool js_cocos2dx_LayerGradient_create(JSContext *cx, uint32_t argc, jsval *vp)
 	
 	do {
 		if (argc == 3) {
-			cocos2d::ccColor4B arg0;
+			cocos2d::Color4B arg0;
 			ok &= jsval_to_cccolor4b(cx, argv[0], &arg0);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::ccColor4B arg1;
+			cocos2d::Color4B arg1;
 			ok &= jsval_to_cccolor4b(cx, argv[1], &arg1);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::Point arg2;
@@ -40973,7 +40697,7 @@ JSBool js_cocos2dx_TransitionFade_initWithDuration(JSContext *cx, uint32_t argc,
 				JSB_PRECONDITION2( arg1, cx, JS_FALSE, "Invalid Native Object");
 			} while (0);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::ccColor3B arg2;
+			cocos2d::Color3B arg2;
 			ok &= jsval_to_cccolor3b(cx, argv[2], &arg2);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithDuration(arg0, arg1, arg2);
@@ -41036,7 +40760,7 @@ JSBool js_cocos2dx_TransitionFade_create(JSContext *cx, uint32_t argc, jsval *vp
 				JSB_PRECONDITION2( arg1, cx, JS_FALSE, "Invalid Native Object");
 			} while (0);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::ccColor3B arg2;
+			cocos2d::Color3B arg2;
 			ok &= jsval_to_cccolor3b(cx, argv[2], &arg2);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::TransitionFade* ret = cocos2d::TransitionFade::create(arg0, arg1, arg2);
@@ -43902,7 +43626,7 @@ JSBool js_cocos2dx_MenuItemLabel_getDisabledColor(JSContext *cx, uint32_t argc, 
 	cocos2d::MenuItemLabel* cobj = (cocos2d::MenuItemLabel *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getDisabledColor();
+		cocos2d::Color3B ret = cobj->getDisabledColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -43987,7 +43711,7 @@ JSBool js_cocos2dx_MenuItemLabel_setDisabledColor(JSContext *cx, uint32_t argc, 
 	cocos2d::MenuItemLabel* cobj = (cocos2d::MenuItemLabel *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setDisabledColor(arg0);
@@ -46513,7 +46237,7 @@ JSBool js_cocos2dx_MotionStreak_tintWithColor(JSContext *cx, uint32_t argc, jsva
 	cocos2d::MotionStreak* cobj = (cocos2d::MotionStreak *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->tintWithColor(arg0);
@@ -46566,7 +46290,7 @@ JSBool js_cocos2dx_MotionStreak_initWithFade(JSContext *cx, uint32_t argc, jsval
 			double arg2;
 			ok &= JS_ValueToNumber(cx, argv[2], &arg2);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::ccColor3B arg3;
+			cocos2d::Color3B arg3;
 			ok &= jsval_to_cccolor3b(cx, argv[3], &arg3);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::Texture2D* arg4;
@@ -46597,7 +46321,7 @@ JSBool js_cocos2dx_MotionStreak_initWithFade(JSContext *cx, uint32_t argc, jsval
 			double arg2;
 			ok &= JS_ValueToNumber(cx, argv[2], &arg2);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::ccColor3B arg3;
+			cocos2d::Color3B arg3;
 			ok &= jsval_to_cccolor3b(cx, argv[3], &arg3);
 			if (!ok) { ok = JS_TRUE; break; }
 			const char* arg4;
@@ -46760,7 +46484,7 @@ JSBool js_cocos2dx_MotionStreak_create(JSContext *cx, uint32_t argc, jsval *vp)
 			double arg2;
 			ok &= JS_ValueToNumber(cx, argv[2], &arg2);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::ccColor3B arg3;
+			cocos2d::Color3B arg3;
 			ok &= jsval_to_cccolor3b(cx, argv[3], &arg3);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::Texture2D* arg4;
@@ -46799,7 +46523,7 @@ JSBool js_cocos2dx_MotionStreak_create(JSContext *cx, uint32_t argc, jsval *vp)
 			double arg2;
 			ok &= JS_ValueToNumber(cx, argv[2], &arg2);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::ccColor3B arg3;
+			cocos2d::Color3B arg3;
 			ok &= jsval_to_cccolor3b(cx, argv[3], &arg3);
 			if (!ok) { ok = JS_TRUE; break; }
 			const char* arg4;
@@ -47789,7 +47513,7 @@ JSBool js_cocos2dx_RenderTexture_setClearColor(JSContext *cx, uint32_t argc, jsv
 	cocos2d::RenderTexture* cobj = (cocos2d::RenderTexture *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor4F arg0;
+		cocos2d::Color4F arg0;
 		ok &= jsval_to_cccolor4f(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setClearColor(arg0);
@@ -47925,7 +47649,7 @@ JSBool js_cocos2dx_RenderTexture_getClearColor(JSContext *cx, uint32_t argc, jsv
 	cocos2d::RenderTexture* cobj = (cocos2d::RenderTexture *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor4F ret = cobj->getClearColor();
+		cocos2d::Color4F ret = cobj->getClearColor();
 		jsval jsret;
 		jsret = cccolor4f_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -49032,7 +48756,7 @@ JSBool js_cocos2dx_ParticleSystem_getStartColor(JSContext *cx, uint32_t argc, js
 	cocos2d::ParticleSystem* cobj = (cocos2d::ParticleSystem *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor4F ret = cobj->getStartColor();
+		cocos2d::Color4F ret = cobj->getStartColor();
 		jsval jsret;
 		jsret = cccolor4f_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -49453,7 +49177,7 @@ JSBool js_cocos2dx_ParticleSystem_setEndColor(JSContext *cx, uint32_t argc, jsva
 	cocos2d::ParticleSystem* cobj = (cocos2d::ParticleSystem *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor4F arg0;
+		cocos2d::Color4F arg0;
 		ok &= jsval_to_cccolor4f(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setEndColor(arg0);
@@ -49722,7 +49446,7 @@ JSBool js_cocos2dx_ParticleSystem_setEndColorVar(JSContext *cx, uint32_t argc, j
 	cocos2d::ParticleSystem* cobj = (cocos2d::ParticleSystem *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor4F arg0;
+		cocos2d::Color4F arg0;
 		ok &= jsval_to_cccolor4f(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setEndColorVar(arg0);
@@ -50338,7 +50062,7 @@ JSBool js_cocos2dx_ParticleSystem_setStartColor(JSContext *cx, uint32_t argc, js
 	cocos2d::ParticleSystem* cobj = (cocos2d::ParticleSystem *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor4F arg0;
+		cocos2d::Color4F arg0;
 		ok &= jsval_to_cccolor4f(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setStartColor(arg0);
@@ -50502,7 +50226,7 @@ JSBool js_cocos2dx_ParticleSystem_getEndColorVar(JSContext *cx, uint32_t argc, j
 	cocos2d::ParticleSystem* cobj = (cocos2d::ParticleSystem *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor4F ret = cobj->getEndColorVar();
+		cocos2d::Color4F ret = cobj->getEndColorVar();
 		jsval jsret;
 		jsret = cccolor4f_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -50573,7 +50297,7 @@ JSBool js_cocos2dx_ParticleSystem_getEndColor(JSContext *cx, uint32_t argc, jsva
 	cocos2d::ParticleSystem* cobj = (cocos2d::ParticleSystem *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor4F ret = cobj->getEndColor();
+		cocos2d::Color4F ret = cobj->getEndColor();
 		jsval jsret;
 		jsret = cccolor4f_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -50734,7 +50458,7 @@ JSBool js_cocos2dx_ParticleSystem_setStartColorVar(JSContext *cx, uint32_t argc,
 	cocos2d::ParticleSystem* cobj = (cocos2d::ParticleSystem *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor4F arg0;
+		cocos2d::Color4F arg0;
 		ok &= jsval_to_cccolor4f(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setStartColorVar(arg0);
@@ -50924,7 +50648,7 @@ JSBool js_cocos2dx_ParticleSystem_getStartColorVar(JSContext *cx, uint32_t argc,
 	cocos2d::ParticleSystem* cobj = (cocos2d::ParticleSystem *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor4F ret = cobj->getStartColorVar();
+		cocos2d::Color4F ret = cobj->getStartColorVar();
 		jsval jsret;
 		jsret = cccolor4f_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -58328,7 +58052,7 @@ JSBool js_cocos2dx_TileMapAtlas_tileAt(JSContext *cx, uint32_t argc, jsval *vp)
 		cocos2d::Point arg0;
 		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		ccColor3B ret = cobj->tileAt(arg0);
+		cocos2d::Color3B ret = cobj->tileAt(arg0);
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -58347,7 +58071,7 @@ JSBool js_cocos2dx_TileMapAtlas_setTile(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::TileMapAtlas* cobj = (cocos2d::TileMapAtlas *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 2) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		cocos2d::Point arg1;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		ok &= jsval_to_ccpoint(cx, argv[1], &arg1);

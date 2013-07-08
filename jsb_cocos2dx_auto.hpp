@@ -1192,11 +1192,8 @@ JSBool js_cocos2dx_Grid3DAction_constructor(JSContext *cx, uint32_t argc, jsval 
 void js_cocos2dx_Grid3DAction_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_Grid3DAction(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_Grid3DAction_setVertex(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Grid3DAction_clone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Grid3DAction_getGrid(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Grid3DAction_vertex(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Grid3DAction_originalVertex(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_TiledGrid3DAction_class;
 extern JSObject *jsb_TiledGrid3DAction_prototype;
@@ -1205,10 +1202,7 @@ JSBool js_cocos2dx_TiledGrid3DAction_constructor(JSContext *cx, uint32_t argc, j
 void js_cocos2dx_TiledGrid3DAction_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_TiledGrid3DAction(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_TiledGrid3DAction_tile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TiledGrid3DAction_clone(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TiledGrid3DAction_setTile(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TiledGrid3DAction_originalTile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TiledGrid3DAction_getGrid(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_StopGrid_class;
@@ -1806,11 +1800,8 @@ void js_cocos2dx_Grid3D_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_Grid3D(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_Grid3D_calculateVertexPoints(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Grid3D_setVertex(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Grid3D_reuse(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Grid3D_vertex(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Grid3D_blit(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Grid3D_originalVertex(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Grid3D_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Grid3D_Grid3D(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1823,9 +1814,6 @@ void js_register_cocos2dx_TiledGrid3D(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_TiledGrid3D_calculateVertexPoints(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TiledGrid3D_reuse(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TiledGrid3D_originalTile(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TiledGrid3D_tile(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TiledGrid3D_setTile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TiledGrid3D_blit(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TiledGrid3D_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TiledGrid3D_TiledGrid3D(JSContext *cx, uint32_t argc, jsval *vp);

@@ -1364,7 +1364,7 @@ JSBool js_cocos2dx_extension_Scale9Sprite_getColor(JSContext *cx, uint32_t argc,
 	cocos2d::extension::Scale9Sprite* cobj = (cocos2d::extension::Scale9Sprite *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getColor();
+		cocos2d::Color3B ret = cobj->getColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -1644,7 +1644,7 @@ JSBool js_cocos2dx_extension_Scale9Sprite_setColor(JSContext *cx, uint32_t argc,
 	cocos2d::extension::Scale9Sprite* cobj = (cocos2d::extension::Scale9Sprite *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setColor(arg0);
@@ -2819,7 +2819,7 @@ JSBool js_cocos2dx_extension_ControlButton_getCurrentTitleColor(JSContext *cx, u
 	cocos2d::extension::ControlButton* cobj = (cocos2d::extension::ControlButton *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getCurrentTitleColor();
+		cocos2d::Color3B ret = cobj->getCurrentTitleColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -2902,7 +2902,7 @@ JSBool js_cocos2dx_extension_ControlButton_getColor(JSContext *cx, uint32_t argc
 	cocos2d::extension::ControlButton* cobj = (cocos2d::extension::ControlButton *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::ccColor3B ret = cobj->getColor();
+		cocos2d::Color3B ret = cobj->getColor();
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -3055,7 +3055,7 @@ JSBool js_cocos2dx_extension_ControlButton_getTitleColorForState(JSContext *cx, 
 		unsigned int arg0;
 		ok &= jsval_to_uint32(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		const ccColor3B ret = cobj->getTitleColorForState(arg0);
+		cocos2d::Color3B ret = cobj->getTitleColorForState(arg0);
 		jsval jsret;
 		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -3074,9 +3074,9 @@ JSBool js_cocos2dx_extension_ControlButton_setTitleColorForState(JSContext *cx, 
 	cocos2d::extension::ControlButton* cobj = (cocos2d::extension::ControlButton *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 2) {
-		ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		unsigned int arg1;
-		#pragma warning NO CONVERSION TO NATIVE FOR ccColor3B;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		ok &= jsval_to_uint32(cx, argv[1], &arg1);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setTitleColorForState(arg0, arg1);
@@ -3171,7 +3171,7 @@ JSBool js_cocos2dx_extension_ControlButton_setColor(JSContext *cx, uint32_t argc
 	cocos2d::extension::ControlButton* cobj = (cocos2d::extension::ControlButton *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setColor(arg0);
@@ -6684,7 +6684,7 @@ JSBool js_cocos2dx_extension_EditBox_setPlaceholderFontColor(JSContext *cx, uint
 	cocos2d::extension::EditBox* cobj = (cocos2d::extension::EditBox *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setPlaceholderFontColor(arg0);
@@ -6704,7 +6704,7 @@ JSBool js_cocos2dx_extension_EditBox_setFontColor(JSContext *cx, uint32_t argc, 
 	cocos2d::extension::EditBox* cobj = (cocos2d::extension::EditBox *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
+		cocos2d::Color3B arg0;
 		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setFontColor(arg0);

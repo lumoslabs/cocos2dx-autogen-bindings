@@ -1277,13 +1277,13 @@ cc.NodeRGBA = {
 
 /**
  * @method updateDisplayedColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 updateDisplayedColor : function () {},
 
 /**
  * @method setColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setColor : function () {},
 
@@ -1295,7 +1295,7 @@ isCascadeOpacityEnabled : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getColor : function () {},
 
@@ -1361,7 +1361,7 @@ isCascadeColorEnabled : function () {},
 
 /**
  * @method getDisplayedColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getDisplayedColor : function () {},
 
@@ -4127,13 +4127,6 @@ initWithDuration : function () {},
 cc.Grid3DAction = {
 
 /**
- * @method setVertex
- * @param {cocos2d::Point}
- * @param {cocos2d::ccVertex3F}
- */
-setVertex : function () {},
-
-/**
  * @method clone
  * @return A value converted from C/C++ "cocos2d::Grid3DAction*"
  */
@@ -4145,20 +4138,6 @@ clone : function () {},
  */
 getGrid : function () {},
 
-/**
- * @method vertex
- * @return A value converted from C/C++ "ccVertex3F"
- * @param {cocos2d::Point}
- */
-vertex : function () {},
-
-/**
- * @method originalVertex
- * @return A value converted from C/C++ "ccVertex3F"
- * @param {cocos2d::Point}
- */
-originalVertex : function () {},
-
 };
 
 /**
@@ -4167,31 +4146,10 @@ originalVertex : function () {},
 cc.TiledGrid3DAction = {
 
 /**
- * @method tile
- * @return A value converted from C/C++ "ccQuad3"
- * @param {cocos2d::Point}
- */
-tile : function () {},
-
-/**
  * @method clone
  * @return A value converted from C/C++ "cocos2d::TiledGrid3DAction*"
  */
 clone : function () {},
-
-/**
- * @method setTile
- * @param {cocos2d::Point}
- * @param {cocos2d::ccQuad3}
- */
-setTile : function () {},
-
-/**
- * @method originalTile
- * @return A value converted from C/C++ "ccQuad3"
- * @param {cocos2d::Point}
- */
-originalTile : function () {},
 
 /**
  * @method getGrid
@@ -5691,7 +5649,7 @@ initWithTileFile : function () {},
 
 /**
  * @method setColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setColor : function () {},
 
@@ -5738,7 +5696,7 @@ updateAtlasValues : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getColor : function () {},
 
@@ -5807,7 +5765,7 @@ init : function () {},
  * @method drawDot
  * @param {cocos2d::Point}
  * @param {float}
- * @param {cocos2d::ccColor4F}
+ * @param {cocos2d::Color4F}
  */
 drawDot : function () {},
 
@@ -5816,7 +5774,7 @@ drawDot : function () {},
  * @param {cocos2d::Point}
  * @param {cocos2d::Point}
  * @param {float}
- * @param {cocos2d::ccColor4F}
+ * @param {cocos2d::Color4F}
  */
 drawSegment : function () {},
 
@@ -6357,35 +6315,14 @@ cc.Grid3D = {
 calculateVertexPoints : function () {},
 
 /**
- * @method setVertex
- * @param {cocos2d::Point}
- * @param {cocos2d::ccVertex3F}
- */
-setVertex : function () {},
-
-/**
  * @method reuse
  */
 reuse : function () {},
 
 /**
- * @method vertex
- * @return A value converted from C/C++ "ccVertex3F"
- * @param {cocos2d::Point}
- */
-vertex : function () {},
-
-/**
  * @method blit
  */
 blit : function () {},
-
-/**
- * @method originalVertex
- * @return A value converted from C/C++ "ccVertex3F"
- * @param {cocos2d::Point}
- */
-originalVertex : function () {},
 
 /**
  * @method Grid3D
@@ -6409,27 +6346,6 @@ calculateVertexPoints : function () {},
  * @method reuse
  */
 reuse : function () {},
-
-/**
- * @method originalTile
- * @return A value converted from C/C++ "ccQuad3"
- * @param {cocos2d::Point}
- */
-originalTile : function () {},
-
-/**
- * @method tile
- * @return A value converted from C/C++ "ccQuad3"
- * @param {cocos2d::Point}
- */
-tile : function () {},
-
-/**
- * @method setTile
- * @param {cocos2d::Point}
- * @param {cocos2d::ccQuad3}
- */
-setTile : function () {},
 
 /**
  * @method blit
@@ -6675,7 +6591,7 @@ ignoreAnchorPointForPosition : function () {},
 
 /**
  * @method setColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setColor : function () {},
 
@@ -6712,7 +6628,7 @@ isFlipY : function () {},
 
 /**
  * @method updateDisplayedColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 updateDisplayedColor : function () {},
 
@@ -6790,7 +6706,7 @@ getString : function () {},
 
 /**
  * @method setTextDefinition
- * @param {ccFontDefinition*}
+ * @param {cocos2d::FontDefinition}
  */
 setTextDefinition : function () {},
 
@@ -6810,7 +6726,7 @@ getHorizontalAlignment : function () {},
  * @method initWithStringAndTextDefinition
  * @return A value converted from C/C++ "bool"
  * @param {const char*}
- * @param {cocos2d::ccFontDefinition}
+ * @param {cocos2d::FontDefinition}
  */
 initWithStringAndTextDefinition : function () {},
 
@@ -6828,14 +6744,14 @@ init : function () {},
 
 /**
  * @method setFontFillColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  * @param {bool}
  */
 setFontFillColor : function () {},
 
 /**
  * @method enableStroke
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  * @param {float}
  * @param {bool}
  */
@@ -6867,7 +6783,7 @@ getVerticalAlignment : function () {},
 
 /**
  * @method getTextDefinition
- * @return A value converted from C/C++ "ccFontDefinition*"
+ * @return A value converted from C/C++ "cocos2d::FontDefinition"
  */
 getTextDefinition : function () {},
 
@@ -6897,7 +6813,7 @@ disableStroke : function () {},
  * @method createWithFontDefinition
  * @return A value converted from C/C++ "cocos2d::LabelTTF*"
  * @param {const char*}
- * @param {cocos2d::ccFontDefinition}
+ * @param {cocos2d::FontDefinition}
  */
 createWithFontDefinition : function () {},
 
@@ -7198,7 +7114,7 @@ setScaleX : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getColor : function () {},
 
@@ -7216,7 +7132,7 @@ isCascadeColorEnabled : function () {},
 
 /**
  * @method setColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setColor : function () {},
 
@@ -7228,13 +7144,13 @@ setCString : function () {},
 
 /**
  * @method getDisplayedColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getDisplayedColor : function () {},
 
 /**
  * @method updateDisplayedColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 updateDisplayedColor : function () {},
 
@@ -7488,13 +7404,13 @@ cc.LayerRGBA = {
 
 /**
  * @method updateDisplayedColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 updateDisplayedColor : function () {},
 
 /**
  * @method setColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setColor : function () {},
 
@@ -7506,7 +7422,7 @@ isCascadeOpacityEnabled : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getColor : function () {},
 
@@ -7572,7 +7488,7 @@ isCascadeColorEnabled : function () {},
 
 /**
  * @method getDisplayedColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getDisplayedColor : function () {},
 
@@ -7608,7 +7524,7 @@ isOpacityModifyRGB : function () {},
 
 /**
  * @method setColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setColor : function () {},
 
@@ -7664,7 +7580,7 @@ cc.LayerGradient = {
 
 /**
  * @method getStartColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getStartColor : function () {},
 
@@ -7712,13 +7628,13 @@ getVector : function () {},
 
 /**
  * @method setEndColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setEndColor : function () {},
 
 /**
  * @method getEndColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getEndColor : function () {},
 
@@ -7730,7 +7646,7 @@ getEndOpacity : function () {},
 
 /**
  * @method setStartColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setStartColor : function () {},
 
@@ -8794,7 +8710,7 @@ activate : function () {},
 
 /**
  * @method getDisabledColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getDisabledColor : function () {},
 
@@ -8819,7 +8735,7 @@ initWithLabel : function () {},
 
 /**
  * @method setDisabledColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setDisabledColor : function () {},
 
@@ -9350,7 +9266,7 @@ getTexture : function () {},
 
 /**
  * @method tintWithColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 tintWithColor : function () {},
 
@@ -9607,7 +9523,7 @@ setAutoDraw : function () {},
 
 /**
  * @method setClearColor
- * @param {cocos2d::ccColor4F}
+ * @param {cocos2d::Color4F}
  */
 setClearColor : function () {},
 
@@ -9624,7 +9540,7 @@ clearDepth : function () {},
 
 /**
  * @method getClearColor
- * @return A value converted from C/C++ "cocos2d::ccColor4F"
+ * @return A value converted from C/C++ "cocos2d::Color4F"
  */
 getClearColor : function () {},
 
@@ -9825,7 +9741,7 @@ getBatchNode : function () {},
 
 /**
  * @method getStartColor
- * @return A value converted from C/C++ "cocos2d::ccColor4F"
+ * @return A value converted from C/C++ "cocos2d::Color4F"
  */
 getStartColor : function () {},
 
@@ -9962,7 +9878,7 @@ getSpeed : function () {},
 
 /**
  * @method setEndColor
- * @param {cocos2d::ccColor4F}
+ * @param {cocos2d::Color4F}
  */
 setEndColor : function () {},
 
@@ -10046,7 +9962,7 @@ setTotalParticles : function () {},
 
 /**
  * @method setEndColorVar
- * @param {cocos2d::ccColor4F}
+ * @param {cocos2d::Color4F}
  */
 setEndColorVar : function () {},
 
@@ -10239,7 +10155,7 @@ getSpeedVar : function () {},
 
 /**
  * @method setStartColor
- * @param {cocos2d::ccColor4F}
+ * @param {cocos2d::Color4F}
  */
 setStartColor : function () {},
 
@@ -10292,7 +10208,7 @@ setEmissionRate : function () {},
 
 /**
  * @method getEndColorVar
- * @return A value converted from C/C++ "cocos2d::ccColor4F"
+ * @return A value converted from C/C++ "cocos2d::Color4F"
  */
 getEndColorVar : function () {},
 
@@ -10316,7 +10232,7 @@ getEmissionRate : function () {},
 
 /**
  * @method getEndColor
- * @return A value converted from C/C++ "cocos2d::ccColor4F"
+ * @return A value converted from C/C++ "cocos2d::Color4F"
  */
 getEndColor : function () {},
 
@@ -10370,7 +10286,7 @@ getStartRadiusVar : function () {},
 
 /**
  * @method setStartColorVar
- * @param {cocos2d::ccColor4F}
+ * @param {cocos2d::Color4F}
  */
 setStartColorVar : function () {},
 
@@ -10418,7 +10334,7 @@ getEndRadiusVar : function () {},
 
 /**
  * @method getStartColorVar
- * @return A value converted from C/C++ "cocos2d::ccColor4F"
+ * @return A value converted from C/C++ "cocos2d::Color4F"
  */
 getStartColorVar : function () {},
 
@@ -12048,14 +11964,14 @@ getTGAInfo : function () {},
 
 /**
  * @method tileAt
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  * @param {cocos2d::Point}
  */
 tileAt : function () {},
 
 /**
  * @method setTile
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  * @param {cocos2d::Point}
  */
 setTile : function () {},

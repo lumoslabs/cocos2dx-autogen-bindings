@@ -288,7 +288,7 @@ setSpriteFrame : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getColor : function () {},
 
@@ -331,7 +331,7 @@ getOriginalSize : function () {},
 
 /**
  * @method setColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setColor : function () {},
 
@@ -559,7 +559,7 @@ getOpacity : function () {},
 
 /**
  * @method getCurrentTitleColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getCurrentTitleColor : function () {},
 
@@ -584,7 +584,7 @@ getBackgroundSpriteForState : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
 getColor : function () {},
 
@@ -631,14 +631,14 @@ getBackgroundSprite : function () {},
 
 /**
  * @method getTitleColorForState
- * @return A value converted from C/C++ "const ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  * @param {unsigned int}
  */
 getTitleColorForState : function () {},
 
 /**
  * @method setTitleColorForState
- * @param {ccColor3B}
+ * @param {cocos2d::Color3B}
  * @param {unsigned int}
  */
 setTitleColorForState : function () {},
@@ -665,7 +665,7 @@ setBackgroundSpriteForState : function () {},
 
 /**
  * @method setColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setColor : function () {},
 
@@ -1418,13 +1418,13 @@ setInputMode : function () {},
 
 /**
  * @method setPlaceholderFontColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setPlaceholderFontColor : function () {},
 
 /**
  * @method setFontColor
- * @param {cocos2d::ccColor3B}
+ * @param {cocos2d::Color3B}
  */
 setFontColor : function () {},
 
