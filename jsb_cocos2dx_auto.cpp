@@ -58905,6 +58905,30 @@ JSBool js_cocos2dx_SimpleAudioEngine_playEffect(JSContext *cx, uint32_t argc, js
 		}
 	} while(0);
 
+	do {
+		if (argc == 5) {
+			const char* arg0;
+			std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+			if (!ok) { ok = JS_TRUE; break; }
+			JSBool arg1;
+			ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
+			if (!ok) { ok = JS_TRUE; break; }
+			double arg2;
+			ok &= JS_ValueToNumber(cx, argv[2], &arg2);
+			if (!ok) { ok = JS_TRUE; break; }
+			double arg3;
+			ok &= JS_ValueToNumber(cx, argv[3], &arg3);
+			if (!ok) { ok = JS_TRUE; break; }
+			double arg4;
+			ok &= JS_ValueToNumber(cx, argv[4], &arg4);
+			if (!ok) { ok = JS_TRUE; break; }
+			unsigned int ret = cobj->playEffect(arg0, arg1, arg2, arg3, arg4);
+			jsval jsret; jsret = uint32_to_jsval(cx, ret);
+			JS_SET_RVAL(cx, vp, jsret);
+			return JS_TRUE;
+		}
+	} while(0);
+
 	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
