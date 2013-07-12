@@ -3101,7 +3101,6 @@ JSBool js_cocos2dx_FileUtils_addSearchPath(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_FileUtils_setPopupNotify(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_FileUtils_loadFilenameLookupDictionaryFromFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_FileUtils_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_FileUtils_purgeFileUtils(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_FileUtils_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_Application_class;

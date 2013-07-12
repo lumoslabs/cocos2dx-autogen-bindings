@@ -10944,11 +10944,6 @@ loadFilenameLookupDictionaryFromFile : function () {},
 destroyInstance : function () {},
 
 /**
- * @method purgeFileUtils
- */
-purgeFileUtils : function () {},
-
-/**
  * @method getInstance
  * @return A value converted from C/C++ "cocos2d::FileUtils*"
  */

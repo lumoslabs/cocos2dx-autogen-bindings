@@ -53580,17 +53580,6 @@ JSBool js_cocos2dx_FileUtils_destroyInstance(JSContext *cx, uint32_t argc, jsval
 	return JS_FALSE;
 }
 
-JSBool js_cocos2dx_FileUtils_purgeFileUtils(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	if (argc == 0) {
-		cocos2d::FileUtils::purgeFileUtils();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments");
-	return JS_FALSE;
-}
-
 JSBool js_cocos2dx_FileUtils_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
@@ -53655,7 +53644,6 @@ void js_register_cocos2dx_FileUtils(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("destroyInstance", js_cocos2dx_FileUtils_destroyInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("purgeFileUtils", js_cocos2dx_FileUtils_purgeFileUtils, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInstance", js_cocos2dx_FileUtils_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
