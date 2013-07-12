@@ -6205,10 +6205,10 @@ setAnimationInterval : function () {},
 getActionManager : function () {},
 
 /**
- * @method sharedDirector
+ * @method getInstance
  * @return A value converted from C/C++ "cocos2d::Director*"
  */
-sharedDirector : function () {},
+getInstance : function () {},
 
 };
 
@@ -10939,15 +10939,20 @@ setPopupNotify : function () {},
 loadFilenameLookupDictionaryFromFile : function () {},
 
 /**
+ * @method destroyInstance
+ */
+destroyInstance : function () {},
+
+/**
  * @method purgeFileUtils
  */
 purgeFileUtils : function () {},
 
 /**
- * @method sharedFileUtils
+ * @method getInstance
  * @return A value converted from C/C++ "cocos2d::FileUtils*"
  */
-sharedFileUtils : function () {},
+getInstance : function () {},
 
 };
 
@@ -11012,15 +11017,15 @@ programForKey : function () {},
 loadDefaultShaders : function () {},
 
 /**
- * @method sharedShaderCache
- * @return A value converted from C/C++ "cocos2d::ShaderCache*"
+ * @method destroyInstance
  */
-sharedShaderCache : function () {},
+destroyInstance : function () {},
 
 /**
- * @method purgeSharedShaderCache
+ * @method getInstance
+ * @return A value converted from C/C++ "cocos2d::ShaderCache*"
  */
-purgeSharedShaderCache : function () {},
+getInstance : function () {},
 
 /**
  * @method ShaderCache
@@ -11074,15 +11079,15 @@ removeAnimationByName : function () {},
 addAnimation : function () {},
 
 /**
- * @method purgeSharedAnimationCache
+ * @method destroyInstance
  */
-purgeSharedAnimationCache : function () {},
+destroyInstance : function () {},
 
 /**
- * @method sharedAnimationCache
+ * @method getInstance
  * @return A value converted from C/C++ "cocos2d::AnimationCache*"
  */
-sharedAnimationCache : function () {},
+getInstance : function () {},
 
 /**
  * @method AnimationCache
@@ -11146,15 +11151,15 @@ removeSpriteFramesFromTexture : function () {},
 removeSpriteFrameByName : function () {},
 
 /**
- * @method purgeSharedSpriteFrameCache
+ * @method destroyInstance
  */
-purgeSharedSpriteFrameCache : function () {},
+destroyInstance : function () {},
 
 /**
- * @method sharedSpriteFrameCache
+ * @method getInstance
  * @return A value converted from C/C++ "cocos2d::SpriteFrameCache*"
  */
-sharedSpriteFrameCache : function () {},
+getInstance : function () {},
 
 };
 
@@ -11233,9 +11238,9 @@ removeUnusedTextures : function () {},
 removeTexture : function () {},
 
 /**
- * @method purgeSharedTextureCache
+ * @method destroyInstance
  */
-purgeSharedTextureCache : function () {},
+destroyInstance : function () {},
 
 /**
  * @method reloadAllTextures
@@ -11243,10 +11248,10 @@ purgeSharedTextureCache : function () {},
 reloadAllTextures : function () {},
 
 /**
- * @method sharedTextureCache
+ * @method getInstance
  * @return A value converted from C/C++ "cocos2d::TextureCache*"
  */
-sharedTextureCache : function () {},
+getInstance : function () {},
 
 /**
  * @method TextureCache

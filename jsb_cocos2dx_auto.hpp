@@ -1765,7 +1765,7 @@ JSBool js_cocos2dx_Director_setDisplayStats(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_Director_replaceScene(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_setAnimationInterval(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_getActionManager(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Director_sharedDirector(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Director_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_GridBase_class;
 extern JSObject *jsb_GridBase_prototype;
@@ -3100,8 +3100,9 @@ JSBool js_cocos2dx_FileUtils_getWritablePath(JSContext *cx, uint32_t argc, jsval
 JSBool js_cocos2dx_FileUtils_addSearchPath(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_FileUtils_setPopupNotify(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_FileUtils_loadFilenameLookupDictionaryFromFile(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_FileUtils_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_FileUtils_purgeFileUtils(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_FileUtils_sharedFileUtils(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_FileUtils_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_Application_class;
 extern JSObject *jsb_Application_prototype;
@@ -3126,8 +3127,8 @@ JSBool js_cocos2dx_ShaderCache_reloadDefaultShaders(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_ShaderCache_addProgram(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ShaderCache_programForKey(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ShaderCache_loadDefaultShaders(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_ShaderCache_sharedShaderCache(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_ShaderCache_purgeSharedShaderCache(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_ShaderCache_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_ShaderCache_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ShaderCache_ShaderCache(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_AnimationCache_class;
@@ -3143,8 +3144,8 @@ JSBool js_cocos2dx_AnimationCache_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_AnimationCache_addAnimationsWithDictionary(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_AnimationCache_removeAnimationByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_AnimationCache_addAnimation(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_AnimationCache_purgeSharedAnimationCache(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_AnimationCache_sharedAnimationCache(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_AnimationCache_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_AnimationCache_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_AnimationCache_AnimationCache(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_SpriteFrameCache_class;
@@ -3163,8 +3164,8 @@ JSBool js_cocos2dx_SpriteFrameCache_init(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_SpriteFrameCache_removeSpriteFrames(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteFrameCache_removeSpriteFramesFromTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteFrameCache_removeSpriteFrameByName(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_SpriteFrameCache_purgeSharedSpriteFrameCache(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_SpriteFrameCache_sharedSpriteFrameCache(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_SpriteFrameCache_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_SpriteFrameCache_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_TextureCache_class;
 extern JSObject *jsb_TextureCache_prototype;
@@ -3184,9 +3185,9 @@ JSBool js_cocos2dx_TextureCache_addImage(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_TextureCache_removeAllTextures(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TextureCache_removeUnusedTextures(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TextureCache_removeTexture(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TextureCache_purgeSharedTextureCache(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextureCache_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TextureCache_reloadAllTextures(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TextureCache_sharedTextureCache(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextureCache_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TextureCache_TextureCache(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_ParallaxNode_class;

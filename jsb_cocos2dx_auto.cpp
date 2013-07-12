@@ -29585,10 +29585,10 @@ JSBool js_cocos2dx_Director_getActionManager(JSContext *cx, uint32_t argc, jsval
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Director_sharedDirector(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_Director_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
-		cocos2d::Director* ret = cocos2d::Director::sharedDirector();
+		cocos2d::Director* ret = cocos2d::Director::getInstance();
 		jsval jsret;
 		do {
 		if (ret) {
@@ -29686,7 +29686,7 @@ void js_register_cocos2dx_Director(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("getInstance", js_cocos2dx_Director_sharedDirector, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInstance", js_cocos2dx_Director_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -53569,6 +53569,17 @@ JSBool js_cocos2dx_FileUtils_loadFilenameLookupDictionaryFromFile(JSContext *cx,
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_FileUtils_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	if (argc == 0) {
+		cocos2d::FileUtils::destroyInstance();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
 JSBool js_cocos2dx_FileUtils_purgeFileUtils(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
@@ -53580,10 +53591,10 @@ JSBool js_cocos2dx_FileUtils_purgeFileUtils(JSContext *cx, uint32_t argc, jsval 
 	return JS_FALSE;
 }
 
-JSBool js_cocos2dx_FileUtils_sharedFileUtils(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_FileUtils_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
-		cocos2d::FileUtils* ret = cocos2d::FileUtils::sharedFileUtils();
+		cocos2d::FileUtils* ret = cocos2d::FileUtils::getInstance();
 		jsval jsret;
 		do {
 		if (ret) {
@@ -53643,8 +53654,9 @@ void js_register_cocos2dx_FileUtils(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec st_funcs[] = {
+		JS_FN("destroyInstance", js_cocos2dx_FileUtils_destroyInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("purgeFileUtils", js_cocos2dx_FileUtils_purgeFileUtils, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getInstance", js_cocos2dx_FileUtils_sharedFileUtils, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInstance", js_cocos2dx_FileUtils_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -53908,10 +53920,21 @@ JSBool js_cocos2dx_ShaderCache_loadDefaultShaders(JSContext *cx, uint32_t argc, 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_ShaderCache_sharedShaderCache(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_ShaderCache_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
-		cocos2d::ShaderCache* ret = cocos2d::ShaderCache::sharedShaderCache();
+		cocos2d::ShaderCache::destroyInstance();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
+JSBool js_cocos2dx_ShaderCache_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	if (argc == 0) {
+		cocos2d::ShaderCache* ret = cocos2d::ShaderCache::getInstance();
 		jsval jsret;
 		do {
 		if (ret) {
@@ -53922,17 +53945,6 @@ JSBool js_cocos2dx_ShaderCache_sharedShaderCache(JSContext *cx, uint32_t argc, j
 		}
 	} while (0);
 		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments");
-	return JS_FALSE;
-}
-
-JSBool js_cocos2dx_ShaderCache_purgeSharedShaderCache(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	if (argc == 0) {
-		cocos2d::ShaderCache::purgeSharedShaderCache();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments");
@@ -54009,8 +54021,8 @@ void js_register_cocos2dx_ShaderCache(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("getInstance", js_cocos2dx_ShaderCache_sharedShaderCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("purgeSharedShaderCache", js_cocos2dx_ShaderCache_purgeSharedShaderCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("destroyInstance", js_cocos2dx_ShaderCache_destroyInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInstance", js_cocos2dx_ShaderCache_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -54181,10 +54193,10 @@ JSBool js_cocos2dx_AnimationCache_addAnimation(JSContext *cx, uint32_t argc, jsv
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_AnimationCache_purgeSharedAnimationCache(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_AnimationCache_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
-		cocos2d::AnimationCache::purgeSharedAnimationCache();
+		cocos2d::AnimationCache::destroyInstance();
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -54192,10 +54204,10 @@ JSBool js_cocos2dx_AnimationCache_purgeSharedAnimationCache(JSContext *cx, uint3
 	return JS_FALSE;
 }
 
-JSBool js_cocos2dx_AnimationCache_sharedAnimationCache(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_AnimationCache_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
-		cocos2d::AnimationCache* ret = cocos2d::AnimationCache::sharedAnimationCache();
+		cocos2d::AnimationCache* ret = cocos2d::AnimationCache::getInstance();
 		jsval jsret;
 		do {
 		if (ret) {
@@ -54284,8 +54296,8 @@ void js_register_cocos2dx_AnimationCache(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("purgeSharedAnimationCache", js_cocos2dx_AnimationCache_purgeSharedAnimationCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getInstance", js_cocos2dx_AnimationCache_sharedAnimationCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("destroyInstance", js_cocos2dx_AnimationCache_destroyInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInstance", js_cocos2dx_AnimationCache_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -54553,10 +54565,10 @@ JSBool js_cocos2dx_SpriteFrameCache_removeSpriteFrameByName(JSContext *cx, uint3
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_SpriteFrameCache_purgeSharedSpriteFrameCache(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_SpriteFrameCache_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
-		cocos2d::SpriteFrameCache::purgeSharedSpriteFrameCache();
+		cocos2d::SpriteFrameCache::destroyInstance();
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -54564,10 +54576,10 @@ JSBool js_cocos2dx_SpriteFrameCache_purgeSharedSpriteFrameCache(JSContext *cx, u
 	return JS_FALSE;
 }
 
-JSBool js_cocos2dx_SpriteFrameCache_sharedSpriteFrameCache(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_SpriteFrameCache_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
-		cocos2d::SpriteFrameCache* ret = cocos2d::SpriteFrameCache::sharedSpriteFrameCache();
+		cocos2d::SpriteFrameCache* ret = cocos2d::SpriteFrameCache::getInstance();
 		jsval jsret;
 		do {
 		if (ret) {
@@ -54622,8 +54634,8 @@ void js_register_cocos2dx_SpriteFrameCache(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("purgeSharedSpriteFrameCache", js_cocos2dx_SpriteFrameCache_purgeSharedSpriteFrameCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getInstance", js_cocos2dx_SpriteFrameCache_sharedSpriteFrameCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("destroyInstance", js_cocos2dx_SpriteFrameCache_destroyInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInstance", js_cocos2dx_SpriteFrameCache_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -54922,10 +54934,10 @@ JSBool js_cocos2dx_TextureCache_removeTexture(JSContext *cx, uint32_t argc, jsva
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_TextureCache_purgeSharedTextureCache(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_TextureCache_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
-		cocos2d::TextureCache::purgeSharedTextureCache();
+		cocos2d::TextureCache::destroyInstance();
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -54944,10 +54956,10 @@ JSBool js_cocos2dx_TextureCache_reloadAllTextures(JSContext *cx, uint32_t argc, 
 	return JS_FALSE;
 }
 
-JSBool js_cocos2dx_TextureCache_sharedTextureCache(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_TextureCache_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
-		cocos2d::TextureCache* ret = cocos2d::TextureCache::sharedTextureCache();
+		cocos2d::TextureCache* ret = cocos2d::TextureCache::getInstance();
 		jsval jsret;
 		do {
 		if (ret) {
@@ -55041,9 +55053,9 @@ void js_register_cocos2dx_TextureCache(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("purgeSharedTextureCache", js_cocos2dx_TextureCache_purgeSharedTextureCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("destroyInstance", js_cocos2dx_TextureCache_destroyInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reloadAllTextures", js_cocos2dx_TextureCache_reloadAllTextures, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getInstance", js_cocos2dx_TextureCache_sharedTextureCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInstance", js_cocos2dx_TextureCache_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
