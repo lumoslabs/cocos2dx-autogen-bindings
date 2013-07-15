@@ -7523,12 +7523,6 @@ cc.LayerColor = {
 draw : function () {},
 
 /**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
  * @method setColor
  * @param {cocos2d::Color3B}
  */
@@ -7542,22 +7536,16 @@ setColor : function () {},
 changeWidthAndHeight : function () {},
 
 /**
- * @method setOpacityModifyRGB
- * @param {bool}
+ * @method setOpacity
+ * @param {unsigned char}
  */
-setOpacityModifyRGB : function () {},
+setOpacity : function () {},
 
 /**
  * @method changeWidth
  * @param {float}
  */
 changeWidth : function () {},
-
-/**
- * @method setOpacity
- * @param {unsigned char}
- */
-setOpacity : function () {},
 
 /**
  * @method setContentSize
@@ -8639,12 +8627,6 @@ unregisterScriptTapHandler : function () {},
 isEnabled : function () {},
 
 /**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
-
-/**
  * @method getScriptTapHandler
  * @return A value converted from C/C++ "int"
  */
@@ -8660,12 +8642,6 @@ isSelected : function () {},
  * @method selected
  */
 selected : function () {},
-
-/**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
 
 /**
  * @method registerScriptTapHandler
@@ -8875,12 +8851,6 @@ setEnabled : function () {},
 selected : function () {},
 
 /**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
  * @method setNormalImage
  * @param {cocos2d::Node*}
  */
@@ -8913,12 +8883,6 @@ setSelectedImage : function () {},
  * @return A value converted from C/C++ "cocos2d::Node*"
  */
 getDisabledImage : function () {},
-
-/**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
 
 /**
  * @method getSelectedImage
@@ -9011,12 +8975,6 @@ setSubItems : function () {},
 initWithItem : function () {},
 
 /**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
  * @method setSelectedIndex
  * @param {unsigned int}
  */
@@ -9039,12 +8997,6 @@ getSelectedIndex : function () {},
  * @param {cocos2d::MenuItem*}
  */
 addSubItem : function () {},
-
-/**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
 
 /**
  * @method activate
@@ -9355,16 +9307,22 @@ draw : function () {},
 isReverseDirection : function () {},
 
 /**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
  * @method setBarChangeRate
  * @param {cocos2d::Point}
  */
 setBarChangeRate : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::Color3B}
+ */
+setColor : function () {},
+
+/**
+ * @method getBarChangeRate
+ * @return A value converted from C/C++ "cocos2d::Point"
+ */
+getBarChangeRate : function () {},
 
 /**
  * @method getPercentage
@@ -9385,10 +9343,10 @@ setSprite : function () {},
 getType : function () {},
 
 /**
- * @method setOpacityModifyRGB
- * @param {bool}
+ * @method setOpacity
+ * @param {unsigned char}
  */
-setOpacityModifyRGB : function () {},
+setOpacity : function () {},
 
 /**
  * @method getSprite
@@ -9409,10 +9367,16 @@ setMidpoint : function () {},
 getMidpoint : function () {},
 
 /**
- * @method getBarChangeRate
- * @return A value converted from C/C++ "cocos2d::Point"
+ * @method getColor
+ * @return A value converted from C/C++ "cocos2d::Color3B"
  */
-getBarChangeRate : function () {},
+getColor : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
 
 /**
  * @method initWithSprite
@@ -10979,6 +10943,12 @@ getCurrentLanguage : function () {},
  * @return A value converted from C/C++ "cocos2d::Application*"
  */
 sharedApplication : function () {},
+
+/**
+ * @method getInstance
+ * @return A value converted from C/C++ "cocos2d::Application*"
+ */
+getInstance : function () {},
 
 };
 
