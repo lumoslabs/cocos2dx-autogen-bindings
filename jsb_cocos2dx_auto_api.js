@@ -741,11 +741,6 @@ removeComponent : function () {},
 nodeToWorldTransform : function () {},
 
 /**
- * @method removeAllComponents
- */
-removeAllComponents : function () {},
-
-/**
  * @method getShaderProgram
  * @return A value converted from C/C++ "cocos2d::GLProgram*"
  */
@@ -756,12 +751,6 @@ getShaderProgram : function () {},
  * @return A value converted from C/C++ "cocos2d::Array*"
  */
 getChildren : function () {},
-
-/**
- * @method getScriptHandler
- * @return A value converted from C/C++ "int"
- */
-getScriptHandler : function () {},
 
 /**
  * @method convertToWorldSpaceAR
@@ -807,9 +796,9 @@ setScaleY : function () {},
 setScaleX : function () {},
 
 /**
- * @method unregisterScriptHandler
+ * @method removeAllComponents
  */
-unregisterScriptHandler : function () {},
+removeAllComponents : function () {},
 
 /**
  * @method getTag
@@ -1194,12 +1183,6 @@ transformAncestors : function () {},
  * @param {cocos2d::Object*}
  */
 setUserObject : function () {},
-
-/**
- * @method registerScriptHandler
- * @param {int}
- */
-registerScriptHandler : function () {},
 
 /**
  * @method convertTouchToNodeSpaceAR
@@ -7197,11 +7180,6 @@ LabelBMFont : function () {},
 cc.Layer = {
 
 /**
- * @method unregisterScriptTouchHandler
- */
-unregisterScriptTouchHandler : function () {},
-
-/**
  * @method keyBackClicked
  */
 keyBackClicked : function () {},
@@ -7234,22 +7212,11 @@ setAccelerometerInterval : function () {},
 ccTouchesCancelled : function () {},
 
 /**
- * @method unregisterScriptAccelerateHandler
- */
-unregisterScriptAccelerateHandler : function () {},
-
-/**
  * @method ccTouchesMoved
  * @param {cocos2d::Set*}
  * @param {cocos2d::Event*}
  */
 ccTouchesMoved : function () {},
-
-/**
- * @method registerScriptAccelerateHandler
- * @param {int}
- */
-registerScriptAccelerateHandler : function () {},
 
 /**
  * @method getTouchMode
@@ -7274,18 +7241,6 @@ init : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isTouchEnabled : function () {},
-
-/**
- * @method getScriptAccelerateHandlerEntry
- * @return A value converted from C/C++ "cocos2d::ScriptHandlerEntry*"
- */
-getScriptAccelerateHandlerEntry : function () {},
-
-/**
- * @method getScriptKeypadHandlerEntry
- * @return A value converted from C/C++ "cocos2d::ScriptHandlerEntry*"
- */
-getScriptKeypadHandlerEntry : function () {},
 
 /**
  * @method ccTouchMoved
@@ -7339,26 +7294,11 @@ isAccelerometerEnabled : function () {},
 ccTouchEnded : function () {},
 
 /**
- * @method registerScriptTouchHandler
- * @param {int}
- * @param {bool}
- * @param {int}
- * @param {bool}
- */
-registerScriptTouchHandler : function () {},
-
-/**
  * @method ccTouchCancelled
  * @param {cocos2d::Touch*}
  * @param {cocos2d::Event*}
  */
 ccTouchCancelled : function () {},
-
-/**
- * @method getScriptTouchHandlerEntry
- * @return A value converted from C/C++ "cocos2d::TouchScriptHandlerEntry*"
- */
-getScriptTouchHandlerEntry : function () {},
 
 /**
  * @method ccTouchesBegan
@@ -7394,12 +7334,6 @@ registerWithTouchDispatcher : function () {},
  * @method keyMenuClicked
  */
 keyMenuClicked : function () {},
-
-/**
- * @method registerScriptKeypadHandler
- * @param {int}
- */
-registerScriptKeypadHandler : function () {},
 
 /**
  * @method create
@@ -8628,21 +8562,10 @@ setEnabled : function () {},
 activate : function () {},
 
 /**
- * @method unregisterScriptTapHandler
- */
-unregisterScriptTapHandler : function () {},
-
-/**
  * @method isEnabled
  * @return A value converted from C/C++ "bool"
  */
 isEnabled : function () {},
-
-/**
- * @method getScriptTapHandler
- * @return A value converted from C/C++ "int"
- */
-getScriptTapHandler : function () {},
 
 /**
  * @method isSelected
@@ -8654,12 +8577,6 @@ isSelected : function () {},
  * @method selected
  */
 selected : function () {},
-
-/**
- * @method registerScriptTapHandler
- * @param {int}
- */
-registerScriptTapHandler : function () {},
 
 /**
  * @method unselected

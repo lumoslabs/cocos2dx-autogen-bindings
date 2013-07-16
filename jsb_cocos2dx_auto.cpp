@@ -3151,21 +3151,6 @@ JSBool js_cocos2dx_Node_nodeToWorldTransform(JSContext *cx, uint32_t argc, jsval
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Node_removeAllComponents(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Node* cobj = (cocos2d::Node *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->removeAllComponents();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_Node_getShaderProgram(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -3200,23 +3185,6 @@ JSBool js_cocos2dx_Node_getChildren(JSContext *cx, uint32_t argc, jsval *vp)
 		cocos2d::Array* ret = cobj->getChildren();
 		jsval jsret;
 		jsret = ccarray_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_Node_getScriptHandler(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Node* cobj = (cocos2d::Node *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		int ret = cobj->getScriptHandler();
-		jsval jsret;
-		jsret = int32_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -3360,14 +3328,14 @@ JSBool js_cocos2dx_Node_setScaleX(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Node_unregisterScriptHandler(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_Node_removeAllComponents(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy = jsb_get_js_proxy(obj);
 	cocos2d::Node* cobj = (cocos2d::Node *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cobj->unregisterScriptHandler();
+		cobj->removeAllComponents();
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -4830,26 +4798,6 @@ JSBool js_cocos2dx_Node_setUserObject(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Node_registerScriptHandler(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Node* cobj = (cocos2d::Node *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		int arg0;
-		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->registerScriptHandler(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_Node_removeFromParentAndCleanup(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -5199,10 +5147,8 @@ void js_register_cocos2dx_Node(JSContext *cx, JSObject *global) {
 		JS_FN("addChild", js_cocos2dx_Node_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeComponent", js_cocos2dx_Node_removeComponent, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("nodeToWorldTransform", js_cocos2dx_Node_nodeToWorldTransform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("removeAllComponents", js_cocos2dx_Node_removeAllComponents, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getShaderProgram", js_cocos2dx_Node_getShaderProgram, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getChildren", js_cocos2dx_Node_getChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getScriptHandler", js_cocos2dx_Node_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("convertToWorldSpaceAR", js_cocos2dx_Node_convertToWorldSpaceAR, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isIgnoreAnchorPointForPosition", js_cocos2dx_Node_isIgnoreAnchorPointForPosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_Node_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -5210,7 +5156,7 @@ void js_register_cocos2dx_Node(JSContext *cx, JSObject *global) {
 		JS_FN("setZOrder", js_cocos2dx_Node_setZOrder, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setScaleY", js_cocos2dx_Node_setScaleY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setScaleX", js_cocos2dx_Node_setScaleX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("unregisterScriptHandler", js_cocos2dx_Node_unregisterScriptHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAllComponents", js_cocos2dx_Node_removeAllComponents, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTag", js_cocos2dx_Node_getTag, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeChild", js_cocos2dx_Node_removeChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("convertToWorldSpace", js_cocos2dx_Node_convertToWorldSpace, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -5279,7 +5225,6 @@ void js_register_cocos2dx_Node(JSContext *cx, JSObject *global) {
 		JS_FN("draw", js_cocos2dx_Node_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("transformAncestors", js_cocos2dx_Node_transformAncestors, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setUserObject", js_cocos2dx_Node_setUserObject, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("registerScriptHandler", js_cocos2dx_Node_registerScriptHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeFromParent", js_cocos2dx_Node_removeFromParentAndCleanup, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("convertTouchToNodeSpaceAR", js_cocos2dx_Node_convertTouchToNodeSpaceAR, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_Node_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -34824,21 +34769,6 @@ void js_register_cocos2dx_LabelBMFont(JSContext *cx, JSObject *global) {
 JSClass  *jsb_Layer_class;
 JSObject *jsb_Layer_prototype;
 
-JSBool js_cocos2dx_Layer_unregisterScriptTouchHandler(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->unregisterScriptTouchHandler();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_Layer_keyBackClicked(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -34965,21 +34895,6 @@ JSBool js_cocos2dx_Layer_ccTouchesCancelled(JSContext *cx, uint32_t argc, jsval 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Layer_unregisterScriptAccelerateHandler(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->unregisterScriptAccelerateHandler();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_Layer_ccTouchesMoved(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -35014,26 +34929,6 @@ JSBool js_cocos2dx_Layer_ccTouchesMoved(JSContext *cx, uint32_t argc, jsval *vp)
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_Layer_registerScriptAccelerateHandler(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		int arg0;
-		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->registerScriptAccelerateHandler(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_Layer_getTouchMode(JSContext *cx, uint32_t argc, jsval *vp)
@@ -35100,54 +34995,6 @@ JSBool js_cocos2dx_Layer_isTouchEnabled(JSContext *cx, uint32_t argc, jsval *vp)
 		bool ret = cobj->isTouchEnabled();
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_Layer_getScriptAccelerateHandlerEntry(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cocos2d::ScriptHandlerEntry* ret = cobj->getScriptAccelerateHandlerEntry();
-		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::ScriptHandlerEntry>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_Layer_getScriptKeypadHandlerEntry(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cocos2d::ScriptHandlerEntry* ret = cobj->getScriptKeypadHandlerEntry();
-		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::ScriptHandlerEntry>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -35357,62 +35204,6 @@ JSBool js_cocos2dx_Layer_ccTouchEnded(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Layer_registerScriptTouchHandler(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		int arg0;
-		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->registerScriptTouchHandler(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-	if (argc == 2) {
-		int arg0;
-		JSBool arg1;
-		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-		ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->registerScriptTouchHandler(arg0, arg1);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-	if (argc == 3) {
-		int arg0;
-		JSBool arg1;
-		int arg2;
-		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-		ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
-		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->registerScriptTouchHandler(arg0, arg1, arg2);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-	if (argc == 4) {
-		int arg0;
-		JSBool arg1;
-		int arg2;
-		JSBool arg3;
-		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-		ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
-		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
-		ok &= JS_ValueToBoolean(cx, argv[3], &arg3);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->registerScriptTouchHandler(arg0, arg1, arg2, arg3);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_Layer_ccTouchCancelled(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -35447,30 +35238,6 @@ JSBool js_cocos2dx_Layer_ccTouchCancelled(JSContext *cx, uint32_t argc, jsval *v
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_Layer_getScriptTouchHandlerEntry(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cocos2d::TouchScriptHandlerEntry* ret = cobj->getScriptTouchHandlerEntry();
-		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::TouchScriptHandlerEntry>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_Layer_ccTouchesBegan(JSContext *cx, uint32_t argc, jsval *vp)
@@ -35596,26 +35363,6 @@ JSBool js_cocos2dx_Layer_keyMenuClicked(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Layer_registerScriptKeypadHandler(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Layer* cobj = (cocos2d::Layer *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		int arg0;
-		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->registerScriptKeypadHandler(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_Layer_create(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
@@ -35698,21 +35445,16 @@ void js_register_cocos2dx_Layer(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("unregisterScriptTouchHandler", js_cocos2dx_Layer_unregisterScriptTouchHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("keyBackClicked", js_cocos2dx_Layer_keyBackClicked, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchBegan", js_cocos2dx_Layer_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isKeyboardEnabled", js_cocos2dx_Layer_isKeyboardEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAccelerometerInterval", js_cocos2dx_Layer_setAccelerometerInterval, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchesCancelled", js_cocos2dx_Layer_ccTouchesCancelled, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("unregisterScriptAccelerateHandler", js_cocos2dx_Layer_unregisterScriptAccelerateHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchesMoved", js_cocos2dx_Layer_ccTouchesMoved, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("registerScriptAccelerateHandler", js_cocos2dx_Layer_registerScriptAccelerateHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTouchMode", js_cocos2dx_Layer_getTouchMode, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAccelerometerEnabled", js_cocos2dx_Layer_setAccelerometerEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_Layer_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isTouchEnabled", js_cocos2dx_Layer_isTouchEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getScriptAccelerateHandlerEntry", js_cocos2dx_Layer_getScriptAccelerateHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getScriptKeypadHandlerEntry", js_cocos2dx_Layer_getScriptKeypadHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchMoved", js_cocos2dx_Layer_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTouchEnabled", js_cocos2dx_Layer_setTouchEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setKeyboardEnabled", js_cocos2dx_Layer_setKeyboardEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -35721,16 +35463,13 @@ void js_register_cocos2dx_Layer(JSContext *cx, JSObject *global) {
 		JS_FN("setTouchMode", js_cocos2dx_Layer_setTouchMode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isAccelerometerEnabled", js_cocos2dx_Layer_isAccelerometerEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchEnded", js_cocos2dx_Layer_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("registerScriptTouchHandler", js_cocos2dx_Layer_registerScriptTouchHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchCancelled", js_cocos2dx_Layer_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getScriptTouchHandlerEntry", js_cocos2dx_Layer_getScriptTouchHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("ccTouchesBegan", js_cocos2dx_Layer_ccTouchesBegan, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTouchPriority", js_cocos2dx_Layer_setTouchPriority, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTouchPriority", js_cocos2dx_Layer_getTouchPriority, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setKeypadEnabled", js_cocos2dx_Layer_setKeypadEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("registerWithTouchDispatcher", js_cocos2dx_Layer_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("keyMenuClicked", js_cocos2dx_Layer_keyMenuClicked, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("registerScriptKeypadHandler", js_cocos2dx_Layer_registerScriptKeypadHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_Layer_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
 	};
@@ -43311,21 +43050,6 @@ JSBool js_cocos2dx_MenuItem_activate(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_MenuItem_unregisterScriptTapHandler(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::MenuItem* cobj = (cocos2d::MenuItem *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->unregisterScriptTapHandler();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_MenuItem_isEnabled(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -43336,23 +43060,6 @@ JSBool js_cocos2dx_MenuItem_isEnabled(JSContext *cx, uint32_t argc, jsval *vp)
 		bool ret = cobj->isEnabled();
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_MenuItem_getScriptTapHandler(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::MenuItem* cobj = (cocos2d::MenuItem *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		int ret = cobj->getScriptTapHandler();
-		jsval jsret;
-		jsret = int32_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -43390,26 +43097,6 @@ JSBool js_cocos2dx_MenuItem_selected(JSContext *cx, uint32_t argc, jsval *vp)
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_MenuItem_registerScriptTapHandler(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::MenuItem* cobj = (cocos2d::MenuItem *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		int arg0;
-		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->registerScriptTapHandler(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_MenuItem_unselected(JSContext *cx, uint32_t argc, jsval *vp)
@@ -43508,12 +43195,9 @@ void js_register_cocos2dx_MenuItem(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("setEnabled", js_cocos2dx_MenuItem_setEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("activate", js_cocos2dx_MenuItem_activate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("unregisterScriptTapHandler", js_cocos2dx_MenuItem_unregisterScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isEnabled", js_cocos2dx_MenuItem_isEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getScriptTapHandler", js_cocos2dx_MenuItem_getScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isSelected", js_cocos2dx_MenuItem_isSelected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("selected", js_cocos2dx_MenuItem_selected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("registerScriptTapHandler", js_cocos2dx_MenuItem_registerScriptTapHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("unselected", js_cocos2dx_MenuItem_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("rect", js_cocos2dx_MenuItem_rect, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_MenuItem_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
