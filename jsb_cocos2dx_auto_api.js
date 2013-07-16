@@ -79,6 +79,12 @@ setTarget : function () {},
  */
 isDone : function () {},
 
+/**
+ * @method reverse
+ * @return A value converted from C/C++ "cocos2d::Action*"
+ */
+reverse : function () {},
+
 };
 
 /**
@@ -118,22 +124,22 @@ getDuration : function () {},
 cc.Speed = {
 
 /**
- * @method startWithTarget
- * @param {cocos2d::Node*}
- */
-startWithTarget : function () {},
-
-/**
  * @method setInnerAction
  * @param {cocos2d::ActionInterval*}
  */
 setInnerAction : function () {},
 
 /**
- * @method reverse
- * @return A value converted from C/C++ "cocos2d::Speed*"
+ * @method startWithTarget
+ * @param {cocos2d::Node*}
  */
-reverse : function () {},
+startWithTarget : function () {},
+
+/**
+ * @method getSpeed
+ * @return A value converted from C/C++ "float"
+ */
+getSpeed : function () {},
 
 /**
  * @method clone
@@ -179,10 +185,10 @@ getInnerAction : function () {},
 isDone : function () {},
 
 /**
- * @method getSpeed
- * @return A value converted from C/C++ "float"
+ * @method reverse
+ * @return A value converted from C/C++ "cocos2d::Speed*"
  */
-getSpeed : function () {},
+reverse : function () {},
 
 /**
  * @method create
@@ -204,6 +210,12 @@ Speed : function () {},
  * @class Follow
  */
 cc.Follow = {
+
+/**
+ * @method reverse
+ * @return A value converted from C/C++ "cocos2d::Follow*"
+ */
+reverse : function () {},
 
 /**
  * @method clone
@@ -1679,10 +1691,10 @@ cc.ActionInterval = {
 startWithTarget : function () {},
 
 /**
- * @method reverse
- * @return A value converted from C/C++ "cocos2d::ActionInterval*"
+ * @method setAmplitudeRate
+ * @param {float}
  */
-reverse : function () {},
+setAmplitudeRate : function () {},
 
 /**
  * @method initWithDuration
@@ -1722,10 +1734,10 @@ getElapsed : function () {},
 isDone : function () {},
 
 /**
- * @method setAmplitudeRate
- * @param {float}
+ * @method reverse
+ * @return A value converted from C/C++ "cocos2d::ActionInterval*"
  */
-setAmplitudeRate : function () {},
+reverse : function () {},
 
 };
 
@@ -1779,16 +1791,16 @@ initWithTwoActions : function () {},
 cc.Repeat = {
 
 /**
- * @method startWithTarget
- * @param {cocos2d::Node*}
- */
-startWithTarget : function () {},
-
-/**
  * @method setInnerAction
  * @param {cocos2d::FiniteTimeAction*}
  */
 setInnerAction : function () {},
+
+/**
+ * @method startWithTarget
+ * @param {cocos2d::Node*}
+ */
+startWithTarget : function () {},
 
 /**
  * @method reverse
@@ -1849,16 +1861,16 @@ create : function () {},
 cc.RepeatForever = {
 
 /**
- * @method startWithTarget
- * @param {cocos2d::Node*}
- */
-startWithTarget : function () {},
-
-/**
  * @method setInnerAction
  * @param {cocos2d::ActionInterval*}
  */
 setInnerAction : function () {},
+
+/**
+ * @method startWithTarget
+ * @param {cocos2d::Node*}
+ */
+startWithTarget : function () {},
 
 /**
  * @method reverse
@@ -3418,18 +3430,18 @@ cc.EaseElastic = {
 clone : function () {},
 
 /**
- * @method setPeriod
- * @param {float}
- */
-setPeriod : function () {},
-
-/**
  * @method initWithAction
  * @return A value converted from C/C++ "bool"
  * @param {cocos2d::ActionInterval*}
  * @param {float}
  */
 initWithAction : function () {},
+
+/**
+ * @method setPeriod
+ * @param {float}
+ */
+setPeriod : function () {},
 
 /**
  * @method getPeriod
@@ -6395,10 +6407,16 @@ isFlipX : function () {},
 getTexture : function () {},
 
 /**
- * @method setScaleY
+ * @method setRotationY
  * @param {float}
  */
-setScaleY : function () {},
+setRotationY : function () {},
+
+/**
+ * @method setRotationX
+ * @param {float}
+ */
+setRotationX : function () {},
 
 /**
  * @method setScale
@@ -6420,10 +6438,10 @@ setOpacity : function () {},
 setDisplayFrameWithAnimationName : function () {},
 
 /**
- * @method setRotationY
+ * @method setScaleX
  * @param {float}
  */
-setRotationY : function () {},
+setScaleX : function () {},
 
 /**
  * @method setAnchorPoint
@@ -6432,40 +6450,22 @@ setRotationY : function () {},
 setAnchorPoint : function () {},
 
 /**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
-
-/**
  * @method getBatchNode
  * @return A value converted from C/C++ "cocos2d::SpriteBatchNode*"
  */
 getBatchNode : function () {},
 
 /**
- * @method isTextureRectRotated
- * @return A value converted from C/C++ "bool"
+ * @method getOffsetPosition
+ * @return A value converted from C/C++ "cocos2d::Point"
  */
-isTextureRectRotated : function () {},
+getOffsetPosition : function () {},
 
 /**
  * @method isOpacityModifyRGB
  * @return A value converted from C/C++ "bool"
  */
 isOpacityModifyRGB : function () {},
-
-/**
- * @method setVertexZ
- * @param {float}
- */
-setVertexZ : function () {},
-
-/**
- * @method getTextureRect
- * @return A value converted from C/C++ "cocos2d::Rect"
- */
-getTextureRect : function () {},
 
 /**
  * @method updateDisplayedOpacity
@@ -6479,6 +6479,19 @@ updateDisplayedOpacity : function () {},
  * @param {const char*}
  */
 initWithSpriteFrameName : function () {},
+
+/**
+ * @method setVertexZ
+ * @param {float}
+ */
+setVertexZ : function () {},
+
+/**
+ * @method reorderChild
+ * @param {cocos2d::Node*}
+ * @param {int}
+ */
+reorderChild : function () {},
 
 /**
  * @method isFrameDisplayed
@@ -6506,28 +6519,16 @@ setRotation : function () {},
 setDisplayFrame : function () {},
 
 /**
- * @method getOffsetPosition
- * @return A value converted from C/C++ "cocos2d::Point"
- */
-getOffsetPosition : function () {},
-
-/**
  * @method setBatchNode
  * @param {cocos2d::SpriteBatchNode*}
  */
 setBatchNode : function () {},
 
 /**
- * @method setRotationX
+ * @method setScaleY
  * @param {float}
  */
-setRotationX : function () {},
-
-/**
- * @method setScaleX
- * @param {float}
- */
-setScaleX : function () {},
+setScaleY : function () {},
 
 /**
  * @method setTextureAtlas
@@ -6554,9 +6555,10 @@ setFlipX : function () {},
 removeAllChildrenWithCleanup : function () {},
 
 /**
- * @method sortAllChildren
+ * @method isDirty
+ * @return A value converted from C/C++ "bool"
  */
-sortAllChildren : function () {},
+isDirty : function () {},
 
 /**
  * @method setAtlasIndex
@@ -6565,10 +6567,10 @@ sortAllChildren : function () {},
 setAtlasIndex : function () {},
 
 /**
- * @method setVertexRect
- * @param {cocos2d::Rect}
+ * @method updateDisplayedColor
+ * @param {cocos2d::Color3B}
  */
-setVertexRect : function () {},
+updateDisplayedColor : function () {},
 
 /**
  * @method setDirty
@@ -6577,17 +6579,21 @@ setVertexRect : function () {},
 setDirty : function () {},
 
 /**
- * @method isDirty
+ * @method isTextureRectRotated
  * @return A value converted from C/C++ "bool"
  */
-isDirty : function () {},
+isTextureRectRotated : function () {},
 
 /**
- * @method reorderChild
- * @param {cocos2d::Node*}
- * @param {int}
+ * @method sortAllChildren
  */
-reorderChild : function () {},
+sortAllChildren : function () {},
+
+/**
+ * @method getTextureRect
+ * @return A value converted from C/C++ "cocos2d::Rect"
+ */
+getTextureRect : function () {},
 
 /**
  * @method ignoreAnchorPointForPosition
@@ -6633,10 +6639,16 @@ updateTransform : function () {},
 isFlipY : function () {},
 
 /**
- * @method updateDisplayedColor
- * @param {cocos2d::Color3B}
+ * @method setOpacityModifyRGB
+ * @param {bool}
  */
-updateDisplayedColor : function () {},
+setOpacityModifyRGB : function () {},
+
+/**
+ * @method setVertexRect
+ * @param {cocos2d::Rect}
+ */
+setVertexRect : function () {},
 
 /**
  * @method setSkewX
