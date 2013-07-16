@@ -3107,7 +3107,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_Application_getTargetPlatform(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Application_setAnimationInterval(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Application_getCurrentLanguage(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Application_sharedApplication(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Application_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_ShaderCache_class;

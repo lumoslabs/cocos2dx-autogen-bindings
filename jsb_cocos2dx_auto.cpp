@@ -53617,26 +53617,6 @@ JSBool js_cocos2dx_Application_getCurrentLanguage(JSContext *cx, uint32_t argc, 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Application_sharedApplication(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	if (argc == 0) {
-		cocos2d::Application* ret = cocos2d::Application::sharedApplication();
-		jsval jsret;
-		do {
-		if (ret) {
-			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::Application>(cx, ret);
-			jsret = OBJECT_TO_JSVAL(proxy->obj);
-		} else {
-			jsret = JSVAL_NULL;
-		}
-	} while (0);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments");
-	return JS_FALSE;
-}
-
 JSBool js_cocos2dx_Application_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
@@ -53687,7 +53667,6 @@ void js_register_cocos2dx_Application(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("sharedApplication", js_cocos2dx_Application_sharedApplication, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInstance", js_cocos2dx_Application_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};

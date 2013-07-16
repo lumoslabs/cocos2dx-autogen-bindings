@@ -10939,12 +10939,6 @@ setAnimationInterval : function () {},
 getCurrentLanguage : function () {},
 
 /**
- * @method sharedApplication
- * @return A value converted from C/C++ "cocos2d::Application*"
- */
-sharedApplication : function () {},
-
-/**
  * @method getInstance
  * @return A value converted from C/C++ "cocos2d::Application*"
  */

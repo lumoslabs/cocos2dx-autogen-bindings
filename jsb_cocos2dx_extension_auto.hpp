@@ -244,7 +244,6 @@ JSBool js_cocos2dx_extension_CCBAnimationManager_setDelegate(JSContext *cx, uint
 JSBool js_cocos2dx_extension_CCBAnimationManager_addDocumentCallbackNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBAnimationManager_setCallFunc(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBAnimationManager_getDelegate(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCBAnimationManager_runAnimations(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBAnimationManager_runAnimationsForSequenceNamed(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBAnimationManager_getDocumentCallbackNodes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBAnimationManager_setSequences(JSContext *cx, uint32_t argc, jsval *vp);
