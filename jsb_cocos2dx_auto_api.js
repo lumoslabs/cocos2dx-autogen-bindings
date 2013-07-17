@@ -735,12 +735,6 @@ cc.Node = {
 removeComponent : function () {},
 
 /**
- * @method nodeToWorldTransform
- * @return A value converted from C/C++ "cocos2d::AffineTransform"
- */
-nodeToWorldTransform : function () {},
-
-/**
  * @method getShaderProgram
  * @return A value converted from C/C++ "cocos2d::GLProgram*"
  */
@@ -807,6 +801,12 @@ removeAllComponents : function () {},
 getTag : function () {},
 
 /**
+ * @method getNodeToWorldTransform
+ * @return A value converted from C/C++ "cocos2d::AffineTransform"
+ */
+getNodeToWorldTransform : function () {},
+
+/**
  * @method convertToWorldSpace
  * @return A value converted from C/C++ "cocos2d::Point"
  * @param {cocos2d::Point}
@@ -851,10 +851,17 @@ getRotationY : function () {},
 setParent : function () {},
 
 /**
- * @method nodeToParentTransform
+ * @method getNodeToParentTransform
  * @return A value converted from C/C++ "cocos2d::AffineTransform"
  */
-nodeToParentTransform : function () {},
+getNodeToParentTransform : function () {},
+
+/**
+ * @method convertToNodeSpace
+ * @return A value converted from C/C++ "cocos2d::Point"
+ * @param {cocos2d::Point}
+ */
+convertToNodeSpace : function () {},
 
 /**
  * @method numberOfRunningActions
@@ -1091,6 +1098,12 @@ getPositionX : function () {},
 setVisible : function () {},
 
 /**
+ * @method getParentToNodeTransform
+ * @return A value converted from C/C++ "cocos2d::AffineTransform"
+ */
+getParentToNodeTransform : function () {},
+
+/**
  * @method pauseSchedulerAndActions
  */
 pauseSchedulerAndActions : function () {},
@@ -1163,10 +1176,10 @@ getContentSize : function () {},
 setGrid : function () {},
 
 /**
- * @method boundingBox
+ * @method getBoundingBox
  * @return A value converted from C/C++ "cocos2d::Rect"
  */
-boundingBox : function () {},
+getBoundingBox : function () {},
 
 /**
  * @method draw
@@ -1203,29 +1216,16 @@ update : function () {},
 sortAllChildren : function () {},
 
 /**
- * @method convertToNodeSpace
- * @return A value converted from C/C++ "cocos2d::Point"
- * @param {cocos2d::Point}
+ * @method getWorldToNodeTransform
+ * @return A value converted from C/C++ "cocos2d::AffineTransform"
  */
-convertToNodeSpace : function () {},
+getWorldToNodeTransform : function () {},
 
 /**
  * @method getScale
  * @return A value converted from C/C++ "float"
  */
 getScale : function () {},
-
-/**
- * @method worldToNodeTransform
- * @return A value converted from C/C++ "cocos2d::AffineTransform"
- */
-worldToNodeTransform : function () {},
-
-/**
- * @method parentToNodeTransform
- * @return A value converted from C/C++ "cocos2d::AffineTransform"
- */
-parentToNodeTransform : function () {},
 
 /**
  * @method getCamera
