@@ -54719,8 +54719,8 @@ JSBool js_cocos2dx_ParallaxNode_addChild(JSContext *cx, uint32_t argc, jsval *vp
 				JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
 			} while (0);
 			if (!ok) { ok = JS_TRUE; break; }
-			unsigned int arg1;
-			ok &= jsval_to_uint32(cx, argv[1], &arg1);
+			int arg1;
+			ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
 			if (!ok) { ok = JS_TRUE; break; }
 			int arg2;
 			ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
@@ -54743,8 +54743,8 @@ JSBool js_cocos2dx_ParallaxNode_addChild(JSContext *cx, uint32_t argc, jsval *vp
 				JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
 			} while (0);
 			if (!ok) { ok = JS_TRUE; break; }
-			unsigned int arg1;
-			ok &= jsval_to_uint32(cx, argv[1], &arg1);
+			int arg1;
+			ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::Point arg2;
 			ok &= jsval_to_ccpoint(cx, argv[2], &arg2);
