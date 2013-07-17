@@ -43371,7 +43371,27 @@ JSBool js_cocos2dx_MenuItemLabel_initWithLabel(JSContext *cx, uint32_t argc, jsv
 			arg0 = (cocos2d::Node*)(proxy ? proxy->ptr : NULL);
 			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
 		} while (0);
-		#pragma warning NO CONVERSION TO NATIVE FOR const ccMenuCallback;
+		do {
+			std::shared_ptr<JSFunctionWrapper> func(new JSFunctionWrapper(cx, JS_THIS_OBJECT(cx, vp), argv[1]));
+			auto lambda = [=](Object* larg0) -> void {
+				jsval largv[1];
+				do {
+					if (larg0) {
+						js_proxy_t *proxy = js_get_or_create_proxy<Object>(cx, larg0);
+						largv[0] = OBJECT_TO_JSVAL(proxy->obj);
+					} else {
+						largv[0] = JSVAL_NULL;
+					}
+				} while (0);
+				jsval rval;
+				JSBool ok = func->invoke(1, &largv[0], rval);
+				if (!ok && JS_IsExceptionPending(cx)) {
+					JS_ReportPendingException(cx);
+				}
+			};
+			arg1 = lambda;
+		} while(0)
+		;
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		bool ret = cobj->initWithLabel(arg0, arg1);
 		jsval jsret;
@@ -43572,7 +43592,27 @@ JSBool js_cocos2dx_MenuItemAtlasFont_initWithString(JSContext *cx, uint32_t argc
 		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
 		ok &= jsval_to_int32(cx, argv[3], (int32_t *)&arg3);
 		ok &= jsval_to_int32(cx, argv[4], &arg4);
-		#pragma warning NO CONVERSION TO NATIVE FOR const ccMenuCallback;
+		do {
+			std::shared_ptr<JSFunctionWrapper> func(new JSFunctionWrapper(cx, JS_THIS_OBJECT(cx, vp), argv[5]));
+			auto lambda = [=](Object* larg0) -> void {
+				jsval largv[1];
+				do {
+					if (larg0) {
+						js_proxy_t *proxy = js_get_or_create_proxy<Object>(cx, larg0);
+						largv[0] = OBJECT_TO_JSVAL(proxy->obj);
+					} else {
+						largv[0] = JSVAL_NULL;
+					}
+				} while (0);
+				jsval rval;
+				JSBool ok = func->invoke(1, &largv[0], rval);
+				if (!ok && JS_IsExceptionPending(cx)) {
+					JS_ReportPendingException(cx);
+				}
+			};
+			arg5 = lambda;
+		} while(0)
+		;
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		bool ret = cobj->initWithString(arg0, arg1, arg2, arg3, arg4, arg5);
 		jsval jsret;
@@ -43732,7 +43772,27 @@ JSBool js_cocos2dx_MenuItemFont_initWithString(JSContext *cx, uint32_t argc, jsv
 		const char* arg0;
 		cocos2d::ccMenuCallback arg1;
 		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
-		#pragma warning NO CONVERSION TO NATIVE FOR const ccMenuCallback;
+		do {
+			std::shared_ptr<JSFunctionWrapper> func(new JSFunctionWrapper(cx, JS_THIS_OBJECT(cx, vp), argv[1]));
+			auto lambda = [=](Object* larg0) -> void {
+				jsval largv[1];
+				do {
+					if (larg0) {
+						js_proxy_t *proxy = js_get_or_create_proxy<Object>(cx, larg0);
+						largv[0] = OBJECT_TO_JSVAL(proxy->obj);
+					} else {
+						largv[0] = JSVAL_NULL;
+					}
+				} while (0);
+				jsval rval;
+				JSBool ok = func->invoke(1, &largv[0], rval);
+				if (!ok && JS_IsExceptionPending(cx)) {
+					JS_ReportPendingException(cx);
+				}
+			};
+			arg1 = lambda;
+		} while(0)
+		;
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		bool ret = cobj->initWithString(arg0, arg1);
 		jsval jsret;
@@ -44076,7 +44136,27 @@ JSBool js_cocos2dx_MenuItemSprite_initWithNormalSprite(JSContext *cx, uint32_t a
 			arg2 = (cocos2d::Node*)(proxy ? proxy->ptr : NULL);
 			JSB_PRECONDITION2( arg2, cx, JS_FALSE, "Invalid Native Object");
 		} while (0);
-		#pragma warning NO CONVERSION TO NATIVE FOR const ccMenuCallback;
+		do {
+			std::shared_ptr<JSFunctionWrapper> func(new JSFunctionWrapper(cx, JS_THIS_OBJECT(cx, vp), argv[3]));
+			auto lambda = [=](Object* larg0) -> void {
+				jsval largv[1];
+				do {
+					if (larg0) {
+						js_proxy_t *proxy = js_get_or_create_proxy<Object>(cx, larg0);
+						largv[0] = OBJECT_TO_JSVAL(proxy->obj);
+					} else {
+						largv[0] = JSVAL_NULL;
+					}
+				} while (0);
+				jsval rval;
+				JSBool ok = func->invoke(1, &largv[0], rval);
+				if (!ok && JS_IsExceptionPending(cx)) {
+					JS_ReportPendingException(cx);
+				}
+			};
+			arg3 = lambda;
+		} while(0)
+		;
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		bool ret = cobj->initWithNormalSprite(arg0, arg1, arg2, arg3);
 		jsval jsret;
@@ -44426,7 +44506,27 @@ JSBool js_cocos2dx_MenuItemImage_initWithNormalImage(JSContext *cx, uint32_t arg
 		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
 		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
 		std::string arg2_tmp; ok &= jsval_to_std_string(cx, argv[2], &arg2_tmp); arg2 = arg2_tmp.c_str();
-		#pragma warning NO CONVERSION TO NATIVE FOR const ccMenuCallback;
+		do {
+			std::shared_ptr<JSFunctionWrapper> func(new JSFunctionWrapper(cx, JS_THIS_OBJECT(cx, vp), argv[3]));
+			auto lambda = [=](Object* larg0) -> void {
+				jsval largv[1];
+				do {
+					if (larg0) {
+						js_proxy_t *proxy = js_get_or_create_proxy<Object>(cx, larg0);
+						largv[0] = OBJECT_TO_JSVAL(proxy->obj);
+					} else {
+						largv[0] = JSVAL_NULL;
+					}
+				} while (0);
+				jsval rval;
+				JSBool ok = func->invoke(1, &largv[0], rval);
+				if (!ok && JS_IsExceptionPending(cx)) {
+					JS_ReportPendingException(cx);
+				}
+			};
+			arg3 = lambda;
+		} while(0)
+		;
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		bool ret = cobj->initWithNormalImage(arg0, arg1, arg2, arg3);
 		jsval jsret;
