@@ -1670,6 +1670,7 @@ JSBool js_cocos2dx_DrawNode_clear(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_DrawNode_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_DrawNode_drawDot(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_DrawNode_drawSegment(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_DrawNode_listenBackToForeground(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_DrawNode_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_DrawNode_DrawNode(JSContext *cx, uint32_t argc, jsval *vp);
 

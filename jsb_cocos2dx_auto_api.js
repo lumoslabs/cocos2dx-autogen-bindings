@@ -5780,6 +5780,12 @@ drawDot : function () {},
 drawSegment : function () {},
 
 /**
+ * @method listenBackToForeground
+ * @param {cocos2d::Object*}
+ */
+listenBackToForeground : function () {},
+
+/**
  * @method create
  * @return A value converted from C/C++ "cocos2d::DrawNode*"
  */
