@@ -864,12 +864,6 @@ getNodeToParentTransform : function () {},
 convertToNodeSpace : function () {},
 
 /**
- * @method numberOfRunningActions
- * @return A value converted from C/C++ "unsigned int"
- */
-numberOfRunningActions : function () {},
-
-/**
  * @method stopActionByTag
  * @param {int}
  */
@@ -899,6 +893,12 @@ setPositionX : function () {},
  * @return A value converted from C/C++ "cocos2d::Point"
  */
 getAnchorPoint : function () {},
+
+/**
+ * @method getNumberOfRunningActions
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getNumberOfRunningActions : function () {},
 
 /**
  * @method updateTransform
@@ -1392,12 +1392,6 @@ setRotated : function () {},
 setTexture : function () {},
 
 /**
- * @method getOffset
- * @return A value converted from C/C++ "cocos2d::Point"
- */
-getOffset : function () {},
-
-/**
  * @method setRectInPixels
  * @param {cocos2d::Rect}
  */
@@ -1450,6 +1444,12 @@ setOriginalSizeInPixels : function () {},
  * @param {cocos2d::Point}
  */
 setOffset : function () {},
+
+/**
+ * @method getOffset
+ * @return A value converted from C/C++ "cocos2d::Point"
+ */
+getOffset : function () {},
 
 /**
  * @method isRotated
@@ -2978,10 +2978,11 @@ addAction : function () {},
 resumeTarget : function () {},
 
 /**
- * @method pauseTarget
+ * @method getNumberOfRunningActionsInTarget
+ * @return A value converted from C/C++ "unsigned int"
  * @param {cocos2d::Object*}
  */
-pauseTarget : function () {},
+getNumberOfRunningActionsInTarget : function () {},
 
 /**
  * @method removeAllActionsFromTarget
@@ -3002,11 +3003,10 @@ resumeTargets : function () {},
 removeAction : function () {},
 
 /**
- * @method numberOfRunningActionsInTarget
- * @return A value converted from C/C++ "unsigned int"
+ * @method pauseTarget
  * @param {cocos2d::Object*}
  */
-numberOfRunningActionsInTarget : function () {},
+pauseTarget : function () {},
 
 /**
  * @method pauseAllRunningActions
@@ -5493,6 +5493,12 @@ initWithDuration : function () {},
 getPoints : function () {},
 
 /**
+ * @method updatePosition
+ * @param {cocos2d::Point}
+ */
+updatePosition : function () {},
+
+/**
  * @method clone
  * @return A value converted from C/C++ "cocos2d::CardinalSplineTo*"
  */
@@ -5503,12 +5509,6 @@ clone : function () {},
  * @param {float}
  */
 update : function () {},
-
-/**
- * @method updatePosition
- * @param {cocos2d::Point}
- */
-updatePosition : function () {},
 
 /**
  * @method CardinalSplineTo
@@ -5615,25 +5615,24 @@ initWithDuration : function () {},
 cc.AtlasNode = {
 
 /**
- * @method setTexture
- * @param {cocos2d::Texture2D*}
- */
-setTexture : function () {},
-
-/**
  * @method draw
  */
 draw : function () {},
 
 /**
- * @method initWithTileFile
+ * @method updateAtlasValues
+ */
+updateAtlasValues : function () {},
+
+/**
+ * @method initWithTexture
  * @return A value converted from C/C++ "bool"
- * @param {const char*}
+ * @param {cocos2d::Texture2D*}
  * @param {unsigned int}
  * @param {unsigned int}
  * @param {unsigned int}
  */
-initWithTileFile : function () {},
+initWithTexture : function () {},
 
 /**
  * @method setColor
@@ -5642,22 +5641,16 @@ initWithTileFile : function () {},
 setColor : function () {},
 
 /**
- * @method setOpacity
- * @param {unsigned char}
- */
-setOpacity : function () {},
-
-/**
- * @method setTextureAtlas
- * @param {cocos2d::TextureAtlas*}
- */
-setTextureAtlas : function () {},
-
-/**
  * @method getTexture
  * @return A value converted from C/C++ "cocos2d::Texture2D*"
  */
 getTexture : function () {},
+
+/**
+ * @method getColor
+ * @return A value converted from C/C++ "cocos2d::Color3B"
+ */
+getColor : function () {},
 
 /**
  * @method getTextureAtlas
@@ -5672,43 +5665,50 @@ getTextureAtlas : function () {},
 setOpacityModifyRGB : function () {},
 
 /**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
+ * @method setTexture
+ * @param {cocos2d::Texture2D*}
+ */
+setTexture : function () {},
+
+/**
+ * @method initWithTileFile
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {unsigned int}
+ * @param {unsigned int}
+ * @param {unsigned int}
+ */
+initWithTileFile : function () {},
+
+/**
  * @method getQuadsToDraw
  * @return A value converted from C/C++ "unsigned int"
  */
 getQuadsToDraw : function () {},
 
 /**
- * @method updateAtlasValues
+ * @method setQuadsToDraw
+ * @param {unsigned int}
  */
-updateAtlasValues : function () {},
+setQuadsToDraw : function () {},
 
 /**
- * @method getColor
- * @return A value converted from C/C++ "cocos2d::Color3B"
+ * @method setTextureAtlas
+ * @param {cocos2d::TextureAtlas*}
  */
-getColor : function () {},
-
-/**
- * @method initWithTexture
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Texture2D*}
- * @param {unsigned int}
- * @param {unsigned int}
- * @param {unsigned int}
- */
-initWithTexture : function () {},
+setTextureAtlas : function () {},
 
 /**
  * @method isOpacityModifyRGB
  * @return A value converted from C/C++ "bool"
  */
 isOpacityModifyRGB : function () {},
-
-/**
- * @method setQuadsToDraw
- * @param {unsigned int}
- */
-setQuadsToDraw : function () {},
 
 /**
  * @method create
@@ -7451,9 +7451,11 @@ LayerRGBA : function () {},
 cc.LayerColor = {
 
 /**
- * @method draw
+ * @method changeWidthAndHeight
+ * @param {float}
+ * @param {float}
  */
-draw : function () {},
+changeWidthAndHeight : function () {},
 
 /**
  * @method setColor
@@ -7462,11 +7464,9 @@ draw : function () {},
 setColor : function () {},
 
 /**
- * @method changeWidthAndHeight
- * @param {float}
- * @param {float}
+ * @method draw
  */
-changeWidthAndHeight : function () {},
+draw : function () {},
 
 /**
  * @method setOpacity
@@ -8693,18 +8693,18 @@ cc.MenuItemFont = {
 setFontNameObj : function () {},
 
 /**
- * @method fontNameObj
- * @return A value converted from C/C++ "const char*"
- */
-fontNameObj : function () {},
-
-/**
  * @method initWithString
  * @return A value converted from C/C++ "bool"
  * @param {const char*}
  * @param {cocos2d::ccMenuCallback}
  */
 initWithString : function () {},
+
+/**
+ * @method getFontNameObj
+ * @return A value converted from C/C++ "const char*"
+ */
+getFontNameObj : function () {},
 
 /**
  * @method fontSizeObj
@@ -8725,16 +8725,16 @@ setFontSizeObj : function () {},
 setFontName : function () {},
 
 /**
- * @method fontName
- * @return A value converted from C/C++ "const char*"
- */
-fontName : function () {},
-
-/**
  * @method fontSize
  * @return A value converted from C/C++ "unsigned int"
  */
 fontSize : function () {},
+
+/**
+ * @method fontName
+ * @return A value converted from C/C++ "const char*"
+ */
+fontName : function () {},
 
 /**
  * @method setFontSize
@@ -8762,9 +8762,10 @@ cc.MenuItemSprite = {
 setEnabled : function () {},
 
 /**
- * @method selected
+ * @method getDisabledImage
+ * @return A value converted from C/C++ "cocos2d::Node*"
  */
-selected : function () {},
+getDisabledImage : function () {},
 
 /**
  * @method setNormalImage
@@ -8795,10 +8796,9 @@ initWithNormalSprite : function () {},
 setSelectedImage : function () {},
 
 /**
- * @method getDisabledImage
- * @return A value converted from C/C++ "cocos2d::Node*"
+ * @method selected
  */
-getDisabledImage : function () {},
+selected : function () {},
 
 /**
  * @method getSelectedImage
@@ -8878,10 +8878,10 @@ MenuItemImage : function () {},
 cc.MenuItemToggle = {
 
 /**
- * @method setSubItems
- * @param {cocos2d::Array*}
+ * @method setEnabled
+ * @param {bool}
  */
-setSubItems : function () {},
+setEnabled : function () {},
 
 /**
  * @method initWithItem
@@ -8897,10 +8897,10 @@ initWithItem : function () {},
 setSelectedIndex : function () {},
 
 /**
- * @method setEnabled
- * @param {bool}
+ * @method setSubItems
+ * @param {cocos2d::Array*}
  */
-setEnabled : function () {},
+setSubItems : function () {},
 
 /**
  * @method getSelectedIndex
@@ -8930,10 +8930,10 @@ selected : function () {},
 unselected : function () {},
 
 /**
- * @method selectedItem
+ * @method getSelectedItem
  * @return A value converted from C/C++ "cocos2d::MenuItem*"
  */
-selectedItem : function () {},
+getSelectedItem : function () {},
 
 /**
  * @method MenuItemToggle
@@ -9068,15 +9068,21 @@ Menu : function () {},
 cc.ClippingNode = {
 
 /**
- * @method setInverted
- * @param {bool}
+ * @method isInverted
+ * @return A value converted from C/C++ "bool"
  */
-setInverted : function () {},
+isInverted : function () {},
 
 /**
  * @method visit
  */
 visit : function () {},
+
+/**
+ * @method setInverted
+ * @param {bool}
+ */
+setInverted : function () {},
 
 /**
  * @method setStencil
@@ -9102,12 +9108,6 @@ getStencil : function () {},
  */
 setAlphaThreshold : function () {},
 
-/**
- * @method isInverted
- * @return A value converted from C/C++ "bool"
- */
-isInverted : function () {},
-
 };
 
 /**
@@ -9119,6 +9119,12 @@ cc.MotionStreak = {
  * @method reset
  */
 reset : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
 
 /**
  * @method setTexture
@@ -9133,6 +9139,12 @@ setTexture : function () {},
 isOpacityModifyRGB : function () {},
 
 /**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
  * @method getTexture
  * @return A value converted from C/C++ "cocos2d::Texture2D*"
  */
@@ -9145,10 +9157,10 @@ getTexture : function () {},
 tintWithColor : function () {},
 
 /**
- * @method setOpacity
- * @param {unsigned char}
+ * @method setStartingPositionInitialized
+ * @param {bool}
  */
-setOpacity : function () {},
+setStartingPositionInitialized : function () {},
 
 /**
  * @method isFastMode
@@ -9163,10 +9175,10 @@ isFastMode : function () {},
 setOpacityModifyRGB : function () {},
 
 /**
- * @method getOpacity
- * @return A value converted from C/C++ "unsigned char"
+ * @method isStartingPositionInitialized
+ * @return A value converted from C/C++ "bool"
  */
-getOpacity : function () {},
+isStartingPositionInitialized : function () {},
 
 /**
  * @method setPosition
@@ -9175,22 +9187,10 @@ getOpacity : function () {},
 setPosition : function () {},
 
 /**
- * @method setStartingPositionInitialized
- * @param {bool}
- */
-setStartingPositionInitialized : function () {},
-
-/**
  * @method setFastMode
  * @param {bool}
  */
 setFastMode : function () {},
-
-/**
- * @method isStartingPositionInitialized
- * @return A value converted from C/C++ "bool"
- */
-isStartingPositionInitialized : function () {},
 
 /**
  * @method MotionStreak
@@ -9340,9 +9340,9 @@ cc.RenderTexture = {
 clearStencil : function () {},
 
 /**
- * @method begin
+ * @method draw
  */
-begin : function () {},
+draw : function () {},
 
 /**
  * @method listenToForeground
@@ -9397,9 +9397,9 @@ isAutoDraw : function () {},
 setClearFlags : function () {},
 
 /**
- * @method draw
+ * @method begin
  */
-draw : function () {},
+begin : function () {},
 
 /**
  * @method setAutoDraw
@@ -9483,13 +9483,6 @@ RenderTexture : function () {},
 cc.ParticleBatchNode = {
 
 /**
- * @method removeChildAtIndex
- * @param {unsigned int}
- * @param {bool}
- */
-removeChildAtIndex : function () {},
-
-/**
  * @method draw
  */
 draw : function () {},
@@ -9558,6 +9551,13 @@ insertChild : function () {},
  * @param {unsigned int}
  */
 initWithTexture : function () {},
+
+/**
+ * @method removeChildAtIndex
+ * @param {unsigned int}
+ * @param {bool}
+ */
+removeChildAtIndex : function () {},
 
 /**
  * @method reorderChild
@@ -9662,15 +9662,10 @@ setRotatePerSecondVar : function () {},
 getStartSpinVar : function () {},
 
 /**
- * @method getEndSpinVar
+ * @method getRadialAccelVar
  * @return A value converted from C/C++ "float"
  */
-getEndSpinVar : function () {},
-
-/**
- * @method stopSystem
- */
-stopSystem : function () {},
+getRadialAccelVar : function () {},
 
 /**
  * @method init
@@ -9733,10 +9728,10 @@ setRotatePerSecond : function () {},
 setEndSize : function () {},
 
 /**
- * @method getGravity
- * @return A value converted from C/C++ "cocos2d::Point"
+ * @method getStartColorVar
+ * @return A value converted from C/C++ "cocos2d::Color4F"
  */
-getGravity : function () {},
+getStartColorVar : function () {},
 
 /**
  * @method getTangentialAccel
@@ -9751,16 +9746,16 @@ getTangentialAccel : function () {},
 setEndRadius : function () {},
 
 /**
- * @method getAngle
- * @return A value converted from C/C++ "float"
- */
-getAngle : function () {},
-
-/**
  * @method getSpeed
  * @return A value converted from C/C++ "float"
  */
 getSpeed : function () {},
+
+/**
+ * @method getAngle
+ * @return A value converted from C/C++ "float"
+ */
+getAngle : function () {},
 
 /**
  * @method setEndColor
@@ -9811,10 +9806,10 @@ updateWithNoTime : function () {},
 isBlendAdditive : function () {},
 
 /**
- * @method getAngleVar
+ * @method getSpeedVar
  * @return A value converted from C/C++ "float"
  */
-getAngleVar : function () {},
+getSpeedVar : function () {},
 
 /**
  * @method setPositionType
@@ -9823,10 +9818,9 @@ getAngleVar : function () {},
 setPositionType : function () {},
 
 /**
- * @method getEndRadius
- * @return A value converted from C/C++ "float"
+ * @method stopSystem
  */
-getEndRadius : function () {},
+stopSystem : function () {},
 
 /**
  * @method getSourcePosition
@@ -9901,6 +9895,12 @@ setTangentialAccelVar : function () {},
 setEndRadiusVar : function () {},
 
 /**
+ * @method getEndRadius
+ * @return A value converted from C/C++ "float"
+ */
+getEndRadius : function () {},
+
+/**
  * @method isActive
  * @return A value converted from C/C++ "bool"
  */
@@ -9961,10 +9961,10 @@ getDuration : function () {},
 setSourcePosition : function () {},
 
 /**
- * @method getRadialAccelVar
+ * @method getEndSpinVar
  * @return A value converted from C/C++ "float"
  */
-getRadialAccelVar : function () {},
+getEndSpinVar : function () {},
 
 /**
  * @method setBlendAdditive
@@ -9997,10 +9997,10 @@ setRotationIsDir : function () {},
 setEndSizeVar : function () {},
 
 /**
- * @method setAngle
- * @param {float}
+ * @method getEndColorVar
+ * @return A value converted from C/C++ "cocos2d::Color4F"
  */
-setAngle : function () {},
+getEndColorVar : function () {},
 
 /**
  * @method setBatchNode
@@ -10034,10 +10034,10 @@ setEndSpinVar : function () {},
 initWithFile : function () {},
 
 /**
- * @method getSpeedVar
+ * @method getAngleVar
  * @return A value converted from C/C++ "float"
  */
-getSpeedVar : function () {},
+getAngleVar : function () {},
 
 /**
  * @method setStartColor
@@ -10093,10 +10093,10 @@ postStep : function () {},
 setEmissionRate : function () {},
 
 /**
- * @method getEndColorVar
- * @return A value converted from C/C++ "cocos2d::Color4F"
+ * @method setAngle
+ * @param {float}
  */
-getEndColorVar : function () {},
+setAngle : function () {},
 
 /**
  * @method getRotationIsDir
@@ -10219,10 +10219,10 @@ setStartRadiusVar : function () {},
 getEndRadiusVar : function () {},
 
 /**
- * @method getStartColorVar
- * @return A value converted from C/C++ "cocos2d::Color4F"
+ * @method getGravity
+ * @return A value converted from C/C++ "cocos2d::Point"
  */
-getStartColorVar : function () {},
+getGravity : function () {},
 
 /**
  * @method create
@@ -10923,10 +10923,11 @@ cc.AnimationCache = {
 animationByName : function () {},
 
 /**
- * @method addAnimationsWithFile
+ * @method addAnimation
+ * @param {cocos2d::Animation*}
  * @param {const char*}
  */
-addAnimationsWithFile : function () {},
+addAnimation : function () {},
 
 /**
  * @method init
@@ -10947,11 +10948,10 @@ addAnimationsWithDictionary : function () {},
 removeAnimationByName : function () {},
 
 /**
- * @method addAnimation
- * @param {cocos2d::Animation*}
+ * @method addAnimationsWithFile
  * @param {const char*}
  */
-addAnimation : function () {},
+addAnimationsWithFile : function () {},
 
 /**
  * @method destroyInstance
@@ -10978,6 +10978,13 @@ AnimationCache : function () {},
 cc.SpriteFrameCache = {
 
 /**
+ * @method getSpriteFrameByName
+ * @return A value converted from C/C++ "cocos2d::SpriteFrame*"
+ * @param {const char*}
+ */
+getSpriteFrameByName : function () {},
+
+/**
  * @method addSpriteFrame
  * @param {cocos2d::SpriteFrame*}
  * @param {const char*}
@@ -10988,13 +10995,6 @@ addSpriteFrame : function () {},
  * @method removeUnusedSpriteFrames
  */
 removeUnusedSpriteFrames : function () {},
-
-/**
- * @method spriteFrameByName
- * @return A value converted from C/C++ "cocos2d::SpriteFrame*"
- * @param {const char*}
- */
-spriteFrameByName : function () {},
 
 /**
  * @method removeSpriteFramesFromFile
@@ -11924,12 +11924,12 @@ update : function () {},
 getScriptHandler : function () {},
 
 /**
- * @method timerWithScriptHandler
+ * @method createWithScriptHandler
  * @return A value converted from C/C++ "cocos2d::Timer*"
  * @param {int}
  * @param {float}
  */
-timerWithScriptHandler : function () {},
+createWithScriptHandler : function () {},
 
 /**
  * @method Timer
