@@ -19851,23 +19851,6 @@ JSBool js_cocos2dx_CallFunc_getTargetCallback(JSContext *cx, uint32_t argc, jsva
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CallFunc_getScriptHandler(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CallFunc* cobj = (cocos2d::CallFunc *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		int ret = cobj->getScriptHandler();
-		jsval jsret;
-		jsret = int32_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CallFunc_setTargetCallback(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -19962,7 +19945,6 @@ void js_register_cocos2dx_CallFunc(JSContext *cx, JSObject *global) {
 		JS_FN("clone", js_cocos2dx_CallFunc_clone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CallFunc_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTargetCallback", js_cocos2dx_CallFunc_getTargetCallback, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getScriptHandler", js_cocos2dx_CallFunc_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTargetCallback", js_cocos2dx_CallFunc_setTargetCallback, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_CallFunc_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END

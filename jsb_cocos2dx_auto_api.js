@@ -4051,12 +4051,6 @@ update : function () {},
 getTargetCallback : function () {},
 
 /**
- * @method getScriptHandler
- * @return A value converted from C/C++ "int"
- */
-getScriptHandler : function () {},
-
-/**
  * @method setTargetCallback
  * @param {cocos2d::Object*}
  */
