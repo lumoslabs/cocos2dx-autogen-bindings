@@ -1164,7 +1164,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CallFunc_execute(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CallFunc_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CallFunc_clone(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CallFunc_initWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CallFunc_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CallFunc_getTargetCallback(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CallFunc_getScriptHandler(JSContext *cx, uint32_t argc, jsval *vp);

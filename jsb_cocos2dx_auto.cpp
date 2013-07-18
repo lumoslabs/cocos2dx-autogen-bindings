@@ -19807,35 +19807,6 @@ JSBool js_cocos2dx_CallFunc_clone(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CallFunc_initWithTarget(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CallFunc* cobj = (cocos2d::CallFunc *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::Object* arg0;
-		do {
-			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			proxy = jsb_get_js_proxy(tmpObj);
-			arg0 = (cocos2d::Object*)(proxy ? proxy->ptr : NULL);
-			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
-		} while (0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		bool ret = cobj->initWithTarget(arg0);
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CallFunc_update(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -19989,7 +19960,6 @@ void js_register_cocos2dx_CallFunc(JSContext *cx, JSObject *global) {
 		JS_FN("execute", js_cocos2dx_CallFunc_execute, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CallFunc_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("clone", js_cocos2dx_CallFunc_clone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("initWithTarget", js_cocos2dx_CallFunc_initWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CallFunc_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTargetCallback", js_cocos2dx_CallFunc_getTargetCallback, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getScriptHandler", js_cocos2dx_CallFunc_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),

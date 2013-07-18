@@ -4039,13 +4039,6 @@ reverse : function () {},
 clone : function () {},
 
 /**
- * @method initWithTarget
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Object*}
- */
-initWithTarget : function () {},
-
-/**
  * @method update
  * @param {float}
  */
