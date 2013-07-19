@@ -126,10 +126,11 @@ setEnabled : function () {},
 getState : function () {},
 
 /**
- * @method isOpacityModifyRGB
+ * @method isTouchInside
  * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
  */
-isOpacityModifyRGB : function () {},
+isTouchInside : function () {},
 
 /**
  * @method sendActionsForControlEvents
@@ -144,24 +145,15 @@ sendActionsForControlEvents : function () {},
 setSelected : function () {},
 
 /**
- * @method getTouchLocation
- * @return A value converted from C/C++ "cocos2d::Point"
- * @param {cocos2d::Touch*}
+ * @method registerWithTouchDispatcher
  */
-getTouchLocation : function () {},
+registerWithTouchDispatcher : function () {},
 
 /**
  * @method isEnabled
  * @return A value converted from C/C++ "bool"
  */
 isEnabled : function () {},
-
-/**
- * @method isTouchInside
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- */
-isTouchInside : function () {},
 
 /**
  * @method setOpacityModifyRGB
@@ -199,15 +191,29 @@ init : function () {},
 setHighlighted : function () {},
 
 /**
- * @method registerWithTouchDispatcher
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
  */
-registerWithTouchDispatcher : function () {},
+isOpacityModifyRGB : function () {},
+
+/**
+ * @method getTouchLocation
+ * @return A value converted from C/C++ "cocos2d::Point"
+ * @param {cocos2d::Touch*}
+ */
+getTouchLocation : function () {},
 
 /**
  * @method isHighlighted
  * @return A value converted from C/C++ "bool"
  */
 isHighlighted : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::extension::Control*"
+ */
+create : function () {},
 
 /**
  * @method Control
@@ -223,10 +229,11 @@ Control : function () {},
 cc.Scale9Sprite = {
 
 /**
- * @method getCapInsets
- * @return A value converted from C/C++ "cocos2d::Rect"
+ * @method resizableSpriteWithCapInsets
+ * @return A value converted from C/C++ "cocos2d::extension::Scale9Sprite*"
+ * @param {cocos2d::Rect}
  */
-getCapInsets : function () {},
+resizableSpriteWithCapInsets : function () {},
 
 /**
  * @method setOpacityModifyRGB
@@ -235,14 +242,10 @@ getCapInsets : function () {},
 setOpacityModifyRGB : function () {},
 
 /**
- * @method updateWithBatchNode
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::SpriteBatchNode*}
- * @param {cocos2d::Rect}
- * @param {bool}
- * @param {cocos2d::Rect}
+ * @method setContentSize
+ * @param {cocos2d::Size}
  */
-updateWithBatchNode : function () {},
+setContentSize : function () {},
 
 /**
  * @method setInsetBottom
@@ -255,6 +258,12 @@ setInsetBottom : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isOpacityModifyRGB : function () {},
+
+/**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
 
 /**
  * @method setInsetTop
@@ -305,23 +314,20 @@ getColor : function () {},
 getInsetBottom : function () {},
 
 /**
- * @method resizableSpriteWithCapInsets
- * @return A value converted from C/C++ "cocos2d::extension::Scale9Sprite*"
+ * @method getCapInsets
+ * @return A value converted from C/C++ "cocos2d::Rect"
+ */
+getCapInsets : function () {},
+
+/**
+ * @method updateWithBatchNode
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::SpriteBatchNode*}
+ * @param {cocos2d::Rect}
+ * @param {bool}
  * @param {cocos2d::Rect}
  */
-resizableSpriteWithCapInsets : function () {},
-
-/**
- * @method setOpacity
- * @param {unsigned char}
- */
-setOpacity : function () {},
-
-/**
- * @method setContentSize
- * @param {cocos2d::Size}
- */
-setContentSize : function () {},
+updateWithBatchNode : function () {},
 
 /**
  * @method getInsetRight
@@ -403,10 +409,10 @@ cc.ControlButton = {
 setTitleColorDispatchTable : function () {},
 
 /**
- * @method setZoomOnTouchDown
- * @param {bool}
+ * @method isPushed
+ * @return A value converted from C/C++ "bool"
  */
-setZoomOnTouchDown : function () {},
+isPushed : function () {},
 
 /**
  * @method setSelected
@@ -415,10 +421,11 @@ setZoomOnTouchDown : function () {},
 setSelected : function () {},
 
 /**
- * @method setTitleLabel
+ * @method setTitleLabelForState
  * @param {cocos2d::Node*}
+ * @param {unsigned int}
  */
-setTitleLabel : function () {},
+setTitleLabelForState : function () {},
 
 /**
  * @method ccTouchBegan
@@ -427,13 +434,6 @@ setTitleLabel : function () {},
  * @param {cocos2d::Event*}
  */
 ccTouchBegan : function () {},
-
-/**
- * @method setTitleTTFSizeForState
- * @param {float}
- * @param {unsigned int}
- */
-setTitleTTFSizeForState : function () {},
 
 /**
  * @method setAdjustBackgroundImage
@@ -455,17 +455,16 @@ ccTouchEnded : function () {},
 setHighlighted : function () {},
 
 /**
+ * @method setZoomOnTouchDown
+ * @param {bool}
+ */
+setZoomOnTouchDown : function () {},
+
+/**
  * @method setBackgroundSpriteDispatchTable
  * @param {cocos2d::Dictionary*}
  */
 setBackgroundSpriteDispatchTable : function () {},
-
-/**
- * @method setTitleLabelForState
- * @param {cocos2d::Node*}
- * @param {unsigned int}
- */
-setTitleLabelForState : function () {},
 
 /**
  * @method setTitleForState
@@ -487,11 +486,10 @@ getTitleDispatchTable : function () {},
 setLabelAnchorPoint : function () {},
 
 /**
- * @method ccTouchCancelled
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
+ * @method getPreferredSize
+ * @return A value converted from C/C++ "cocos2d::Size"
  */
-ccTouchCancelled : function () {},
+getPreferredSize : function () {},
 
 /**
  * @method getLabelAnchorPoint
@@ -520,12 +518,6 @@ getTitleTTFSizeForState : function () {},
 setTitleDispatchTable : function () {},
 
 /**
- * @method isPushed
- * @return A value converted from C/C++ "bool"
- */
-isPushed : function () {},
-
-/**
  * @method setOpacity
  * @param {unsigned char}
  */
@@ -545,16 +537,17 @@ init : function () {},
 setTitleTTFForState : function () {},
 
 /**
- * @method setPreferredSize
- * @param {cocos2d::Size}
+ * @method setTitleTTFSizeForState
+ * @param {float}
+ * @param {unsigned int}
  */
-setPreferredSize : function () {},
+setTitleTTFSizeForState : function () {},
 
 /**
- * @method getHorizontalOrigin
- * @return A value converted from C/C++ "int"
+ * @method setTitleLabel
+ * @param {cocos2d::Node*}
  */
-getHorizontalOrigin : function () {},
+setTitleLabel : function () {},
 
 /**
  * @method ccTouchMoved
@@ -586,6 +579,12 @@ getTitleColorDispatchTable : function () {},
  * @param {bool}
  */
 setEnabled : function () {},
+
+/**
+ * @method setBackgroundSprite
+ * @param {cocos2d::extension::Scale9Sprite*}
+ */
+setBackgroundSprite : function () {},
 
 /**
  * @method getBackgroundSpriteForState
@@ -622,11 +621,16 @@ needsLayout : function () {},
 initWithTitleAndFontNameAndFontSize : function () {},
 
 /**
- * @method setTitleBMFontForState
- * @param {const char*}
- * @param {unsigned int}
+ * @method getCurrentTitle
+ * @return A value converted from C/C++ "cocos2d::String*"
  */
-setTitleBMFontForState : function () {},
+getCurrentTitle : function () {},
+
+/**
+ * @method getHorizontalOrigin
+ * @return A value converted from C/C++ "int"
+ */
+getHorizontalOrigin : function () {},
 
 /**
  * @method getTitleTTFForState
@@ -696,6 +700,12 @@ getTitleLabelDispatchTable : function () {},
 initWithLabelAndBackgroundSprite : function () {},
 
 /**
+ * @method setPreferredSize
+ * @param {cocos2d::Size}
+ */
+setPreferredSize : function () {},
+
+/**
  * @method setTitleLabelDispatchTable
  * @param {cocos2d::Dictionary*}
  */
@@ -708,10 +718,11 @@ setTitleLabelDispatchTable : function () {},
 getTitleLabel : function () {},
 
 /**
- * @method getPreferredSize
- * @return A value converted from C/C++ "cocos2d::Size"
+ * @method ccTouchCancelled
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
  */
-getPreferredSize : function () {},
+ccTouchCancelled : function () {},
 
 /**
  * @method getVerticalMargin
@@ -733,10 +744,11 @@ getBackgroundSpriteDispatchTable : function () {},
 getTitleLabelForState : function () {},
 
 /**
- * @method getCurrentTitle
- * @return A value converted from C/C++ "cocos2d::String*"
+ * @method setTitleBMFontForState
+ * @param {const char*}
+ * @param {unsigned int}
  */
-getCurrentTitle : function () {},
+setTitleBMFontForState : function () {},
 
 /**
  * @method getTitleBMFontForState
@@ -744,12 +756,6 @@ getCurrentTitle : function () {},
  * @param {unsigned int}
  */
 getTitleBMFontForState : function () {},
-
-/**
- * @method setBackgroundSprite
- * @param {cocos2d::extension::Scale9Sprite*}
- */
-setBackgroundSprite : function () {},
 
 /**
  * @method getZoomOnTouchDown

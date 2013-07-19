@@ -572,10 +572,10 @@ getShaderProgram : function () {},
 initWithETCFile : function () {},
 
 /**
- * @method stringForFormat
+ * @method getStringForFormat
  * @return A value converted from C/C++ "const char*"
  */
-stringForFormat : function () {},
+getStringForFormat : function () {},
 
 /**
  * @method initWithImage
@@ -703,10 +703,10 @@ setMaxS : function () {},
 setDefaultAlphaPixelFormat : function () {},
 
 /**
- * @method defaultAlphaPixelFormat
+ * @method getDefaultAlphaPixelFormat
  * @return A value converted from C/C++ "cocos2d::Texture2DPixelFormat"
  */
-defaultAlphaPixelFormat : function () {},
+getDefaultAlphaPixelFormat : function () {},
 
 /**
  * @method PVRImagesHavePremultipliedAlpha
@@ -733,18 +733,6 @@ cc.Node = {
  * @param {const char*}
  */
 removeComponent : function () {},
-
-/**
- * @method getShaderProgram
- * @return A value converted from C/C++ "cocos2d::GLProgram*"
- */
-getShaderProgram : function () {},
-
-/**
- * @method getChildren
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getChildren : function () {},
 
 /**
  * @method convertToWorldSpaceAR
@@ -805,6 +793,13 @@ getTag : function () {},
  * @return A value converted from C/C++ "cocos2d::AffineTransform"
  */
 getNodeToWorldTransform : function () {},
+
+/**
+ * @method removeChild
+ * @param {cocos2d::Node*}
+ * @param {bool}
+ */
+removeChild : function () {},
 
 /**
  * @method convertToWorldSpace
@@ -1044,12 +1039,6 @@ setRotationY : function () {},
 setAdditionalTransform : function () {},
 
 /**
- * @method getScheduler
- * @return A value converted from C/C++ "cocos2d::Scheduler*"
- */
-getScheduler : function () {},
-
-/**
  * @method getOrderOfArrival
  * @return A value converted from C/C++ "unsigned int"
  */
@@ -1074,12 +1063,6 @@ setActionManager : function () {},
 isRunning : function () {},
 
 /**
- * @method getParent
- * @return A value converted from C/C++ "cocos2d::Node*"
- */
-getParent : function () {},
-
-/**
  * @method getPositionY
  * @return A value converted from C/C++ "float"
  */
@@ -1090,6 +1073,13 @@ getPositionY : function () {},
  * @return A value converted from C/C++ "float"
  */
 getPositionX : function () {},
+
+/**
+ * @method removeChildByTag
+ * @param {int}
+ * @param {bool}
+ */
+removeChildByTag : function () {},
 
 /**
  * @method setVisible
@@ -1244,12 +1234,6 @@ setTag : function () {},
  * @param {cocos2d::Action*}
  */
 stopAction : function () {},
-
-/**
- * @method getActionManager
- * @return A value converted from C/C++ "cocos2d::ActionManager*"
- */
-getActionManager : function () {},
 
 /**
  * @method create
@@ -11544,11 +11528,19 @@ cc.TMXLayer = {
 addChild : function () {},
 
 /**
- * @method positionAt
+ * @method getTileGIDAt
+ * @return A value converted from C/C++ "unsigned int"
+ * @param {cocos2d::Point}
+ * @param {cocos2d::ccTMXTileFlags*}
+ */
+getTileGIDAt : function () {},
+
+/**
+ * @method getPositionAt
  * @return A value converted from C/C++ "cocos2d::Point"
  * @param {cocos2d::Point}
  */
-positionAt : function () {},
+getPositionAt : function () {},
 
 /**
  * @method setLayerOrientation
@@ -11624,11 +11616,11 @@ setupTiles : function () {},
 getMapTileSize : function () {},
 
 /**
- * @method propertyNamed
+ * @method getPropertyNamed
  * @return A value converted from C/C++ "cocos2d::String*"
  * @param {const char*}
  */
-propertyNamed : function () {},
+getPropertyNamed : function () {},
 
 /**
  * @method setLayerSize
@@ -11668,11 +11660,11 @@ getTileSet : function () {},
 getProperties : function () {},
 
 /**
- * @method tileAt
+ * @method getTileAt
  * @return A value converted from C/C++ "cocos2d::Sprite*"
  * @param {cocos2d::Point}
  */
-tileAt : function () {},
+getTileAt : function () {},
 
 /**
  * @method create
@@ -11849,11 +11841,11 @@ releaseMap : function () {},
 getTGAInfo : function () {},
 
 /**
- * @method tileAt
+ * @method getTileAt
  * @return A value converted from C/C++ "cocos2d::Color3B"
  * @param {cocos2d::Point}
  */
-tileAt : function () {},
+getTileAt : function () {},
 
 /**
  * @method setTile
@@ -11997,6 +11989,18 @@ setBackgroundMusicVolume : function () {},
 stopEffect : function () {},
 
 /**
+ * @method stopBackgroundMusic
+ */
+stopBackgroundMusic : function () {},
+
+/**
+ * @method playBackgroundMusic
+ * @param {const char*}
+ * @param {bool}
+ */
+playBackgroundMusic : function () {},
+
+/**
  * @method pauseAllEffects
  */
 pauseAllEffects : function () {},
@@ -12011,6 +12015,17 @@ preloadBackgroundMusic : function () {},
  * @method resumeBackgroundMusic
  */
 resumeBackgroundMusic : function () {},
+
+/**
+ * @method playEffect
+ * @return A value converted from C/C++ "unsigned int"
+ * @param {const char*}
+ * @param {bool}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ */
+playEffect : function () {},
 
 /**
  * @method rewindBackgroundMusic
@@ -12069,9 +12084,9 @@ resumeEffect : function () {},
 end : function () {},
 
 /**
- * @method sharedEngine
+ * @method getInstance
  * @return A value converted from C/C++ "CocosDenshion::SimpleAudioEngine*"
  */
-sharedEngine : function () {},
+getInstance : function () {},
 
 };

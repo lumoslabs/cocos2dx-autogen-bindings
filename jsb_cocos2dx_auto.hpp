@@ -149,13 +149,13 @@ void js_register_cocos2dx_Texture2D(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_Texture2D_getShaderProgram(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_initWithETCFile(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Texture2D_stringForFormat(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Texture2D_getStringForFormat(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_initWithImage(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_setShaderProgram(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_getMaxS(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_hasPremultipliedAlpha(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_getPixelsHigh(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Texture2D_bitsPerPixelForFormat(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Texture2D_getBitsPerPixelForFormat(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_getName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_initWithString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_setMaxT(JSContext *cx, uint32_t argc, jsval *vp);
@@ -173,7 +173,7 @@ JSBool js_cocos2dx_Texture2D_hasMipmaps(JSContext *cx, uint32_t argc, jsval *vp)
 JSBool js_cocos2dx_Texture2D_initWithPVRFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_setMaxS(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_setDefaultAlphaPixelFormat(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Texture2D_defaultAlphaPixelFormat(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Texture2D_getDefaultAlphaPixelFormat(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_PVRImagesHavePremultipliedAlpha(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Texture2D_Texture2D(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -3276,8 +3276,8 @@ void js_cocos2dx_TMXLayer_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_TMXLayer(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_TMXLayer_addChild(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TMXLayer_tileGIDAt(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TMXLayer_positionAt(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TMXLayer_getTileGIDAt(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TMXLayer_getPositionAt(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_setLayerOrientation(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_releaseMap(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_setTiles(JSContext *cx, uint32_t argc, jsval *vp);
@@ -3291,14 +3291,14 @@ JSBool js_cocos2dx_TMXLayer_initWithTilesetInfo(JSContext *cx, uint32_t argc, js
 JSBool js_cocos2dx_TMXLayer_setupTiles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_setTileGID(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_getMapTileSize(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TMXLayer_propertyNamed(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TMXLayer_getPropertyNamed(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_setLayerSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_getLayerName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_setTileSet(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_removeChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_getTileSet(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_getProperties(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TMXLayer_tileAt(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TMXLayer_getTileAt(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_TMXLayer(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -3339,7 +3339,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_TileMapAtlas_initWithTileFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TileMapAtlas_releaseMap(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TileMapAtlas_getTGAInfo(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TileMapAtlas_tileAt(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TileMapAtlas_getTileAt(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TileMapAtlas_setTile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TileMapAtlas_setTGAInfo(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TileMapAtlas_create(JSContext *cx, uint32_t argc, jsval *vp);
@@ -3399,6 +3399,6 @@ JSBool js_cocos2dx_SimpleAudioEngine_resumeAllEffects(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_SimpleAudioEngine_pauseBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SimpleAudioEngine_resumeEffect(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SimpleAudioEngine_end(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_SimpleAudioEngine_sharedEngine(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_SimpleAudioEngine_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
 #endif
 
