@@ -1175,7 +1175,8 @@ JSBool js_cocos2dx_extension_Scale9Sprite_initWithSpriteFrameName(JSContext *cx,
 			std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithSpriteFrameName(arg0);
-			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
 			JS_SET_RVAL(cx, vp, jsret);
 			return JS_TRUE;
 		}
@@ -1190,7 +1191,8 @@ JSBool js_cocos2dx_extension_Scale9Sprite_initWithSpriteFrameName(JSContext *cx,
 			ok &= jsval_to_ccrect(cx, argv[1], &arg1);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithSpriteFrameName(arg0, arg1);
-			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
 			JS_SET_RVAL(cx, vp, jsret);
 			return JS_TRUE;
 		}
@@ -1464,7 +1466,8 @@ JSBool js_cocos2dx_extension_Scale9Sprite_initWithBatchNode(JSContext *cx, uint3
 			ok &= jsval_to_ccrect(cx, argv[2], &arg2);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithBatchNode(arg0, arg1, arg2);
-			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
 			JS_SET_RVAL(cx, vp, jsret);
 			return JS_TRUE;
 		}
@@ -1492,7 +1495,8 @@ JSBool js_cocos2dx_extension_Scale9Sprite_initWithBatchNode(JSContext *cx, uint3
 			ok &= jsval_to_ccrect(cx, argv[3], &arg3);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithBatchNode(arg0, arg1, arg2, arg3);
-			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
 			JS_SET_RVAL(cx, vp, jsret);
 			return JS_TRUE;
 		}
@@ -1624,7 +1628,8 @@ JSBool js_cocos2dx_extension_Scale9Sprite_initWithFile(JSContext *cx, uint32_t a
 			ok &= jsval_to_ccrect(cx, argv[1], &arg1);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithFile(arg0, arg1);
-			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
 			JS_SET_RVAL(cx, vp, jsret);
 			return JS_TRUE;
 		}
@@ -1642,7 +1647,8 @@ JSBool js_cocos2dx_extension_Scale9Sprite_initWithFile(JSContext *cx, uint32_t a
 			ok &= jsval_to_ccrect(cx, argv[2], &arg2);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithFile(arg0, arg1, arg2);
-			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
 			JS_SET_RVAL(cx, vp, jsret);
 			return JS_TRUE;
 		}
@@ -1657,7 +1663,8 @@ JSBool js_cocos2dx_extension_Scale9Sprite_initWithFile(JSContext *cx, uint32_t a
 			std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithFile(arg0, arg1);
-			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
 			JS_SET_RVAL(cx, vp, jsret);
 			return JS_TRUE;
 		}
@@ -1669,7 +1676,8 @@ JSBool js_cocos2dx_extension_Scale9Sprite_initWithFile(JSContext *cx, uint32_t a
 			std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithFile(arg0);
-			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
 			JS_SET_RVAL(cx, vp, jsret);
 			return JS_TRUE;
 		}
@@ -1759,7 +1767,8 @@ JSBool js_cocos2dx_extension_Scale9Sprite_initWithSpriteFrame(JSContext *cx, uin
 			} while (0);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithSpriteFrame(arg0);
-			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
 			JS_SET_RVAL(cx, vp, jsret);
 			return JS_TRUE;
 		}
@@ -1781,7 +1790,8 @@ JSBool js_cocos2dx_extension_Scale9Sprite_initWithSpriteFrame(JSContext *cx, uin
 			ok &= jsval_to_ccrect(cx, argv[1], &arg1);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithSpriteFrame(arg0, arg1);
-			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
 			JS_SET_RVAL(cx, vp, jsret);
 			return JS_TRUE;
 		}

@@ -1040,7 +1040,7 @@ setAdditionalTransform : function () {},
 
 /**
  * @method getOrderOfArrival
- * @return A value converted from C/C++ "unsigned int"
+ * @return A value converted from C/C++ "int"
  */
 getOrderOfArrival : function () {},
 
@@ -1125,7 +1125,7 @@ getChildByTag : function () {},
 
 /**
  * @method setOrderOfArrival
- * @param {unsigned int}
+ * @param {int}
  */
 setOrderOfArrival : function () {},
 
@@ -2206,7 +2206,7 @@ reverse : function () {},
  * @param {float}
  * @param {cocos2d::Point}
  * @param {float}
- * @param {unsigned int}
+ * @param {int}
  */
 initWithDuration : function () {},
 
@@ -2222,7 +2222,7 @@ update : function () {},
  * @param {float}
  * @param {cocos2d::Point}
  * @param {float}
- * @param {unsigned int}
+ * @param {int}
  */
 create : function () {},
 
@@ -2412,7 +2412,7 @@ reverse : function () {},
  * @method initWithDuration
  * @return A value converted from C/C++ "bool"
  * @param {float}
- * @param {unsigned int}
+ * @param {int}
  */
 initWithDuration : function () {},
 
@@ -2437,7 +2437,7 @@ update : function () {},
  * @method create
  * @return A value converted from C/C++ "cocos2d::Blink*"
  * @param {float}
- * @param {unsigned int}
+ * @param {int}
  */
 create : function () {},
 
@@ -2700,12 +2700,6 @@ cc.Animate = {
 startWithTarget : function () {},
 
 /**
- * @method getAnimation
- * @return A value converted from C/C++ "cocos2d::Animation*"
- */
-getAnimation : function () {},
-
-/**
  * @method reverse
  * @return A value converted from C/C++ "cocos2d::Animate*"
  */
@@ -2803,12 +2797,6 @@ stop : function () {},
  * @param {float}
  */
 update : function () {},
-
-/**
- * @method getForcedTarget
- * @return A value converted from C/C++ "cocos2d::Node*"
- */
-getForcedTarget : function () {},
 
 /**
  * @method create
@@ -6456,7 +6444,7 @@ isFrameDisplayed : function () {},
 
 /**
  * @method getAtlasIndex
- * @return A value converted from C/C++ "unsigned int"
+ * @return A value converted from C/C++ "int"
  */
 getAtlasIndex : function () {},
 
@@ -6516,7 +6504,7 @@ isDirty : function () {},
 
 /**
  * @method setAtlasIndex
- * @param {unsigned int}
+ * @param {int}
  */
 setAtlasIndex : function () {},
 
@@ -6880,7 +6868,7 @@ draw : function () {},
  * @method initWithTexture
  * @return A value converted from C/C++ "bool"
  * @param {cocos2d::Texture2D*}
- * @param {unsigned int}
+ * @param {int}
  */
 initWithTexture : function () {},
 
@@ -9213,18 +9201,6 @@ isReverseDirection : function () {},
 setBarChangeRate : function () {},
 
 /**
- * @method setColor
- * @param {cocos2d::Color3B}
- */
-setColor : function () {},
-
-/**
- * @method getBarChangeRate
- * @return A value converted from C/C++ "cocos2d::Point"
- */
-getBarChangeRate : function () {},
-
-/**
  * @method getPercentage
  * @return A value converted from C/C++ "float"
  */
@@ -9241,6 +9217,12 @@ setSprite : function () {},
  * @return A value converted from C/C++ "cocos2d::ProgressTimerType"
  */
 getType : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
 
 /**
  * @method setOpacity
@@ -9273,10 +9255,10 @@ getMidpoint : function () {},
 getColor : function () {},
 
 /**
- * @method getOpacity
- * @return A value converted from C/C++ "unsigned char"
+ * @method getBarChangeRate
+ * @return A value converted from C/C++ "cocos2d::Point"
  */
-getOpacity : function () {},
+getBarChangeRate : function () {},
 
 /**
  * @method initWithSprite
@@ -9284,6 +9266,12 @@ getOpacity : function () {},
  * @param {cocos2d::Sprite*}
  */
 initWithSprite : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::Color3B}
+ */
+setColor : function () {},
 
 /**
  * @method setPercentage
@@ -9524,7 +9512,7 @@ removeChild : function () {},
 /**
  * @method insertChild
  * @param {cocos2d::ParticleSystem*}
- * @param {unsigned int}
+ * @param {int}
  */
 insertChild : function () {},
 
@@ -9839,7 +9827,7 @@ updateQuadWithParticle : function () {},
 
 /**
  * @method getAtlasIndex
- * @return A value converted from C/C++ "unsigned int"
+ * @return A value converted from C/C++ "int"
  */
 getAtlasIndex : function () {},
 
@@ -9862,7 +9850,7 @@ resetSystem : function () {},
 
 /**
  * @method setAtlasIndex
- * @param {unsigned int}
+ * @param {int}
  */
 setAtlasIndex : function () {},
 
@@ -11142,12 +11130,6 @@ removeAllChildrenWithCleanup : function () {},
  * @param {bool}
  */
 removeChild : function () {},
-
-/**
- * @method getParallaxArray
- * @return A value converted from C/C++ "_ccArray*"
- */
-getParallaxArray : function () {},
 
 /**
  * @method setParallaxArray
