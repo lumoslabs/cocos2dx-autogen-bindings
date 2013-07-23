@@ -5613,16 +5613,22 @@ initWithTexture : function () {},
 setColor : function () {},
 
 /**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
  * @method getTexture
  * @return A value converted from C/C++ "cocos2d::Texture2D*"
  */
 getTexture : function () {},
 
 /**
- * @method getColor
- * @return A value converted from C/C++ "cocos2d::Color3B"
+ * @method setTextureAtlas
+ * @param {cocos2d::TextureAtlas*}
  */
-getColor : function () {},
+setTextureAtlas : function () {},
 
 /**
  * @method getTextureAtlas
@@ -5637,16 +5643,22 @@ getTextureAtlas : function () {},
 setOpacityModifyRGB : function () {},
 
 /**
- * @method setOpacity
- * @param {unsigned char}
+ * @method getQuadsToDraw
+ * @return A value converted from C/C++ "unsigned int"
  */
-setOpacity : function () {},
+getQuadsToDraw : function () {},
 
 /**
  * @method setTexture
  * @param {cocos2d::Texture2D*}
  */
 setTexture : function () {},
+
+/**
+ * @method getColor
+ * @return A value converted from C/C++ "cocos2d::Color3B"
+ */
+getColor : function () {},
 
 /**
  * @method initWithTileFile
@@ -5659,28 +5671,16 @@ setTexture : function () {},
 initWithTileFile : function () {},
 
 /**
- * @method getQuadsToDraw
- * @return A value converted from C/C++ "unsigned int"
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
  */
-getQuadsToDraw : function () {},
+isOpacityModifyRGB : function () {},
 
 /**
  * @method setQuadsToDraw
  * @param {unsigned int}
  */
 setQuadsToDraw : function () {},
-
-/**
- * @method setTextureAtlas
- * @param {cocos2d::TextureAtlas*}
- */
-setTextureAtlas : function () {},
-
-/**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
 
 /**
  * @method create
@@ -6929,6 +6929,22 @@ removeChild : function () {},
  * @param {cocos2d::Sprite*}
  */
 highestAtlasIndexInChild : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::SpriteBatchNode*"
+ * @param {const char*}
+ * @param {int}
+ */
+create : function () {},
+
+/**
+ * @method createWithTexture
+ * @return A value converted from C/C++ "cocos2d::SpriteBatchNode*"
+ * @param {cocos2d::Texture2D*}
+ * @param {int}
+ */
+createWithTexture : function () {},
 
 /**
  * @method SpriteBatchNode
@@ -8734,10 +8750,9 @@ cc.MenuItemSprite = {
 setEnabled : function () {},
 
 /**
- * @method getDisabledImage
- * @return A value converted from C/C++ "cocos2d::Node*"
+ * @method selected
  */
-getDisabledImage : function () {},
+selected : function () {},
 
 /**
  * @method setNormalImage
@@ -8768,9 +8783,10 @@ initWithNormalSprite : function () {},
 setSelectedImage : function () {},
 
 /**
- * @method selected
+ * @method getDisabledImage
+ * @return A value converted from C/C++ "cocos2d::Node*"
  */
-selected : function () {},
+getDisabledImage : function () {},
 
 /**
  * @method getSelectedImage
@@ -8850,10 +8866,10 @@ MenuItemImage : function () {},
 cc.MenuItemToggle = {
 
 /**
- * @method setEnabled
- * @param {bool}
+ * @method setSubItems
+ * @param {cocos2d::Array*}
  */
-setEnabled : function () {},
+setSubItems : function () {},
 
 /**
  * @method initWithItem
@@ -8869,10 +8885,10 @@ initWithItem : function () {},
 setSelectedIndex : function () {},
 
 /**
- * @method setSubItems
- * @param {cocos2d::Array*}
+ * @method setEnabled
+ * @param {bool}
  */
-setSubItems : function () {},
+setEnabled : function () {},
 
 /**
  * @method getSelectedIndex
@@ -9480,15 +9496,21 @@ initWithFile : function () {},
 disableParticle : function () {},
 
 /**
+ * @method visit
+ */
+visit : function () {},
+
+/**
  * @method getTexture
  * @return A value converted from C/C++ "cocos2d::Texture2D*"
  */
 getTexture : function () {},
 
 /**
- * @method visit
+ * @method setTextureAtlas
+ * @param {cocos2d::TextureAtlas*}
  */
-visit : function () {},
+setTextureAtlas : function () {},
 
 /**
  * @method removeAllChildrenWithCleanup
@@ -9537,12 +9559,6 @@ removeChildAtIndex : function () {},
  * @param {int}
  */
 reorderChild : function () {},
-
-/**
- * @method setTextureAtlas
- * @param {cocos2d::TextureAtlas*}
- */
-setTextureAtlas : function () {},
 
 /**
  * @method create
@@ -9873,6 +9889,12 @@ setEndRadiusVar : function () {},
 getEndRadius : function () {},
 
 /**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
  * @method isActive
  * @return A value converted from C/C++ "bool"
  */
@@ -9969,10 +9991,10 @@ setRotationIsDir : function () {},
 setEndSizeVar : function () {},
 
 /**
- * @method getEndColorVar
- * @return A value converted from C/C++ "cocos2d::Color4F"
+ * @method setAngle
+ * @param {float}
  */
-getEndColorVar : function () {},
+setAngle : function () {},
 
 /**
  * @method setBatchNode
@@ -10065,10 +10087,10 @@ postStep : function () {},
 setEmissionRate : function () {},
 
 /**
- * @method setAngle
- * @param {float}
+ * @method getEndColorVar
+ * @return A value converted from C/C++ "cocos2d::Color4F"
  */
-setAngle : function () {},
+getEndColorVar : function () {},
 
 /**
  * @method getRotationIsDir
@@ -10117,12 +10139,6 @@ setOpacityModifyRGB : function () {},
  * @return A value converted from C/C++ "bool"
  */
 addParticle : function () {},
-
-/**
- * @method getOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-getOpacityModifyRGB : function () {},
 
 /**
  * @method getStartRadius
@@ -11163,13 +11179,6 @@ cc.TMXObjectGroup = {
 setPositionOffset : function () {},
 
 /**
- * @method objectNamed
- * @return A value converted from C/C++ "cocos2d::Dictionary*"
- * @param {const char*}
- */
-objectNamed : function () {},
-
-/**
  * @method getPositionOffset
  * @return A value converted from C/C++ "cocos2d::Point"
  */
@@ -11200,23 +11209,30 @@ getProperties : function () {},
 getGroupName : function () {},
 
 /**
- * @method setProperties
- * @param {cocos2d::Dictionary*}
- */
-setProperties : function () {},
-
-/**
- * @method propertyNamed
+ * @method getPropertyNamed
  * @return A value converted from C/C++ "cocos2d::String*"
  * @param {const char*}
  */
-propertyNamed : function () {},
+getPropertyNamed : function () {},
+
+/**
+ * @method getObjectNamed
+ * @return A value converted from C/C++ "cocos2d::Dictionary*"
+ * @param {const char*}
+ */
+getObjectNamed : function () {},
 
 /**
  * @method setObjects
  * @param {cocos2d::Array*}
  */
 setObjects : function () {},
+
+/**
+ * @method setProperties
+ * @param {cocos2d::Dictionary*}
+ */
+setProperties : function () {},
 
 /**
  * @method TMXObjectGroup
@@ -11277,12 +11293,6 @@ TMXTilesetInfo : function () {},
 cc.TMXMapInfo = {
 
 /**
- * @method getTileProperties
- * @return A value converted from C/C++ "cocos2d::Dictionary*"
- */
-getTileProperties : function () {},
-
-/**
  * @method setObjectGroups
  * @param {cocos2d::Array*}
  */
@@ -11308,10 +11318,10 @@ initWithTMXFile : function () {},
 getOrientation : function () {},
 
 /**
- * @method setTMXFileName
- * @param {const char*}
+ * @method isStoringCharacters
+ * @return A value converted from C/C++ "bool"
  */
-setTMXFileName : function () {},
+isStoringCharacters : function () {},
 
 /**
  * @method setLayers
@@ -11320,16 +11330,11 @@ setTMXFileName : function () {},
 setLayers : function () {},
 
 /**
- * @method setStoringCharacters
- * @param {bool}
- */
-setStoringCharacters : function () {},
-
-/**
- * @method getStoringCharacters
+ * @method parseXMLFile
  * @return A value converted from C/C++ "bool"
+ * @param {const char*}
  */
-getStoringCharacters : function () {},
+parseXMLFile : function () {},
 
 /**
  * @method getParentElement
@@ -11338,10 +11343,17 @@ getStoringCharacters : function () {},
 getParentElement : function () {},
 
 /**
- * @method getLayerAttribs
- * @return A value converted from C/C++ "int"
+ * @method setTMXFileName
+ * @param {const char*}
  */
-getLayerAttribs : function () {},
+setTMXFileName : function () {},
+
+/**
+ * @method parseXMLString
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ */
+parseXMLString : function () {},
 
 /**
  * @method getLayers
@@ -11368,10 +11380,12 @@ getParentGID : function () {},
 setParentElement : function () {},
 
 /**
- * @method setProperties
- * @param {cocos2d::Dictionary*}
+ * @method initWithXML
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {const char*}
  */
-setProperties : function () {},
+initWithXML : function () {},
 
 /**
  * @method setParentGID
@@ -11380,11 +11394,10 @@ setProperties : function () {},
 setParentGID : function () {},
 
 /**
- * @method parseXMLString
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
+ * @method getLayerAttribs
+ * @return A value converted from C/C++ "int"
  */
-parseXMLString : function () {},
+getLayerAttribs : function () {},
 
 /**
  * @method getTileSize
@@ -11393,16 +11406,16 @@ parseXMLString : function () {},
 getTileSize : function () {},
 
 /**
+ * @method getTileProperties
+ * @return A value converted from C/C++ "cocos2d::Dictionary*"
+ */
+getTileProperties : function () {},
+
+/**
  * @method getObjectGroups
  * @return A value converted from C/C++ "cocos2d::Array*"
  */
 getObjectGroups : function () {},
-
-/**
- * @method setLayerAttribs
- * @param {int}
- */
-setLayerAttribs : function () {},
 
 /**
  * @method getTMXFileName
@@ -11417,12 +11430,10 @@ getTMXFileName : function () {},
 setCurrentString : function () {},
 
 /**
- * @method initWithXML
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
- * @param {const char*}
+ * @method setProperties
+ * @param {cocos2d::Dictionary*}
  */
-initWithXML : function () {},
+setProperties : function () {},
 
 /**
  * @method setOrientation
@@ -11443,11 +11454,10 @@ setTileProperties : function () {},
 setMapSize : function () {},
 
 /**
- * @method parseXMLFile
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
+ * @method setStoringCharacters
+ * @param {bool}
  */
-parseXMLFile : function () {},
+setStoringCharacters : function () {},
 
 /**
  * @method getMapSize
@@ -11474,19 +11484,25 @@ getProperties : function () {},
 getCurrentString : function () {},
 
 /**
- * @method formatWithTMXFile
- * @return A value converted from C/C++ "cocos2d::TMXMapInfo*"
- * @param {const char*}
+ * @method setLayerAttribs
+ * @param {int}
  */
-formatWithTMXFile : function () {},
+setLayerAttribs : function () {},
 
 /**
- * @method formatWithXML
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::TMXMapInfo*"
+ * @param {const char*}
+ */
+create : function () {},
+
+/**
+ * @method createWithXML
  * @return A value converted from C/C++ "cocos2d::TMXMapInfo*"
  * @param {const char*}
  * @param {const char*}
  */
-formatWithXML : function () {},
+createWithXML : function () {},
 
 /**
  * @method TMXMapInfo
@@ -11671,13 +11687,6 @@ TMXLayer : function () {},
 cc.TMXTiledMap = {
 
 /**
- * @method propertiesForGID
- * @return A value converted from C/C++ "cocos2d::Dictionary*"
- * @param {int}
- */
-propertiesForGID : function () {},
-
-/**
  * @method setObjectGroups
  * @param {cocos2d::Array*}
  */
@@ -11702,18 +11711,24 @@ setMapSize : function () {},
 getTileSize : function () {},
 
 /**
- * @method getObjectGroups
- * @return A value converted from C/C++ "cocos2d::Array*"
+ * @method getPropertiesForGID
+ * @return A value converted from C/C++ "cocos2d::Dictionary*"
+ * @param {int}
  */
-getObjectGroups : function () {},
+getPropertiesForGID : function () {},
 
 /**
- * @method initWithXML
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
+ * @method getObjectGroupNamed
+ * @return A value converted from C/C++ "cocos2d::TMXObjectGroup*"
  * @param {const char*}
  */
-initWithXML : function () {},
+getObjectGroupNamed : function () {},
+
+/**
+ * @method getMapOrientation
+ * @return A value converted from C/C++ "int"
+ */
+getMapOrientation : function () {},
 
 /**
  * @method initWithTMXFile
@@ -11723,17 +11738,16 @@ initWithXML : function () {},
 initWithTMXFile : function () {},
 
 /**
- * @method objectGroupNamed
- * @return A value converted from C/C++ "cocos2d::TMXObjectGroup*"
- * @param {const char*}
- */
-objectGroupNamed : function () {},
-
-/**
  * @method getMapSize
  * @return A value converted from C/C++ "cocos2d::Size"
  */
 getMapSize : function () {},
+
+/**
+ * @method getObjectGroups
+ * @return A value converted from C/C++ "cocos2d::Array*"
+ */
+getObjectGroups : function () {},
 
 /**
  * @method getProperties
@@ -11748,30 +11762,32 @@ getProperties : function () {},
 setMapOrientation : function () {},
 
 /**
+ * @method initWithXML
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {const char*}
+ */
+initWithXML : function () {},
+
+/**
+ * @method getLayerNamed
+ * @return A value converted from C/C++ "cocos2d::TMXLayer*"
+ * @param {const char*}
+ */
+getLayerNamed : function () {},
+
+/**
+ * @method getPropertyNamed
+ * @return A value converted from C/C++ "cocos2d::String*"
+ * @param {const char*}
+ */
+getPropertyNamed : function () {},
+
+/**
  * @method setProperties
  * @param {cocos2d::Dictionary*}
  */
 setProperties : function () {},
-
-/**
- * @method layerNamed
- * @return A value converted from C/C++ "cocos2d::TMXLayer*"
- * @param {const char*}
- */
-layerNamed : function () {},
-
-/**
- * @method getMapOrientation
- * @return A value converted from C/C++ "int"
- */
-getMapOrientation : function () {},
-
-/**
- * @method propertyNamed
- * @return A value converted from C/C++ "cocos2d::String*"
- * @param {const char*}
- */
-propertyNamed : function () {},
 
 /**
  * @method create
