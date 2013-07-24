@@ -11693,10 +11693,11 @@ cc.TMXTiledMap = {
 setObjectGroups : function () {},
 
 /**
- * @method setTileSize
- * @param {cocos2d::Size}
+ * @method getProperty
+ * @return A value converted from C/C++ "cocos2d::String*"
+ * @param {const char*}
  */
-setTileSize : function () {},
+getProperty : function () {},
 
 /**
  * @method setMapSize
@@ -11705,10 +11706,11 @@ setTileSize : function () {},
 setMapSize : function () {},
 
 /**
- * @method getTileSize
- * @return A value converted from C/C++ "cocos2d::Size"
+ * @method getObjectGroup
+ * @return A value converted from C/C++ "cocos2d::TMXObjectGroup*"
+ * @param {const char*}
  */
-getTileSize : function () {},
+getObjectGroup : function () {},
 
 /**
  * @method getPropertiesForGID
@@ -11718,17 +11720,10 @@ getTileSize : function () {},
 getPropertiesForGID : function () {},
 
 /**
- * @method getObjectGroupNamed
- * @return A value converted from C/C++ "cocos2d::TMXObjectGroup*"
- * @param {const char*}
+ * @method getObjectGroups
+ * @return A value converted from C/C++ "cocos2d::Array*"
  */
-getObjectGroupNamed : function () {},
-
-/**
- * @method getMapOrientation
- * @return A value converted from C/C++ "int"
- */
-getMapOrientation : function () {},
+getObjectGroups : function () {},
 
 /**
  * @method initWithTMXFile
@@ -11738,16 +11733,16 @@ getMapOrientation : function () {},
 initWithTMXFile : function () {},
 
 /**
+ * @method getTileSize
+ * @return A value converted from C/C++ "cocos2d::Size"
+ */
+getTileSize : function () {},
+
+/**
  * @method getMapSize
  * @return A value converted from C/C++ "cocos2d::Size"
  */
 getMapSize : function () {},
-
-/**
- * @method getObjectGroups
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getObjectGroups : function () {},
 
 /**
  * @method getProperties
@@ -11756,10 +11751,10 @@ getObjectGroups : function () {},
 getProperties : function () {},
 
 /**
- * @method setMapOrientation
- * @param {int}
+ * @method setTileSize
+ * @param {cocos2d::Size}
  */
-setMapOrientation : function () {},
+setTileSize : function () {},
 
 /**
  * @method initWithXML
@@ -11770,18 +11765,23 @@ setMapOrientation : function () {},
 initWithXML : function () {},
 
 /**
- * @method getLayerNamed
+ * @method getLayer
  * @return A value converted from C/C++ "cocos2d::TMXLayer*"
  * @param {const char*}
  */
-getLayerNamed : function () {},
+getLayer : function () {},
 
 /**
- * @method getPropertyNamed
- * @return A value converted from C/C++ "cocos2d::String*"
- * @param {const char*}
+ * @method getMapOrientation
+ * @return A value converted from C/C++ "int"
  */
-getPropertyNamed : function () {},
+getMapOrientation : function () {},
+
+/**
+ * @method setMapOrientation
+ * @param {int}
+ */
+setMapOrientation : function () {},
 
 /**
  * @method setProperties
