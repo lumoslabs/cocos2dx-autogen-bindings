@@ -3193,15 +3193,15 @@ void js_cocos2dx_TMXObjectGroup_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_TMXObjectGroup(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_TMXObjectGroup_setPositionOffset(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TMXObjectGroup_getProperty(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXObjectGroup_getPositionOffset(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TMXObjectGroup_getObject(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXObjectGroup_getObjects(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXObjectGroup_setGroupName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXObjectGroup_getProperties(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXObjectGroup_getGroupName(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TMXObjectGroup_getPropertyNamed(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TMXObjectGroup_getObjectNamed(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TMXObjectGroup_setObjects(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXObjectGroup_setProperties(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TMXObjectGroup_setObjects(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXObjectGroup_TMXObjectGroup(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_TMXLayerInfo_class;
@@ -3291,7 +3291,7 @@ JSBool js_cocos2dx_TMXLayer_initWithTilesetInfo(JSContext *cx, uint32_t argc, js
 JSBool js_cocos2dx_TMXLayer_setupTiles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_setTileGID(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_getMapTileSize(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_TMXLayer_getPropertyNamed(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TMXLayer_getProperty(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_setLayerSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_getLayerName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_TMXLayer_setTileSet(JSContext *cx, uint32_t argc, jsval *vp);

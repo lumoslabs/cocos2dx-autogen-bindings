@@ -11179,10 +11179,24 @@ cc.TMXObjectGroup = {
 setPositionOffset : function () {},
 
 /**
+ * @method getProperty
+ * @return A value converted from C/C++ "cocos2d::String*"
+ * @param {const char*}
+ */
+getProperty : function () {},
+
+/**
  * @method getPositionOffset
  * @return A value converted from C/C++ "cocos2d::Point"
  */
 getPositionOffset : function () {},
+
+/**
+ * @method getObject
+ * @return A value converted from C/C++ "cocos2d::Dictionary*"
+ * @param {const char*}
+ */
+getObject : function () {},
 
 /**
  * @method getObjects
@@ -11209,30 +11223,16 @@ getProperties : function () {},
 getGroupName : function () {},
 
 /**
- * @method getPropertyNamed
- * @return A value converted from C/C++ "cocos2d::String*"
- * @param {const char*}
+ * @method setProperties
+ * @param {cocos2d::Dictionary*}
  */
-getPropertyNamed : function () {},
-
-/**
- * @method getObjectNamed
- * @return A value converted from C/C++ "cocos2d::Dictionary*"
- * @param {const char*}
- */
-getObjectNamed : function () {},
+setProperties : function () {},
 
 /**
  * @method setObjects
  * @param {cocos2d::Array*}
  */
 setObjects : function () {},
-
-/**
- * @method setProperties
- * @param {cocos2d::Dictionary*}
- */
-setProperties : function () {},
 
 /**
  * @method TMXObjectGroup
@@ -11614,11 +11614,11 @@ setupTiles : function () {},
 getMapTileSize : function () {},
 
 /**
- * @method getPropertyNamed
+ * @method getProperty
  * @return A value converted from C/C++ "cocos2d::String*"
  * @param {const char*}
  */
-getPropertyNamed : function () {},
+getProperty : function () {},
 
 /**
  * @method setLayerSize
