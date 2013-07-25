@@ -554,6 +554,13 @@ create : function () {},
 };
 
 /**
+ * @class Label
+ */
+cc.Label = {
+
+};
+
+/**
  * @class Texture2D
  */
 cc.Texture2D = {
@@ -655,7 +662,7 @@ generateMipmap : function () {},
 
 /**
  * @method getPixelFormat
- * @return A value converted from C/C++ "cocos2d::Texture2DPixelFormat"
+ * @return A value converted from C/C++ "cocos2d::Texture2D::PixelFormat"
  */
 getPixelFormat : function () {},
 
@@ -698,13 +705,13 @@ setMaxS : function () {},
 
 /**
  * @method setDefaultAlphaPixelFormat
- * @param {cocos2d::Texture2DPixelFormat}
+ * @param {cocos2d::Texture2D::PixelFormat}
  */
 setDefaultAlphaPixelFormat : function () {},
 
 /**
  * @method getDefaultAlphaPixelFormat
- * @return A value converted from C/C++ "cocos2d::Texture2DPixelFormat"
+ * @return A value converted from C/C++ "cocos2d::Texture2D::PixelFormat"
  */
 getDefaultAlphaPixelFormat : function () {},
 
@@ -6088,7 +6095,7 @@ isDisplayStats : function () {},
 
 /**
  * @method setProjection
- * @param {cocos2d::ccDirectorProjection}
+ * @param {cocos2d::Director::Projection}
  */
 setProjection : function () {},
 
@@ -6678,7 +6685,7 @@ setFontName : function () {},
 
 /**
  * @method getHorizontalAlignment
- * @return A value converted from C/C++ "cocos2d::TextAlignment"
+ * @return A value converted from C/C++ "cocos2d::Label::TextAlignment"
  */
 getHorizontalAlignment : function () {},
 
@@ -6725,7 +6732,7 @@ getDimensions : function () {},
 
 /**
  * @method setVerticalAlignment
- * @param {cocos2d::VerticalTextAlignment}
+ * @param {cocos2d::Label::VerticalTextAlignment}
  */
 setVerticalAlignment : function () {},
 
@@ -6737,7 +6744,7 @@ setFontSize : function () {},
 
 /**
  * @method getVerticalAlignment
- * @return A value converted from C/C++ "cocos2d::VerticalTextAlignment"
+ * @return A value converted from C/C++ "cocos2d::Label::VerticalTextAlignment"
  */
 getVerticalAlignment : function () {},
 
@@ -6755,7 +6762,7 @@ getFontName : function () {},
 
 /**
  * @method setHorizontalAlignment
- * @param {cocos2d::TextAlignment}
+ * @param {cocos2d::Label::TextAlignment}
  */
 setHorizontalAlignment : function () {},
 
@@ -7029,7 +7036,7 @@ isCascadeOpacityEnabled : function () {},
  * @param {const char*}
  * @param {const char*}
  * @param {float}
- * @param {cocos2d::TextAlignment}
+ * @param {cocos2d::Label::TextAlignment}
  * @param {cocos2d::Point}
  */
 initWithString : function () {},
@@ -7132,7 +7139,7 @@ updateDisplayedColor : function () {},
 
 /**
  * @method setAlignment
- * @param {cocos2d::TextAlignment}
+ * @param {cocos2d::Label::TextAlignment}
  */
 setAlignment : function () {},
 
@@ -7251,7 +7258,7 @@ ccTouchesEnded : function () {},
 
 /**
  * @method setTouchMode
- * @param {cocos2d::ccTouchesMode}
+ * @param {cocos2d::Layer::TouchesMode}
  */
 setTouchMode : function () {},
 
@@ -7703,7 +7710,7 @@ cc.TransitionSceneOriented = {
  * @return A value converted from C/C++ "bool"
  * @param {float}
  * @param {cocos2d::Scene*}
- * @param {cocos2d::tOrientation}
+ * @param {cocos2d::TransitionScene::Orientation}
  */
 initWithDuration : function () {},
 
@@ -7712,7 +7719,7 @@ initWithDuration : function () {},
  * @return A value converted from C/C++ "cocos2d::TransitionSceneOriented*"
  * @param {float}
  * @param {cocos2d::Scene*}
- * @param {cocos2d::tOrientation}
+ * @param {cocos2d::TransitionScene::Orientation}
  */
 create : function () {},
 
@@ -9230,7 +9237,7 @@ setSprite : function () {},
 
 /**
  * @method getType
- * @return A value converted from C/C++ "cocos2d::ProgressTimerType"
+ * @return A value converted from C/C++ "cocos2d::ProgressTimer::Type"
  */
 getType : function () {},
 
@@ -9297,7 +9304,7 @@ setPercentage : function () {},
 
 /**
  * @method setType
- * @param {cocos2d::ProgressTimerType}
+ * @param {cocos2d::ProgressTimer::Type}
  */
 setType : function () {},
 
@@ -9621,7 +9628,7 @@ getStartColor : function () {},
 
 /**
  * @method getPositionType
- * @return A value converted from C/C++ "cocos2d::tPositionType"
+ * @return A value converted from C/C++ "cocos2d::ParticleSystem::PositionType"
  */
 getPositionType : function () {},
 
@@ -9801,7 +9808,7 @@ getSpeedVar : function () {},
 
 /**
  * @method setPositionType
- * @param {cocos2d::tPositionType}
+ * @param {cocos2d::ParticleSystem::PositionType}
  */
 setPositionType : function () {},
 
