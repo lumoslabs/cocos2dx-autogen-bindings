@@ -2010,6 +2010,7 @@ JSBool js_cocos2dx_Layer_isKeyboardEnabled(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_Layer_setAccelerometerInterval(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_ccTouchesCancelled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_ccTouchesMoved(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Layer_isSwallowsTouches(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_getTouchMode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_setAccelerometerEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_init(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2023,6 +2024,7 @@ JSBool js_cocos2dx_Layer_setTouchMode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_isAccelerometerEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_ccTouchEnded(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_ccTouchCancelled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Layer_setSwallowsTouches(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_ccTouchesBegan(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_setTouchPriority(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Layer_getTouchPriority(JSContext *cx, uint32_t argc, jsval *vp);

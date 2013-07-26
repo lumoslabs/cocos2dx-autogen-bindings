@@ -7201,6 +7201,12 @@ ccTouchesCancelled : function () {},
 ccTouchesMoved : function () {},
 
 /**
+ * @method isSwallowsTouches
+ * @return A value converted from C/C++ "bool"
+ */
+isSwallowsTouches : function () {},
+
+/**
  * @method getTouchMode
  * @return A value converted from C/C++ "cocos2d::Touch::DispatchMode"
  */
@@ -7281,6 +7287,12 @@ ccTouchEnded : function () {},
  * @param {cocos2d::Event*}
  */
 ccTouchCancelled : function () {},
+
+/**
+ * @method setSwallowsTouches
+ * @param {bool}
+ */
+setSwallowsTouches : function () {},
 
 /**
  * @method ccTouchesBegan
