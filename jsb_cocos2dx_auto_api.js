@@ -879,6 +879,12 @@ stopActionByTag : function () {},
 reorderChild : function () {},
 
 /**
+ * @method ignoreAnchorPointForPosition
+ * @param {bool}
+ */
+ignoreAnchorPointForPosition : function () {},
+
+/**
  * @method setPositionY
  * @param {float}
  */
@@ -1013,12 +1019,6 @@ getSkewX : function () {},
  * @return A value converted from C/C++ "float"
  */
 getSkewY : function () {},
-
-/**
- * @method ignoreAnchorPointForPosition
- * @param {bool}
- */
-ignoreAnchorPointForPosition : function () {},
 
 /**
  * @method getActionByTag
@@ -6685,7 +6685,7 @@ setFontName : function () {},
 
 /**
  * @method getHorizontalAlignment
- * @return A value converted from C/C++ "cocos2d::Label::TextAlignment"
+ * @return A value converted from C/C++ "cocos2d::Label::HAlignment"
  */
 getHorizontalAlignment : function () {},
 
@@ -6732,7 +6732,7 @@ getDimensions : function () {},
 
 /**
  * @method setVerticalAlignment
- * @param {cocos2d::Label::VerticalTextAlignment}
+ * @param {cocos2d::Label::VAlignment}
  */
 setVerticalAlignment : function () {},
 
@@ -6744,7 +6744,7 @@ setFontSize : function () {},
 
 /**
  * @method getVerticalAlignment
- * @return A value converted from C/C++ "cocos2d::Label::VerticalTextAlignment"
+ * @return A value converted from C/C++ "cocos2d::Label::VAlignment"
  */
 getVerticalAlignment : function () {},
 
@@ -6762,7 +6762,7 @@ getFontName : function () {},
 
 /**
  * @method setHorizontalAlignment
- * @param {cocos2d::Label::TextAlignment}
+ * @param {cocos2d::Label::HAlignment}
  */
 setHorizontalAlignment : function () {},
 
@@ -7036,7 +7036,7 @@ isCascadeOpacityEnabled : function () {},
  * @param {const char*}
  * @param {const char*}
  * @param {float}
- * @param {cocos2d::Label::TextAlignment}
+ * @param {cocos2d::Label::HAlignment}
  * @param {cocos2d::Point}
  */
 initWithString : function () {},
@@ -7139,7 +7139,7 @@ updateDisplayedColor : function () {},
 
 /**
  * @method setAlignment
- * @param {cocos2d::Label::TextAlignment}
+ * @param {cocos2d::Label::HAlignment}
  */
 setAlignment : function () {},
 
@@ -7202,7 +7202,7 @@ ccTouchesMoved : function () {},
 
 /**
  * @method getTouchMode
- * @return A value converted from C/C++ "int"
+ * @return A value converted from C/C++ "cocos2d::Touch::DispatchMode"
  */
 getTouchMode : function () {},
 
@@ -7258,7 +7258,7 @@ ccTouchesEnded : function () {},
 
 /**
  * @method setTouchMode
- * @param {cocos2d::Layer::TouchesMode}
+ * @param {cocos2d::Touch::DispatchMode}
  */
 setTouchMode : function () {},
 
@@ -9364,7 +9364,7 @@ end : function () {},
 
 /**
  * @method setClearStencil
- * @param {float}
+ * @param {int}
  */
 setClearStencil : function () {},
 
@@ -9945,7 +9945,7 @@ initParticle : function () {},
 
 /**
  * @method setEmitterMode
- * @param {int}
+ * @param {cocos2d::ParticleSystem::Mode}
  */
 setEmitterMode : function () {},
 
@@ -10017,7 +10017,7 @@ getTangentialAccelVar : function () {},
 
 /**
  * @method getEmitterMode
- * @return A value converted from C/C++ "int"
+ * @return A value converted from C/C++ "cocos2d::ParticleSystem::Mode"
  */
 getEmitterMode : function () {},
 

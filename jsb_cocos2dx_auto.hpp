@@ -219,6 +219,7 @@ JSBool js_cocos2dx_Node_getNodeToParentTransform(JSContext *cx, uint32_t argc, j
 JSBool js_cocos2dx_Node_convertToNodeSpace(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_stopActionByTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_reorderChild(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Node_ignoreAnchorPointForPosition(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_setPositionY(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_setPositionX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_getAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
@@ -242,7 +243,6 @@ JSBool js_cocos2dx_Node_setScheduler(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_stopAllActions(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_getSkewX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_getSkewY(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Node_ignoreAnchorPointForPosition(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_getActionByTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_setRotationX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_setRotationY(JSContext *cx, uint32_t argc, jsval *vp);

@@ -4099,7 +4099,7 @@ JSBool js_cocos2dx_extension_ScrollView_getDirection(JSContext *cx, uint32_t arg
 	cocos2d::extension::ScrollView* cobj = (cocos2d::extension::ScrollView *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::extension::ScrollViewDirection ret = cobj->getDirection();
+		int ret = (int)cobj->getDirection();
 		jsval jsret;
 		jsret = int32_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -6137,7 +6137,7 @@ JSBool js_cocos2dx_extension_TableView_getVerticalFillOrder(JSContext *cx, uint3
 	cocos2d::extension::TableView* cobj = (cocos2d::extension::TableView *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::extension::TableViewVerticalFillOrder ret = cobj->getVerticalFillOrder();
+		int ret = (int)cobj->getVerticalFillOrder();
 		jsval jsret;
 		jsret = int32_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
