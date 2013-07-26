@@ -10845,7 +10845,7 @@ cc.Application = {
 
 /**
  * @method getTargetPlatform
- * @return A value converted from C/C++ "cocos2d::TargetPlatform"
+ * @return A value converted from C/C++ "cocos2d::ApplicationProtocol::Platform"
  */
 getTargetPlatform : function () {},
 
@@ -10857,7 +10857,7 @@ setAnimationInterval : function () {},
 
 /**
  * @method getCurrentLanguage
- * @return A value converted from C/C++ "cocos2d::ccLanguageType"
+ * @return A value converted from C/C++ "cocos2d::LanguageType"
  */
 getCurrentLanguage : function () {},
 
