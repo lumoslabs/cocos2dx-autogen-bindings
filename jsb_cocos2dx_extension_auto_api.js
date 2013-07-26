@@ -4,6 +4,121 @@
 var cc = cc || {};
 
 /**
+ * @class Control
+ */
+cc.Control = {
+
+/**
+ * @method setEnabled
+ * @param {bool}
+ */
+setEnabled : function () {},
+
+/**
+ * @method getState
+ * @return A value converted from C/C++ "cocos2d::extension::Control::State"
+ */
+getState : function () {},
+
+/**
+ * @method isTouchInside
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
+ */
+isTouchInside : function () {},
+
+/**
+ * @method sendActionsForControlEvents
+ * @param {cocos2d::extension::Control::EventType}
+ */
+sendActionsForControlEvents : function () {},
+
+/**
+ * @method setSelected
+ * @param {bool}
+ */
+setSelected : function () {},
+
+/**
+ * @method registerWithTouchDispatcher
+ */
+registerWithTouchDispatcher : function () {},
+
+/**
+ * @method isEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isEnabled : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
+ * @method needsLayout
+ */
+needsLayout : function () {},
+
+/**
+ * @method hasVisibleParents
+ * @return A value converted from C/C++ "bool"
+ */
+hasVisibleParents : function () {},
+
+/**
+ * @method isSelected
+ * @return A value converted from C/C++ "bool"
+ */
+isSelected : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method setHighlighted
+ * @param {bool}
+ */
+setHighlighted : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
+ * @method getTouchLocation
+ * @return A value converted from C/C++ "cocos2d::Point"
+ * @param {cocos2d::Touch*}
+ */
+getTouchLocation : function () {},
+
+/**
+ * @method isHighlighted
+ * @return A value converted from C/C++ "bool"
+ */
+isHighlighted : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::extension::Control*"
+ */
+create : function () {},
+
+/**
+ * @method Control
+ * @constructor
+ */
+Control : function () {},
+
+};
+
+/**
  * @class CCBReader
  */
 cc._Reader = {
@@ -105,121 +220,6 @@ getAnimationManager : function () {},
  * @param {float}
  */
 setResolutionScale : function () {},
-
-};
-
-/**
- * @class Control
- */
-cc.Control = {
-
-/**
- * @method setEnabled
- * @param {bool}
- */
-setEnabled : function () {},
-
-/**
- * @method getState
- * @return A value converted from C/C++ "unsigned int"
- */
-getState : function () {},
-
-/**
- * @method isTouchInside
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- */
-isTouchInside : function () {},
-
-/**
- * @method sendActionsForControlEvents
- * @param {unsigned int}
- */
-sendActionsForControlEvents : function () {},
-
-/**
- * @method setSelected
- * @param {bool}
- */
-setSelected : function () {},
-
-/**
- * @method registerWithTouchDispatcher
- */
-registerWithTouchDispatcher : function () {},
-
-/**
- * @method isEnabled
- * @return A value converted from C/C++ "bool"
- */
-isEnabled : function () {},
-
-/**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
-
-/**
- * @method needsLayout
- */
-needsLayout : function () {},
-
-/**
- * @method hasVisibleParents
- * @return A value converted from C/C++ "bool"
- */
-hasVisibleParents : function () {},
-
-/**
- * @method isSelected
- * @return A value converted from C/C++ "bool"
- */
-isSelected : function () {},
-
-/**
- * @method init
- * @return A value converted from C/C++ "bool"
- */
-init : function () {},
-
-/**
- * @method setHighlighted
- * @param {bool}
- */
-setHighlighted : function () {},
-
-/**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
- * @method getTouchLocation
- * @return A value converted from C/C++ "cocos2d::Point"
- * @param {cocos2d::Touch*}
- */
-getTouchLocation : function () {},
-
-/**
- * @method isHighlighted
- * @return A value converted from C/C++ "bool"
- */
-isHighlighted : function () {},
-
-/**
- * @method create
- * @return A value converted from C/C++ "cocos2d::extension::Control*"
- */
-create : function () {},
-
-/**
- * @method Control
- * @constructor
- */
-Control : function () {},
 
 };
 
@@ -423,7 +423,7 @@ setSelected : function () {},
 /**
  * @method setTitleLabelForState
  * @param {cocos2d::Node*}
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 setTitleLabelForState : function () {},
 
@@ -431,7 +431,7 @@ setTitleLabelForState : function () {},
  * @method ccTouchBegan
  * @return A value converted from C/C++ "bool"
  * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
+ * @param {Event*}
  */
 ccTouchBegan : function () {},
 
@@ -444,7 +444,7 @@ setAdjustBackgroundImage : function () {},
 /**
  * @method ccTouchEnded
  * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
+ * @param {Event*}
  */
 ccTouchEnded : function () {},
 
@@ -469,7 +469,7 @@ setBackgroundSpriteDispatchTable : function () {},
 /**
  * @method setTitleForState
  * @param {cocos2d::String*}
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 setTitleForState : function () {},
 
@@ -507,7 +507,7 @@ initWithBackgroundSprite : function () {},
 /**
  * @method getTitleTTFSizeForState
  * @return A value converted from C/C++ "float"
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 getTitleTTFSizeForState : function () {},
 
@@ -532,14 +532,14 @@ init : function () {},
 /**
  * @method setTitleTTFForState
  * @param {const char*}
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 setTitleTTFForState : function () {},
 
 /**
  * @method setTitleTTFSizeForState
  * @param {float}
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 setTitleTTFSizeForState : function () {},
 
@@ -552,7 +552,7 @@ setTitleLabel : function () {},
 /**
  * @method ccTouchMoved
  * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
+ * @param {Event*}
  */
 ccTouchMoved : function () {},
 
@@ -589,7 +589,7 @@ setBackgroundSprite : function () {},
 /**
  * @method getBackgroundSpriteForState
  * @return A value converted from C/C++ "cocos2d::extension::Scale9Sprite*"
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 getBackgroundSpriteForState : function () {},
 
@@ -635,7 +635,7 @@ getHorizontalOrigin : function () {},
 /**
  * @method getTitleTTFForState
  * @return A value converted from C/C++ "const char*"
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 getTitleTTFForState : function () {},
 
@@ -648,14 +648,14 @@ getBackgroundSprite : function () {},
 /**
  * @method getTitleColorForState
  * @return A value converted from C/C++ "cocos2d::Color3B"
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 getTitleColorForState : function () {},
 
 /**
  * @method setTitleColorForState
  * @param {cocos2d::Color3B}
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 setTitleColorForState : function () {},
 
@@ -668,14 +668,14 @@ doesAdjustBackgroundImage : function () {},
 /**
  * @method setBackgroundSpriteFrameForState
  * @param {cocos2d::SpriteFrame*}
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 setBackgroundSpriteFrameForState : function () {},
 
 /**
  * @method setBackgroundSpriteForState
  * @param {cocos2d::extension::Scale9Sprite*}
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 setBackgroundSpriteForState : function () {},
 
@@ -720,7 +720,7 @@ getTitleLabel : function () {},
 /**
  * @method ccTouchCancelled
  * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
+ * @param {Event*}
  */
 ccTouchCancelled : function () {},
 
@@ -739,21 +739,21 @@ getBackgroundSpriteDispatchTable : function () {},
 /**
  * @method getTitleLabelForState
  * @return A value converted from C/C++ "cocos2d::Node*"
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 getTitleLabelForState : function () {},
 
 /**
  * @method setTitleBMFontForState
  * @param {const char*}
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 setTitleBMFontForState : function () {},
 
 /**
  * @method getTitleBMFontForState
  * @return A value converted from C/C++ "const char*"
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 getTitleBMFontForState : function () {},
 
@@ -766,7 +766,7 @@ getZoomOnTouchDown : function () {},
 /**
  * @method getTitleForState
  * @return A value converted from C/C++ "cocos2d::String*"
- * @param {unsigned int}
+ * @param {cocos2d::extension::Control::State}
  */
 getTitleForState : function () {},
 
@@ -832,7 +832,7 @@ ccTouchEnded : function () {},
 
 /**
  * @method getDirection
- * @return A value converted from C/C++ "cocos2d::extension::ScrollViewDirection"
+ * @return A value converted from C/C++ "cocos2d::extension::ScrollView::Direction"
  */
 getDirection : function () {},
 
@@ -863,7 +863,7 @@ pause : function () {},
 
 /**
  * @method setDirection
- * @param {cocos2d::extension::ScrollViewDirection}
+ * @param {cocos2d::extension::ScrollView::Direction}
  */
 setDirection : function () {},
 
@@ -1285,7 +1285,7 @@ updateCellAtIndex : function () {},
 
 /**
  * @method setVerticalFillOrder
- * @param {cocos2d::extension::TableViewVerticalFillOrder}
+ * @param {cocos2d::extension::TableView::VerticalFillOrder}
  */
 setVerticalFillOrder : function () {},
 
@@ -1305,7 +1305,7 @@ ccTouchBegan : function () {},
 
 /**
  * @method getVerticalFillOrder
- * @return A value converted from C/C++ "cocos2d::extension::TableViewVerticalFillOrder"
+ * @return A value converted from C/C++ "cocos2d::extension::TableView::VerticalFillOrder"
  */
 getVerticalFillOrder : function () {},
 
@@ -1430,7 +1430,7 @@ setPlaceholderFontSize : function () {},
 
 /**
  * @method setInputMode
- * @param {cocos2d::extension::EditBoxInputMode}
+ * @param {cocos2d::extension::EditBox::InputMode}
  */
 setInputMode : function () {},
 
@@ -1481,13 +1481,13 @@ setPosition : function () {},
 
 /**
  * @method setReturnType
- * @param {cocos2d::extension::KeyboardReturnType}
+ * @param {cocos2d::extension::EditBox::KeyboardReturnType}
  */
 setReturnType : function () {},
 
 /**
  * @method setInputFlag
- * @param {cocos2d::extension::EditBoxInputFlag}
+ * @param {cocos2d::extension::EditBox::InputFlag}
  */
 setInputFlag : function () {},
 
