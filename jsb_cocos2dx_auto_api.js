@@ -572,24 +572,16 @@ cc.Texture2D = {
 getShaderProgram : function () {},
 
 /**
- * @method initWithETCFile
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
+ * @method getMaxT
+ * @return A value converted from C/C++ "float"
  */
-initWithETCFile : function () {},
+getMaxT : function () {},
 
 /**
  * @method getStringForFormat
  * @return A value converted from C/C++ "const char*"
  */
 getStringForFormat : function () {},
-
-/**
- * @method initWithImage
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Image*}
- */
-initWithImage : function () {},
 
 /**
  * @method setShaderProgram
@@ -616,6 +608,17 @@ hasPremultipliedAlpha : function () {},
 getPixelsHigh : function () {},
 
 /**
+ * @method initWithMipmaps
+ * @return A value converted from C/C++ "bool"
+ * @param {MipmapInfo*}
+ * @param {int}
+ * @param {cocos2d::Texture2D::PixelFormat}
+ * @param {unsigned int}
+ * @param {unsigned int}
+ */
+initWithMipmaps : function () {},
+
+/**
  * @method getName
  * @return A value converted from C/C++ "unsigned int"
  */
@@ -638,12 +641,6 @@ drawInRect : function () {},
  * @return A value converted from C/C++ "cocos2d::Size"
  */
 getContentSize : function () {},
-
-/**
- * @method getMaxT
- * @return A value converted from C/C++ "float"
- */
-getMaxT : function () {},
 
 /**
  * @method setAliasTexParameters
@@ -689,13 +686,6 @@ drawAtPoint : function () {},
  * @return A value converted from C/C++ "bool"
  */
 hasMipmaps : function () {},
-
-/**
- * @method initWithPVRFile
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
- */
-initWithPVRFile : function () {},
 
 /**
  * @method setMaxS
@@ -11056,13 +11046,6 @@ cc.TextureCache = {
 dumpCachedTextureInfo : function () {},
 
 /**
- * @method addETCImage
- * @return A value converted from C/C++ "cocos2d::Texture2D*"
- * @param {const char*}
- */
-addETCImage : function () {},
-
-/**
  * @method addUIImage
  * @return A value converted from C/C++ "cocos2d::Texture2D*"
  * @param {cocos2d::Image*}
@@ -11088,13 +11071,6 @@ textureForKey : function () {},
  * @return A value converted from C/C++ "cocos2d::Dictionary*"
  */
 snapshotTextures : function () {},
-
-/**
- * @method addPVRImage
- * @return A value converted from C/C++ "cocos2d::Texture2D*"
- * @param {const char*}
- */
-addPVRImage : function () {},
 
 /**
  * @method addImage
