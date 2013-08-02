@@ -3851,6 +3851,50 @@ ToggleVisibility : function () {},
 };
 
 /**
+ * @class RemoveSelf
+ */
+cc.RemoveSelf = {
+
+/**
+ * @method clone
+ * @return A value converted from C/C++ "cocos2d::RemoveSelf*"
+ */
+clone : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ * @param {bool}
+ */
+init : function () {},
+
+/**
+ * @method reverse
+ * @return A value converted from C/C++ "cocos2d::RemoveSelf*"
+ */
+reverse : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::RemoveSelf*"
+ */
+create : function () {},
+
+/**
+ * @method RemoveSelf
+ * @constructor
+ */
+RemoveSelf : function () {},
+
+};
+
+/**
  * @class FlipX
  */
 cc.FlipX = {

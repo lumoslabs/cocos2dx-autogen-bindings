@@ -1119,6 +1119,20 @@ JSBool js_cocos2dx_ToggleVisibility_update(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_ToggleVisibility_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ToggleVisibility_ToggleVisibility(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *jsb_RemoveSelf_class;
+extern JSObject *jsb_RemoveSelf_prototype;
+
+JSBool js_cocos2dx_RemoveSelf_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_RemoveSelf_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_RemoveSelf(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_RemoveSelf_clone(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_RemoveSelf_init(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_RemoveSelf_reverse(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_RemoveSelf_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_RemoveSelf_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_RemoveSelf_RemoveSelf(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *jsb_FlipX_class;
 extern JSObject *jsb_FlipX_prototype;
 
