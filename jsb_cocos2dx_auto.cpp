@@ -2354,75 +2354,6 @@ void js_register_cocos2dx_Set(JSContext *cx, JSObject *global) {
 }
 
 
-JSClass  *jsb_Label_class;
-JSObject *jsb_Label_prototype;
-
-
-
-
-void js_cocos2dx_Label_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Label)", obj);
-}
-
-static JSBool js_cocos2dx_Label_ctor(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-    cocos2d::Label *nobj = new cocos2d::Label();
-    js_proxy_t* p = jsb_new_proxy(nobj, obj);
-    nobj->autorelease();
-    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::Label");
-    JS_SET_RVAL(cx, vp, JSVAL_VOID);
-    return JS_TRUE;
-}
-
-void js_register_cocos2dx_Label(JSContext *cx, JSObject *global) {
-	jsb_Label_class = (JSClass *)calloc(1, sizeof(JSClass));
-	jsb_Label_class->name = "Label";
-	jsb_Label_class->addProperty = JS_PropertyStub;
-	jsb_Label_class->delProperty = JS_PropertyStub;
-	jsb_Label_class->getProperty = JS_PropertyStub;
-	jsb_Label_class->setProperty = JS_StrictPropertyStub;
-	jsb_Label_class->enumerate = JS_EnumerateStub;
-	jsb_Label_class->resolve = JS_ResolveStub;
-	jsb_Label_class->convert = JS_ConvertStub;
-	jsb_Label_class->finalize = js_cocos2dx_Label_finalize;
-	jsb_Label_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
-
-	JSPropertySpec *properties = NULL;
-
-	JSFunctionSpec *funcs = NULL;
-
-	JSFunctionSpec *st_funcs = NULL;
-
-	jsb_Label_prototype = JS_InitClass(
-		cx, global,
-		NULL, // parent proto
-		jsb_Label_class,
-		dummy_constructor<cocos2d::Label>, 0, // no constructor
-		properties,
-		funcs,
-		NULL, // no static properties
-		st_funcs);
-	// make the class enumerable in the registered namespace
-	JSBool found;
-	JS_SetPropertyAttributes(cx, global, "Label", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
-
-	// add the proto and JSClass to the type->js info hash table
-	TypeTest<cocos2d::Label> t;
-	js_type_class_t *p;
-	uint32_t typeId = t.s_id();
-	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
-	if (!p) {
-		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
-		p->type = typeId;
-		p->jsclass = jsb_Label_class;
-		p->proto = jsb_Label_prototype;
-		p->parentProto = NULL;
-		HASH_ADD_INT(_js_global_type_ht, type, p);
-	}
-}
-
-
 JSClass  *jsb_Texture2D_class;
 JSObject *jsb_Texture2D_prototype;
 
@@ -2785,7 +2716,7 @@ JSBool js_cocos2dx_Texture2D_initWithString(JSContext *cx, uint32_t argc, jsval 
 			cocos2d::Size arg3;
 			ok &= jsval_to_ccsize(cx, argv[3], &arg3);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Label::HAlignment arg4;
+			cocos2d::TextHAlignment arg4;
 			ok &= jsval_to_int32(cx, argv[4], (int32_t *)&arg4);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithString(arg0, arg1, arg2, arg3, arg4);
@@ -2810,10 +2741,10 @@ JSBool js_cocos2dx_Texture2D_initWithString(JSContext *cx, uint32_t argc, jsval 
 			cocos2d::Size arg3;
 			ok &= jsval_to_ccsize(cx, argv[3], &arg3);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Label::HAlignment arg4;
+			cocos2d::TextHAlignment arg4;
 			ok &= jsval_to_int32(cx, argv[4], (int32_t *)&arg4);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Label::VAlignment arg5;
+			cocos2d::TextVAlignment arg5;
 			ok &= jsval_to_int32(cx, argv[5], (int32_t *)&arg5);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithString(arg0, arg1, arg2, arg3, arg4, arg5);
@@ -32952,7 +32883,7 @@ JSBool js_cocos2dx_LabelTTF_initWithString(JSContext *cx, uint32_t argc, jsval *
 			cocos2d::Size arg3;
 			ok &= jsval_to_ccsize(cx, argv[3], &arg3);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Label::HAlignment arg4;
+			cocos2d::TextHAlignment arg4;
 			ok &= jsval_to_int32(cx, argv[4], (int32_t *)&arg4);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithString(arg0, arg1, arg2, arg3, arg4);
@@ -32996,10 +32927,10 @@ JSBool js_cocos2dx_LabelTTF_initWithString(JSContext *cx, uint32_t argc, jsval *
 			cocos2d::Size arg3;
 			ok &= jsval_to_ccsize(cx, argv[3], &arg3);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Label::HAlignment arg4;
+			cocos2d::TextHAlignment arg4;
 			ok &= jsval_to_int32(cx, argv[4], (int32_t *)&arg4);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Label::VAlignment arg5;
+			cocos2d::TextVAlignment arg5;
 			ok &= jsval_to_int32(cx, argv[5], (int32_t *)&arg5);
 			if (!ok) { ok = JS_TRUE; break; }
 			bool ret = cobj->initWithString(arg0, arg1, arg2, arg3, arg4, arg5);
@@ -33120,7 +33051,7 @@ JSBool js_cocos2dx_LabelTTF_setVerticalAlignment(JSContext *cx, uint32_t argc, j
 	cocos2d::LabelTTF* cobj = (cocos2d::LabelTTF *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::Label::VAlignment arg0;
+		cocos2d::TextVAlignment arg0;
 		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setVerticalAlignment(arg0);
@@ -33211,7 +33142,7 @@ JSBool js_cocos2dx_LabelTTF_setHorizontalAlignment(JSContext *cx, uint32_t argc,
 	cocos2d::LabelTTF* cobj = (cocos2d::LabelTTF *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::Label::HAlignment arg0;
+		cocos2d::TextHAlignment arg0;
 		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setHorizontalAlignment(arg0);
@@ -33291,7 +33222,7 @@ JSBool js_cocos2dx_LabelTTF_create(JSContext *cx, uint32_t argc, jsval *vp)
 			cocos2d::Size arg3;
 			ok &= jsval_to_ccsize(cx, argv[3], &arg3);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Label::HAlignment arg4;
+			cocos2d::TextHAlignment arg4;
 			ok &= jsval_to_int32(cx, argv[4], (int32_t *)&arg4);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::LabelTTF* ret = cocos2d::LabelTTF::create(arg0, arg1, arg2, arg3, arg4);
@@ -33349,10 +33280,10 @@ JSBool js_cocos2dx_LabelTTF_create(JSContext *cx, uint32_t argc, jsval *vp)
 			cocos2d::Size arg3;
 			ok &= jsval_to_ccsize(cx, argv[3], &arg3);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Label::HAlignment arg4;
+			cocos2d::TextHAlignment arg4;
 			ok &= jsval_to_int32(cx, argv[4], (int32_t *)&arg4);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Label::VAlignment arg5;
+			cocos2d::TextVAlignment arg5;
 			ok &= jsval_to_int32(cx, argv[5], (int32_t *)&arg5);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::LabelTTF* ret = cocos2d::LabelTTF::create(arg0, arg1, arg2, arg3, arg4, arg5);
@@ -34697,7 +34628,7 @@ JSBool js_cocos2dx_LabelBMFont_initWithString(JSContext *cx, uint32_t argc, jsva
 		const char* arg0;
 		const char* arg1;
 		double arg2;
-		cocos2d::Label::HAlignment arg3;
+		cocos2d::TextHAlignment arg3;
 		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
 		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
 		ok &= JS_ValueToNumber(cx, argv[2], &arg2);
@@ -34713,7 +34644,7 @@ JSBool js_cocos2dx_LabelBMFont_initWithString(JSContext *cx, uint32_t argc, jsva
 		const char* arg0;
 		const char* arg1;
 		double arg2;
-		cocos2d::Label::HAlignment arg3;
+		cocos2d::TextHAlignment arg3;
 		cocos2d::Point arg4;
 		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
 		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
@@ -35042,7 +34973,7 @@ JSBool js_cocos2dx_LabelBMFont_setAlignment(JSContext *cx, uint32_t argc, jsval 
 	cocos2d::LabelBMFont* cobj = (cocos2d::LabelBMFont *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::Label::HAlignment arg0;
+		cocos2d::TextHAlignment arg0;
 		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setAlignment(arg0);
@@ -35080,7 +35011,7 @@ JSBool js_cocos2dx_LabelBMFont_create(JSContext *cx, uint32_t argc, jsval *vp)
 			double arg2;
 			ok &= JS_ValueToNumber(cx, argv[2], &arg2);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Label::HAlignment arg3;
+			cocos2d::TextHAlignment arg3;
 			ok &= jsval_to_int32(cx, argv[3], (int32_t *)&arg3);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::LabelBMFont* ret = cocos2d::LabelBMFont::create(arg0, arg1, arg2, arg3);
@@ -35109,7 +35040,7 @@ JSBool js_cocos2dx_LabelBMFont_create(JSContext *cx, uint32_t argc, jsval *vp)
 			double arg2;
 			ok &= JS_ValueToNumber(cx, argv[2], &arg2);
 			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Label::HAlignment arg3;
+			cocos2d::TextHAlignment arg3;
 			ok &= jsval_to_int32(cx, argv[3], (int32_t *)&arg3);
 			if (!ok) { ok = JS_TRUE; break; }
 			cocos2d::Point arg4;
@@ -35323,6 +35254,398 @@ void js_register_cocos2dx_LabelBMFont(JSContext *cx, JSObject *global) {
 		p->type = typeId;
 		p->jsclass = jsb_LabelBMFont_class;
 		p->proto = jsb_LabelBMFont_prototype;
+		p->parentProto = jsb_SpriteBatchNode_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
+JSClass  *jsb_Label_class;
+JSObject *jsb_Label_prototype;
+
+JSBool js_cocos2dx_Label_setLineBreakWithoutSpace(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Label* cobj = (cocos2d::Label *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setLineBreakWithoutSpace(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_Label_setScaleY(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Label* cobj = (cocos2d::Label *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		double arg0;
+		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setScaleY(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_Label_setScaleX(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Label* cobj = (cocos2d::Label *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		double arg0;
+		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setScaleX(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_Label_setScale(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Label* cobj = (cocos2d::Label *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		double arg0;
+		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setScale(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_Label_setAlignment(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Label* cobj = (cocos2d::Label *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::TextHAlignment arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setAlignment(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_Label_setWidth(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Label* cobj = (cocos2d::Label *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		double arg0;
+		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setWidth(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_Label_createWithBMFont(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	if (argc == 2) {
+		const char* arg0;
+		const char* arg1;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::Label* ret = cocos2d::Label::createWithBMFont(arg0, arg1);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::Label>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	if (argc == 3) {
+		const char* arg0;
+		const char* arg1;
+		int arg2;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::Label* ret = cocos2d::Label::createWithBMFont(arg0, arg1, arg2);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::Label>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
+JSBool js_cocos2dx_Label_createWithBMFontOLD(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	if (argc == 2) {
+		const char* arg0;
+		const char* arg1;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::Label* ret = cocos2d::Label::createWithBMFontOLD(arg0, arg1);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::Label>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	if (argc == 3) {
+		const char* arg0;
+		const char* arg1;
+		int arg2;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::Label* ret = cocos2d::Label::createWithBMFontOLD(arg0, arg1, arg2);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::Label>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
+JSBool js_cocos2dx_Label_createWithTTF(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	if (argc == 3) {
+		const char* arg0;
+		const char* arg1;
+		int arg2;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::Label* ret = cocos2d::Label::createWithTTF(arg0, arg1, arg2);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::Label>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	if (argc == 4) {
+		const char* arg0;
+		const char* arg1;
+		int arg2;
+		cocos2d::GlyphCollection arg3;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+		ok &= jsval_to_int32(cx, argv[3], (int32_t *)&arg3);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::Label* ret = cocos2d::Label::createWithTTF(arg0, arg1, arg2, arg3);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::Label>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	if (argc == 5) {
+		const char* arg0;
+		const char* arg1;
+		int arg2;
+		cocos2d::GlyphCollection arg3;
+		int arg4;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+		ok &= jsval_to_int32(cx, argv[3], (int32_t *)&arg3);
+		ok &= jsval_to_int32(cx, argv[4], (int32_t *)&arg4);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::Label* ret = cocos2d::Label::createWithTTF(arg0, arg1, arg2, arg3, arg4);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::Label>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	if (argc == 6) {
+		const char* arg0;
+		const char* arg1;
+		int arg2;
+		cocos2d::GlyphCollection arg3;
+		int arg4;
+		const char* arg5;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+		ok &= jsval_to_int32(cx, argv[3], (int32_t *)&arg3);
+		ok &= jsval_to_int32(cx, argv[4], (int32_t *)&arg4);
+		std::string arg5_tmp; ok &= jsval_to_std_string(cx, argv[5], &arg5_tmp); arg5 = arg5_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::Label* ret = cocos2d::Label::createWithTTF(arg0, arg1, arg2, arg3, arg4, arg5);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::Label>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
+
+
+extern JSObject *jsb_SpriteBatchNode_prototype;
+
+void js_cocos2dx_Label_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (Label)", obj);
+}
+
+void js_register_cocos2dx_Label(JSContext *cx, JSObject *global) {
+	jsb_Label_class = (JSClass *)calloc(1, sizeof(JSClass));
+	jsb_Label_class->name = "Label";
+	jsb_Label_class->addProperty = JS_PropertyStub;
+	jsb_Label_class->delProperty = JS_PropertyStub;
+	jsb_Label_class->getProperty = JS_PropertyStub;
+	jsb_Label_class->setProperty = JS_StrictPropertyStub;
+	jsb_Label_class->enumerate = JS_EnumerateStub;
+	jsb_Label_class->resolve = JS_ResolveStub;
+	jsb_Label_class->convert = JS_ConvertStub;
+	jsb_Label_class->finalize = js_cocos2dx_Label_finalize;
+	jsb_Label_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	JSPropertySpec *properties = NULL;
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("setLineBreakWithoutSpace", js_cocos2dx_Label_setLineBreakWithoutSpace, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScaleY", js_cocos2dx_Label_setScaleY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScaleX", js_cocos2dx_Label_setScaleX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScale", js_cocos2dx_Label_setScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAlignment", js_cocos2dx_Label_setAlignment, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setWidth", js_cocos2dx_Label_setWidth, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("createWithBMFont", js_cocos2dx_Label_createWithBMFont, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithBMFontOLD", js_cocos2dx_Label_createWithBMFontOLD, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTTF", js_cocos2dx_Label_createWithTTF, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
+
+	jsb_Label_prototype = JS_InitClass(
+		cx, global,
+		jsb_SpriteBatchNode_prototype,
+		jsb_Label_class,
+		empty_constructor, 0,
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "Label", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::Label> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = jsb_Label_class;
+		p->proto = jsb_Label_prototype;
 		p->parentProto = jsb_SpriteBatchNode_prototype;
 		HASH_ADD_INT(_js_global_type_ht, type, p);
 	}
@@ -59545,11 +59868,11 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_EaseExponentialInOut(cx, obj);
 	js_register_cocos2dx_EaseBackInOut(cx, obj);
 	js_register_cocos2dx_EaseExponentialOut(cx, obj);
+	js_register_cocos2dx_SpriteBatchNode(cx, obj);
 	js_register_cocos2dx_Label(cx, obj);
 	js_register_cocos2dx_Application(cx, obj);
 	js_register_cocos2dx_DelayTime(cx, obj);
 	js_register_cocos2dx_LabelAtlas(cx, obj);
-	js_register_cocos2dx_SpriteBatchNode(cx, obj);
 	js_register_cocos2dx_LabelBMFont(cx, obj);
 	js_register_cocos2dx_TransitionFadeTR(cx, obj);
 	js_register_cocos2dx_TransitionFadeBL(cx, obj);

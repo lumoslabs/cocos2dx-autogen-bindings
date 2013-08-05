@@ -554,13 +554,6 @@ create : function () {},
 };
 
 /**
- * @class Label
- */
-cc.Label = {
-
-};
-
-/**
  * @class Texture2D
  */
 cc.Texture2D = {
@@ -6719,7 +6712,7 @@ setFontName : function () {},
 
 /**
  * @method getHorizontalAlignment
- * @return A value converted from C/C++ "cocos2d::Label::HAlignment"
+ * @return A value converted from C/C++ "cocos2d::TextHAlignment"
  */
 getHorizontalAlignment : function () {},
 
@@ -6766,7 +6759,7 @@ getDimensions : function () {},
 
 /**
  * @method setVerticalAlignment
- * @param {cocos2d::Label::VAlignment}
+ * @param {cocos2d::TextVAlignment}
  */
 setVerticalAlignment : function () {},
 
@@ -6778,7 +6771,7 @@ setFontSize : function () {},
 
 /**
  * @method getVerticalAlignment
- * @return A value converted from C/C++ "cocos2d::Label::VAlignment"
+ * @return A value converted from C/C++ "cocos2d::TextVAlignment"
  */
 getVerticalAlignment : function () {},
 
@@ -6796,7 +6789,7 @@ getFontName : function () {},
 
 /**
  * @method setHorizontalAlignment
- * @param {cocos2d::Label::HAlignment}
+ * @param {cocos2d::TextHAlignment}
  */
 setHorizontalAlignment : function () {},
 
@@ -7070,7 +7063,7 @@ isCascadeOpacityEnabled : function () {},
  * @param {const char*}
  * @param {const char*}
  * @param {float}
- * @param {cocos2d::Label::HAlignment}
+ * @param {cocos2d::TextHAlignment}
  * @param {cocos2d::Point}
  */
 initWithString : function () {},
@@ -7173,7 +7166,7 @@ updateDisplayedColor : function () {},
 
 /**
  * @method setAlignment
- * @param {cocos2d::Label::HAlignment}
+ * @param {cocos2d::TextHAlignment}
  */
 setAlignment : function () {},
 
@@ -7187,6 +7180,79 @@ purgeCachedData : function () {},
  * @constructor
  */
 LabelBMFont : function () {},
+
+};
+
+/**
+ * @class Label
+ */
+cc.Label = {
+
+/**
+ * @method setLineBreakWithoutSpace
+ * @param {bool}
+ */
+setLineBreakWithoutSpace : function () {},
+
+/**
+ * @method setScaleY
+ * @param {float}
+ */
+setScaleY : function () {},
+
+/**
+ * @method setScaleX
+ * @param {float}
+ */
+setScaleX : function () {},
+
+/**
+ * @method setScale
+ * @param {float}
+ */
+setScale : function () {},
+
+/**
+ * @method setAlignment
+ * @param {cocos2d::TextHAlignment}
+ */
+setAlignment : function () {},
+
+/**
+ * @method setWidth
+ * @param {float}
+ */
+setWidth : function () {},
+
+/**
+ * @method createWithBMFont
+ * @return A value converted from C/C++ "cocos2d::Label*"
+ * @param {const char*}
+ * @param {const char*}
+ * @param {int}
+ */
+createWithBMFont : function () {},
+
+/**
+ * @method createWithBMFontOLD
+ * @return A value converted from C/C++ "cocos2d::Label*"
+ * @param {const char*}
+ * @param {const char*}
+ * @param {int}
+ */
+createWithBMFontOLD : function () {},
+
+/**
+ * @method createWithTTF
+ * @return A value converted from C/C++ "cocos2d::Label*"
+ * @param {const char*}
+ * @param {const char*}
+ * @param {int}
+ * @param {cocos2d::GlyphCollection}
+ * @param {int}
+ * @param {const char*}
+ */
+createWithTTF : function () {},
 
 };
 
