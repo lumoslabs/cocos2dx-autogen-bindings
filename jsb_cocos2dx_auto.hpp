@@ -140,14 +140,6 @@ JSBool js_cocos2dx_Set_copy(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Set_containsObject(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Set_create(JSContext *cx, uint32_t argc, jsval *vp);
 
-extern JSClass  *jsb_Label_class;
-extern JSObject *jsb_Label_prototype;
-
-JSBool js_cocos2dx_Label_constructor(JSContext *cx, uint32_t argc, jsval *vp);
-void js_cocos2dx_Label_finalize(JSContext *cx, JSObject *obj);
-void js_register_cocos2dx_Label(JSContext *cx, JSObject *global);
-void register_all_cocos2dx(JSContext* cx, JSObject* obj);
-
 extern JSClass  *jsb_Texture2D_class;
 extern JSObject *jsb_Texture2D_prototype;
 
@@ -2009,6 +2001,23 @@ JSBool js_cocos2dx_LabelBMFont_setAlignment(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_LabelBMFont_purgeCachedData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_LabelBMFont_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_LabelBMFont_LabelBMFont(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_Label_class;
+extern JSObject *jsb_Label_prototype;
+
+JSBool js_cocos2dx_Label_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_Label_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_Label(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_Label_setLineBreakWithoutSpace(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Label_setScaleY(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Label_setScaleX(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Label_setScale(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Label_setAlignment(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Label_setWidth(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Label_createWithBMFont(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Label_createWithBMFontOLD(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Label_createWithTTF(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_Layer_class;
 extern JSObject *jsb_Layer_prototype;
