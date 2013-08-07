@@ -2984,6 +2984,19 @@ JSBool js_cocos2dx_Texture2D_setDefaultAlphaPixelFormat(JSContext *cx, uint32_t 
 	return JS_FALSE;
 }
 
+JSBool js_cocos2dx_Texture2D_getPixelFormatInfoMap(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	if (argc == 0) {
+		cocos2d::Texture2D::PixelFormatInfoMap ret = cocos2d::Texture2D::getPixelFormatInfoMap();
+		jsval jsret;
+		#pragma warning NO CONVERSION FROM NATIVE FOR const PixelFormatInfoMap;
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
 JSBool js_cocos2dx_Texture2D_getDefaultAlphaPixelFormat(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
@@ -3104,6 +3117,7 @@ void js_register_cocos2dx_Texture2D(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("setDefaultAlphaPixelFormat", js_cocos2dx_Texture2D_setDefaultAlphaPixelFormat, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPixelFormatInfoMap", js_cocos2dx_Texture2D_getPixelFormatInfoMap, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDefaultAlphaPixelFormat", js_cocos2dx_Texture2D_getDefaultAlphaPixelFormat, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("PVRImagesHavePremultipliedAlpha", js_cocos2dx_Texture2D_PVRImagesHavePremultipliedAlpha, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
