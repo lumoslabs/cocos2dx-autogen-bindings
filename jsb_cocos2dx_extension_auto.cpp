@@ -405,7 +405,7 @@ void js_register_cocos2dx_extension_Control(JSContext *cx, JSObject *global) {
 	jsb_Control_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Control_class->name = "Control";
 	jsb_Control_class->addProperty = JS_PropertyStub;
-	jsb_Control_class->delProperty = JS_PropertyStub;
+	jsb_Control_class->delProperty = JS_DeletePropertyStub;
 	jsb_Control_class->getProperty = JS_PropertyStub;
 	jsb_Control_class->setProperty = JS_StrictPropertyStub;
 	jsb_Control_class->enumerate = JS_EnumerateStub;
@@ -1059,7 +1059,7 @@ void js_register_cocos2dx_extension_CCBReader(JSContext *cx, JSObject *global) {
 	jsb_CCBReader_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCBReader_class->name = "_Reader";
 	jsb_CCBReader_class->addProperty = JS_PropertyStub;
-	jsb_CCBReader_class->delProperty = JS_PropertyStub;
+	jsb_CCBReader_class->delProperty = JS_DeletePropertyStub;
 	jsb_CCBReader_class->getProperty = JS_PropertyStub;
 	jsb_CCBReader_class->setProperty = JS_StrictPropertyStub;
 	jsb_CCBReader_class->enumerate = JS_EnumerateStub;
@@ -2172,7 +2172,7 @@ void js_register_cocos2dx_extension_Scale9Sprite(JSContext *cx, JSObject *global
 	jsb_Scale9Sprite_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Scale9Sprite_class->name = "Scale9Sprite";
 	jsb_Scale9Sprite_class->addProperty = JS_PropertyStub;
-	jsb_Scale9Sprite_class->delProperty = JS_PropertyStub;
+	jsb_Scale9Sprite_class->delProperty = JS_DeletePropertyStub;
 	jsb_Scale9Sprite_class->getProperty = JS_PropertyStub;
 	jsb_Scale9Sprite_class->setProperty = JS_StrictPropertyStub;
 	jsb_Scale9Sprite_class->enumerate = JS_EnumerateStub;
@@ -3689,7 +3689,7 @@ void js_register_cocos2dx_extension_ControlButton(JSContext *cx, JSObject *globa
 	jsb_ControlButton_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ControlButton_class->name = "ControlButton";
 	jsb_ControlButton_class->addProperty = JS_PropertyStub;
-	jsb_ControlButton_class->delProperty = JS_PropertyStub;
+	jsb_ControlButton_class->delProperty = JS_DeletePropertyStub;
 	jsb_ControlButton_class->getProperty = JS_PropertyStub;
 	jsb_ControlButton_class->setProperty = JS_StrictPropertyStub;
 	jsb_ControlButton_class->enumerate = JS_EnumerateStub;
@@ -4787,7 +4787,7 @@ void js_register_cocos2dx_extension_ScrollView(JSContext *cx, JSObject *global) 
 	jsb_ScrollView_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ScrollView_class->name = "ScrollView";
 	jsb_ScrollView_class->addProperty = JS_PropertyStub;
-	jsb_ScrollView_class->delProperty = JS_PropertyStub;
+	jsb_ScrollView_class->delProperty = JS_DeletePropertyStub;
 	jsb_ScrollView_class->getProperty = JS_PropertyStub;
 	jsb_ScrollView_class->setProperty = JS_StrictPropertyStub;
 	jsb_ScrollView_class->enumerate = JS_EnumerateStub;
@@ -5716,7 +5716,7 @@ void js_register_cocos2dx_extension_CCBAnimationManager(JSContext *cx, JSObject 
 	jsb_CCBAnimationManager_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCBAnimationManager_class->name = "AnimationManager";
 	jsb_CCBAnimationManager_class->addProperty = JS_PropertyStub;
-	jsb_CCBAnimationManager_class->delProperty = JS_PropertyStub;
+	jsb_CCBAnimationManager_class->delProperty = JS_DeletePropertyStub;
 	jsb_CCBAnimationManager_class->getProperty = JS_PropertyStub;
 	jsb_CCBAnimationManager_class->setProperty = JS_StrictPropertyStub;
 	jsb_CCBAnimationManager_class->enumerate = JS_EnumerateStub;
@@ -5940,7 +5940,7 @@ void js_register_cocos2dx_extension_TableViewCell(JSContext *cx, JSObject *globa
 	jsb_TableViewCell_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TableViewCell_class->name = "TableViewCell";
 	jsb_TableViewCell_class->addProperty = JS_PropertyStub;
-	jsb_TableViewCell_class->delProperty = JS_PropertyStub;
+	jsb_TableViewCell_class->delProperty = JS_DeletePropertyStub;
 	jsb_TableViewCell_class->getProperty = JS_PropertyStub;
 	jsb_TableViewCell_class->setProperty = JS_StrictPropertyStub;
 	jsb_TableViewCell_class->enumerate = JS_EnumerateStub;
@@ -6466,7 +6466,7 @@ void js_register_cocos2dx_extension_TableView(JSContext *cx, JSObject *global) {
 	jsb_TableView_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TableView_class->name = "TableView";
 	jsb_TableView_class->addProperty = JS_PropertyStub;
-	jsb_TableView_class->delProperty = JS_PropertyStub;
+	jsb_TableView_class->delProperty = JS_DeletePropertyStub;
 	jsb_TableView_class->getProperty = JS_PropertyStub;
 	jsb_TableView_class->setProperty = JS_StrictPropertyStub;
 	jsb_TableView_class->enumerate = JS_EnumerateStub;
@@ -7141,7 +7141,7 @@ void js_register_cocos2dx_extension_EditBox(JSContext *cx, JSObject *global) {
 	jsb_EditBox_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EditBox_class->name = "EditBox";
 	jsb_EditBox_class->addProperty = JS_PropertyStub;
-	jsb_EditBox_class->delProperty = JS_PropertyStub;
+	jsb_EditBox_class->delProperty = JS_DeletePropertyStub;
 	jsb_EditBox_class->getProperty = JS_PropertyStub;
 	jsb_EditBox_class->setProperty = JS_StrictPropertyStub;
 	jsb_EditBox_class->enumerate = JS_EnumerateStub;

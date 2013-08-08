@@ -328,7 +328,7 @@ void js_register_cocos2dx_Action(JSContext *cx, JSObject *global) {
 	jsb_Action_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Action_class->name = "Action";
 	jsb_Action_class->addProperty = JS_PropertyStub;
-	jsb_Action_class->delProperty = JS_PropertyStub;
+	jsb_Action_class->delProperty = JS_DeletePropertyStub;
 	jsb_Action_class->getProperty = JS_PropertyStub;
 	jsb_Action_class->setProperty = JS_StrictPropertyStub;
 	jsb_Action_class->enumerate = JS_EnumerateStub;
@@ -489,7 +489,7 @@ void js_register_cocos2dx_FiniteTimeAction(JSContext *cx, JSObject *global) {
 	jsb_FiniteTimeAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FiniteTimeAction_class->name = "FiniteTimeAction";
 	jsb_FiniteTimeAction_class->addProperty = JS_PropertyStub;
-	jsb_FiniteTimeAction_class->delProperty = JS_PropertyStub;
+	jsb_FiniteTimeAction_class->delProperty = JS_DeletePropertyStub;
 	jsb_FiniteTimeAction_class->getProperty = JS_PropertyStub;
 	jsb_FiniteTimeAction_class->setProperty = JS_StrictPropertyStub;
 	jsb_FiniteTimeAction_class->enumerate = JS_EnumerateStub;
@@ -872,7 +872,7 @@ void js_register_cocos2dx_Speed(JSContext *cx, JSObject *global) {
 	jsb_Speed_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Speed_class->name = "Speed";
 	jsb_Speed_class->addProperty = JS_PropertyStub;
-	jsb_Speed_class->delProperty = JS_PropertyStub;
+	jsb_Speed_class->delProperty = JS_DeletePropertyStub;
 	jsb_Speed_class->getProperty = JS_PropertyStub;
 	jsb_Speed_class->setProperty = JS_StrictPropertyStub;
 	jsb_Speed_class->enumerate = JS_EnumerateStub;
@@ -1229,7 +1229,7 @@ void js_register_cocos2dx_Follow(JSContext *cx, JSObject *global) {
 	jsb_Follow_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Follow_class->name = "Follow";
 	jsb_Follow_class->addProperty = JS_PropertyStub;
-	jsb_Follow_class->delProperty = JS_PropertyStub;
+	jsb_Follow_class->delProperty = JS_DeletePropertyStub;
 	jsb_Follow_class->getProperty = JS_PropertyStub;
 	jsb_Follow_class->setProperty = JS_StrictPropertyStub;
 	jsb_Follow_class->enumerate = JS_EnumerateStub;
@@ -1738,7 +1738,7 @@ void js_register_cocos2dx_GLProgram(JSContext *cx, JSObject *global) {
 	jsb_GLProgram_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_GLProgram_class->name = "GLProgram";
 	jsb_GLProgram_class->addProperty = JS_PropertyStub;
-	jsb_GLProgram_class->delProperty = JS_PropertyStub;
+	jsb_GLProgram_class->delProperty = JS_DeletePropertyStub;
 	jsb_GLProgram_class->getProperty = JS_PropertyStub;
 	jsb_GLProgram_class->setProperty = JS_StrictPropertyStub;
 	jsb_GLProgram_class->enumerate = JS_EnumerateStub;
@@ -2016,7 +2016,7 @@ void js_register_cocos2dx_Touch(JSContext *cx, JSObject *global) {
 	jsb_Touch_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Touch_class->name = "Touch";
 	jsb_Touch_class->addProperty = JS_PropertyStub;
-	jsb_Touch_class->delProperty = JS_PropertyStub;
+	jsb_Touch_class->delProperty = JS_DeletePropertyStub;
 	jsb_Touch_class->getProperty = JS_PropertyStub;
 	jsb_Touch_class->setProperty = JS_StrictPropertyStub;
 	jsb_Touch_class->enumerate = JS_EnumerateStub;
@@ -2295,7 +2295,7 @@ void js_register_cocos2dx_Set(JSContext *cx, JSObject *global) {
 	jsb_Set_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Set_class->name = "Set";
 	jsb_Set_class->addProperty = JS_PropertyStub;
-	jsb_Set_class->delProperty = JS_PropertyStub;
+	jsb_Set_class->delProperty = JS_DeletePropertyStub;
 	jsb_Set_class->getProperty = JS_PropertyStub;
 	jsb_Set_class->setProperty = JS_StrictPropertyStub;
 	jsb_Set_class->enumerate = JS_EnumerateStub;
@@ -3073,7 +3073,7 @@ void js_register_cocos2dx_Texture2D(JSContext *cx, JSObject *global) {
 	jsb_Texture2D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Texture2D_class->name = "Texture2D";
 	jsb_Texture2D_class->addProperty = JS_PropertyStub;
-	jsb_Texture2D_class->delProperty = JS_PropertyStub;
+	jsb_Texture2D_class->delProperty = JS_DeletePropertyStub;
 	jsb_Texture2D_class->getProperty = JS_PropertyStub;
 	jsb_Texture2D_class->setProperty = JS_StrictPropertyStub;
 	jsb_Texture2D_class->enumerate = JS_EnumerateStub;
@@ -5346,7 +5346,7 @@ void js_register_cocos2dx_Node(JSContext *cx, JSObject *global) {
 	jsb_Node_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Node_class->name = "Node";
 	jsb_Node_class->addProperty = JS_PropertyStub;
-	jsb_Node_class->delProperty = JS_PropertyStub;
+	jsb_Node_class->delProperty = JS_DeletePropertyStub;
 	jsb_Node_class->getProperty = JS_PropertyStub;
 	jsb_Node_class->setProperty = JS_StrictPropertyStub;
 	jsb_Node_class->enumerate = JS_EnumerateStub;
@@ -5818,7 +5818,7 @@ void js_register_cocos2dx_NodeRGBA(JSContext *cx, JSObject *global) {
 	jsb_NodeRGBA_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_NodeRGBA_class->name = "NodeRGBA";
 	jsb_NodeRGBA_class->addProperty = JS_PropertyStub;
-	jsb_NodeRGBA_class->delProperty = JS_PropertyStub;
+	jsb_NodeRGBA_class->delProperty = JS_DeletePropertyStub;
 	jsb_NodeRGBA_class->getProperty = JS_PropertyStub;
 	jsb_NodeRGBA_class->setProperty = JS_StrictPropertyStub;
 	jsb_NodeRGBA_class->enumerate = JS_EnumerateStub;
@@ -6503,7 +6503,7 @@ void js_register_cocos2dx_SpriteFrame(JSContext *cx, JSObject *global) {
 	jsb_SpriteFrame_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_SpriteFrame_class->name = "SpriteFrame";
 	jsb_SpriteFrame_class->addProperty = JS_PropertyStub;
-	jsb_SpriteFrame_class->delProperty = JS_PropertyStub;
+	jsb_SpriteFrame_class->delProperty = JS_DeletePropertyStub;
 	jsb_SpriteFrame_class->getProperty = JS_PropertyStub;
 	jsb_SpriteFrame_class->setProperty = JS_StrictPropertyStub;
 	jsb_SpriteFrame_class->enumerate = JS_EnumerateStub;
@@ -6807,7 +6807,7 @@ void js_register_cocos2dx_AnimationFrame(JSContext *cx, JSObject *global) {
 	jsb_AnimationFrame_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_AnimationFrame_class->name = "AnimationFrame";
 	jsb_AnimationFrame_class->addProperty = JS_PropertyStub;
-	jsb_AnimationFrame_class->delProperty = JS_PropertyStub;
+	jsb_AnimationFrame_class->delProperty = JS_DeletePropertyStub;
 	jsb_AnimationFrame_class->getProperty = JS_PropertyStub;
 	jsb_AnimationFrame_class->setProperty = JS_StrictPropertyStub;
 	jsb_AnimationFrame_class->enumerate = JS_EnumerateStub;
@@ -7273,7 +7273,7 @@ void js_register_cocos2dx_Animation(JSContext *cx, JSObject *global) {
 	jsb_Animation_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Animation_class->name = "Animation";
 	jsb_Animation_class->addProperty = JS_PropertyStub;
-	jsb_Animation_class->delProperty = JS_PropertyStub;
+	jsb_Animation_class->delProperty = JS_DeletePropertyStub;
 	jsb_Animation_class->getProperty = JS_PropertyStub;
 	jsb_Animation_class->setProperty = JS_StrictPropertyStub;
 	jsb_Animation_class->enumerate = JS_EnumerateStub;
@@ -7542,7 +7542,7 @@ void js_register_cocos2dx_ActionInterval(JSContext *cx, JSObject *global) {
 	jsb_ActionInterval_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ActionInterval_class->name = "ActionInterval";
 	jsb_ActionInterval_class->addProperty = JS_PropertyStub;
-	jsb_ActionInterval_class->delProperty = JS_PropertyStub;
+	jsb_ActionInterval_class->delProperty = JS_DeletePropertyStub;
 	jsb_ActionInterval_class->getProperty = JS_PropertyStub;
 	jsb_ActionInterval_class->setProperty = JS_StrictPropertyStub;
 	jsb_ActionInterval_class->enumerate = JS_EnumerateStub;
@@ -7773,7 +7773,7 @@ void js_register_cocos2dx_Sequence(JSContext *cx, JSObject *global) {
 	jsb_Sequence_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Sequence_class->name = "Sequence";
 	jsb_Sequence_class->addProperty = JS_PropertyStub;
-	jsb_Sequence_class->delProperty = JS_PropertyStub;
+	jsb_Sequence_class->delProperty = JS_DeletePropertyStub;
 	jsb_Sequence_class->getProperty = JS_PropertyStub;
 	jsb_Sequence_class->setProperty = JS_StrictPropertyStub;
 	jsb_Sequence_class->enumerate = JS_EnumerateStub;
@@ -8097,7 +8097,7 @@ void js_register_cocos2dx_Repeat(JSContext *cx, JSObject *global) {
 	jsb_Repeat_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Repeat_class->name = "Repeat";
 	jsb_Repeat_class->addProperty = JS_PropertyStub;
-	jsb_Repeat_class->delProperty = JS_PropertyStub;
+	jsb_Repeat_class->delProperty = JS_DeletePropertyStub;
 	jsb_Repeat_class->getProperty = JS_PropertyStub;
 	jsb_Repeat_class->setProperty = JS_StrictPropertyStub;
 	jsb_Repeat_class->enumerate = JS_EnumerateStub;
@@ -8433,7 +8433,7 @@ void js_register_cocos2dx_RepeatForever(JSContext *cx, JSObject *global) {
 	jsb_RepeatForever_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_RepeatForever_class->name = "RepeatForever";
 	jsb_RepeatForever_class->addProperty = JS_PropertyStub;
-	jsb_RepeatForever_class->delProperty = JS_PropertyStub;
+	jsb_RepeatForever_class->delProperty = JS_DeletePropertyStub;
 	jsb_RepeatForever_class->getProperty = JS_PropertyStub;
 	jsb_RepeatForever_class->setProperty = JS_StrictPropertyStub;
 	jsb_RepeatForever_class->enumerate = JS_EnumerateStub;
@@ -8667,7 +8667,7 @@ void js_register_cocos2dx_Spawn(JSContext *cx, JSObject *global) {
 	jsb_Spawn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Spawn_class->name = "Spawn";
 	jsb_Spawn_class->addProperty = JS_PropertyStub;
-	jsb_Spawn_class->delProperty = JS_PropertyStub;
+	jsb_Spawn_class->delProperty = JS_DeletePropertyStub;
 	jsb_Spawn_class->getProperty = JS_PropertyStub;
 	jsb_Spawn_class->setProperty = JS_StrictPropertyStub;
 	jsb_Spawn_class->enumerate = JS_EnumerateStub;
@@ -8948,7 +8948,7 @@ void js_register_cocos2dx_RotateTo(JSContext *cx, JSObject *global) {
 	jsb_RotateTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_RotateTo_class->name = "RotateTo";
 	jsb_RotateTo_class->addProperty = JS_PropertyStub;
-	jsb_RotateTo_class->delProperty = JS_PropertyStub;
+	jsb_RotateTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_RotateTo_class->getProperty = JS_PropertyStub;
 	jsb_RotateTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_RotateTo_class->enumerate = JS_EnumerateStub;
@@ -9231,7 +9231,7 @@ void js_register_cocos2dx_RotateBy(JSContext *cx, JSObject *global) {
 	jsb_RotateBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_RotateBy_class->name = "RotateBy";
 	jsb_RotateBy_class->addProperty = JS_PropertyStub;
-	jsb_RotateBy_class->delProperty = JS_PropertyStub;
+	jsb_RotateBy_class->delProperty = JS_DeletePropertyStub;
 	jsb_RotateBy_class->getProperty = JS_PropertyStub;
 	jsb_RotateBy_class->setProperty = JS_StrictPropertyStub;
 	jsb_RotateBy_class->enumerate = JS_EnumerateStub;
@@ -9460,7 +9460,7 @@ void js_register_cocos2dx_MoveBy(JSContext *cx, JSObject *global) {
 	jsb_MoveBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_MoveBy_class->name = "MoveBy";
 	jsb_MoveBy_class->addProperty = JS_PropertyStub;
-	jsb_MoveBy_class->delProperty = JS_PropertyStub;
+	jsb_MoveBy_class->delProperty = JS_DeletePropertyStub;
 	jsb_MoveBy_class->getProperty = JS_PropertyStub;
 	jsb_MoveBy_class->setProperty = JS_StrictPropertyStub;
 	jsb_MoveBy_class->enumerate = JS_EnumerateStub;
@@ -9645,7 +9645,7 @@ void js_register_cocos2dx_MoveTo(JSContext *cx, JSObject *global) {
 	jsb_MoveTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_MoveTo_class->name = "MoveTo";
 	jsb_MoveTo_class->addProperty = JS_PropertyStub;
-	jsb_MoveTo_class->delProperty = JS_PropertyStub;
+	jsb_MoveTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_MoveTo_class->getProperty = JS_PropertyStub;
 	jsb_MoveTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_MoveTo_class->enumerate = JS_EnumerateStub;
@@ -9901,7 +9901,7 @@ void js_register_cocos2dx_SkewTo(JSContext *cx, JSObject *global) {
 	jsb_SkewTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_SkewTo_class->name = "SkewTo";
 	jsb_SkewTo_class->addProperty = JS_PropertyStub;
-	jsb_SkewTo_class->delProperty = JS_PropertyStub;
+	jsb_SkewTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_SkewTo_class->getProperty = JS_PropertyStub;
 	jsb_SkewTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_SkewTo_class->enumerate = JS_EnumerateStub;
@@ -10114,7 +10114,7 @@ void js_register_cocos2dx_SkewBy(JSContext *cx, JSObject *global) {
 	jsb_SkewBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_SkewBy_class->name = "SkewBy";
 	jsb_SkewBy_class->addProperty = JS_PropertyStub;
-	jsb_SkewBy_class->delProperty = JS_PropertyStub;
+	jsb_SkewBy_class->delProperty = JS_DeletePropertyStub;
 	jsb_SkewBy_class->getProperty = JS_PropertyStub;
 	jsb_SkewBy_class->setProperty = JS_StrictPropertyStub;
 	jsb_SkewBy_class->enumerate = JS_EnumerateStub;
@@ -10348,7 +10348,7 @@ void js_register_cocos2dx_JumpBy(JSContext *cx, JSObject *global) {
 	jsb_JumpBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_JumpBy_class->name = "JumpBy";
 	jsb_JumpBy_class->addProperty = JS_PropertyStub;
-	jsb_JumpBy_class->delProperty = JS_PropertyStub;
+	jsb_JumpBy_class->delProperty = JS_DeletePropertyStub;
 	jsb_JumpBy_class->getProperty = JS_PropertyStub;
 	jsb_JumpBy_class->setProperty = JS_StrictPropertyStub;
 	jsb_JumpBy_class->enumerate = JS_EnumerateStub;
@@ -10537,7 +10537,7 @@ void js_register_cocos2dx_JumpTo(JSContext *cx, JSObject *global) {
 	jsb_JumpTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_JumpTo_class->name = "JumpTo";
 	jsb_JumpTo_class->addProperty = JS_PropertyStub;
-	jsb_JumpTo_class->delProperty = JS_PropertyStub;
+	jsb_JumpTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_JumpTo_class->getProperty = JS_PropertyStub;
 	jsb_JumpTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_JumpTo_class->enumerate = JS_EnumerateStub;
@@ -10735,7 +10735,7 @@ void js_register_cocos2dx_BezierBy(JSContext *cx, JSObject *global) {
 	jsb_BezierBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_BezierBy_class->name = "BezierBy";
 	jsb_BezierBy_class->addProperty = JS_PropertyStub;
-	jsb_BezierBy_class->delProperty = JS_PropertyStub;
+	jsb_BezierBy_class->delProperty = JS_DeletePropertyStub;
 	jsb_BezierBy_class->getProperty = JS_PropertyStub;
 	jsb_BezierBy_class->setProperty = JS_StrictPropertyStub;
 	jsb_BezierBy_class->enumerate = JS_EnumerateStub;
@@ -10914,7 +10914,7 @@ void js_register_cocos2dx_BezierTo(JSContext *cx, JSObject *global) {
 	jsb_BezierTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_BezierTo_class->name = "BezierTo";
 	jsb_BezierTo_class->addProperty = JS_PropertyStub;
-	jsb_BezierTo_class->delProperty = JS_PropertyStub;
+	jsb_BezierTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_BezierTo_class->getProperty = JS_PropertyStub;
 	jsb_BezierTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_BezierTo_class->enumerate = JS_EnumerateStub;
@@ -11193,7 +11193,7 @@ void js_register_cocos2dx_ScaleTo(JSContext *cx, JSObject *global) {
 	jsb_ScaleTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ScaleTo_class->name = "ScaleTo";
 	jsb_ScaleTo_class->addProperty = JS_PropertyStub;
-	jsb_ScaleTo_class->delProperty = JS_PropertyStub;
+	jsb_ScaleTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_ScaleTo_class->getProperty = JS_PropertyStub;
 	jsb_ScaleTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_ScaleTo_class->enumerate = JS_EnumerateStub;
@@ -11407,7 +11407,7 @@ void js_register_cocos2dx_ScaleBy(JSContext *cx, JSObject *global) {
 	jsb_ScaleBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ScaleBy_class->name = "ScaleBy";
 	jsb_ScaleBy_class->addProperty = JS_PropertyStub;
-	jsb_ScaleBy_class->delProperty = JS_PropertyStub;
+	jsb_ScaleBy_class->delProperty = JS_DeletePropertyStub;
 	jsb_ScaleBy_class->getProperty = JS_PropertyStub;
 	jsb_ScaleBy_class->setProperty = JS_StrictPropertyStub;
 	jsb_ScaleBy_class->enumerate = JS_EnumerateStub;
@@ -11647,7 +11647,7 @@ void js_register_cocos2dx_Blink(JSContext *cx, JSObject *global) {
 	jsb_Blink_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Blink_class->name = "Blink";
 	jsb_Blink_class->addProperty = JS_PropertyStub;
-	jsb_Blink_class->delProperty = JS_PropertyStub;
+	jsb_Blink_class->delProperty = JS_DeletePropertyStub;
 	jsb_Blink_class->getProperty = JS_PropertyStub;
 	jsb_Blink_class->setProperty = JS_StrictPropertyStub;
 	jsb_Blink_class->enumerate = JS_EnumerateStub;
@@ -11824,7 +11824,7 @@ void js_register_cocos2dx_FadeIn(JSContext *cx, JSObject *global) {
 	jsb_FadeIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FadeIn_class->name = "FadeIn";
 	jsb_FadeIn_class->addProperty = JS_PropertyStub;
-	jsb_FadeIn_class->delProperty = JS_PropertyStub;
+	jsb_FadeIn_class->delProperty = JS_DeletePropertyStub;
 	jsb_FadeIn_class->getProperty = JS_PropertyStub;
 	jsb_FadeIn_class->setProperty = JS_StrictPropertyStub;
 	jsb_FadeIn_class->enumerate = JS_EnumerateStub;
@@ -11996,7 +11996,7 @@ void js_register_cocos2dx_FadeOut(JSContext *cx, JSObject *global) {
 	jsb_FadeOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FadeOut_class->name = "FadeOut";
 	jsb_FadeOut_class->addProperty = JS_PropertyStub;
-	jsb_FadeOut_class->delProperty = JS_PropertyStub;
+	jsb_FadeOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_FadeOut_class->getProperty = JS_PropertyStub;
 	jsb_FadeOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_FadeOut_class->enumerate = JS_EnumerateStub;
@@ -12221,7 +12221,7 @@ void js_register_cocos2dx_FadeTo(JSContext *cx, JSObject *global) {
 	jsb_FadeTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FadeTo_class->name = "FadeTo";
 	jsb_FadeTo_class->addProperty = JS_PropertyStub;
-	jsb_FadeTo_class->delProperty = JS_PropertyStub;
+	jsb_FadeTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_FadeTo_class->getProperty = JS_PropertyStub;
 	jsb_FadeTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_FadeTo_class->enumerate = JS_EnumerateStub;
@@ -12458,7 +12458,7 @@ void js_register_cocos2dx_TintTo(JSContext *cx, JSObject *global) {
 	jsb_TintTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TintTo_class->name = "TintTo";
 	jsb_TintTo_class->addProperty = JS_PropertyStub;
-	jsb_TintTo_class->delProperty = JS_PropertyStub;
+	jsb_TintTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_TintTo_class->getProperty = JS_PropertyStub;
 	jsb_TintTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_TintTo_class->enumerate = JS_EnumerateStub;
@@ -12695,7 +12695,7 @@ void js_register_cocos2dx_TintBy(JSContext *cx, JSObject *global) {
 	jsb_TintBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TintBy_class->name = "TintBy";
 	jsb_TintBy_class->addProperty = JS_PropertyStub;
-	jsb_TintBy_class->delProperty = JS_PropertyStub;
+	jsb_TintBy_class->delProperty = JS_DeletePropertyStub;
 	jsb_TintBy_class->getProperty = JS_PropertyStub;
 	jsb_TintBy_class->setProperty = JS_StrictPropertyStub;
 	jsb_TintBy_class->enumerate = JS_EnumerateStub;
@@ -12871,7 +12871,7 @@ void js_register_cocos2dx_DelayTime(JSContext *cx, JSObject *global) {
 	jsb_DelayTime_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_DelayTime_class->name = "DelayTime";
 	jsb_DelayTime_class->addProperty = JS_PropertyStub;
-	jsb_DelayTime_class->delProperty = JS_PropertyStub;
+	jsb_DelayTime_class->delProperty = JS_DeletePropertyStub;
 	jsb_DelayTime_class->getProperty = JS_PropertyStub;
 	jsb_DelayTime_class->setProperty = JS_StrictPropertyStub;
 	jsb_DelayTime_class->enumerate = JS_EnumerateStub;
@@ -13221,7 +13221,7 @@ void js_register_cocos2dx_Animate(JSContext *cx, JSObject *global) {
 	jsb_Animate_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Animate_class->name = "Animate";
 	jsb_Animate_class->addProperty = JS_PropertyStub;
-	jsb_Animate_class->delProperty = JS_PropertyStub;
+	jsb_Animate_class->delProperty = JS_DeletePropertyStub;
 	jsb_Animate_class->getProperty = JS_PropertyStub;
 	jsb_Animate_class->setProperty = JS_StrictPropertyStub;
 	jsb_Animate_class->enumerate = JS_EnumerateStub;
@@ -13596,7 +13596,7 @@ void js_register_cocos2dx_TargetedAction(JSContext *cx, JSObject *global) {
 	jsb_TargetedAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TargetedAction_class->name = "TargetedAction";
 	jsb_TargetedAction_class->addProperty = JS_PropertyStub;
-	jsb_TargetedAction_class->delProperty = JS_PropertyStub;
+	jsb_TargetedAction_class->delProperty = JS_DeletePropertyStub;
 	jsb_TargetedAction_class->getProperty = JS_PropertyStub;
 	jsb_TargetedAction_class->setProperty = JS_StrictPropertyStub;
 	jsb_TargetedAction_class->enumerate = JS_EnumerateStub;
@@ -13782,7 +13782,7 @@ void js_register_cocos2dx_ActionCamera(JSContext *cx, JSObject *global) {
 	jsb_ActionCamera_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ActionCamera_class->name = "ActionCamera";
 	jsb_ActionCamera_class->addProperty = JS_PropertyStub;
-	jsb_ActionCamera_class->delProperty = JS_PropertyStub;
+	jsb_ActionCamera_class->delProperty = JS_DeletePropertyStub;
 	jsb_ActionCamera_class->getProperty = JS_PropertyStub;
 	jsb_ActionCamera_class->setProperty = JS_StrictPropertyStub;
 	jsb_ActionCamera_class->enumerate = JS_EnumerateStub;
@@ -14051,7 +14051,7 @@ void js_register_cocos2dx_OrbitCamera(JSContext *cx, JSObject *global) {
 	jsb_OrbitCamera_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_OrbitCamera_class->name = "OrbitCamera";
 	jsb_OrbitCamera_class->addProperty = JS_PropertyStub;
-	jsb_OrbitCamera_class->delProperty = JS_PropertyStub;
+	jsb_OrbitCamera_class->delProperty = JS_DeletePropertyStub;
 	jsb_OrbitCamera_class->getProperty = JS_PropertyStub;
 	jsb_OrbitCamera_class->setProperty = JS_StrictPropertyStub;
 	jsb_OrbitCamera_class->enumerate = JS_EnumerateStub;
@@ -14466,7 +14466,7 @@ void js_register_cocos2dx_ActionManager(JSContext *cx, JSObject *global) {
 	jsb_ActionManager_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ActionManager_class->name = "ActionManager";
 	jsb_ActionManager_class->addProperty = JS_PropertyStub;
-	jsb_ActionManager_class->delProperty = JS_PropertyStub;
+	jsb_ActionManager_class->delProperty = JS_DeletePropertyStub;
 	jsb_ActionManager_class->getProperty = JS_PropertyStub;
 	jsb_ActionManager_class->setProperty = JS_StrictPropertyStub;
 	jsb_ActionManager_class->enumerate = JS_EnumerateStub;
@@ -14704,7 +14704,7 @@ void js_register_cocos2dx_ActionEase(JSContext *cx, JSObject *global) {
 	jsb_ActionEase_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ActionEase_class->name = "ActionEase";
 	jsb_ActionEase_class->addProperty = JS_PropertyStub;
-	jsb_ActionEase_class->delProperty = JS_PropertyStub;
+	jsb_ActionEase_class->delProperty = JS_DeletePropertyStub;
 	jsb_ActionEase_class->getProperty = JS_PropertyStub;
 	jsb_ActionEase_class->setProperty = JS_StrictPropertyStub;
 	jsb_ActionEase_class->enumerate = JS_EnumerateStub;
@@ -14890,7 +14890,7 @@ void js_register_cocos2dx_EaseRateAction(JSContext *cx, JSObject *global) {
 	jsb_EaseRateAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseRateAction_class->name = "EaseRateAction";
 	jsb_EaseRateAction_class->addProperty = JS_PropertyStub;
-	jsb_EaseRateAction_class->delProperty = JS_PropertyStub;
+	jsb_EaseRateAction_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseRateAction_class->getProperty = JS_PropertyStub;
 	jsb_EaseRateAction_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseRateAction_class->enumerate = JS_EnumerateStub;
@@ -15071,7 +15071,7 @@ void js_register_cocos2dx_EaseIn(JSContext *cx, JSObject *global) {
 	jsb_EaseIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseIn_class->name = "EaseIn";
 	jsb_EaseIn_class->addProperty = JS_PropertyStub;
-	jsb_EaseIn_class->delProperty = JS_PropertyStub;
+	jsb_EaseIn_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseIn_class->getProperty = JS_PropertyStub;
 	jsb_EaseIn_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseIn_class->enumerate = JS_EnumerateStub;
@@ -15252,7 +15252,7 @@ void js_register_cocos2dx_EaseOut(JSContext *cx, JSObject *global) {
 	jsb_EaseOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseOut_class->name = "EaseOut";
 	jsb_EaseOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseOut_class->enumerate = JS_EnumerateStub;
@@ -15433,7 +15433,7 @@ void js_register_cocos2dx_EaseInOut(JSContext *cx, JSObject *global) {
 	jsb_EaseInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseInOut_class->name = "EaseInOut";
 	jsb_EaseInOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseInOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseInOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseInOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseInOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseInOut_class->enumerate = JS_EnumerateStub;
@@ -15612,7 +15612,7 @@ void js_register_cocos2dx_EaseExponentialIn(JSContext *cx, JSObject *global) {
 	jsb_EaseExponentialIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseExponentialIn_class->name = "EaseExponentialIn";
 	jsb_EaseExponentialIn_class->addProperty = JS_PropertyStub;
-	jsb_EaseExponentialIn_class->delProperty = JS_PropertyStub;
+	jsb_EaseExponentialIn_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseExponentialIn_class->getProperty = JS_PropertyStub;
 	jsb_EaseExponentialIn_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseExponentialIn_class->enumerate = JS_EnumerateStub;
@@ -15791,7 +15791,7 @@ void js_register_cocos2dx_EaseExponentialOut(JSContext *cx, JSObject *global) {
 	jsb_EaseExponentialOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseExponentialOut_class->name = "EaseExponentialOut";
 	jsb_EaseExponentialOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseExponentialOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseExponentialOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseExponentialOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseExponentialOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseExponentialOut_class->enumerate = JS_EnumerateStub;
@@ -15970,7 +15970,7 @@ void js_register_cocos2dx_EaseExponentialInOut(JSContext *cx, JSObject *global) 
 	jsb_EaseExponentialInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseExponentialInOut_class->name = "EaseExponentialInOut";
 	jsb_EaseExponentialInOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseExponentialInOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseExponentialInOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseExponentialInOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseExponentialInOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseExponentialInOut_class->enumerate = JS_EnumerateStub;
@@ -16149,7 +16149,7 @@ void js_register_cocos2dx_EaseSineIn(JSContext *cx, JSObject *global) {
 	jsb_EaseSineIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseSineIn_class->name = "EaseSineIn";
 	jsb_EaseSineIn_class->addProperty = JS_PropertyStub;
-	jsb_EaseSineIn_class->delProperty = JS_PropertyStub;
+	jsb_EaseSineIn_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseSineIn_class->getProperty = JS_PropertyStub;
 	jsb_EaseSineIn_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseSineIn_class->enumerate = JS_EnumerateStub;
@@ -16328,7 +16328,7 @@ void js_register_cocos2dx_EaseSineOut(JSContext *cx, JSObject *global) {
 	jsb_EaseSineOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseSineOut_class->name = "EaseSineOut";
 	jsb_EaseSineOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseSineOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseSineOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseSineOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseSineOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseSineOut_class->enumerate = JS_EnumerateStub;
@@ -16507,7 +16507,7 @@ void js_register_cocos2dx_EaseSineInOut(JSContext *cx, JSObject *global) {
 	jsb_EaseSineInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseSineInOut_class->name = "EaseSineInOut";
 	jsb_EaseSineInOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseSineInOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseSineInOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseSineInOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseSineInOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseSineInOut_class->enumerate = JS_EnumerateStub;
@@ -16708,7 +16708,7 @@ void js_register_cocos2dx_EaseElastic(JSContext *cx, JSObject *global) {
 	jsb_EaseElastic_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseElastic_class->name = "EaseElastic";
 	jsb_EaseElastic_class->addProperty = JS_PropertyStub;
-	jsb_EaseElastic_class->delProperty = JS_PropertyStub;
+	jsb_EaseElastic_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseElastic_class->getProperty = JS_PropertyStub;
 	jsb_EaseElastic_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseElastic_class->enumerate = JS_EnumerateStub;
@@ -16919,7 +16919,7 @@ void js_register_cocos2dx_EaseElasticIn(JSContext *cx, JSObject *global) {
 	jsb_EaseElasticIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseElasticIn_class->name = "EaseElasticIn";
 	jsb_EaseElasticIn_class->addProperty = JS_PropertyStub;
-	jsb_EaseElasticIn_class->delProperty = JS_PropertyStub;
+	jsb_EaseElasticIn_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseElasticIn_class->getProperty = JS_PropertyStub;
 	jsb_EaseElasticIn_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseElasticIn_class->enumerate = JS_EnumerateStub;
@@ -17130,7 +17130,7 @@ void js_register_cocos2dx_EaseElasticOut(JSContext *cx, JSObject *global) {
 	jsb_EaseElasticOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseElasticOut_class->name = "EaseElasticOut";
 	jsb_EaseElasticOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseElasticOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseElasticOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseElasticOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseElasticOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseElasticOut_class->enumerate = JS_EnumerateStub;
@@ -17341,7 +17341,7 @@ void js_register_cocos2dx_EaseElasticInOut(JSContext *cx, JSObject *global) {
 	jsb_EaseElasticInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseElasticInOut_class->name = "EaseElasticInOut";
 	jsb_EaseElasticInOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseElasticInOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseElasticInOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseElasticInOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseElasticInOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseElasticInOut_class->enumerate = JS_EnumerateStub;
@@ -17479,7 +17479,7 @@ void js_register_cocos2dx_EaseBounce(JSContext *cx, JSObject *global) {
 	jsb_EaseBounce_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseBounce_class->name = "EaseBounce";
 	jsb_EaseBounce_class->addProperty = JS_PropertyStub;
-	jsb_EaseBounce_class->delProperty = JS_PropertyStub;
+	jsb_EaseBounce_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseBounce_class->getProperty = JS_PropertyStub;
 	jsb_EaseBounce_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseBounce_class->enumerate = JS_EnumerateStub;
@@ -17654,7 +17654,7 @@ void js_register_cocos2dx_EaseBounceIn(JSContext *cx, JSObject *global) {
 	jsb_EaseBounceIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseBounceIn_class->name = "EaseBounceIn";
 	jsb_EaseBounceIn_class->addProperty = JS_PropertyStub;
-	jsb_EaseBounceIn_class->delProperty = JS_PropertyStub;
+	jsb_EaseBounceIn_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseBounceIn_class->getProperty = JS_PropertyStub;
 	jsb_EaseBounceIn_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseBounceIn_class->enumerate = JS_EnumerateStub;
@@ -17833,7 +17833,7 @@ void js_register_cocos2dx_EaseBounceOut(JSContext *cx, JSObject *global) {
 	jsb_EaseBounceOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseBounceOut_class->name = "EaseBounceOut";
 	jsb_EaseBounceOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseBounceOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseBounceOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseBounceOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseBounceOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseBounceOut_class->enumerate = JS_EnumerateStub;
@@ -18012,7 +18012,7 @@ void js_register_cocos2dx_EaseBounceInOut(JSContext *cx, JSObject *global) {
 	jsb_EaseBounceInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseBounceInOut_class->name = "EaseBounceInOut";
 	jsb_EaseBounceInOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseBounceInOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseBounceInOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseBounceInOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseBounceInOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseBounceInOut_class->enumerate = JS_EnumerateStub;
@@ -18191,7 +18191,7 @@ void js_register_cocos2dx_EaseBackIn(JSContext *cx, JSObject *global) {
 	jsb_EaseBackIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseBackIn_class->name = "EaseBackIn";
 	jsb_EaseBackIn_class->addProperty = JS_PropertyStub;
-	jsb_EaseBackIn_class->delProperty = JS_PropertyStub;
+	jsb_EaseBackIn_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseBackIn_class->getProperty = JS_PropertyStub;
 	jsb_EaseBackIn_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseBackIn_class->enumerate = JS_EnumerateStub;
@@ -18370,7 +18370,7 @@ void js_register_cocos2dx_EaseBackOut(JSContext *cx, JSObject *global) {
 	jsb_EaseBackOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseBackOut_class->name = "EaseBackOut";
 	jsb_EaseBackOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseBackOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseBackOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseBackOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseBackOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseBackOut_class->enumerate = JS_EnumerateStub;
@@ -18549,7 +18549,7 @@ void js_register_cocos2dx_EaseBackInOut(JSContext *cx, JSObject *global) {
 	jsb_EaseBackInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_EaseBackInOut_class->name = "EaseBackInOut";
 	jsb_EaseBackInOut_class->addProperty = JS_PropertyStub;
-	jsb_EaseBackInOut_class->delProperty = JS_PropertyStub;
+	jsb_EaseBackInOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_EaseBackInOut_class->getProperty = JS_PropertyStub;
 	jsb_EaseBackInOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_EaseBackInOut_class->enumerate = JS_EnumerateStub;
@@ -18722,7 +18722,7 @@ void js_register_cocos2dx_ActionInstant(JSContext *cx, JSObject *global) {
 	jsb_ActionInstant_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ActionInstant_class->name = "ActionInstant";
 	jsb_ActionInstant_class->addProperty = JS_PropertyStub;
-	jsb_ActionInstant_class->delProperty = JS_PropertyStub;
+	jsb_ActionInstant_class->delProperty = JS_DeletePropertyStub;
 	jsb_ActionInstant_class->getProperty = JS_PropertyStub;
 	jsb_ActionInstant_class->setProperty = JS_StrictPropertyStub;
 	jsb_ActionInstant_class->enumerate = JS_EnumerateStub;
@@ -18912,7 +18912,7 @@ void js_register_cocos2dx_Show(JSContext *cx, JSObject *global) {
 	jsb_Show_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Show_class->name = "Show";
 	jsb_Show_class->addProperty = JS_PropertyStub;
-	jsb_Show_class->delProperty = JS_PropertyStub;
+	jsb_Show_class->delProperty = JS_DeletePropertyStub;
 	jsb_Show_class->getProperty = JS_PropertyStub;
 	jsb_Show_class->setProperty = JS_StrictPropertyStub;
 	jsb_Show_class->enumerate = JS_EnumerateStub;
@@ -19104,7 +19104,7 @@ void js_register_cocos2dx_Hide(JSContext *cx, JSObject *global) {
 	jsb_Hide_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Hide_class->name = "Hide";
 	jsb_Hide_class->addProperty = JS_PropertyStub;
-	jsb_Hide_class->delProperty = JS_PropertyStub;
+	jsb_Hide_class->delProperty = JS_DeletePropertyStub;
 	jsb_Hide_class->getProperty = JS_PropertyStub;
 	jsb_Hide_class->setProperty = JS_StrictPropertyStub;
 	jsb_Hide_class->enumerate = JS_EnumerateStub;
@@ -19296,7 +19296,7 @@ void js_register_cocos2dx_ToggleVisibility(JSContext *cx, JSObject *global) {
 	jsb_ToggleVisibility_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ToggleVisibility_class->name = "ToggleVisibility";
 	jsb_ToggleVisibility_class->addProperty = JS_PropertyStub;
-	jsb_ToggleVisibility_class->delProperty = JS_PropertyStub;
+	jsb_ToggleVisibility_class->delProperty = JS_DeletePropertyStub;
 	jsb_ToggleVisibility_class->getProperty = JS_PropertyStub;
 	jsb_ToggleVisibility_class->setProperty = JS_StrictPropertyStub;
 	jsb_ToggleVisibility_class->enumerate = JS_EnumerateStub;
@@ -19529,7 +19529,7 @@ void js_register_cocos2dx_RemoveSelf(JSContext *cx, JSObject *global) {
 	jsb_RemoveSelf_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_RemoveSelf_class->name = "RemoveSelf";
 	jsb_RemoveSelf_class->addProperty = JS_PropertyStub;
-	jsb_RemoveSelf_class->delProperty = JS_PropertyStub;
+	jsb_RemoveSelf_class->delProperty = JS_DeletePropertyStub;
 	jsb_RemoveSelf_class->getProperty = JS_PropertyStub;
 	jsb_RemoveSelf_class->setProperty = JS_StrictPropertyStub;
 	jsb_RemoveSelf_class->enumerate = JS_EnumerateStub;
@@ -19751,7 +19751,7 @@ void js_register_cocos2dx_FlipX(JSContext *cx, JSObject *global) {
 	jsb_FlipX_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FlipX_class->name = "FlipX";
 	jsb_FlipX_class->addProperty = JS_PropertyStub;
-	jsb_FlipX_class->delProperty = JS_PropertyStub;
+	jsb_FlipX_class->delProperty = JS_DeletePropertyStub;
 	jsb_FlipX_class->getProperty = JS_PropertyStub;
 	jsb_FlipX_class->setProperty = JS_StrictPropertyStub;
 	jsb_FlipX_class->enumerate = JS_EnumerateStub;
@@ -19973,7 +19973,7 @@ void js_register_cocos2dx_FlipY(JSContext *cx, JSObject *global) {
 	jsb_FlipY_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FlipY_class->name = "FlipY";
 	jsb_FlipY_class->addProperty = JS_PropertyStub;
-	jsb_FlipY_class->delProperty = JS_PropertyStub;
+	jsb_FlipY_class->delProperty = JS_DeletePropertyStub;
 	jsb_FlipY_class->getProperty = JS_PropertyStub;
 	jsb_FlipY_class->setProperty = JS_StrictPropertyStub;
 	jsb_FlipY_class->enumerate = JS_EnumerateStub;
@@ -20195,7 +20195,7 @@ void js_register_cocos2dx_Place(JSContext *cx, JSObject *global) {
 	jsb_Place_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Place_class->name = "Place";
 	jsb_Place_class->addProperty = JS_PropertyStub;
-	jsb_Place_class->delProperty = JS_PropertyStub;
+	jsb_Place_class->delProperty = JS_DeletePropertyStub;
 	jsb_Place_class->getProperty = JS_PropertyStub;
 	jsb_Place_class->setProperty = JS_StrictPropertyStub;
 	jsb_Place_class->enumerate = JS_EnumerateStub;
@@ -20436,7 +20436,7 @@ void js_register_cocos2dx_CallFunc(JSContext *cx, JSObject *global) {
 	jsb_CallFunc_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CallFunc_class->name = "CallFunc";
 	jsb_CallFunc_class->addProperty = JS_PropertyStub;
-	jsb_CallFunc_class->delProperty = JS_PropertyStub;
+	jsb_CallFunc_class->delProperty = JS_DeletePropertyStub;
 	jsb_CallFunc_class->getProperty = JS_PropertyStub;
 	jsb_CallFunc_class->setProperty = JS_StrictPropertyStub;
 	jsb_CallFunc_class->enumerate = JS_EnumerateStub;
@@ -20629,7 +20629,7 @@ void js_register_cocos2dx_GridAction(JSContext *cx, JSObject *global) {
 	jsb_GridAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_GridAction_class->name = "GridAction";
 	jsb_GridAction_class->addProperty = JS_PropertyStub;
-	jsb_GridAction_class->delProperty = JS_PropertyStub;
+	jsb_GridAction_class->delProperty = JS_DeletePropertyStub;
 	jsb_GridAction_class->getProperty = JS_PropertyStub;
 	jsb_GridAction_class->setProperty = JS_StrictPropertyStub;
 	jsb_GridAction_class->enumerate = JS_EnumerateStub;
@@ -20745,7 +20745,7 @@ void js_register_cocos2dx_Grid3DAction(JSContext *cx, JSObject *global) {
 	jsb_Grid3DAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Grid3DAction_class->name = "Grid3DAction";
 	jsb_Grid3DAction_class->addProperty = JS_PropertyStub;
-	jsb_Grid3DAction_class->delProperty = JS_PropertyStub;
+	jsb_Grid3DAction_class->delProperty = JS_DeletePropertyStub;
 	jsb_Grid3DAction_class->getProperty = JS_PropertyStub;
 	jsb_Grid3DAction_class->setProperty = JS_StrictPropertyStub;
 	jsb_Grid3DAction_class->enumerate = JS_EnumerateStub;
@@ -20856,7 +20856,7 @@ void js_register_cocos2dx_TiledGrid3DAction(JSContext *cx, JSObject *global) {
 	jsb_TiledGrid3DAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TiledGrid3DAction_class->name = "TiledGrid3DAction";
 	jsb_TiledGrid3DAction_class->addProperty = JS_PropertyStub;
-	jsb_TiledGrid3DAction_class->delProperty = JS_PropertyStub;
+	jsb_TiledGrid3DAction_class->delProperty = JS_DeletePropertyStub;
 	jsb_TiledGrid3DAction_class->getProperty = JS_PropertyStub;
 	jsb_TiledGrid3DAction_class->setProperty = JS_StrictPropertyStub;
 	jsb_TiledGrid3DAction_class->enumerate = JS_EnumerateStub;
@@ -21025,7 +21025,7 @@ void js_register_cocos2dx_StopGrid(JSContext *cx, JSObject *global) {
 	jsb_StopGrid_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_StopGrid_class->name = "StopGrid";
 	jsb_StopGrid_class->addProperty = JS_PropertyStub;
-	jsb_StopGrid_class->delProperty = JS_PropertyStub;
+	jsb_StopGrid_class->delProperty = JS_DeletePropertyStub;
 	jsb_StopGrid_class->getProperty = JS_PropertyStub;
 	jsb_StopGrid_class->setProperty = JS_StrictPropertyStub;
 	jsb_StopGrid_class->enumerate = JS_EnumerateStub;
@@ -21226,7 +21226,7 @@ void js_register_cocos2dx_ReuseGrid(JSContext *cx, JSObject *global) {
 	jsb_ReuseGrid_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ReuseGrid_class->name = "ReuseGrid";
 	jsb_ReuseGrid_class->addProperty = JS_PropertyStub;
-	jsb_ReuseGrid_class->delProperty = JS_PropertyStub;
+	jsb_ReuseGrid_class->delProperty = JS_DeletePropertyStub;
 	jsb_ReuseGrid_class->getProperty = JS_PropertyStub;
 	jsb_ReuseGrid_class->setProperty = JS_StrictPropertyStub;
 	jsb_ReuseGrid_class->enumerate = JS_EnumerateStub;
@@ -21485,7 +21485,7 @@ void js_register_cocos2dx_Waves3D(JSContext *cx, JSObject *global) {
 	jsb_Waves3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Waves3D_class->name = "Waves3D";
 	jsb_Waves3D_class->addProperty = JS_PropertyStub;
-	jsb_Waves3D_class->delProperty = JS_PropertyStub;
+	jsb_Waves3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_Waves3D_class->getProperty = JS_PropertyStub;
 	jsb_Waves3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_Waves3D_class->enumerate = JS_EnumerateStub;
@@ -21685,7 +21685,7 @@ void js_register_cocos2dx_FlipX3D(JSContext *cx, JSObject *global) {
 	jsb_FlipX3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FlipX3D_class->name = "FlipX3D";
 	jsb_FlipX3D_class->addProperty = JS_PropertyStub;
-	jsb_FlipX3D_class->delProperty = JS_PropertyStub;
+	jsb_FlipX3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_FlipX3D_class->getProperty = JS_PropertyStub;
 	jsb_FlipX3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_FlipX3D_class->enumerate = JS_EnumerateStub;
@@ -21834,7 +21834,7 @@ void js_register_cocos2dx_FlipY3D(JSContext *cx, JSObject *global) {
 	jsb_FlipY3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FlipY3D_class->name = "FlipY3D";
 	jsb_FlipY3D_class->addProperty = JS_PropertyStub;
-	jsb_FlipY3D_class->delProperty = JS_PropertyStub;
+	jsb_FlipY3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_FlipY3D_class->getProperty = JS_PropertyStub;
 	jsb_FlipY3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_FlipY3D_class->enumerate = JS_EnumerateStub;
@@ -22109,7 +22109,7 @@ void js_register_cocos2dx_Lens3D(JSContext *cx, JSObject *global) {
 	jsb_Lens3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Lens3D_class->name = "Lens3D";
 	jsb_Lens3D_class->addProperty = JS_PropertyStub;
-	jsb_Lens3D_class->delProperty = JS_PropertyStub;
+	jsb_Lens3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_Lens3D_class->getProperty = JS_PropertyStub;
 	jsb_Lens3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_Lens3D_class->enumerate = JS_EnumerateStub;
@@ -22417,7 +22417,7 @@ void js_register_cocos2dx_Ripple3D(JSContext *cx, JSObject *global) {
 	jsb_Ripple3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Ripple3D_class->name = "Ripple3D";
 	jsb_Ripple3D_class->addProperty = JS_PropertyStub;
-	jsb_Ripple3D_class->delProperty = JS_PropertyStub;
+	jsb_Ripple3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_Ripple3D_class->getProperty = JS_PropertyStub;
 	jsb_Ripple3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_Ripple3D_class->enumerate = JS_EnumerateStub;
@@ -22607,7 +22607,7 @@ void js_register_cocos2dx_Shaky3D(JSContext *cx, JSObject *global) {
 	jsb_Shaky3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Shaky3D_class->name = "Shaky3D";
 	jsb_Shaky3D_class->addProperty = JS_PropertyStub;
-	jsb_Shaky3D_class->delProperty = JS_PropertyStub;
+	jsb_Shaky3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_Shaky3D_class->getProperty = JS_PropertyStub;
 	jsb_Shaky3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_Shaky3D_class->enumerate = JS_EnumerateStub;
@@ -22865,7 +22865,7 @@ void js_register_cocos2dx_Liquid(JSContext *cx, JSObject *global) {
 	jsb_Liquid_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Liquid_class->name = "Liquid";
 	jsb_Liquid_class->addProperty = JS_PropertyStub;
-	jsb_Liquid_class->delProperty = JS_PropertyStub;
+	jsb_Liquid_class->delProperty = JS_DeletePropertyStub;
 	jsb_Liquid_class->getProperty = JS_PropertyStub;
 	jsb_Liquid_class->setProperty = JS_StrictPropertyStub;
 	jsb_Liquid_class->enumerate = JS_EnumerateStub;
@@ -23135,7 +23135,7 @@ void js_register_cocos2dx_Waves(JSContext *cx, JSObject *global) {
 	jsb_Waves_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Waves_class->name = "Waves";
 	jsb_Waves_class->addProperty = JS_PropertyStub;
-	jsb_Waves_class->delProperty = JS_PropertyStub;
+	jsb_Waves_class->delProperty = JS_DeletePropertyStub;
 	jsb_Waves_class->getProperty = JS_PropertyStub;
 	jsb_Waves_class->setProperty = JS_StrictPropertyStub;
 	jsb_Waves_class->enumerate = JS_EnumerateStub;
@@ -23438,7 +23438,7 @@ void js_register_cocos2dx_Twirl(JSContext *cx, JSObject *global) {
 	jsb_Twirl_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Twirl_class->name = "Twirl";
 	jsb_Twirl_class->addProperty = JS_PropertyStub;
-	jsb_Twirl_class->delProperty = JS_PropertyStub;
+	jsb_Twirl_class->delProperty = JS_DeletePropertyStub;
 	jsb_Twirl_class->getProperty = JS_PropertyStub;
 	jsb_Twirl_class->setProperty = JS_StrictPropertyStub;
 	jsb_Twirl_class->enumerate = JS_EnumerateStub;
@@ -23596,7 +23596,7 @@ void js_register_cocos2dx_PageTurn3D(JSContext *cx, JSObject *global) {
 	jsb_PageTurn3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_PageTurn3D_class->name = "PageTurn3D";
 	jsb_PageTurn3D_class->addProperty = JS_PropertyStub;
-	jsb_PageTurn3D_class->delProperty = JS_PropertyStub;
+	jsb_PageTurn3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_PageTurn3D_class->getProperty = JS_PropertyStub;
 	jsb_PageTurn3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_PageTurn3D_class->enumerate = JS_EnumerateStub;
@@ -23820,7 +23820,7 @@ void js_register_cocos2dx_ProgressTo(JSContext *cx, JSObject *global) {
 	jsb_ProgressTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ProgressTo_class->name = "ProgressTo";
 	jsb_ProgressTo_class->addProperty = JS_PropertyStub;
-	jsb_ProgressTo_class->delProperty = JS_PropertyStub;
+	jsb_ProgressTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_ProgressTo_class->getProperty = JS_PropertyStub;
 	jsb_ProgressTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_ProgressTo_class->enumerate = JS_EnumerateStub;
@@ -24053,7 +24053,7 @@ void js_register_cocos2dx_ProgressFromTo(JSContext *cx, JSObject *global) {
 	jsb_ProgressFromTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ProgressFromTo_class->name = "ProgressFromTo";
 	jsb_ProgressFromTo_class->addProperty = JS_PropertyStub;
-	jsb_ProgressFromTo_class->delProperty = JS_PropertyStub;
+	jsb_ProgressFromTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_ProgressFromTo_class->getProperty = JS_PropertyStub;
 	jsb_ProgressFromTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_ProgressFromTo_class->enumerate = JS_EnumerateStub;
@@ -24239,7 +24239,7 @@ void js_register_cocos2dx_ShakyTiles3D(JSContext *cx, JSObject *global) {
 	jsb_ShakyTiles3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ShakyTiles3D_class->name = "ShakyTiles3D";
 	jsb_ShakyTiles3D_class->addProperty = JS_PropertyStub;
-	jsb_ShakyTiles3D_class->delProperty = JS_PropertyStub;
+	jsb_ShakyTiles3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_ShakyTiles3D_class->getProperty = JS_PropertyStub;
 	jsb_ShakyTiles3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_ShakyTiles3D_class->enumerate = JS_EnumerateStub;
@@ -24423,7 +24423,7 @@ void js_register_cocos2dx_ShatteredTiles3D(JSContext *cx, JSObject *global) {
 	jsb_ShatteredTiles3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ShatteredTiles3D_class->name = "ShatteredTiles3D";
 	jsb_ShatteredTiles3D_class->addProperty = JS_PropertyStub;
-	jsb_ShatteredTiles3D_class->delProperty = JS_PropertyStub;
+	jsb_ShatteredTiles3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_ShatteredTiles3D_class->getProperty = JS_PropertyStub;
 	jsb_ShatteredTiles3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_ShatteredTiles3D_class->enumerate = JS_EnumerateStub;
@@ -24703,7 +24703,7 @@ void js_register_cocos2dx_ShuffleTiles(JSContext *cx, JSObject *global) {
 	jsb_ShuffleTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ShuffleTiles_class->name = "ShuffleTiles";
 	jsb_ShuffleTiles_class->addProperty = JS_PropertyStub;
-	jsb_ShuffleTiles_class->delProperty = JS_PropertyStub;
+	jsb_ShuffleTiles_class->delProperty = JS_DeletePropertyStub;
 	jsb_ShuffleTiles_class->getProperty = JS_PropertyStub;
 	jsb_ShuffleTiles_class->setProperty = JS_StrictPropertyStub;
 	jsb_ShuffleTiles_class->enumerate = JS_EnumerateStub;
@@ -24945,7 +24945,7 @@ void js_register_cocos2dx_FadeOutTRTiles(JSContext *cx, JSObject *global) {
 	jsb_FadeOutTRTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FadeOutTRTiles_class->name = "FadeOutTRTiles";
 	jsb_FadeOutTRTiles_class->addProperty = JS_PropertyStub;
-	jsb_FadeOutTRTiles_class->delProperty = JS_PropertyStub;
+	jsb_FadeOutTRTiles_class->delProperty = JS_DeletePropertyStub;
 	jsb_FadeOutTRTiles_class->getProperty = JS_PropertyStub;
 	jsb_FadeOutTRTiles_class->setProperty = JS_StrictPropertyStub;
 	jsb_FadeOutTRTiles_class->enumerate = JS_EnumerateStub;
@@ -25102,7 +25102,7 @@ void js_register_cocos2dx_FadeOutBLTiles(JSContext *cx, JSObject *global) {
 	jsb_FadeOutBLTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FadeOutBLTiles_class->name = "FadeOutBLTiles";
 	jsb_FadeOutBLTiles_class->addProperty = JS_PropertyStub;
-	jsb_FadeOutBLTiles_class->delProperty = JS_PropertyStub;
+	jsb_FadeOutBLTiles_class->delProperty = JS_DeletePropertyStub;
 	jsb_FadeOutBLTiles_class->getProperty = JS_PropertyStub;
 	jsb_FadeOutBLTiles_class->setProperty = JS_StrictPropertyStub;
 	jsb_FadeOutBLTiles_class->enumerate = JS_EnumerateStub;
@@ -25277,7 +25277,7 @@ void js_register_cocos2dx_FadeOutUpTiles(JSContext *cx, JSObject *global) {
 	jsb_FadeOutUpTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FadeOutUpTiles_class->name = "FadeOutUpTiles";
 	jsb_FadeOutUpTiles_class->addProperty = JS_PropertyStub;
-	jsb_FadeOutUpTiles_class->delProperty = JS_PropertyStub;
+	jsb_FadeOutUpTiles_class->delProperty = JS_DeletePropertyStub;
 	jsb_FadeOutUpTiles_class->getProperty = JS_PropertyStub;
 	jsb_FadeOutUpTiles_class->setProperty = JS_StrictPropertyStub;
 	jsb_FadeOutUpTiles_class->enumerate = JS_EnumerateStub;
@@ -25431,7 +25431,7 @@ void js_register_cocos2dx_FadeOutDownTiles(JSContext *cx, JSObject *global) {
 	jsb_FadeOutDownTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FadeOutDownTiles_class->name = "FadeOutDownTiles";
 	jsb_FadeOutDownTiles_class->addProperty = JS_PropertyStub;
-	jsb_FadeOutDownTiles_class->delProperty = JS_PropertyStub;
+	jsb_FadeOutDownTiles_class->delProperty = JS_DeletePropertyStub;
 	jsb_FadeOutDownTiles_class->getProperty = JS_PropertyStub;
 	jsb_FadeOutDownTiles_class->setProperty = JS_StrictPropertyStub;
 	jsb_FadeOutDownTiles_class->enumerate = JS_EnumerateStub;
@@ -25724,7 +25724,7 @@ void js_register_cocos2dx_TurnOffTiles(JSContext *cx, JSObject *global) {
 	jsb_TurnOffTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TurnOffTiles_class->name = "TurnOffTiles";
 	jsb_TurnOffTiles_class->addProperty = JS_PropertyStub;
-	jsb_TurnOffTiles_class->delProperty = JS_PropertyStub;
+	jsb_TurnOffTiles_class->delProperty = JS_DeletePropertyStub;
 	jsb_TurnOffTiles_class->getProperty = JS_PropertyStub;
 	jsb_TurnOffTiles_class->setProperty = JS_StrictPropertyStub;
 	jsb_TurnOffTiles_class->enumerate = JS_EnumerateStub;
@@ -25986,7 +25986,7 @@ void js_register_cocos2dx_WavesTiles3D(JSContext *cx, JSObject *global) {
 	jsb_WavesTiles3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_WavesTiles3D_class->name = "WavesTiles3D";
 	jsb_WavesTiles3D_class->addProperty = JS_PropertyStub;
-	jsb_WavesTiles3D_class->delProperty = JS_PropertyStub;
+	jsb_WavesTiles3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_WavesTiles3D_class->getProperty = JS_PropertyStub;
 	jsb_WavesTiles3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_WavesTiles3D_class->enumerate = JS_EnumerateStub;
@@ -26248,7 +26248,7 @@ void js_register_cocos2dx_JumpTiles3D(JSContext *cx, JSObject *global) {
 	jsb_JumpTiles3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_JumpTiles3D_class->name = "JumpTiles3D";
 	jsb_JumpTiles3D_class->addProperty = JS_PropertyStub;
-	jsb_JumpTiles3D_class->delProperty = JS_PropertyStub;
+	jsb_JumpTiles3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_JumpTiles3D_class->getProperty = JS_PropertyStub;
 	jsb_JumpTiles3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_JumpTiles3D_class->enumerate = JS_EnumerateStub;
@@ -26455,7 +26455,7 @@ void js_register_cocos2dx_SplitRows(JSContext *cx, JSObject *global) {
 	jsb_SplitRows_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_SplitRows_class->name = "SplitRows";
 	jsb_SplitRows_class->addProperty = JS_PropertyStub;
-	jsb_SplitRows_class->delProperty = JS_PropertyStub;
+	jsb_SplitRows_class->delProperty = JS_DeletePropertyStub;
 	jsb_SplitRows_class->getProperty = JS_PropertyStub;
 	jsb_SplitRows_class->setProperty = JS_StrictPropertyStub;
 	jsb_SplitRows_class->enumerate = JS_EnumerateStub;
@@ -26659,7 +26659,7 @@ void js_register_cocos2dx_SplitCols(JSContext *cx, JSObject *global) {
 	jsb_SplitCols_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_SplitCols_class->name = "SplitCols";
 	jsb_SplitCols_class->addProperty = JS_PropertyStub;
-	jsb_SplitCols_class->delProperty = JS_PropertyStub;
+	jsb_SplitCols_class->delProperty = JS_DeletePropertyStub;
 	jsb_SplitCols_class->getProperty = JS_PropertyStub;
 	jsb_SplitCols_class->setProperty = JS_StrictPropertyStub;
 	jsb_SplitCols_class->enumerate = JS_EnumerateStub;
@@ -26895,7 +26895,7 @@ void js_register_cocos2dx_ActionTween(JSContext *cx, JSObject *global) {
 	jsb_ActionTween_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ActionTween_class->name = "ActionTween";
 	jsb_ActionTween_class->addProperty = JS_PropertyStub;
-	jsb_ActionTween_class->delProperty = JS_PropertyStub;
+	jsb_ActionTween_class->delProperty = JS_DeletePropertyStub;
 	jsb_ActionTween_class->getProperty = JS_PropertyStub;
 	jsb_ActionTween_class->setProperty = JS_StrictPropertyStub;
 	jsb_ActionTween_class->enumerate = JS_EnumerateStub;
@@ -27175,7 +27175,7 @@ void js_register_cocos2dx_CardinalSplineTo(JSContext *cx, JSObject *global) {
 	jsb_CardinalSplineTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CardinalSplineTo_class->name = "CardinalSplineTo";
 	jsb_CardinalSplineTo_class->addProperty = JS_PropertyStub;
-	jsb_CardinalSplineTo_class->delProperty = JS_PropertyStub;
+	jsb_CardinalSplineTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_CardinalSplineTo_class->getProperty = JS_PropertyStub;
 	jsb_CardinalSplineTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_CardinalSplineTo_class->enumerate = JS_EnumerateStub;
@@ -27377,7 +27377,7 @@ void js_register_cocos2dx_CardinalSplineBy(JSContext *cx, JSObject *global) {
 	jsb_CardinalSplineBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CardinalSplineBy_class->name = "CardinalSplineBy";
 	jsb_CardinalSplineBy_class->addProperty = JS_PropertyStub;
-	jsb_CardinalSplineBy_class->delProperty = JS_PropertyStub;
+	jsb_CardinalSplineBy_class->delProperty = JS_DeletePropertyStub;
 	jsb_CardinalSplineBy_class->getProperty = JS_PropertyStub;
 	jsb_CardinalSplineBy_class->setProperty = JS_StrictPropertyStub;
 	jsb_CardinalSplineBy_class->enumerate = JS_EnumerateStub;
@@ -27535,7 +27535,7 @@ void js_register_cocos2dx_CatmullRomTo(JSContext *cx, JSObject *global) {
 	jsb_CatmullRomTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CatmullRomTo_class->name = "CatmullRomTo";
 	jsb_CatmullRomTo_class->addProperty = JS_PropertyStub;
-	jsb_CatmullRomTo_class->delProperty = JS_PropertyStub;
+	jsb_CatmullRomTo_class->delProperty = JS_DeletePropertyStub;
 	jsb_CatmullRomTo_class->getProperty = JS_PropertyStub;
 	jsb_CatmullRomTo_class->setProperty = JS_StrictPropertyStub;
 	jsb_CatmullRomTo_class->enumerate = JS_EnumerateStub;
@@ -27690,7 +27690,7 @@ void js_register_cocos2dx_CatmullRomBy(JSContext *cx, JSObject *global) {
 	jsb_CatmullRomBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CatmullRomBy_class->name = "CatmullRomBy";
 	jsb_CatmullRomBy_class->addProperty = JS_PropertyStub;
-	jsb_CatmullRomBy_class->delProperty = JS_PropertyStub;
+	jsb_CatmullRomBy_class->delProperty = JS_DeletePropertyStub;
 	jsb_CatmullRomBy_class->getProperty = JS_PropertyStub;
 	jsb_CatmullRomBy_class->setProperty = JS_StrictPropertyStub;
 	jsb_CatmullRomBy_class->enumerate = JS_EnumerateStub;
@@ -28148,7 +28148,7 @@ void js_register_cocos2dx_AtlasNode(JSContext *cx, JSObject *global) {
 	jsb_AtlasNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_AtlasNode_class->name = "AtlasNode";
 	jsb_AtlasNode_class->addProperty = JS_PropertyStub;
-	jsb_AtlasNode_class->delProperty = JS_PropertyStub;
+	jsb_AtlasNode_class->delProperty = JS_DeletePropertyStub;
 	jsb_AtlasNode_class->getProperty = JS_PropertyStub;
 	jsb_AtlasNode_class->setProperty = JS_StrictPropertyStub;
 	jsb_AtlasNode_class->enumerate = JS_EnumerateStub;
@@ -28383,7 +28383,7 @@ void js_register_cocos2dx_DrawNode(JSContext *cx, JSObject *global) {
 	jsb_DrawNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_DrawNode_class->name = "DrawNode";
 	jsb_DrawNode_class->addProperty = JS_PropertyStub;
-	jsb_DrawNode_class->delProperty = JS_PropertyStub;
+	jsb_DrawNode_class->delProperty = JS_DeletePropertyStub;
 	jsb_DrawNode_class->getProperty = JS_PropertyStub;
 	jsb_DrawNode_class->setProperty = JS_StrictPropertyStub;
 	jsb_DrawNode_class->enumerate = JS_EnumerateStub;
@@ -28657,7 +28657,7 @@ void js_register_cocos2dx_Camera(JSContext *cx, JSObject *global) {
 	jsb_Camera_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Camera_class->name = "Camera";
 	jsb_Camera_class->addProperty = JS_PropertyStub;
-	jsb_Camera_class->delProperty = JS_PropertyStub;
+	jsb_Camera_class->delProperty = JS_DeletePropertyStub;
 	jsb_Camera_class->getProperty = JS_PropertyStub;
 	jsb_Camera_class->setProperty = JS_StrictPropertyStub;
 	jsb_Camera_class->enumerate = JS_EnumerateStub;
@@ -28969,7 +28969,7 @@ void js_register_cocos2dx_LabelAtlas(JSContext *cx, JSObject *global) {
 	jsb_LabelAtlas_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_LabelAtlas_class->name = "LabelAtlas";
 	jsb_LabelAtlas_class->addProperty = JS_PropertyStub;
-	jsb_LabelAtlas_class->delProperty = JS_PropertyStub;
+	jsb_LabelAtlas_class->delProperty = JS_DeletePropertyStub;
 	jsb_LabelAtlas_class->getProperty = JS_PropertyStub;
 	jsb_LabelAtlas_class->setProperty = JS_StrictPropertyStub;
 	jsb_LabelAtlas_class->enumerate = JS_EnumerateStub;
@@ -30076,7 +30076,7 @@ void js_register_cocos2dx_Director(JSContext *cx, JSObject *global) {
 	jsb_Director_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Director_class->name = "Director";
 	jsb_Director_class->addProperty = JS_PropertyStub;
-	jsb_Director_class->delProperty = JS_PropertyStub;
+	jsb_Director_class->delProperty = JS_DeletePropertyStub;
 	jsb_Director_class->getProperty = JS_PropertyStub;
 	jsb_Director_class->setProperty = JS_StrictPropertyStub;
 	jsb_Director_class->enumerate = JS_EnumerateStub;
@@ -30604,7 +30604,7 @@ void js_register_cocos2dx_GridBase(JSContext *cx, JSObject *global) {
 	jsb_GridBase_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_GridBase_class->name = "GridBase";
 	jsb_GridBase_class->addProperty = JS_PropertyStub;
-	jsb_GridBase_class->delProperty = JS_PropertyStub;
+	jsb_GridBase_class->delProperty = JS_DeletePropertyStub;
 	jsb_GridBase_class->getProperty = JS_PropertyStub;
 	jsb_GridBase_class->setProperty = JS_StrictPropertyStub;
 	jsb_GridBase_class->enumerate = JS_EnumerateStub;
@@ -30829,7 +30829,7 @@ void js_register_cocos2dx_Grid3D(JSContext *cx, JSObject *global) {
 	jsb_Grid3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Grid3D_class->name = "Grid3D";
 	jsb_Grid3D_class->addProperty = JS_PropertyStub;
-	jsb_Grid3D_class->delProperty = JS_PropertyStub;
+	jsb_Grid3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_Grid3D_class->getProperty = JS_PropertyStub;
 	jsb_Grid3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_Grid3D_class->enumerate = JS_EnumerateStub;
@@ -31040,7 +31040,7 @@ void js_register_cocos2dx_TiledGrid3D(JSContext *cx, JSObject *global) {
 	jsb_TiledGrid3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TiledGrid3D_class->name = "TiledGrid3D";
 	jsb_TiledGrid3D_class->addProperty = JS_PropertyStub;
-	jsb_TiledGrid3D_class->delProperty = JS_PropertyStub;
+	jsb_TiledGrid3D_class->delProperty = JS_DeletePropertyStub;
 	jsb_TiledGrid3D_class->getProperty = JS_PropertyStub;
 	jsb_TiledGrid3D_class->setProperty = JS_StrictPropertyStub;
 	jsb_TiledGrid3D_class->enumerate = JS_EnumerateStub;
@@ -32570,7 +32570,7 @@ void js_register_cocos2dx_Sprite(JSContext *cx, JSObject *global) {
 	jsb_Sprite_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Sprite_class->name = "Sprite";
 	jsb_Sprite_class->addProperty = JS_PropertyStub;
-	jsb_Sprite_class->delProperty = JS_PropertyStub;
+	jsb_Sprite_class->delProperty = JS_DeletePropertyStub;
 	jsb_Sprite_class->getProperty = JS_PropertyStub;
 	jsb_Sprite_class->setProperty = JS_StrictPropertyStub;
 	jsb_Sprite_class->enumerate = JS_EnumerateStub;
@@ -33409,7 +33409,7 @@ void js_register_cocos2dx_LabelTTF(JSContext *cx, JSObject *global) {
 	jsb_LabelTTF_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_LabelTTF_class->name = "LabelTTF";
 	jsb_LabelTTF_class->addProperty = JS_PropertyStub;
-	jsb_LabelTTF_class->delProperty = JS_PropertyStub;
+	jsb_LabelTTF_class->delProperty = JS_DeletePropertyStub;
 	jsb_LabelTTF_class->getProperty = JS_PropertyStub;
 	jsb_LabelTTF_class->setProperty = JS_StrictPropertyStub;
 	jsb_LabelTTF_class->enumerate = JS_EnumerateStub;
@@ -34287,7 +34287,7 @@ void js_register_cocos2dx_SpriteBatchNode(JSContext *cx, JSObject *global) {
 	jsb_SpriteBatchNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_SpriteBatchNode_class->name = "SpriteBatchNode";
 	jsb_SpriteBatchNode_class->addProperty = JS_PropertyStub;
-	jsb_SpriteBatchNode_class->delProperty = JS_PropertyStub;
+	jsb_SpriteBatchNode_class->delProperty = JS_DeletePropertyStub;
 	jsb_SpriteBatchNode_class->getProperty = JS_PropertyStub;
 	jsb_SpriteBatchNode_class->setProperty = JS_StrictPropertyStub;
 	jsb_SpriteBatchNode_class->enumerate = JS_EnumerateStub;
@@ -35191,7 +35191,7 @@ void js_register_cocos2dx_LabelBMFont(JSContext *cx, JSObject *global) {
 	jsb_LabelBMFont_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_LabelBMFont_class->name = "LabelBMFont";
 	jsb_LabelBMFont_class->addProperty = JS_PropertyStub;
-	jsb_LabelBMFont_class->delProperty = JS_PropertyStub;
+	jsb_LabelBMFont_class->delProperty = JS_DeletePropertyStub;
 	jsb_LabelBMFont_class->getProperty = JS_PropertyStub;
 	jsb_LabelBMFont_class->setProperty = JS_StrictPropertyStub;
 	jsb_LabelBMFont_class->enumerate = JS_EnumerateStub;
@@ -35609,7 +35609,7 @@ void js_register_cocos2dx_Label(JSContext *cx, JSObject *global) {
 	jsb_Label_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Label_class->name = "Label";
 	jsb_Label_class->addProperty = JS_PropertyStub;
-	jsb_Label_class->delProperty = JS_PropertyStub;
+	jsb_Label_class->delProperty = JS_DeletePropertyStub;
 	jsb_Label_class->getProperty = JS_PropertyStub;
 	jsb_Label_class->setProperty = JS_StrictPropertyStub;
 	jsb_Label_class->enumerate = JS_EnumerateStub;
@@ -36368,7 +36368,7 @@ void js_register_cocos2dx_Layer(JSContext *cx, JSObject *global) {
 	jsb_Layer_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Layer_class->name = "Layer";
 	jsb_Layer_class->addProperty = JS_PropertyStub;
-	jsb_Layer_class->delProperty = JS_PropertyStub;
+	jsb_Layer_class->delProperty = JS_DeletePropertyStub;
 	jsb_Layer_class->getProperty = JS_PropertyStub;
 	jsb_Layer_class->setProperty = JS_StrictPropertyStub;
 	jsb_Layer_class->enumerate = JS_EnumerateStub;
@@ -36794,7 +36794,7 @@ void js_register_cocos2dx_LayerRGBA(JSContext *cx, JSObject *global) {
 	jsb_LayerRGBA_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_LayerRGBA_class->name = "LayerRGBA";
 	jsb_LayerRGBA_class->addProperty = JS_PropertyStub;
-	jsb_LayerRGBA_class->delProperty = JS_PropertyStub;
+	jsb_LayerRGBA_class->delProperty = JS_DeletePropertyStub;
 	jsb_LayerRGBA_class->getProperty = JS_PropertyStub;
 	jsb_LayerRGBA_class->setProperty = JS_StrictPropertyStub;
 	jsb_LayerRGBA_class->enumerate = JS_EnumerateStub;
@@ -37175,7 +37175,7 @@ void js_register_cocos2dx_LayerColor(JSContext *cx, JSObject *global) {
 	jsb_LayerColor_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_LayerColor_class->name = "LayerColor";
 	jsb_LayerColor_class->addProperty = JS_PropertyStub;
-	jsb_LayerColor_class->delProperty = JS_PropertyStub;
+	jsb_LayerColor_class->delProperty = JS_DeletePropertyStub;
 	jsb_LayerColor_class->getProperty = JS_PropertyStub;
 	jsb_LayerColor_class->setProperty = JS_StrictPropertyStub;
 	jsb_LayerColor_class->enumerate = JS_EnumerateStub;
@@ -37615,7 +37615,7 @@ void js_register_cocos2dx_LayerGradient(JSContext *cx, JSObject *global) {
 	jsb_LayerGradient_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_LayerGradient_class->name = "LayerGradient";
 	jsb_LayerGradient_class->addProperty = JS_PropertyStub;
-	jsb_LayerGradient_class->delProperty = JS_PropertyStub;
+	jsb_LayerGradient_class->delProperty = JS_DeletePropertyStub;
 	jsb_LayerGradient_class->getProperty = JS_PropertyStub;
 	jsb_LayerGradient_class->setProperty = JS_StrictPropertyStub;
 	jsb_LayerGradient_class->enumerate = JS_EnumerateStub;
@@ -37820,7 +37820,7 @@ void js_register_cocos2dx_LayerMultiplex(JSContext *cx, JSObject *global) {
 	jsb_LayerMultiplex_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_LayerMultiplex_class->name = "LayerMultiplex";
 	jsb_LayerMultiplex_class->addProperty = JS_PropertyStub;
-	jsb_LayerMultiplex_class->delProperty = JS_PropertyStub;
+	jsb_LayerMultiplex_class->delProperty = JS_DeletePropertyStub;
 	jsb_LayerMultiplex_class->getProperty = JS_PropertyStub;
 	jsb_LayerMultiplex_class->setProperty = JS_StrictPropertyStub;
 	jsb_LayerMultiplex_class->enumerate = JS_EnumerateStub;
@@ -37961,7 +37961,7 @@ void js_register_cocos2dx_Scene(JSContext *cx, JSObject *global) {
 	jsb_Scene_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Scene_class->name = "Scene";
 	jsb_Scene_class->addProperty = JS_PropertyStub;
-	jsb_Scene_class->delProperty = JS_PropertyStub;
+	jsb_Scene_class->delProperty = JS_DeletePropertyStub;
 	jsb_Scene_class->getProperty = JS_PropertyStub;
 	jsb_Scene_class->setProperty = JS_StrictPropertyStub;
 	jsb_Scene_class->enumerate = JS_EnumerateStub;
@@ -38062,7 +38062,7 @@ void js_register_cocos2dx_TransitionEaseScene(JSContext *cx, JSObject *global) {
 	jsb_TransitionEaseScene_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionEaseScene_class->name = "TransitionEaseScene";
 	jsb_TransitionEaseScene_class->addProperty = JS_PropertyStub;
-	jsb_TransitionEaseScene_class->delProperty = JS_PropertyStub;
+	jsb_TransitionEaseScene_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionEaseScene_class->getProperty = JS_PropertyStub;
 	jsb_TransitionEaseScene_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionEaseScene_class->enumerate = JS_EnumerateStub;
@@ -38285,7 +38285,7 @@ void js_register_cocos2dx_TransitionScene(JSContext *cx, JSObject *global) {
 	jsb_TransitionScene_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionScene_class->name = "TransitionScene";
 	jsb_TransitionScene_class->addProperty = JS_PropertyStub;
-	jsb_TransitionScene_class->delProperty = JS_PropertyStub;
+	jsb_TransitionScene_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionScene_class->getProperty = JS_PropertyStub;
 	jsb_TransitionScene_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionScene_class->enumerate = JS_EnumerateStub;
@@ -38462,7 +38462,7 @@ void js_register_cocos2dx_TransitionSceneOriented(JSContext *cx, JSObject *globa
 	jsb_TransitionSceneOriented_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionSceneOriented_class->name = "TransitionSceneOriented";
 	jsb_TransitionSceneOriented_class->addProperty = JS_PropertyStub;
-	jsb_TransitionSceneOriented_class->delProperty = JS_PropertyStub;
+	jsb_TransitionSceneOriented_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionSceneOriented_class->getProperty = JS_PropertyStub;
 	jsb_TransitionSceneOriented_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionSceneOriented_class->enumerate = JS_EnumerateStub;
@@ -38600,7 +38600,7 @@ void js_register_cocos2dx_TransitionRotoZoom(JSContext *cx, JSObject *global) {
 	jsb_TransitionRotoZoom_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionRotoZoom_class->name = "TransitionRotoZoom";
 	jsb_TransitionRotoZoom_class->addProperty = JS_PropertyStub;
-	jsb_TransitionRotoZoom_class->delProperty = JS_PropertyStub;
+	jsb_TransitionRotoZoom_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionRotoZoom_class->getProperty = JS_PropertyStub;
 	jsb_TransitionRotoZoom_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionRotoZoom_class->enumerate = JS_EnumerateStub;
@@ -38732,7 +38732,7 @@ void js_register_cocos2dx_TransitionJumpZoom(JSContext *cx, JSObject *global) {
 	jsb_TransitionJumpZoom_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionJumpZoom_class->name = "TransitionJumpZoom";
 	jsb_TransitionJumpZoom_class->addProperty = JS_PropertyStub;
-	jsb_TransitionJumpZoom_class->delProperty = JS_PropertyStub;
+	jsb_TransitionJumpZoom_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionJumpZoom_class->getProperty = JS_PropertyStub;
 	jsb_TransitionJumpZoom_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionJumpZoom_class->enumerate = JS_EnumerateStub;
@@ -38939,7 +38939,7 @@ void js_register_cocos2dx_TransitionMoveInL(JSContext *cx, JSObject *global) {
 	jsb_TransitionMoveInL_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionMoveInL_class->name = "TransitionMoveInL";
 	jsb_TransitionMoveInL_class->addProperty = JS_PropertyStub;
-	jsb_TransitionMoveInL_class->delProperty = JS_PropertyStub;
+	jsb_TransitionMoveInL_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionMoveInL_class->getProperty = JS_PropertyStub;
 	jsb_TransitionMoveInL_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionMoveInL_class->enumerate = JS_EnumerateStub;
@@ -39092,7 +39092,7 @@ void js_register_cocos2dx_TransitionMoveInR(JSContext *cx, JSObject *global) {
 	jsb_TransitionMoveInR_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionMoveInR_class->name = "TransitionMoveInR";
 	jsb_TransitionMoveInR_class->addProperty = JS_PropertyStub;
-	jsb_TransitionMoveInR_class->delProperty = JS_PropertyStub;
+	jsb_TransitionMoveInR_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionMoveInR_class->getProperty = JS_PropertyStub;
 	jsb_TransitionMoveInR_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionMoveInR_class->enumerate = JS_EnumerateStub;
@@ -39243,7 +39243,7 @@ void js_register_cocos2dx_TransitionMoveInT(JSContext *cx, JSObject *global) {
 	jsb_TransitionMoveInT_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionMoveInT_class->name = "TransitionMoveInT";
 	jsb_TransitionMoveInT_class->addProperty = JS_PropertyStub;
-	jsb_TransitionMoveInT_class->delProperty = JS_PropertyStub;
+	jsb_TransitionMoveInT_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionMoveInT_class->getProperty = JS_PropertyStub;
 	jsb_TransitionMoveInT_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionMoveInT_class->enumerate = JS_EnumerateStub;
@@ -39394,7 +39394,7 @@ void js_register_cocos2dx_TransitionMoveInB(JSContext *cx, JSObject *global) {
 	jsb_TransitionMoveInB_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionMoveInB_class->name = "TransitionMoveInB";
 	jsb_TransitionMoveInB_class->addProperty = JS_PropertyStub;
-	jsb_TransitionMoveInB_class->delProperty = JS_PropertyStub;
+	jsb_TransitionMoveInB_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionMoveInB_class->getProperty = JS_PropertyStub;
 	jsb_TransitionMoveInB_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionMoveInB_class->enumerate = JS_EnumerateStub;
@@ -39605,7 +39605,7 @@ void js_register_cocos2dx_TransitionSlideInL(JSContext *cx, JSObject *global) {
 	jsb_TransitionSlideInL_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionSlideInL_class->name = "TransitionSlideInL";
 	jsb_TransitionSlideInL_class->addProperty = JS_PropertyStub;
-	jsb_TransitionSlideInL_class->delProperty = JS_PropertyStub;
+	jsb_TransitionSlideInL_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionSlideInL_class->getProperty = JS_PropertyStub;
 	jsb_TransitionSlideInL_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionSlideInL_class->enumerate = JS_EnumerateStub;
@@ -39782,7 +39782,7 @@ void js_register_cocos2dx_TransitionSlideInR(JSContext *cx, JSObject *global) {
 	jsb_TransitionSlideInR_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionSlideInR_class->name = "TransitionSlideInR";
 	jsb_TransitionSlideInR_class->addProperty = JS_PropertyStub;
-	jsb_TransitionSlideInR_class->delProperty = JS_PropertyStub;
+	jsb_TransitionSlideInR_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionSlideInR_class->getProperty = JS_PropertyStub;
 	jsb_TransitionSlideInR_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionSlideInR_class->enumerate = JS_EnumerateStub;
@@ -39958,7 +39958,7 @@ void js_register_cocos2dx_TransitionSlideInB(JSContext *cx, JSObject *global) {
 	jsb_TransitionSlideInB_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionSlideInB_class->name = "TransitionSlideInB";
 	jsb_TransitionSlideInB_class->addProperty = JS_PropertyStub;
-	jsb_TransitionSlideInB_class->delProperty = JS_PropertyStub;
+	jsb_TransitionSlideInB_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionSlideInB_class->getProperty = JS_PropertyStub;
 	jsb_TransitionSlideInB_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionSlideInB_class->enumerate = JS_EnumerateStub;
@@ -40134,7 +40134,7 @@ void js_register_cocos2dx_TransitionSlideInT(JSContext *cx, JSObject *global) {
 	jsb_TransitionSlideInT_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionSlideInT_class->name = "TransitionSlideInT";
 	jsb_TransitionSlideInT_class->addProperty = JS_PropertyStub;
-	jsb_TransitionSlideInT_class->delProperty = JS_PropertyStub;
+	jsb_TransitionSlideInT_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionSlideInT_class->getProperty = JS_PropertyStub;
 	jsb_TransitionSlideInT_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionSlideInT_class->enumerate = JS_EnumerateStub;
@@ -40307,7 +40307,7 @@ void js_register_cocos2dx_TransitionShrinkGrow(JSContext *cx, JSObject *global) 
 	jsb_TransitionShrinkGrow_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionShrinkGrow_class->name = "TransitionShrinkGrow";
 	jsb_TransitionShrinkGrow_class->addProperty = JS_PropertyStub;
-	jsb_TransitionShrinkGrow_class->delProperty = JS_PropertyStub;
+	jsb_TransitionShrinkGrow_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionShrinkGrow_class->getProperty = JS_PropertyStub;
 	jsb_TransitionShrinkGrow_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionShrinkGrow_class->enumerate = JS_EnumerateStub;
@@ -40479,7 +40479,7 @@ void js_register_cocos2dx_TransitionFlipX(JSContext *cx, JSObject *global) {
 	jsb_TransitionFlipX_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionFlipX_class->name = "TransitionFlipX";
 	jsb_TransitionFlipX_class->addProperty = JS_PropertyStub;
-	jsb_TransitionFlipX_class->delProperty = JS_PropertyStub;
+	jsb_TransitionFlipX_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionFlipX_class->getProperty = JS_PropertyStub;
 	jsb_TransitionFlipX_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionFlipX_class->enumerate = JS_EnumerateStub;
@@ -40647,7 +40647,7 @@ void js_register_cocos2dx_TransitionFlipY(JSContext *cx, JSObject *global) {
 	jsb_TransitionFlipY_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionFlipY_class->name = "TransitionFlipY";
 	jsb_TransitionFlipY_class->addProperty = JS_PropertyStub;
-	jsb_TransitionFlipY_class->delProperty = JS_PropertyStub;
+	jsb_TransitionFlipY_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionFlipY_class->getProperty = JS_PropertyStub;
 	jsb_TransitionFlipY_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionFlipY_class->enumerate = JS_EnumerateStub;
@@ -40815,7 +40815,7 @@ void js_register_cocos2dx_TransitionFlipAngular(JSContext *cx, JSObject *global)
 	jsb_TransitionFlipAngular_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionFlipAngular_class->name = "TransitionFlipAngular";
 	jsb_TransitionFlipAngular_class->addProperty = JS_PropertyStub;
-	jsb_TransitionFlipAngular_class->delProperty = JS_PropertyStub;
+	jsb_TransitionFlipAngular_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionFlipAngular_class->getProperty = JS_PropertyStub;
 	jsb_TransitionFlipAngular_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionFlipAngular_class->enumerate = JS_EnumerateStub;
@@ -40983,7 +40983,7 @@ void js_register_cocos2dx_TransitionZoomFlipX(JSContext *cx, JSObject *global) {
 	jsb_TransitionZoomFlipX_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionZoomFlipX_class->name = "TransitionZoomFlipX";
 	jsb_TransitionZoomFlipX_class->addProperty = JS_PropertyStub;
-	jsb_TransitionZoomFlipX_class->delProperty = JS_PropertyStub;
+	jsb_TransitionZoomFlipX_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionZoomFlipX_class->getProperty = JS_PropertyStub;
 	jsb_TransitionZoomFlipX_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionZoomFlipX_class->enumerate = JS_EnumerateStub;
@@ -41151,7 +41151,7 @@ void js_register_cocos2dx_TransitionZoomFlipY(JSContext *cx, JSObject *global) {
 	jsb_TransitionZoomFlipY_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionZoomFlipY_class->name = "TransitionZoomFlipY";
 	jsb_TransitionZoomFlipY_class->addProperty = JS_PropertyStub;
-	jsb_TransitionZoomFlipY_class->delProperty = JS_PropertyStub;
+	jsb_TransitionZoomFlipY_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionZoomFlipY_class->getProperty = JS_PropertyStub;
 	jsb_TransitionZoomFlipY_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionZoomFlipY_class->enumerate = JS_EnumerateStub;
@@ -41319,7 +41319,7 @@ void js_register_cocos2dx_TransitionZoomFlipAngular(JSContext *cx, JSObject *glo
 	jsb_TransitionZoomFlipAngular_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionZoomFlipAngular_class->name = "TransitionZoomFlipAngular";
 	jsb_TransitionZoomFlipAngular_class->addProperty = JS_PropertyStub;
-	jsb_TransitionZoomFlipAngular_class->delProperty = JS_PropertyStub;
+	jsb_TransitionZoomFlipAngular_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionZoomFlipAngular_class->getProperty = JS_PropertyStub;
 	jsb_TransitionZoomFlipAngular_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionZoomFlipAngular_class->enumerate = JS_EnumerateStub;
@@ -41550,7 +41550,7 @@ void js_register_cocos2dx_TransitionFade(JSContext *cx, JSObject *global) {
 	jsb_TransitionFade_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionFade_class->name = "TransitionFade";
 	jsb_TransitionFade_class->addProperty = JS_PropertyStub;
-	jsb_TransitionFade_class->delProperty = JS_PropertyStub;
+	jsb_TransitionFade_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionFade_class->getProperty = JS_PropertyStub;
 	jsb_TransitionFade_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionFade_class->enumerate = JS_EnumerateStub;
@@ -41703,7 +41703,7 @@ void js_register_cocos2dx_TransitionCrossFade(JSContext *cx, JSObject *global) {
 	jsb_TransitionCrossFade_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionCrossFade_class->name = "TransitionCrossFade";
 	jsb_TransitionCrossFade_class->addProperty = JS_PropertyStub;
-	jsb_TransitionCrossFade_class->delProperty = JS_PropertyStub;
+	jsb_TransitionCrossFade_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionCrossFade_class->getProperty = JS_PropertyStub;
 	jsb_TransitionCrossFade_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionCrossFade_class->enumerate = JS_EnumerateStub;
@@ -41875,7 +41875,7 @@ void js_register_cocos2dx_TransitionTurnOffTiles(JSContext *cx, JSObject *global
 	jsb_TransitionTurnOffTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionTurnOffTiles_class->name = "TransitionTurnOffTiles";
 	jsb_TransitionTurnOffTiles_class->addProperty = JS_PropertyStub;
-	jsb_TransitionTurnOffTiles_class->delProperty = JS_PropertyStub;
+	jsb_TransitionTurnOffTiles_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionTurnOffTiles_class->getProperty = JS_PropertyStub;
 	jsb_TransitionTurnOffTiles_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionTurnOffTiles_class->enumerate = JS_EnumerateStub;
@@ -42071,7 +42071,7 @@ void js_register_cocos2dx_TransitionSplitCols(JSContext *cx, JSObject *global) {
 	jsb_TransitionSplitCols_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionSplitCols_class->name = "TransitionSplitCols";
 	jsb_TransitionSplitCols_class->addProperty = JS_PropertyStub;
-	jsb_TransitionSplitCols_class->delProperty = JS_PropertyStub;
+	jsb_TransitionSplitCols_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionSplitCols_class->getProperty = JS_PropertyStub;
 	jsb_TransitionSplitCols_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionSplitCols_class->enumerate = JS_EnumerateStub;
@@ -42232,7 +42232,7 @@ void js_register_cocos2dx_TransitionSplitRows(JSContext *cx, JSObject *global) {
 	jsb_TransitionSplitRows_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionSplitRows_class->name = "TransitionSplitRows";
 	jsb_TransitionSplitRows_class->addProperty = JS_PropertyStub;
-	jsb_TransitionSplitRows_class->delProperty = JS_PropertyStub;
+	jsb_TransitionSplitRows_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionSplitRows_class->getProperty = JS_PropertyStub;
 	jsb_TransitionSplitRows_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionSplitRows_class->enumerate = JS_EnumerateStub;
@@ -42433,7 +42433,7 @@ void js_register_cocos2dx_TransitionFadeTR(JSContext *cx, JSObject *global) {
 	jsb_TransitionFadeTR_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionFadeTR_class->name = "TransitionFadeTR";
 	jsb_TransitionFadeTR_class->addProperty = JS_PropertyStub;
-	jsb_TransitionFadeTR_class->delProperty = JS_PropertyStub;
+	jsb_TransitionFadeTR_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionFadeTR_class->getProperty = JS_PropertyStub;
 	jsb_TransitionFadeTR_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionFadeTR_class->enumerate = JS_EnumerateStub;
@@ -42599,7 +42599,7 @@ void js_register_cocos2dx_TransitionFadeBL(JSContext *cx, JSObject *global) {
 	jsb_TransitionFadeBL_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionFadeBL_class->name = "TransitionFadeBL";
 	jsb_TransitionFadeBL_class->addProperty = JS_PropertyStub;
-	jsb_TransitionFadeBL_class->delProperty = JS_PropertyStub;
+	jsb_TransitionFadeBL_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionFadeBL_class->getProperty = JS_PropertyStub;
 	jsb_TransitionFadeBL_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionFadeBL_class->enumerate = JS_EnumerateStub;
@@ -42764,7 +42764,7 @@ void js_register_cocos2dx_TransitionFadeUp(JSContext *cx, JSObject *global) {
 	jsb_TransitionFadeUp_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionFadeUp_class->name = "TransitionFadeUp";
 	jsb_TransitionFadeUp_class->addProperty = JS_PropertyStub;
-	jsb_TransitionFadeUp_class->delProperty = JS_PropertyStub;
+	jsb_TransitionFadeUp_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionFadeUp_class->getProperty = JS_PropertyStub;
 	jsb_TransitionFadeUp_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionFadeUp_class->enumerate = JS_EnumerateStub;
@@ -42929,7 +42929,7 @@ void js_register_cocos2dx_TransitionFadeDown(JSContext *cx, JSObject *global) {
 	jsb_TransitionFadeDown_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionFadeDown_class->name = "TransitionFadeDown";
 	jsb_TransitionFadeDown_class->addProperty = JS_PropertyStub;
-	jsb_TransitionFadeDown_class->delProperty = JS_PropertyStub;
+	jsb_TransitionFadeDown_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionFadeDown_class->getProperty = JS_PropertyStub;
 	jsb_TransitionFadeDown_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionFadeDown_class->enumerate = JS_EnumerateStub;
@@ -43129,7 +43129,7 @@ void js_register_cocos2dx_TransitionPageTurn(JSContext *cx, JSObject *global) {
 	jsb_TransitionPageTurn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionPageTurn_class->name = "TransitionPageTurn";
 	jsb_TransitionPageTurn_class->addProperty = JS_PropertyStub;
-	jsb_TransitionPageTurn_class->delProperty = JS_PropertyStub;
+	jsb_TransitionPageTurn_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionPageTurn_class->getProperty = JS_PropertyStub;
 	jsb_TransitionPageTurn_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionPageTurn_class->enumerate = JS_EnumerateStub;
@@ -43268,7 +43268,7 @@ void js_register_cocos2dx_TransitionProgress(JSContext *cx, JSObject *global) {
 	jsb_TransitionProgress_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionProgress_class->name = "TransitionProgress";
 	jsb_TransitionProgress_class->addProperty = JS_PropertyStub;
-	jsb_TransitionProgress_class->delProperty = JS_PropertyStub;
+	jsb_TransitionProgress_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionProgress_class->getProperty = JS_PropertyStub;
 	jsb_TransitionProgress_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionProgress_class->enumerate = JS_EnumerateStub;
@@ -43377,7 +43377,7 @@ void js_register_cocos2dx_TransitionProgressRadialCCW(JSContext *cx, JSObject *g
 	jsb_TransitionProgressRadialCCW_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionProgressRadialCCW_class->name = "TransitionProgressRadialCCW";
 	jsb_TransitionProgressRadialCCW_class->addProperty = JS_PropertyStub;
-	jsb_TransitionProgressRadialCCW_class->delProperty = JS_PropertyStub;
+	jsb_TransitionProgressRadialCCW_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionProgressRadialCCW_class->getProperty = JS_PropertyStub;
 	jsb_TransitionProgressRadialCCW_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionProgressRadialCCW_class->enumerate = JS_EnumerateStub;
@@ -43484,7 +43484,7 @@ void js_register_cocos2dx_TransitionProgressRadialCW(JSContext *cx, JSObject *gl
 	jsb_TransitionProgressRadialCW_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionProgressRadialCW_class->name = "TransitionProgressRadialCW";
 	jsb_TransitionProgressRadialCW_class->addProperty = JS_PropertyStub;
-	jsb_TransitionProgressRadialCW_class->delProperty = JS_PropertyStub;
+	jsb_TransitionProgressRadialCW_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionProgressRadialCW_class->getProperty = JS_PropertyStub;
 	jsb_TransitionProgressRadialCW_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionProgressRadialCW_class->enumerate = JS_EnumerateStub;
@@ -43591,7 +43591,7 @@ void js_register_cocos2dx_TransitionProgressHorizontal(JSContext *cx, JSObject *
 	jsb_TransitionProgressHorizontal_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionProgressHorizontal_class->name = "TransitionProgressHorizontal";
 	jsb_TransitionProgressHorizontal_class->addProperty = JS_PropertyStub;
-	jsb_TransitionProgressHorizontal_class->delProperty = JS_PropertyStub;
+	jsb_TransitionProgressHorizontal_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionProgressHorizontal_class->getProperty = JS_PropertyStub;
 	jsb_TransitionProgressHorizontal_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionProgressHorizontal_class->enumerate = JS_EnumerateStub;
@@ -43698,7 +43698,7 @@ void js_register_cocos2dx_TransitionProgressVertical(JSContext *cx, JSObject *gl
 	jsb_TransitionProgressVertical_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionProgressVertical_class->name = "TransitionProgressVertical";
 	jsb_TransitionProgressVertical_class->addProperty = JS_PropertyStub;
-	jsb_TransitionProgressVertical_class->delProperty = JS_PropertyStub;
+	jsb_TransitionProgressVertical_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionProgressVertical_class->getProperty = JS_PropertyStub;
 	jsb_TransitionProgressVertical_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionProgressVertical_class->enumerate = JS_EnumerateStub;
@@ -43805,7 +43805,7 @@ void js_register_cocos2dx_TransitionProgressInOut(JSContext *cx, JSObject *globa
 	jsb_TransitionProgressInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionProgressInOut_class->name = "TransitionProgressInOut";
 	jsb_TransitionProgressInOut_class->addProperty = JS_PropertyStub;
-	jsb_TransitionProgressInOut_class->delProperty = JS_PropertyStub;
+	jsb_TransitionProgressInOut_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionProgressInOut_class->getProperty = JS_PropertyStub;
 	jsb_TransitionProgressInOut_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionProgressInOut_class->enumerate = JS_EnumerateStub;
@@ -43912,7 +43912,7 @@ void js_register_cocos2dx_TransitionProgressOutIn(JSContext *cx, JSObject *globa
 	jsb_TransitionProgressOutIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TransitionProgressOutIn_class->name = "TransitionProgressOutIn";
 	jsb_TransitionProgressOutIn_class->addProperty = JS_PropertyStub;
-	jsb_TransitionProgressOutIn_class->delProperty = JS_PropertyStub;
+	jsb_TransitionProgressOutIn_class->delProperty = JS_DeletePropertyStub;
 	jsb_TransitionProgressOutIn_class->getProperty = JS_PropertyStub;
 	jsb_TransitionProgressOutIn_class->setProperty = JS_StrictPropertyStub;
 	jsb_TransitionProgressOutIn_class->enumerate = JS_EnumerateStub;
@@ -44126,7 +44126,7 @@ void js_register_cocos2dx_MenuItem(JSContext *cx, JSObject *global) {
 	jsb_MenuItem_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_MenuItem_class->name = "MenuItem";
 	jsb_MenuItem_class->addProperty = JS_PropertyStub;
-	jsb_MenuItem_class->delProperty = JS_PropertyStub;
+	jsb_MenuItem_class->delProperty = JS_DeletePropertyStub;
 	jsb_MenuItem_class->getProperty = JS_PropertyStub;
 	jsb_MenuItem_class->setProperty = JS_StrictPropertyStub;
 	jsb_MenuItem_class->enumerate = JS_EnumerateStub;
@@ -44457,7 +44457,7 @@ void js_register_cocos2dx_MenuItemLabel(JSContext *cx, JSObject *global) {
 	jsb_MenuItemLabel_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_MenuItemLabel_class->name = "MenuItemLabel";
 	jsb_MenuItemLabel_class->addProperty = JS_PropertyStub;
-	jsb_MenuItemLabel_class->delProperty = JS_PropertyStub;
+	jsb_MenuItemLabel_class->delProperty = JS_DeletePropertyStub;
 	jsb_MenuItemLabel_class->getProperty = JS_PropertyStub;
 	jsb_MenuItemLabel_class->setProperty = JS_StrictPropertyStub;
 	jsb_MenuItemLabel_class->enumerate = JS_EnumerateStub;
@@ -44619,7 +44619,7 @@ void js_register_cocos2dx_MenuItemAtlasFont(JSContext *cx, JSObject *global) {
 	jsb_MenuItemAtlasFont_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_MenuItemAtlasFont_class->name = "MenuItemAtlasFont";
 	jsb_MenuItemAtlasFont_class->addProperty = JS_PropertyStub;
-	jsb_MenuItemAtlasFont_class->delProperty = JS_PropertyStub;
+	jsb_MenuItemAtlasFont_class->delProperty = JS_DeletePropertyStub;
 	jsb_MenuItemAtlasFont_class->getProperty = JS_PropertyStub;
 	jsb_MenuItemAtlasFont_class->setProperty = JS_StrictPropertyStub;
 	jsb_MenuItemAtlasFont_class->enumerate = JS_EnumerateStub;
@@ -44894,7 +44894,7 @@ void js_register_cocos2dx_MenuItemFont(JSContext *cx, JSObject *global) {
 	jsb_MenuItemFont_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_MenuItemFont_class->name = "MenuItemFont";
 	jsb_MenuItemFont_class->addProperty = JS_PropertyStub;
-	jsb_MenuItemFont_class->delProperty = JS_PropertyStub;
+	jsb_MenuItemFont_class->delProperty = JS_DeletePropertyStub;
 	jsb_MenuItemFont_class->getProperty = JS_PropertyStub;
 	jsb_MenuItemFont_class->setProperty = JS_StrictPropertyStub;
 	jsb_MenuItemFont_class->enumerate = JS_EnumerateStub;
@@ -45277,7 +45277,7 @@ void js_register_cocos2dx_MenuItemSprite(JSContext *cx, JSObject *global) {
 	jsb_MenuItemSprite_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_MenuItemSprite_class->name = "MenuItemSprite";
 	jsb_MenuItemSprite_class->addProperty = JS_PropertyStub;
-	jsb_MenuItemSprite_class->delProperty = JS_PropertyStub;
+	jsb_MenuItemSprite_class->delProperty = JS_DeletePropertyStub;
 	jsb_MenuItemSprite_class->getProperty = JS_PropertyStub;
 	jsb_MenuItemSprite_class->setProperty = JS_StrictPropertyStub;
 	jsb_MenuItemSprite_class->enumerate = JS_EnumerateStub;
@@ -45533,7 +45533,7 @@ void js_register_cocos2dx_MenuItemImage(JSContext *cx, JSObject *global) {
 	jsb_MenuItemImage_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_MenuItemImage_class->name = "MenuItemImage";
 	jsb_MenuItemImage_class->addProperty = JS_PropertyStub;
-	jsb_MenuItemImage_class->delProperty = JS_PropertyStub;
+	jsb_MenuItemImage_class->delProperty = JS_DeletePropertyStub;
 	jsb_MenuItemImage_class->getProperty = JS_PropertyStub;
 	jsb_MenuItemImage_class->setProperty = JS_StrictPropertyStub;
 	jsb_MenuItemImage_class->enumerate = JS_EnumerateStub;
@@ -45838,7 +45838,7 @@ void js_register_cocos2dx_MenuItemToggle(JSContext *cx, JSObject *global) {
 	jsb_MenuItemToggle_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_MenuItemToggle_class->name = "MenuItemToggle";
 	jsb_MenuItemToggle_class->addProperty = JS_PropertyStub;
-	jsb_MenuItemToggle_class->delProperty = JS_PropertyStub;
+	jsb_MenuItemToggle_class->delProperty = JS_DeletePropertyStub;
 	jsb_MenuItemToggle_class->getProperty = JS_PropertyStub;
 	jsb_MenuItemToggle_class->setProperty = JS_StrictPropertyStub;
 	jsb_MenuItemToggle_class->enumerate = JS_EnumerateStub;
@@ -46418,7 +46418,7 @@ void js_register_cocos2dx_Menu(JSContext *cx, JSObject *global) {
 	jsb_Menu_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Menu_class->name = "Menu";
 	jsb_Menu_class->addProperty = JS_PropertyStub;
-	jsb_Menu_class->delProperty = JS_PropertyStub;
+	jsb_Menu_class->delProperty = JS_DeletePropertyStub;
 	jsb_Menu_class->getProperty = JS_PropertyStub;
 	jsb_Menu_class->setProperty = JS_StrictPropertyStub;
 	jsb_Menu_class->enumerate = JS_EnumerateStub;
@@ -46735,7 +46735,7 @@ void js_register_cocos2dx_ClippingNode(JSContext *cx, JSObject *global) {
 	jsb_ClippingNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ClippingNode_class->name = "ClippingNode";
 	jsb_ClippingNode_class->addProperty = JS_PropertyStub;
-	jsb_ClippingNode_class->delProperty = JS_PropertyStub;
+	jsb_ClippingNode_class->delProperty = JS_DeletePropertyStub;
 	jsb_ClippingNode_class->getProperty = JS_PropertyStub;
 	jsb_ClippingNode_class->setProperty = JS_StrictPropertyStub;
 	jsb_ClippingNode_class->enumerate = JS_EnumerateStub;
@@ -47248,7 +47248,7 @@ void js_register_cocos2dx_MotionStreak(JSContext *cx, JSObject *global) {
 	jsb_MotionStreak_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_MotionStreak_class->name = "MotionStreak";
 	jsb_MotionStreak_class->addProperty = JS_PropertyStub;
-	jsb_MotionStreak_class->delProperty = JS_PropertyStub;
+	jsb_MotionStreak_class->delProperty = JS_DeletePropertyStub;
 	jsb_MotionStreak_class->getProperty = JS_PropertyStub;
 	jsb_MotionStreak_class->setProperty = JS_StrictPropertyStub;
 	jsb_MotionStreak_class->enumerate = JS_EnumerateStub;
@@ -47787,7 +47787,7 @@ void js_register_cocos2dx_ProgressTimer(JSContext *cx, JSObject *global) {
 	jsb_ProgressTimer_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ProgressTimer_class->name = "ProgressTimer";
 	jsb_ProgressTimer_class->addProperty = JS_PropertyStub;
-	jsb_ProgressTimer_class->delProperty = JS_PropertyStub;
+	jsb_ProgressTimer_class->delProperty = JS_DeletePropertyStub;
 	jsb_ProgressTimer_class->getProperty = JS_PropertyStub;
 	jsb_ProgressTimer_class->setProperty = JS_StrictPropertyStub;
 	jsb_ProgressTimer_class->enumerate = JS_EnumerateStub;
@@ -48649,7 +48649,7 @@ void js_register_cocos2dx_RenderTexture(JSContext *cx, JSObject *global) {
 	jsb_RenderTexture_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_RenderTexture_class->name = "RenderTexture";
 	jsb_RenderTexture_class->addProperty = JS_PropertyStub;
-	jsb_RenderTexture_class->delProperty = JS_PropertyStub;
+	jsb_RenderTexture_class->delProperty = JS_DeletePropertyStub;
 	jsb_RenderTexture_class->getProperty = JS_PropertyStub;
 	jsb_RenderTexture_class->setProperty = JS_StrictPropertyStub;
 	jsb_RenderTexture_class->enumerate = JS_EnumerateStub;
@@ -49293,7 +49293,7 @@ void js_register_cocos2dx_ParticleBatchNode(JSContext *cx, JSObject *global) {
 	jsb_ParticleBatchNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleBatchNode_class->name = "ParticleBatchNode";
 	jsb_ParticleBatchNode_class->addProperty = JS_PropertyStub;
-	jsb_ParticleBatchNode_class->delProperty = JS_PropertyStub;
+	jsb_ParticleBatchNode_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleBatchNode_class->getProperty = JS_PropertyStub;
 	jsb_ParticleBatchNode_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleBatchNode_class->enumerate = JS_EnumerateStub;
@@ -51455,7 +51455,7 @@ void js_register_cocos2dx_ParticleSystem(JSContext *cx, JSObject *global) {
 	jsb_ParticleSystem_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleSystem_class->name = "ParticleSystem";
 	jsb_ParticleSystem_class->addProperty = JS_PropertyStub;
-	jsb_ParticleSystem_class->delProperty = JS_PropertyStub;
+	jsb_ParticleSystem_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleSystem_class->getProperty = JS_PropertyStub;
 	jsb_ParticleSystem_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleSystem_class->enumerate = JS_EnumerateStub;
@@ -51824,7 +51824,7 @@ void js_register_cocos2dx_ParticleSystemQuad(JSContext *cx, JSObject *global) {
 	jsb_ParticleSystemQuad_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleSystemQuad_class->name = "ParticleSystem";
 	jsb_ParticleSystemQuad_class->addProperty = JS_PropertyStub;
-	jsb_ParticleSystemQuad_class->delProperty = JS_PropertyStub;
+	jsb_ParticleSystemQuad_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleSystemQuad_class->getProperty = JS_PropertyStub;
 	jsb_ParticleSystemQuad_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleSystemQuad_class->enumerate = JS_EnumerateStub;
@@ -52016,7 +52016,7 @@ void js_register_cocos2dx_ParticleFire(JSContext *cx, JSObject *global) {
 	jsb_ParticleFire_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleFire_class->name = "ParticleFire";
 	jsb_ParticleFire_class->addProperty = JS_PropertyStub;
-	jsb_ParticleFire_class->delProperty = JS_PropertyStub;
+	jsb_ParticleFire_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleFire_class->getProperty = JS_PropertyStub;
 	jsb_ParticleFire_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleFire_class->enumerate = JS_EnumerateStub;
@@ -52204,7 +52204,7 @@ void js_register_cocos2dx_ParticleFireworks(JSContext *cx, JSObject *global) {
 	jsb_ParticleFireworks_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleFireworks_class->name = "ParticleFireworks";
 	jsb_ParticleFireworks_class->addProperty = JS_PropertyStub;
-	jsb_ParticleFireworks_class->delProperty = JS_PropertyStub;
+	jsb_ParticleFireworks_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleFireworks_class->getProperty = JS_PropertyStub;
 	jsb_ParticleFireworks_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleFireworks_class->enumerate = JS_EnumerateStub;
@@ -52392,7 +52392,7 @@ void js_register_cocos2dx_ParticleSun(JSContext *cx, JSObject *global) {
 	jsb_ParticleSun_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleSun_class->name = "ParticleSun";
 	jsb_ParticleSun_class->addProperty = JS_PropertyStub;
-	jsb_ParticleSun_class->delProperty = JS_PropertyStub;
+	jsb_ParticleSun_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleSun_class->getProperty = JS_PropertyStub;
 	jsb_ParticleSun_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleSun_class->enumerate = JS_EnumerateStub;
@@ -52580,7 +52580,7 @@ void js_register_cocos2dx_ParticleGalaxy(JSContext *cx, JSObject *global) {
 	jsb_ParticleGalaxy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleGalaxy_class->name = "ParticleGalaxy";
 	jsb_ParticleGalaxy_class->addProperty = JS_PropertyStub;
-	jsb_ParticleGalaxy_class->delProperty = JS_PropertyStub;
+	jsb_ParticleGalaxy_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleGalaxy_class->getProperty = JS_PropertyStub;
 	jsb_ParticleGalaxy_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleGalaxy_class->enumerate = JS_EnumerateStub;
@@ -52768,7 +52768,7 @@ void js_register_cocos2dx_ParticleFlower(JSContext *cx, JSObject *global) {
 	jsb_ParticleFlower_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleFlower_class->name = "ParticleFlower";
 	jsb_ParticleFlower_class->addProperty = JS_PropertyStub;
-	jsb_ParticleFlower_class->delProperty = JS_PropertyStub;
+	jsb_ParticleFlower_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleFlower_class->getProperty = JS_PropertyStub;
 	jsb_ParticleFlower_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleFlower_class->enumerate = JS_EnumerateStub;
@@ -52956,7 +52956,7 @@ void js_register_cocos2dx_ParticleMeteor(JSContext *cx, JSObject *global) {
 	jsb_ParticleMeteor_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleMeteor_class->name = "ParticleMeteor";
 	jsb_ParticleMeteor_class->addProperty = JS_PropertyStub;
-	jsb_ParticleMeteor_class->delProperty = JS_PropertyStub;
+	jsb_ParticleMeteor_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleMeteor_class->getProperty = JS_PropertyStub;
 	jsb_ParticleMeteor_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleMeteor_class->enumerate = JS_EnumerateStub;
@@ -53144,7 +53144,7 @@ void js_register_cocos2dx_ParticleSpiral(JSContext *cx, JSObject *global) {
 	jsb_ParticleSpiral_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleSpiral_class->name = "ParticleSpiral";
 	jsb_ParticleSpiral_class->addProperty = JS_PropertyStub;
-	jsb_ParticleSpiral_class->delProperty = JS_PropertyStub;
+	jsb_ParticleSpiral_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleSpiral_class->getProperty = JS_PropertyStub;
 	jsb_ParticleSpiral_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleSpiral_class->enumerate = JS_EnumerateStub;
@@ -53332,7 +53332,7 @@ void js_register_cocos2dx_ParticleExplosion(JSContext *cx, JSObject *global) {
 	jsb_ParticleExplosion_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleExplosion_class->name = "ParticleExplosion";
 	jsb_ParticleExplosion_class->addProperty = JS_PropertyStub;
-	jsb_ParticleExplosion_class->delProperty = JS_PropertyStub;
+	jsb_ParticleExplosion_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleExplosion_class->getProperty = JS_PropertyStub;
 	jsb_ParticleExplosion_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleExplosion_class->enumerate = JS_EnumerateStub;
@@ -53520,7 +53520,7 @@ void js_register_cocos2dx_ParticleSmoke(JSContext *cx, JSObject *global) {
 	jsb_ParticleSmoke_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleSmoke_class->name = "ParticleSmoke";
 	jsb_ParticleSmoke_class->addProperty = JS_PropertyStub;
-	jsb_ParticleSmoke_class->delProperty = JS_PropertyStub;
+	jsb_ParticleSmoke_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleSmoke_class->getProperty = JS_PropertyStub;
 	jsb_ParticleSmoke_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleSmoke_class->enumerate = JS_EnumerateStub;
@@ -53708,7 +53708,7 @@ void js_register_cocos2dx_ParticleSnow(JSContext *cx, JSObject *global) {
 	jsb_ParticleSnow_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleSnow_class->name = "ParticleSnow";
 	jsb_ParticleSnow_class->addProperty = JS_PropertyStub;
-	jsb_ParticleSnow_class->delProperty = JS_PropertyStub;
+	jsb_ParticleSnow_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleSnow_class->getProperty = JS_PropertyStub;
 	jsb_ParticleSnow_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleSnow_class->enumerate = JS_EnumerateStub;
@@ -53896,7 +53896,7 @@ void js_register_cocos2dx_ParticleRain(JSContext *cx, JSObject *global) {
 	jsb_ParticleRain_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParticleRain_class->name = "ParticleRain";
 	jsb_ParticleRain_class->addProperty = JS_PropertyStub;
-	jsb_ParticleRain_class->delProperty = JS_PropertyStub;
+	jsb_ParticleRain_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParticleRain_class->getProperty = JS_PropertyStub;
 	jsb_ParticleRain_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParticleRain_class->enumerate = JS_EnumerateStub;
@@ -54285,7 +54285,7 @@ void js_register_cocos2dx_FileUtils(JSContext *cx, JSObject *global) {
 	jsb_FileUtils_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_FileUtils_class->name = "FileUtils";
 	jsb_FileUtils_class->addProperty = JS_PropertyStub;
-	jsb_FileUtils_class->delProperty = JS_PropertyStub;
+	jsb_FileUtils_class->delProperty = JS_DeletePropertyStub;
 	jsb_FileUtils_class->getProperty = JS_PropertyStub;
 	jsb_FileUtils_class->setProperty = JS_StrictPropertyStub;
 	jsb_FileUtils_class->enumerate = JS_EnumerateStub;
@@ -54439,7 +54439,7 @@ void js_register_cocos2dx_Application(JSContext *cx, JSObject *global) {
 	jsb_Application_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Application_class->name = "Application";
 	jsb_Application_class->addProperty = JS_PropertyStub;
-	jsb_Application_class->delProperty = JS_PropertyStub;
+	jsb_Application_class->delProperty = JS_DeletePropertyStub;
 	jsb_Application_class->getProperty = JS_PropertyStub;
 	jsb_Application_class->setProperty = JS_StrictPropertyStub;
 	jsb_Application_class->enumerate = JS_EnumerateStub;
@@ -54660,7 +54660,7 @@ void js_register_cocos2dx_ShaderCache(JSContext *cx, JSObject *global) {
 	jsb_ShaderCache_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ShaderCache_class->name = "ShaderCache";
 	jsb_ShaderCache_class->addProperty = JS_PropertyStub;
-	jsb_ShaderCache_class->delProperty = JS_PropertyStub;
+	jsb_ShaderCache_class->delProperty = JS_DeletePropertyStub;
 	jsb_ShaderCache_class->getProperty = JS_PropertyStub;
 	jsb_ShaderCache_class->setProperty = JS_StrictPropertyStub;
 	jsb_ShaderCache_class->enumerate = JS_EnumerateStub;
@@ -54933,7 +54933,7 @@ void js_register_cocos2dx_AnimationCache(JSContext *cx, JSObject *global) {
 	jsb_AnimationCache_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_AnimationCache_class->name = "AnimationCache";
 	jsb_AnimationCache_class->addProperty = JS_PropertyStub;
-	jsb_AnimationCache_class->delProperty = JS_PropertyStub;
+	jsb_AnimationCache_class->delProperty = JS_DeletePropertyStub;
 	jsb_AnimationCache_class->getProperty = JS_PropertyStub;
 	jsb_AnimationCache_class->setProperty = JS_StrictPropertyStub;
 	jsb_AnimationCache_class->enumerate = JS_EnumerateStub;
@@ -55269,7 +55269,7 @@ void js_register_cocos2dx_SpriteFrameCache(JSContext *cx, JSObject *global) {
 	jsb_SpriteFrameCache_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_SpriteFrameCache_class->name = "SpriteFrameCache";
 	jsb_SpriteFrameCache_class->addProperty = JS_PropertyStub;
-	jsb_SpriteFrameCache_class->delProperty = JS_PropertyStub;
+	jsb_SpriteFrameCache_class->delProperty = JS_DeletePropertyStub;
 	jsb_SpriteFrameCache_class->getProperty = JS_PropertyStub;
 	jsb_SpriteFrameCache_class->setProperty = JS_StrictPropertyStub;
 	jsb_SpriteFrameCache_class->enumerate = JS_EnumerateStub;
@@ -55627,7 +55627,7 @@ void js_register_cocos2dx_TextureCache(JSContext *cx, JSObject *global) {
 	jsb_TextureCache_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TextureCache_class->name = "TextureCache";
 	jsb_TextureCache_class->addProperty = JS_PropertyStub;
-	jsb_TextureCache_class->delProperty = JS_PropertyStub;
+	jsb_TextureCache_class->delProperty = JS_DeletePropertyStub;
 	jsb_TextureCache_class->getProperty = JS_PropertyStub;
 	jsb_TextureCache_class->setProperty = JS_StrictPropertyStub;
 	jsb_TextureCache_class->enumerate = JS_EnumerateStub;
@@ -55944,7 +55944,7 @@ void js_register_cocos2dx_ParallaxNode(JSContext *cx, JSObject *global) {
 	jsb_ParallaxNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_ParallaxNode_class->name = "ParallaxNode";
 	jsb_ParallaxNode_class->addProperty = JS_PropertyStub;
-	jsb_ParallaxNode_class->delProperty = JS_PropertyStub;
+	jsb_ParallaxNode_class->delProperty = JS_DeletePropertyStub;
 	jsb_ParallaxNode_class->getProperty = JS_PropertyStub;
 	jsb_ParallaxNode_class->setProperty = JS_StrictPropertyStub;
 	jsb_ParallaxNode_class->enumerate = JS_EnumerateStub;
@@ -56251,7 +56251,7 @@ void js_register_cocos2dx_TMXObjectGroup(JSContext *cx, JSObject *global) {
 	jsb_TMXObjectGroup_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TMXObjectGroup_class->name = "TMXObjectGroup";
 	jsb_TMXObjectGroup_class->addProperty = JS_PropertyStub;
-	jsb_TMXObjectGroup_class->delProperty = JS_PropertyStub;
+	jsb_TMXObjectGroup_class->delProperty = JS_DeletePropertyStub;
 	jsb_TMXObjectGroup_class->getProperty = JS_PropertyStub;
 	jsb_TMXObjectGroup_class->setProperty = JS_StrictPropertyStub;
 	jsb_TMXObjectGroup_class->enumerate = JS_EnumerateStub;
@@ -56397,7 +56397,7 @@ void js_register_cocos2dx_TMXLayerInfo(JSContext *cx, JSObject *global) {
 	jsb_TMXLayerInfo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TMXLayerInfo_class->name = "TMXLayerInfo";
 	jsb_TMXLayerInfo_class->addProperty = JS_PropertyStub;
-	jsb_TMXLayerInfo_class->delProperty = JS_PropertyStub;
+	jsb_TMXLayerInfo_class->delProperty = JS_DeletePropertyStub;
 	jsb_TMXLayerInfo_class->getProperty = JS_PropertyStub;
 	jsb_TMXLayerInfo_class->setProperty = JS_StrictPropertyStub;
 	jsb_TMXLayerInfo_class->enumerate = JS_EnumerateStub;
@@ -56520,7 +56520,7 @@ void js_register_cocos2dx_TMXTilesetInfo(JSContext *cx, JSObject *global) {
 	jsb_TMXTilesetInfo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TMXTilesetInfo_class->name = "TMXTilesetInfo";
 	jsb_TMXTilesetInfo_class->addProperty = JS_PropertyStub;
-	jsb_TMXTilesetInfo_class->delProperty = JS_PropertyStub;
+	jsb_TMXTilesetInfo_class->delProperty = JS_DeletePropertyStub;
 	jsb_TMXTilesetInfo_class->getProperty = JS_PropertyStub;
 	jsb_TMXTilesetInfo_class->setProperty = JS_StrictPropertyStub;
 	jsb_TMXTilesetInfo_class->enumerate = JS_EnumerateStub;
@@ -57280,7 +57280,7 @@ void js_register_cocos2dx_TMXMapInfo(JSContext *cx, JSObject *global) {
 	jsb_TMXMapInfo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TMXMapInfo_class->name = "TMXMapInfo";
 	jsb_TMXMapInfo_class->addProperty = JS_PropertyStub;
-	jsb_TMXMapInfo_class->delProperty = JS_PropertyStub;
+	jsb_TMXMapInfo_class->delProperty = JS_DeletePropertyStub;
 	jsb_TMXMapInfo_class->getProperty = JS_PropertyStub;
 	jsb_TMXMapInfo_class->setProperty = JS_StrictPropertyStub;
 	jsb_TMXMapInfo_class->enumerate = JS_EnumerateStub;
@@ -58038,7 +58038,7 @@ void js_register_cocos2dx_TMXLayer(JSContext *cx, JSObject *global) {
 	jsb_TMXLayer_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TMXLayer_class->name = "TMXLayer";
 	jsb_TMXLayer_class->addProperty = JS_PropertyStub;
-	jsb_TMXLayer_class->delProperty = JS_PropertyStub;
+	jsb_TMXLayer_class->delProperty = JS_DeletePropertyStub;
 	jsb_TMXLayer_class->getProperty = JS_PropertyStub;
 	jsb_TMXLayer_class->setProperty = JS_StrictPropertyStub;
 	jsb_TMXLayer_class->enumerate = JS_EnumerateStub;
@@ -58557,7 +58557,7 @@ void js_register_cocos2dx_TMXTiledMap(JSContext *cx, JSObject *global) {
 	jsb_TMXTiledMap_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TMXTiledMap_class->name = "TMXTiledMap";
 	jsb_TMXTiledMap_class->addProperty = JS_PropertyStub;
-	jsb_TMXTiledMap_class->delProperty = JS_PropertyStub;
+	jsb_TMXTiledMap_class->delProperty = JS_DeletePropertyStub;
 	jsb_TMXTiledMap_class->getProperty = JS_PropertyStub;
 	jsb_TMXTiledMap_class->setProperty = JS_StrictPropertyStub;
 	jsb_TMXTiledMap_class->enumerate = JS_EnumerateStub;
@@ -58832,7 +58832,7 @@ void js_register_cocos2dx_TileMapAtlas(JSContext *cx, JSObject *global) {
 	jsb_TileMapAtlas_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_TileMapAtlas_class->name = "TileMapAtlas";
 	jsb_TileMapAtlas_class->addProperty = JS_PropertyStub;
-	jsb_TileMapAtlas_class->delProperty = JS_PropertyStub;
+	jsb_TileMapAtlas_class->delProperty = JS_DeletePropertyStub;
 	jsb_TileMapAtlas_class->getProperty = JS_PropertyStub;
 	jsb_TileMapAtlas_class->setProperty = JS_StrictPropertyStub;
 	jsb_TileMapAtlas_class->enumerate = JS_EnumerateStub;
@@ -59038,7 +59038,7 @@ void js_register_cocos2dx_Timer(JSContext *cx, JSObject *global) {
 	jsb_Timer_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Timer_class->name = "Timer";
 	jsb_Timer_class->addProperty = JS_PropertyStub;
-	jsb_Timer_class->delProperty = JS_PropertyStub;
+	jsb_Timer_class->delProperty = JS_DeletePropertyStub;
 	jsb_Timer_class->getProperty = JS_PropertyStub;
 	jsb_Timer_class->setProperty = JS_StrictPropertyStub;
 	jsb_Timer_class->enumerate = JS_EnumerateStub;
@@ -59179,7 +59179,7 @@ void js_register_cocos2dx_Scheduler(JSContext *cx, JSObject *global) {
 	jsb_Scheduler_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_Scheduler_class->name = "Scheduler";
 	jsb_Scheduler_class->addProperty = JS_PropertyStub;
-	jsb_Scheduler_class->delProperty = JS_PropertyStub;
+	jsb_Scheduler_class->delProperty = JS_DeletePropertyStub;
 	jsb_Scheduler_class->getProperty = JS_PropertyStub;
 	jsb_Scheduler_class->setProperty = JS_StrictPropertyStub;
 	jsb_Scheduler_class->enumerate = JS_EnumerateStub;
@@ -59730,7 +59730,7 @@ void js_register_cocos2dx_SimpleAudioEngine(JSContext *cx, JSObject *global) {
 	jsb_SimpleAudioEngine_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_SimpleAudioEngine_class->name = "AudioEngine";
 	jsb_SimpleAudioEngine_class->addProperty = JS_PropertyStub;
-	jsb_SimpleAudioEngine_class->delProperty = JS_PropertyStub;
+	jsb_SimpleAudioEngine_class->delProperty = JS_DeletePropertyStub;
 	jsb_SimpleAudioEngine_class->getProperty = JS_PropertyStub;
 	jsb_SimpleAudioEngine_class->setProperty = JS_StrictPropertyStub;
 	jsb_SimpleAudioEngine_class->enumerate = JS_EnumerateStub;
