@@ -7195,6 +7195,152 @@ LabelBMFont : function () {},
 cc.Label = {
 
 /**
+ * @method getString
+ * @return A value converted from C/C++ "const char*"
+ */
+getString : function () {},
+
+/**
+ * @method setScale
+ * @param {float}
+ */
+setScale : function () {},
+
+/**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
+ * @method setCascadeOpacityEnabled
+ * @param {bool}
+ */
+setCascadeOpacityEnabled : function () {},
+
+/**
+ * @method getLetterPosXRight
+ * @return A value converted from C/C++ "float"
+ * @param {cocos2d::Sprite*}
+ */
+getLetterPosXRight : function () {},
+
+/**
+ * @method getCommonLineHeight
+ * @return A value converted from C/C++ "int"
+ */
+getCommonLineHeight : function () {},
+
+/**
+ * @method getLabelContentSize
+ * @return A value converted from C/C++ "cocos2d::Size"
+ */
+getLabelContentSize : function () {},
+
+/**
+ * @method breakLineWithoutSpace
+ * @return A value converted from C/C++ "bool"
+ */
+breakLineWithoutSpace : function () {},
+
+/**
+ * @method setWidth
+ * @param {float}
+ */
+setWidth : function () {},
+
+/**
+ * @method getMaxLineWidth
+ * @return A value converted from C/C++ "float"
+ */
+getMaxLineWidth : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
+ * @method getRectForChar
+ * @return A value converted from C/C++ "cocos2d::Rect"
+ * @param {unsigned short}
+ */
+getRectForChar : function () {},
+
+/**
+ * @method getAdvanceForChar
+ * @return A value converted from C/C++ "int"
+ * @param {unsigned short}
+ * @param {int}
+ */
+getAdvanceForChar : function () {},
+
+/**
+ * @method isCascadeOpacityEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isCascadeOpacityEnabled : function () {},
+
+/**
+ * @method setString
+ * @param {const char*}
+ */
+setString : function () {},
+
+/**
+ * @method setCascadeColorEnabled
+ * @param {bool}
+ */
+setCascadeColorEnabled : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
+ * @method getYOffsetForChar
+ * @return A value converted from C/C++ "int"
+ * @param {unsigned short}
+ */
+getYOffsetForChar : function () {},
+
+/**
+ * @method updateDisplayedOpacity
+ * @param {unsigned char}
+ */
+updateDisplayedOpacity : function () {},
+
+/**
+ * @method getXOffsetForChar
+ * @return A value converted from C/C++ "int"
+ * @param {unsigned short}
+ */
+getXOffsetForChar : function () {},
+
+/**
+ * @method getSpriteForChar
+ * @return A value converted from C/C++ "cocos2d::Sprite*"
+ * @param {unsigned short}
+ * @param {int}
+ */
+getSpriteForChar : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
+
+/**
+ * @method getChildrenLetters
+ * @return A value converted from C/C++ "cocos2d::Array*"
+ */
+getChildrenLetters : function () {},
+
+/**
  * @method setLineBreakWithoutSpace
  * @param {bool}
  */
@@ -7213,10 +7359,115 @@ setScaleY : function () {},
 setScaleX : function () {},
 
 /**
- * @method setScale
- * @param {float}
+ * @method getStringNumLines
+ * @return A value converted from C/C++ "int"
  */
-setScale : function () {},
+getStringNumLines : function () {},
+
+/**
+ * @method getCharAtStringPosition
+ * @return A value converted from C/C++ "unsigned short"
+ * @param {int}
+ */
+getCharAtStringPosition : function () {},
+
+/**
+ * @method getStringLenght
+ * @return A value converted from C/C++ "int"
+ */
+getStringLenght : function () {},
+
+/**
+ * @method getColor
+ * @return A value converted from C/C++ "cocos2d::Color3B"
+ */
+getColor : function () {},
+
+/**
+ * @method getDisplayedOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getDisplayedOpacity : function () {},
+
+/**
+ * @method getLetterPosXLeft
+ * @return A value converted from C/C++ "float"
+ * @param {cocos2d::Sprite*}
+ */
+getLetterPosXLeft : function () {},
+
+/**
+ * @method getKerningForCharsPair
+ * @return A value converted from C/C++ "int"
+ * @param {unsigned short}
+ * @param {unsigned short}
+ */
+getKerningForCharsPair : function () {},
+
+/**
+ * @method setLabelContentSize
+ * @param {cocos2d::Size}
+ */
+setLabelContentSize : function () {},
+
+/**
+ * @method assignNewUTF8String
+ * @param {unsigned short*}
+ */
+assignNewUTF8String : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::Color3B}
+ */
+setColor : function () {},
+
+/**
+ * @method getDisplayedColor
+ * @return A value converted from C/C++ "cocos2d::Color3B"
+ */
+getDisplayedColor : function () {},
+
+/**
+ * @method setText
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {float}
+ * @param {cocos2d::TextHAlignment}
+ * @param {bool}
+ */
+setText : function () {},
+
+/**
+ * @method getUTF8String
+ * @return A value converted from C/C++ "unsigned short*"
+ */
+getUTF8String : function () {},
+
+/**
+ * @method getTextAlignment
+ * @return A value converted from C/C++ "cocos2d::TextHAlignment"
+ */
+getTextAlignment : function () {},
+
+/**
+ * @method getSpriteChild
+ * @return A value converted from C/C++ "cocos2d::Sprite*"
+ * @param {int}
+ */
+getSpriteChild : function () {},
+
+/**
+ * @method isCascadeColorEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isCascadeColorEnabled : function () {},
+
+/**
+ * @method updateDisplayedColor
+ * @param {cocos2d::Color3B}
+ */
+updateDisplayedColor : function () {},
 
 /**
  * @method setAlignment
@@ -7225,28 +7476,14 @@ setScale : function () {},
 setAlignment : function () {},
 
 /**
- * @method setWidth
- * @param {float}
- */
-setWidth : function () {},
-
-/**
  * @method createWithBMFont
  * @return A value converted from C/C++ "cocos2d::Label*"
  * @param {const char*}
  * @param {const char*}
+ * @param {cocos2d::TextHAlignment}
  * @param {int}
  */
 createWithBMFont : function () {},
-
-/**
- * @method createWithBMFontOLD
- * @return A value converted from C/C++ "cocos2d::Label*"
- * @param {const char*}
- * @param {const char*}
- * @param {int}
- */
-createWithBMFontOLD : function () {},
 
 /**
  * @method createWithTTF
@@ -7254,8 +7491,9 @@ createWithBMFontOLD : function () {},
  * @param {const char*}
  * @param {const char*}
  * @param {int}
- * @param {cocos2d::GlyphCollection}
  * @param {int}
+ * @param {cocos2d::TextHAlignment}
+ * @param {cocos2d::GlyphCollection}
  * @param {const char*}
  */
 createWithTTF : function () {},
