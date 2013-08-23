@@ -5903,10 +5903,10 @@ cc.Director = {
 pause : function () {},
 
 /**
- * @method setDelegate
- * @param {cocos2d::DirectorDelegate*}
+ * @method setNotificationNode
+ * @param {cocos2d::Node*}
  */
-setDelegate : function () {},
+setNotificationNode : function () {},
 
 /**
  * @method setContentScaleFactor
@@ -6105,10 +6105,10 @@ getTotalFrames : function () {},
 runWithScene : function () {},
 
 /**
- * @method setNotificationNode
- * @param {cocos2d::Node*}
+ * @method setDelegate
+ * @param {cocos2d::DirectorDelegate*}
  */
-setNotificationNode : function () {},
+setDelegate : function () {},
 
 /**
  * @method drawScene
@@ -11089,9 +11089,11 @@ isFileExist : function () {},
 isPopupNotify : function () {},
 
 /**
- * @method purgeCachedEntries
+ * @method fullPathForFilename
+ * @return A value converted from C/C++ "std::string"
+ * @param {const char*}
  */
-purgeCachedEntries : function () {},
+fullPathForFilename : function () {},
 
 /**
  * @method fullPathFromRelativeFile
@@ -11132,11 +11134,9 @@ addSearchResolutionsOrder : function () {},
 getFileDataFromZip : function () {},
 
 /**
- * @method fullPathForFilename
- * @return A value converted from C/C++ "std::string"
- * @param {const char*}
+ * @method purgeCachedEntries
  */
-fullPathForFilename : function () {},
+purgeCachedEntries : function () {},
 
 /**
  * @method isAbsolutePath
@@ -12301,6 +12301,17 @@ Scheduler : function () {},
 cc.AudioEngine = {
 
 /**
+ * @method preloadBackgroundMusic
+ * @param {const char*}
+ */
+preloadBackgroundMusic : function () {},
+
+/**
+ * @method stopBackgroundMusic
+ */
+stopBackgroundMusic : function () {},
+
+/**
  * @method stopAllEffects
  */
 stopAllEffects : function () {},
@@ -12310,6 +12321,23 @@ stopAllEffects : function () {},
  * @return A value converted from C/C++ "float"
  */
 getBackgroundMusicVolume : function () {},
+
+/**
+ * @method resumeBackgroundMusic
+ */
+resumeBackgroundMusic : function () {},
+
+/**
+ * @method setBackgroundMusicVolume
+ * @param {float}
+ */
+setBackgroundMusicVolume : function () {},
+
+/**
+ * @method preloadEffect
+ * @param {const char*}
+ */
+preloadEffect : function () {},
 
 /**
  * @method isBackgroundMusicPlaying
@@ -12324,44 +12352,16 @@ isBackgroundMusicPlaying : function () {},
 getEffectsVolume : function () {},
 
 /**
- * @method setBackgroundMusicVolume
- * @param {float}
+ * @method willPlayBackgroundMusic
+ * @return A value converted from C/C++ "bool"
  */
-setBackgroundMusicVolume : function () {},
+willPlayBackgroundMusic : function () {},
 
 /**
- * @method stopEffect
+ * @method pauseEffect
  * @param {unsigned int}
  */
-stopEffect : function () {},
-
-/**
- * @method stopBackgroundMusic
- */
-stopBackgroundMusic : function () {},
-
-/**
- * @method playBackgroundMusic
- * @param {const char*}
- * @param {bool}
- */
-playBackgroundMusic : function () {},
-
-/**
- * @method pauseAllEffects
- */
-pauseAllEffects : function () {},
-
-/**
- * @method preloadBackgroundMusic
- * @param {const char*}
- */
-preloadBackgroundMusic : function () {},
-
-/**
- * @method resumeBackgroundMusic
- */
-resumeBackgroundMusic : function () {},
+pauseEffect : function () {},
 
 /**
  * @method playEffect
@@ -12380,22 +12380,16 @@ playEffect : function () {},
 rewindBackgroundMusic : function () {},
 
 /**
- * @method willPlayBackgroundMusic
- * @return A value converted from C/C++ "bool"
+ * @method playBackgroundMusic
+ * @param {const char*}
+ * @param {bool}
  */
-willPlayBackgroundMusic : function () {},
+playBackgroundMusic : function () {},
 
 /**
- * @method unloadEffect
- * @param {const char*}
+ * @method resumeAllEffects
  */
-unloadEffect : function () {},
-
-/**
- * @method preloadEffect
- * @param {const char*}
- */
-preloadEffect : function () {},
+resumeAllEffects : function () {},
 
 /**
  * @method setEffectsVolume
@@ -12404,20 +12398,26 @@ preloadEffect : function () {},
 setEffectsVolume : function () {},
 
 /**
- * @method pauseEffect
+ * @method stopEffect
  * @param {unsigned int}
  */
-pauseEffect : function () {},
-
-/**
- * @method resumeAllEffects
- */
-resumeAllEffects : function () {},
+stopEffect : function () {},
 
 /**
  * @method pauseBackgroundMusic
  */
 pauseBackgroundMusic : function () {},
+
+/**
+ * @method pauseAllEffects
+ */
+pauseAllEffects : function () {},
+
+/**
+ * @method unloadEffect
+ * @param {const char*}
+ */
+unloadEffect : function () {},
 
 /**
  * @method resumeEffect
