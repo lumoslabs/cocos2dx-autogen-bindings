@@ -56879,14 +56879,7 @@ JSBool js_cocos2dx_TMXObjectGroup_getProperty(JSContext *cx, uint32_t argc, jsva
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cocos2d::String* ret = cobj->getProperty(arg0);
 		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::String>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
+		jsret = std_string_to_jsval(cx, ret->getCString());
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -58602,14 +58595,7 @@ JSBool js_cocos2dx_TMXLayer_getProperty(JSContext *cx, uint32_t argc, jsval *vp)
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cocos2d::String* ret = cobj->getProperty(arg0);
 		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::String>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
+		jsret = std_string_to_jsval(cx, ret->getCString());
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -58991,14 +58977,7 @@ JSBool js_cocos2dx_TMXTiledMap_getProperty(JSContext *cx, uint32_t argc, jsval *
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cocos2d::String* ret = cobj->getProperty(arg0);
 		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::String>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
+		jsret = std_string_to_jsval(cx, ret->getCString());
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}

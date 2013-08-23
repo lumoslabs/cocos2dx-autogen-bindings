@@ -2556,14 +2556,7 @@ JSBool js_cocos2dx_extension_ControlButton_setTitleForState(JSContext *cx, uint3
 	if (argc == 2) {
 		cocos2d::String* arg0;
 		cocos2d::extension::Control::State arg1;
-		do {
-			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			proxy = jsb_get_js_proxy(tmpObj);
-			arg0 = (cocos2d::String*)(proxy ? proxy->ptr : NULL);
-			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
-		} while (0);
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = cocos2d::String::create(arg0_tmp);
 		ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setTitleForState(arg0, arg1);
@@ -3069,14 +3062,7 @@ JSBool js_cocos2dx_extension_ControlButton_getCurrentTitle(JSContext *cx, uint32
 	if (argc == 0) {
 		cocos2d::String* ret = cobj->getCurrentTitle();
 		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::String>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
+		jsret = std_string_to_jsval(cx, ret->getCString());
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -3572,14 +3558,7 @@ JSBool js_cocos2dx_extension_ControlButton_getTitleForState(JSContext *cx, uint3
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cocos2d::String* ret = cobj->getTitleForState(arg0);
 		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::String>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
+		jsret = std_string_to_jsval(cx, ret->getCString());
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
