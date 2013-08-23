@@ -29043,7 +29043,7 @@ JSBool js_cocos2dx_Director_pause(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Director_setDelegate(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_Director_setNotificationNode(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
@@ -29052,17 +29052,17 @@ JSBool js_cocos2dx_Director_setDelegate(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::Director* cobj = (cocos2d::Director *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::DirectorDelegate* arg0;
+		cocos2d::Node* arg0;
 		do {
 			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
 			proxy = jsb_get_js_proxy(tmpObj);
-			arg0 = (cocos2d::DirectorDelegate*)(proxy ? proxy->ptr : NULL);
+			arg0 = (cocos2d::Node*)(proxy ? proxy->ptr : NULL);
 			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
 		} while (0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setDelegate(arg0);
+		cobj->setNotificationNode(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -29721,7 +29721,7 @@ JSBool js_cocos2dx_Director_runWithScene(JSContext *cx, uint32_t argc, jsval *vp
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Director_setNotificationNode(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_Director_setDelegate(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
@@ -29730,17 +29730,17 @@ JSBool js_cocos2dx_Director_setNotificationNode(JSContext *cx, uint32_t argc, js
 	cocos2d::Director* cobj = (cocos2d::Director *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::Node* arg0;
+		cocos2d::DirectorDelegate* arg0;
 		do {
 			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
 			proxy = jsb_get_js_proxy(tmpObj);
-			arg0 = (cocos2d::Node*)(proxy ? proxy->ptr : NULL);
+			arg0 = (cocos2d::DirectorDelegate*)(proxy ? proxy->ptr : NULL);
 			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
 		} while (0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setNotificationNode(arg0);
+		cobj->setDelegate(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -30091,7 +30091,7 @@ void js_register_cocos2dx_Director(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("pause", js_cocos2dx_Director_pause, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setDelegate", js_cocos2dx_Director_setDelegate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setNotificationNode", js_cocos2dx_Director_setNotificationNode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setContentScaleFactor", js_cocos2dx_Director_setContentScaleFactor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getContentScaleFactor", js_cocos2dx_Director_getContentScaleFactor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getWinSizeInPixels", js_cocos2dx_Director_getWinSizeInPixels, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -30126,7 +30126,7 @@ void js_register_cocos2dx_Director(JSContext *cx, JSObject *global) {
 		JS_FN("purgeCachedData", js_cocos2dx_Director_purgeCachedData, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTotalFrames", js_cocos2dx_Director_getTotalFrames, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("runWithScene", js_cocos2dx_Director_runWithScene, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setNotificationNode", js_cocos2dx_Director_setNotificationNode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDelegate", js_cocos2dx_Director_setDelegate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("drawScene", js_cocos2dx_Director_drawScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("popScene", js_cocos2dx_Director_popScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isDisplayStats", js_cocos2dx_Director_isDisplayStats, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -54831,19 +54831,26 @@ JSBool js_cocos2dx_FileUtils_isPopupNotify(JSContext *cx, uint32_t argc, jsval *
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_FileUtils_purgeCachedEntries(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_FileUtils_fullPathForFilename(JSContext *cx, uint32_t argc, jsval *vp)
 {
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy = jsb_get_js_proxy(obj);
 	cocos2d::FileUtils* cobj = (cocos2d::FileUtils *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->purgeCachedEntries();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		std::string ret = cobj->fullPathForFilename(arg0);
+		jsval jsret;
+		jsret = std_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_FileUtils_fullPathFromRelativeFile(JSContext *cx, uint32_t argc, jsval *vp)
@@ -54962,26 +54969,19 @@ JSBool js_cocos2dx_FileUtils_getFileDataFromZip(JSContext *cx, uint32_t argc, js
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_FileUtils_fullPathForFilename(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_FileUtils_purgeCachedEntries(JSContext *cx, uint32_t argc, jsval *vp)
 {
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy = jsb_get_js_proxy(obj);
 	cocos2d::FileUtils* cobj = (cocos2d::FileUtils *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		const char* arg0;
-		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		std::string ret = cobj->fullPathForFilename(arg0);
-		jsval jsret;
-		jsret = std_string_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
+	if (argc == 0) {
+		cobj->purgeCachedEntries();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_FileUtils_isAbsolutePath(JSContext *cx, uint32_t argc, jsval *vp)
@@ -55141,13 +55141,13 @@ void js_register_cocos2dx_FileUtils(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("isFileExist", js_cocos2dx_FileUtils_isFileExist, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isPopupNotify", js_cocos2dx_FileUtils_isPopupNotify, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("purgeCachedEntries", js_cocos2dx_FileUtils_purgeCachedEntries, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("fullPathForFilename", js_cocos2dx_FileUtils_fullPathForFilename, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("fullPathFromRelativeFile", js_cocos2dx_FileUtils_fullPathFromRelativeFile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getFileData", js_cocos2dx_FileUtils_getFileData, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setFilenameLookupDictionary", js_cocos2dx_FileUtils_setFilenameLookupDictionary, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addSearchResolutionsOrder", js_cocos2dx_FileUtils_addSearchResolutionsOrder, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getFileDataFromZip", js_cocos2dx_FileUtils_getFileDataFromZip, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("fullPathForFilename", js_cocos2dx_FileUtils_fullPathForFilename, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("purgeCachedEntries", js_cocos2dx_FileUtils_purgeCachedEntries, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isAbsolutePath", js_cocos2dx_FileUtils_isAbsolutePath, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getWritablePath", js_cocos2dx_FileUtils_getWritablePath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addSearchPath", js_cocos2dx_FileUtils_addSearchPath, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -60073,6 +60073,51 @@ void js_register_cocos2dx_Scheduler(JSContext *cx, JSObject *global) {
 JSClass  *jsb_SimpleAudioEngine_class;
 JSObject *jsb_SimpleAudioEngine_prototype;
 
+JSBool js_cocos2dx_SimpleAudioEngine_preloadBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->preloadBackgroundMusic(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_SimpleAudioEngine_stopBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->stopBackgroundMusic();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->stopBackgroundMusic(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_SimpleAudioEngine_stopAllEffects(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -60103,6 +60148,61 @@ JSBool js_cocos2dx_SimpleAudioEngine_getBackgroundMusicVolume(JSContext *cx, uin
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_SimpleAudioEngine_resumeBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->resumeBackgroundMusic();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_SimpleAudioEngine_setBackgroundMusicVolume(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		double arg0;
+		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setBackgroundMusicVolume(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_SimpleAudioEngine_preloadEffect(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->preloadEffect(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_SimpleAudioEngine_isBackgroundMusicPlaying(JSContext *cx, uint32_t argc, jsval *vp)
@@ -60139,27 +60239,24 @@ JSBool js_cocos2dx_SimpleAudioEngine_getEffectsVolume(JSContext *cx, uint32_t ar
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_SimpleAudioEngine_setBackgroundMusicVolume(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_SimpleAudioEngine_willPlayBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
 {
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy = jsb_get_js_proxy(obj);
 	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		double arg0;
-		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setBackgroundMusicVolume(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+	if (argc == 0) {
+		bool ret = cobj->willPlayBackgroundMusic();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_SimpleAudioEngine_stopEffect(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_SimpleAudioEngine_pauseEffect(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
@@ -60171,117 +60268,12 @@ JSBool js_cocos2dx_SimpleAudioEngine_stopEffect(JSContext *cx, uint32_t argc, js
 		unsigned int arg0;
 		ok &= jsval_to_uint32(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->stopEffect(arg0);
+		cobj->pauseEffect(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SimpleAudioEngine_stopBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->stopBackgroundMusic();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->stopBackgroundMusic(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SimpleAudioEngine_playBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		const char* arg0;
-		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->playBackgroundMusic(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-	if (argc == 2) {
-		const char* arg0;
-		JSBool arg1;
-		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
-		ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->playBackgroundMusic(arg0, arg1);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SimpleAudioEngine_pauseAllEffects(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->pauseAllEffects();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SimpleAudioEngine_preloadBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		const char* arg0;
-		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->preloadBackgroundMusic(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SimpleAudioEngine_resumeBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->resumeBackgroundMusic();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_SimpleAudioEngine_playEffect(JSContext *cx, uint32_t argc, jsval *vp)
@@ -60381,17 +60373,115 @@ JSBool js_cocos2dx_SimpleAudioEngine_rewindBackgroundMusic(JSContext *cx, uint32
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_SimpleAudioEngine_willPlayBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_SimpleAudioEngine_playBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->playBackgroundMusic(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	if (argc == 2) {
+		const char* arg0;
+		JSBool arg1;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->playBackgroundMusic(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_SimpleAudioEngine_resumeAllEffects(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy = jsb_get_js_proxy(obj);
 	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		bool ret = cobj->willPlayBackgroundMusic();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
+		cobj->resumeAllEffects();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_SimpleAudioEngine_setEffectsVolume(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		double arg0;
+		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setEffectsVolume(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_SimpleAudioEngine_stopEffect(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		unsigned int arg0;
+		ok &= jsval_to_uint32(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->stopEffect(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_SimpleAudioEngine_pauseBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->pauseBackgroundMusic();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_SimpleAudioEngine_pauseAllEffects(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->pauseAllEffects();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
@@ -60416,96 +60506,6 @@ JSBool js_cocos2dx_SimpleAudioEngine_unloadEffect(JSContext *cx, uint32_t argc, 
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SimpleAudioEngine_preloadEffect(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		const char* arg0;
-		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->preloadEffect(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SimpleAudioEngine_setEffectsVolume(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		double arg0;
-		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setEffectsVolume(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SimpleAudioEngine_pauseEffect(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		unsigned int arg0;
-		ok &= jsval_to_uint32(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->pauseEffect(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SimpleAudioEngine_resumeAllEffects(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->resumeAllEffects();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SimpleAudioEngine_pauseBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->pauseBackgroundMusic();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_SimpleAudioEngine_resumeEffect(JSContext *cx, uint32_t argc, jsval *vp)
@@ -60582,26 +60582,26 @@ void js_register_cocos2dx_SimpleAudioEngine(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
+		JS_FN("preloadMusic", js_cocos2dx_SimpleAudioEngine_preloadBackgroundMusic, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stopMusic", js_cocos2dx_SimpleAudioEngine_stopBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("stopAllEffects", js_cocos2dx_SimpleAudioEngine_stopAllEffects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getMusicVolume", js_cocos2dx_SimpleAudioEngine_getBackgroundMusicVolume, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("resumeMusic", js_cocos2dx_SimpleAudioEngine_resumeBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setMusicVolume", js_cocos2dx_SimpleAudioEngine_setBackgroundMusicVolume, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("preloadEffect", js_cocos2dx_SimpleAudioEngine_preloadEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isMusicPlaying", js_cocos2dx_SimpleAudioEngine_isBackgroundMusicPlaying, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getEffectsVolume", js_cocos2dx_SimpleAudioEngine_getEffectsVolume, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setMusicVolume", js_cocos2dx_SimpleAudioEngine_setBackgroundMusicVolume, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("stopEffect", js_cocos2dx_SimpleAudioEngine_stopEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("stopMusic", js_cocos2dx_SimpleAudioEngine_stopBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("playMusic", js_cocos2dx_SimpleAudioEngine_playBackgroundMusic, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("pauseAllEffects", js_cocos2dx_SimpleAudioEngine_pauseAllEffects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("preloadMusic", js_cocos2dx_SimpleAudioEngine_preloadBackgroundMusic, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("resumeMusic", js_cocos2dx_SimpleAudioEngine_resumeBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("willPlayMusic", js_cocos2dx_SimpleAudioEngine_willPlayBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("pauseEffect", js_cocos2dx_SimpleAudioEngine_pauseEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("playEffect", js_cocos2dx_SimpleAudioEngine_playEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("rewindMusic", js_cocos2dx_SimpleAudioEngine_rewindBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("willPlayMusic", js_cocos2dx_SimpleAudioEngine_willPlayBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("unloadEffect", js_cocos2dx_SimpleAudioEngine_unloadEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("preloadEffect", js_cocos2dx_SimpleAudioEngine_preloadEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setEffectsVolume", js_cocos2dx_SimpleAudioEngine_setEffectsVolume, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("pauseEffect", js_cocos2dx_SimpleAudioEngine_pauseEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("playMusic", js_cocos2dx_SimpleAudioEngine_playBackgroundMusic, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resumeAllEffects", js_cocos2dx_SimpleAudioEngine_resumeAllEffects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEffectsVolume", js_cocos2dx_SimpleAudioEngine_setEffectsVolume, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stopEffect", js_cocos2dx_SimpleAudioEngine_stopEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("pauseMusic", js_cocos2dx_SimpleAudioEngine_pauseBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("pauseAllEffects", js_cocos2dx_SimpleAudioEngine_pauseAllEffects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unloadEffect", js_cocos2dx_SimpleAudioEngine_unloadEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resumeEffect", js_cocos2dx_SimpleAudioEngine_resumeEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
 	};
