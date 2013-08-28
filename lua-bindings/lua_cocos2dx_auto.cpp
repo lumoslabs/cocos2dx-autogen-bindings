@@ -47006,50 +47006,6 @@ int lua_cocos2dx_Sprite_setOpacity(lua_State* tolua_S)
 #endif
     return 0;
 }
-int lua_cocos2dx_Sprite_setDisplayFrameWithAnimationName(lua_State* tolua_S)
-{
-    int argc = 0;
-    cocos2d::Sprite* cobj = nullptr;
-    bool ok  = true;
-
-#if COCOS2D_DEBUG >= 1
-    tolua_Error tolua_err;
-#endif
-
-#if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"Sprite",0,&tolua_err)) goto tolua_lerror;
-#endif
-
-    cobj = (cocos2d::Sprite*)tolua_tousertype(tolua_S,1,0);
-
-#if COCOS2D_DEBUG >= 1
-    if (!cobj) 
-    {
-        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_Sprite_setDisplayFrameWithAnimationName'", NULL);
-        return 0;
-    }
-#endif
-
-    argc = lua_gettop(tolua_S)-1;
-    if (argc == 2) 
-    {
-        const char* arg0;
-        int arg1;
-        std::string arg0_tmp; ok &= luaval_to_std_string(tolua_S, 2, &arg0_tmp); arg0 = arg0_tmp.c_str();
-        ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
-        if(!ok)
-            return 0;
-        cobj->setDisplayFrameWithAnimationName(arg0, arg1);
-        return 0;
-    }
-    CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "setDisplayFrameWithAnimationName",argc, 2);
-    return 0;
-#if COCOS2D_DEBUG >= 1
-    tolua_lerror:
-    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_Sprite_setDisplayFrameWithAnimationName'.",&tolua_err);
-#endif
-    return 0;
-}
 int lua_cocos2dx_Sprite_setScaleX(lua_State* tolua_S)
 {
     int argc = 0;
@@ -47131,6 +47087,50 @@ int lua_cocos2dx_Sprite_setAnchorPoint(lua_State* tolua_S)
 #if COCOS2D_DEBUG >= 1
     tolua_lerror:
     tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_Sprite_setAnchorPoint'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_cocos2dx_Sprite_setDisplayFrameWithAnimationName(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Sprite* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"Sprite",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Sprite*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_Sprite_setDisplayFrameWithAnimationName'", NULL);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 2) 
+    {
+        const char* arg0;
+        int arg1;
+        std::string arg0_tmp; ok &= luaval_to_std_string(tolua_S, 2, &arg0_tmp); arg0 = arg0_tmp.c_str();
+        ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
+        if(!ok)
+            return 0;
+        cobj->setDisplayFrameWithAnimationName(arg0, arg1);
+        return 0;
+    }
+    CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "setDisplayFrameWithAnimationName",argc, 2);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_Sprite_setDisplayFrameWithAnimationName'.",&tolua_err);
 #endif
     return 0;
 }
@@ -48556,6 +48556,59 @@ int lua_cocos2dx_Sprite_getTextureAtlas(lua_State* tolua_S)
 #endif
     return 0;
 }
+int lua_cocos2dx_Sprite_getDisplayFrame(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Sprite* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"Sprite",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Sprite*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_Sprite_getDisplayFrame'", NULL);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+            return 0;
+        cocos2d::SpriteFrame* ret = cobj->getDisplayFrame();
+        do {
+			if (NULL != ret){
+				cocos2d::Object *cobj = dynamic_cast<cocos2d::Object *>(ret);
+				if (NULL != cobj) {
+					int ID = ret ? (int)(cobj->_ID) : -1;
+					int* luaID = ret ? &(cobj->_luaID) : NULL;
+					toluafix_pushusertype_ccobject(tolua_S,ID, luaID, (void*)ret,"SpriteFrame");
+				} else {
+					 tolua_pushusertype(tolua_S,(void*)ret,"SpriteFrame");
+			}} else {
+				lua_pushnil(tolua_S);
+			}
+		} while (0);
+        return 1;
+    }
+    CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "getDisplayFrame",argc, 0);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_Sprite_getDisplayFrame'.",&tolua_err);
+#endif
+    return 0;
+}
 int lua_cocos2dx_Sprite_initWithSpriteFrame(lua_State* tolua_S)
 {
     int argc = 0;
@@ -49302,9 +49355,9 @@ int lua_register_cocos2dx_Sprite(lua_State* tolua_S)
         tolua_function(tolua_S,"setRotationX",lua_cocos2dx_Sprite_setRotationX);
         tolua_function(tolua_S,"setScale",lua_cocos2dx_Sprite_setScale);
         tolua_function(tolua_S,"setOpacity",lua_cocos2dx_Sprite_setOpacity);
-        tolua_function(tolua_S,"setDisplayFrameWithAnimationName",lua_cocos2dx_Sprite_setDisplayFrameWithAnimationName);
         tolua_function(tolua_S,"setScaleX",lua_cocos2dx_Sprite_setScaleX);
         tolua_function(tolua_S,"setAnchorPoint",lua_cocos2dx_Sprite_setAnchorPoint);
+        tolua_function(tolua_S,"setDisplayFrameWithAnimationName",lua_cocos2dx_Sprite_setDisplayFrameWithAnimationName);
         tolua_function(tolua_S,"getBatchNode",lua_cocos2dx_Sprite_getBatchNode);
         tolua_function(tolua_S,"getOffsetPosition",lua_cocos2dx_Sprite_getOffsetPosition);
         tolua_function(tolua_S,"isOpacityModifyRGB",lua_cocos2dx_Sprite_isOpacityModifyRGB);
@@ -49335,6 +49388,7 @@ int lua_register_cocos2dx_Sprite(lua_State* tolua_S)
         tolua_function(tolua_S,"ignoreAnchorPointForPosition",lua_cocos2dx_Sprite_ignoreAnchorPointForPosition);
         tolua_function(tolua_S,"setColor",lua_cocos2dx_Sprite_setColor);
         tolua_function(tolua_S,"getTextureAtlas",lua_cocos2dx_Sprite_getTextureAtlas);
+        tolua_function(tolua_S,"getDisplayFrame",lua_cocos2dx_Sprite_getDisplayFrame);
         tolua_function(tolua_S,"initWithSpriteFrame",lua_cocos2dx_Sprite_initWithSpriteFrame);
         tolua_function(tolua_S,"removeChild",lua_cocos2dx_Sprite_removeChild);
         tolua_function(tolua_S,"updateTransform",lua_cocos2dx_Sprite_updateTransform);

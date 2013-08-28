@@ -31338,28 +31338,6 @@ JSBool js_cocos2dx_Sprite_setOpacity(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "js_cocos2dx_Sprite_setOpacity : wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_Sprite_setDisplayFrameWithAnimationName(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Sprite* cobj = (cocos2d::Sprite *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_Sprite_setDisplayFrameWithAnimationName : Invalid Native Object");
-	if (argc == 2) {
-		const char* arg0;
-		int arg1;
-		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
-		ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_Sprite_setDisplayFrameWithAnimationName : Error processing arguments");
-		cobj->setDisplayFrameWithAnimationName(arg0, arg1);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "js_cocos2dx_Sprite_setDisplayFrameWithAnimationName : wrong number of arguments: %d, was expecting %d", argc, 2);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_Sprite_setScaleX(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -31398,6 +31376,28 @@ JSBool js_cocos2dx_Sprite_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp
 	}
 
 	JS_ReportError(cx, "js_cocos2dx_Sprite_setAnchorPoint : wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_Sprite_setDisplayFrameWithAnimationName(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Sprite* cobj = (cocos2d::Sprite *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_Sprite_setDisplayFrameWithAnimationName : Invalid Native Object");
+	if (argc == 2) {
+		const char* arg0;
+		int arg1;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_Sprite_setDisplayFrameWithAnimationName : Error processing arguments");
+		cobj->setDisplayFrameWithAnimationName(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_Sprite_setDisplayFrameWithAnimationName : wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_Sprite_getBatchNode(JSContext *cx, uint32_t argc, jsval *vp)
@@ -32144,6 +32144,30 @@ JSBool js_cocos2dx_Sprite_getTextureAtlas(JSContext *cx, uint32_t argc, jsval *v
 	JS_ReportError(cx, "js_cocos2dx_Sprite_getTextureAtlas : wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_Sprite_getDisplayFrame(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Sprite* cobj = (cocos2d::Sprite *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_Sprite_getDisplayFrame : Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::SpriteFrame* ret = cobj->getDisplayFrame();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::SpriteFrame>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_Sprite_getDisplayFrame : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_Sprite_initWithSpriteFrame(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -32593,9 +32617,9 @@ void js_register_cocos2dx_Sprite(JSContext *cx, JSObject *global) {
 		JS_FN("setRotationX", js_cocos2dx_Sprite_setRotationX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setScale", js_cocos2dx_Sprite_setScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setOpacity", js_cocos2dx_Sprite_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setDisplayFrameWithAnimationName", js_cocos2dx_Sprite_setDisplayFrameWithAnimationName, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setScaleX", js_cocos2dx_Sprite_setScaleX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAnchorPoint", js_cocos2dx_Sprite_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDisplayFrameWithAnimationName", js_cocos2dx_Sprite_setDisplayFrameWithAnimationName, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getBatchNode", js_cocos2dx_Sprite_getBatchNode, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getOffsetPosition", js_cocos2dx_Sprite_getOffsetPosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isOpacityModifyRGB", js_cocos2dx_Sprite_isOpacityModifyRGB, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -32626,6 +32650,7 @@ void js_register_cocos2dx_Sprite(JSContext *cx, JSObject *global) {
 		JS_FN("ignoreAnchorPointForPosition", js_cocos2dx_Sprite_ignoreAnchorPointForPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setColor", js_cocos2dx_Sprite_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTextureAtlas", js_cocos2dx_Sprite_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDisplayFrame", js_cocos2dx_Sprite_getDisplayFrame, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithSpriteFrame", js_cocos2dx_Sprite_initWithSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeChild", js_cocos2dx_Sprite_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updateTransform", js_cocos2dx_Sprite_updateTransform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),

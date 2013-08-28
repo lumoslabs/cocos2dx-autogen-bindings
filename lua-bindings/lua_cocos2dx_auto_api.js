@@ -6432,13 +6432,6 @@ setScale : function () {},
 setOpacity : function () {},
 
 /**
- * @method setDisplayFrameWithAnimationName
- * @param {const char*}
- * @param {int}
- */
-setDisplayFrameWithAnimationName : function () {},
-
-/**
  * @method setScaleX
  * @param {float}
  */
@@ -6449,6 +6442,13 @@ setScaleX : function () {},
  * @param {cocos2d::Point}
  */
 setAnchorPoint : function () {},
+
+/**
+ * @method setDisplayFrameWithAnimationName
+ * @param {const char*}
+ * @param {int}
+ */
+setDisplayFrameWithAnimationName : function () {},
 
 /**
  * @method getBatchNode
@@ -6613,6 +6613,12 @@ setColor : function () {},
  * @return A value converted from C/C++ "cocos2d::TextureAtlas*"
  */
 getTextureAtlas : function () {},
+
+/**
+ * @method getDisplayFrame
+ * @return A value converted from C/C++ "cocos2d::SpriteFrame*"
+ */
+getDisplayFrame : function () {},
 
 /**
  * @method initWithSpriteFrame

@@ -1846,9 +1846,9 @@ JSBool js_cocos2dx_Sprite_setRotationY(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_setRotationX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_setScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_setOpacity(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Sprite_setDisplayFrameWithAnimationName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_setScaleX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Sprite_setDisplayFrameWithAnimationName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_getBatchNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_getOffsetPosition(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
@@ -1879,6 +1879,7 @@ JSBool js_cocos2dx_Sprite_getTextureRect(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_Sprite_ignoreAnchorPointForPosition(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_setColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_getTextureAtlas(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Sprite_getDisplayFrame(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_initWithSpriteFrame(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_removeChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Sprite_updateTransform(JSContext *cx, uint32_t argc, jsval *vp);
