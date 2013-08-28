@@ -7968,6 +7968,12 @@ initWithArray : function () {},
 switchToAndReleaseMe : function () {},
 
 /**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
  * @method addLayer
  * @param {cocos2d::Layer*}
  */

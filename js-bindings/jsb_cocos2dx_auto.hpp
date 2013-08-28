@@ -2168,6 +2168,7 @@ void js_register_cocos2dx_LayerMultiplex(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_LayerMultiplex_initWithArray(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_LayerMultiplex_switchToAndReleaseMe(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_LayerMultiplex_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_LayerMultiplex_addLayer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_LayerMultiplex_switchTo(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_LayerMultiplex_LayerMultiplex(JSContext *cx, uint32_t argc, jsval *vp);

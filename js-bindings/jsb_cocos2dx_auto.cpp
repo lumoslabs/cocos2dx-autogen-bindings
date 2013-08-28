@@ -38565,6 +38565,23 @@ JSBool js_cocos2dx_LayerMultiplex_switchToAndReleaseMe(JSContext *cx, uint32_t a
 	JS_ReportError(cx, "js_cocos2dx_LayerMultiplex_switchToAndReleaseMe : wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_LayerMultiplex_init(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::LayerMultiplex* cobj = (cocos2d::LayerMultiplex *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_LayerMultiplex_init : Invalid Native Object");
+	if (argc == 0) {
+		bool ret = cobj->init();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_LayerMultiplex_init : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_LayerMultiplex_addLayer(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -38676,6 +38693,7 @@ void js_register_cocos2dx_LayerMultiplex(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initWithArray", js_cocos2dx_LayerMultiplex_initWithArray, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("switchToAndReleaseMe", js_cocos2dx_LayerMultiplex_switchToAndReleaseMe, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_LayerMultiplex_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addLayer", js_cocos2dx_LayerMultiplex_addLayer, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("switchTo", js_cocos2dx_LayerMultiplex_switchTo, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_LayerMultiplex_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),

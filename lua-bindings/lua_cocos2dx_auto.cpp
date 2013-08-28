@@ -59477,6 +59477,47 @@ int lua_cocos2dx_LayerMultiplex_switchToAndReleaseMe(lua_State* tolua_S)
 #endif
     return 0;
 }
+int lua_cocos2dx_LayerMultiplex_init(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::LayerMultiplex* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"LayerMultiplex",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::LayerMultiplex*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_LayerMultiplex_init'", NULL);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+            return 0;
+        bool ret = cobj->init();
+        tolua_pushboolean(tolua_S,(bool)ret);
+        return 1;
+    }
+    CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "init",argc, 0);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_LayerMultiplex_init'.",&tolua_err);
+#endif
+    return 0;
+}
 int lua_cocos2dx_LayerMultiplex_addLayer(lua_State* tolua_S)
 {
     int argc = 0;
@@ -59625,6 +59666,7 @@ int lua_register_cocos2dx_LayerMultiplex(lua_State* tolua_S)
     tolua_beginmodule(tolua_S,"LayerMultiplex");
         tolua_function(tolua_S,"initWithArray",lua_cocos2dx_LayerMultiplex_initWithArray);
         tolua_function(tolua_S,"switchToAndReleaseMe",lua_cocos2dx_LayerMultiplex_switchToAndReleaseMe);
+        tolua_function(tolua_S,"init",lua_cocos2dx_LayerMultiplex_init);
         tolua_function(tolua_S,"addLayer",lua_cocos2dx_LayerMultiplex_addLayer);
         tolua_function(tolua_S,"switchTo",lua_cocos2dx_LayerMultiplex_switchTo);
         tolua_function(tolua_S,"new",lua_cocos2dx_LayerMultiplex_constructor);
