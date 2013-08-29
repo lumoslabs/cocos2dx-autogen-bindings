@@ -2945,14 +2945,14 @@ cc.ActionManager = {
 /**
  * @method getActionByTag
  * @return A value converted from C/C++ "cocos2d::Action*"
- * @param {unsigned int}
+ * @param {int}
  * @param {cocos2d::Object*}
  */
 getActionByTag : function () {},
 
 /**
  * @method removeActionByTag
- * @param {unsigned int}
+ * @param {int}
  * @param {cocos2d::Object*}
  */
 removeActionByTag : function () {},

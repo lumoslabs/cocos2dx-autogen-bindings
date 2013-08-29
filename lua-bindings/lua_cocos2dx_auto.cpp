@@ -22581,9 +22581,9 @@ int lua_cocos2dx_ActionManager_getActionByTag(lua_State* tolua_S)
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
-        unsigned int arg0;
+        int arg0;
         cocos2d::Object* arg1;
-        ok &= luaval_to_uint32(tolua_S, 2,&arg0);
+        ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0);
         do {
 #if COCOS2D_DEBUG >= 1
 				if (!tolua_isusertype(tolua_S,3,"Object",0,&tolua_err)){
@@ -22648,9 +22648,9 @@ int lua_cocos2dx_ActionManager_removeActionByTag(lua_State* tolua_S)
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
-        unsigned int arg0;
+        int arg0;
         cocos2d::Object* arg1;
-        ok &= luaval_to_uint32(tolua_S, 2,&arg0);
+        ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0);
         do {
 #if COCOS2D_DEBUG >= 1
 				if (!tolua_isusertype(tolua_S,3,"Object",0,&tolua_err)){

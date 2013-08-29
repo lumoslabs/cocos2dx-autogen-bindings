@@ -14120,9 +14120,9 @@ JSBool js_cocos2dx_ActionManager_getActionByTag(JSContext *cx, uint32_t argc, js
 	cocos2d::ActionManager* cobj = (cocos2d::ActionManager *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_ActionManager_getActionByTag : Invalid Native Object");
 	if (argc == 2) {
-		unsigned int arg0;
+		int arg0;
 		cocos2d::Object* arg1;
-		ok &= jsval_to_uint32(cx, argv[0], &arg0);
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
 		do {
 			if (!argv[1].isObject()) { ok = JS_FALSE; break; }
 			js_proxy_t *proxy;
@@ -14158,9 +14158,9 @@ JSBool js_cocos2dx_ActionManager_removeActionByTag(JSContext *cx, uint32_t argc,
 	cocos2d::ActionManager* cobj = (cocos2d::ActionManager *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_ActionManager_removeActionByTag : Invalid Native Object");
 	if (argc == 2) {
-		unsigned int arg0;
+		int arg0;
 		cocos2d::Object* arg1;
-		ok &= jsval_to_uint32(cx, argv[0], &arg0);
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
 		do {
 			if (!argv[1].isObject()) { ok = JS_FALSE; break; }
 			js_proxy_t *proxy;
