@@ -260,16 +260,15 @@ int lua_cocos2dx_Action_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -312,16 +311,15 @@ int lua_cocos2dx_Action_setOriginalTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setOriginalTarget(arg0);
@@ -730,16 +728,15 @@ int lua_cocos2dx_Action_setTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTarget(arg0);
@@ -1118,16 +1115,15 @@ int lua_cocos2dx_Speed_setInnerAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setInnerAction(arg0);
@@ -1170,16 +1166,15 @@ int lua_cocos2dx_Speed_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -1441,16 +1436,15 @@ int lua_cocos2dx_Speed_initWithAction(lua_State* tolua_S)
         cocos2d::ActionInterval* arg0;
         double arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_number(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -1633,16 +1627,15 @@ int lua_cocos2dx_Speed_create(lua_State* tolua_S)
         cocos2d::ActionInterval* arg0;
         double arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_number(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -1876,16 +1869,15 @@ int lua_cocos2dx_Follow_initWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithTarget(arg0);
@@ -1897,16 +1889,15 @@ int lua_cocos2dx_Follow_initWithTarget(lua_State* tolua_S)
         cocos2d::Node* arg0;
         cocos2d::Rect arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_rect(tolua_S, 3, &arg1);
         if(!ok)
             return 0;
@@ -2147,16 +2138,15 @@ int lua_cocos2dx_Follow_create(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::Follow* ret = cocos2d::Follow::create(arg0);
@@ -2180,16 +2170,15 @@ int lua_cocos2dx_Follow_create(lua_State* tolua_S)
         cocos2d::Node* arg0;
         cocos2d::Rect arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_rect(tolua_S, 3, &arg1);
         if(!ok)
             return 0;
@@ -3707,16 +3696,15 @@ int lua_cocos2dx_Set_addObject(lua_State* tolua_S)
     {
         cocos2d::Object* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Object*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->addObject(arg0);
@@ -3905,16 +3893,15 @@ int lua_cocos2dx_Set_removeObject(lua_State* tolua_S)
     {
         cocos2d::Object* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Object*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->removeObject(arg0);
@@ -4010,16 +3997,15 @@ int lua_cocos2dx_Set_containsObject(lua_State* tolua_S)
     {
         cocos2d::Object* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Object*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->containsObject(arg0);
@@ -4263,16 +4249,15 @@ int lua_cocos2dx_Texture2D_initWithImage(lua_State* tolua_S)
         if (argc == 2) {
             cocos2d::Image* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Image",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Image",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Image*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cocos2d::Texture2D::PixelFormat arg1;
@@ -4288,16 +4273,15 @@ int lua_cocos2dx_Texture2D_initWithImage(lua_State* tolua_S)
         if (argc == 1) {
             cocos2d::Image* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Image",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Image",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Image*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             bool ret = cobj->initWithImage(arg0);
@@ -4342,16 +4326,15 @@ int lua_cocos2dx_Texture2D_setShaderProgram(lua_State* tolua_S)
     {
         cocos2d::GLProgram* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"GLProgram",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"GLProgram",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::GLProgram*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setShaderProgram(arg0);
@@ -5499,16 +5482,15 @@ int lua_cocos2dx_Node_addChild(lua_State* tolua_S)
         if (argc == 2) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -5523,16 +5505,15 @@ int lua_cocos2dx_Node_addChild(lua_State* tolua_S)
         if (argc == 1) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cobj->addChild(arg0);
@@ -5543,16 +5524,15 @@ int lua_cocos2dx_Node_addChild(lua_State* tolua_S)
         if (argc == 3) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -6170,16 +6150,15 @@ int lua_cocos2dx_Node_removeChild(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->removeChild(arg0);
@@ -6190,16 +6169,15 @@ int lua_cocos2dx_Node_removeChild(lua_State* tolua_S)
         cocos2d::Node* arg0;
         bool arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_boolean(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -6370,16 +6348,15 @@ int lua_cocos2dx_Node_convertTouchToNodeSpace(lua_State* tolua_S)
     {
         cocos2d::Touch* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Touch",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Touch",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Touch*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::Point ret = cobj->convertTouchToNodeSpace(arg0);
@@ -6549,16 +6526,15 @@ int lua_cocos2dx_Node_setParent(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setParent(arg0);
@@ -6846,16 +6822,15 @@ int lua_cocos2dx_Node_reorderChild(lua_State* tolua_S)
         cocos2d::Node* arg0;
         int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         if(!ok)
             return 0;
@@ -7314,16 +7289,15 @@ int lua_cocos2dx_Node_addComponent(lua_State* tolua_S)
     {
         cocos2d::Component* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Component",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Component",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Component*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->addComponent(arg0);
@@ -7407,16 +7381,15 @@ int lua_cocos2dx_Node_setShaderProgram(lua_State* tolua_S)
     {
         cocos2d::GLProgram* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"GLProgram",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"GLProgram",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::GLProgram*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setShaderProgram(arg0);
@@ -7622,16 +7595,15 @@ int lua_cocos2dx_Node_runAction(lua_State* tolua_S)
     {
         cocos2d::Action* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Action",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Action",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Action*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::Action* ret = cobj->runAction(arg0);
@@ -7769,16 +7741,15 @@ int lua_cocos2dx_Node_setScheduler(lua_State* tolua_S)
     {
         cocos2d::Scheduler* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Scheduler",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Scheduler",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Scheduler*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setScheduler(arg0);
@@ -8273,16 +8244,15 @@ int lua_cocos2dx_Node_setActionManager(lua_State* tolua_S)
     {
         cocos2d::ActionManager* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionManager",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionManager",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionManager*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setActionManager(arg0);
@@ -8400,6 +8370,88 @@ int lua_cocos2dx_Node_getParent(lua_State* tolua_S)
 #if COCOS2D_DEBUG >= 1
     tolua_lerror:
     tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_Node_getParent'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_cocos2dx_Node_getPositionY(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Node* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"Node",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Node*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_Node_getPositionY'", NULL);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+            return 0;
+        float ret = cobj->getPositionY();
+        tolua_pushnumber(tolua_S,(lua_Number)ret);
+        return 1;
+    }
+    CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "getPositionY",argc, 0);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_Node_getPositionY'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_cocos2dx_Node_getPositionX(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Node* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"Node",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Node*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_Node_getPositionX'", NULL);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+            return 0;
+        float ret = cobj->getPositionX();
+        tolua_pushnumber(tolua_S,(lua_Number)ret);
+        return 1;
+    }
+    CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "getPositionX",argc, 0);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_Node_getPositionX'.",&tolua_err);
 #endif
     return 0;
 }
@@ -9048,16 +9100,15 @@ int lua_cocos2dx_Node_setGrid(lua_State* tolua_S)
     {
         cocos2d::GridBase* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"GridBase",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"GridBase",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::GridBase*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setGrid(arg0);
@@ -9221,16 +9272,15 @@ int lua_cocos2dx_Node_setUserObject(lua_State* tolua_S)
     {
         cocos2d::Object* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Object*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setUserObject(arg0);
@@ -9317,16 +9367,15 @@ int lua_cocos2dx_Node_convertTouchToNodeSpaceAR(lua_State* tolua_S)
     {
         cocos2d::Touch* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Touch",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Touch",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Touch*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::Point ret = cobj->convertTouchToNodeSpaceAR(arg0);
@@ -9629,16 +9678,15 @@ int lua_cocos2dx_Node_stopAction(lua_State* tolua_S)
     {
         cocos2d::Action* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Action",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Action",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Action*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->stopAction(arg0);
@@ -9876,6 +9924,8 @@ int lua_register_cocos2dx_Node(lua_State* tolua_S)
         tolua_function(tolua_S,"setActionManager",lua_cocos2dx_Node_setActionManager);
         tolua_function(tolua_S,"isRunning",lua_cocos2dx_Node_isRunning);
         tolua_function(tolua_S,"getParent",lua_cocos2dx_Node_getParent);
+        tolua_function(tolua_S,"getPositionY",lua_cocos2dx_Node_getPositionY);
+        tolua_function(tolua_S,"getPositionX",lua_cocos2dx_Node_getPositionX);
         tolua_function(tolua_S,"removeChildByTag",lua_cocos2dx_Node_removeChildByTag);
         tolua_function(tolua_S,"setVisible",lua_cocos2dx_Node_setVisible);
         tolua_function(tolua_S,"getParentToNodeTransform",lua_cocos2dx_Node_getParentToNodeTransform);
@@ -10733,16 +10783,15 @@ int lua_cocos2dx_SpriteFrame_setTexture(lua_State* tolua_S)
     {
         cocos2d::Texture2D* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTexture(arg0);
@@ -10780,16 +10829,15 @@ int lua_cocos2dx_SpriteFrame_initWithTexture(lua_State* tolua_S)
         if (argc == 5) {
             cocos2d::Texture2D* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cocos2d::Rect arg1;
@@ -10817,16 +10865,15 @@ int lua_cocos2dx_SpriteFrame_initWithTexture(lua_State* tolua_S)
         if (argc == 2) {
             cocos2d::Texture2D* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cocos2d::Rect arg1;
@@ -11613,16 +11660,15 @@ int lua_cocos2dx_SpriteFrame_createWithTexture(lua_State* tolua_S)
         {
             cocos2d::Texture2D* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::Rect arg1;
             ok &= luaval_to_rect(tolua_S, 3, &arg1);
@@ -11659,16 +11705,15 @@ int lua_cocos2dx_SpriteFrame_createWithTexture(lua_State* tolua_S)
         {
             cocos2d::Texture2D* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::Rect arg1;
             ok &= luaval_to_rect(tolua_S, 3, &arg1);
@@ -11766,16 +11811,15 @@ int lua_cocos2dx_AnimationFrame_setSpriteFrame(lua_State* tolua_S)
     {
         cocos2d::SpriteFrame* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setSpriteFrame(arg0);
@@ -12092,16 +12136,15 @@ int lua_cocos2dx_AnimationFrame_initWithSpriteFrame(lua_State* tolua_S)
         double arg1;
         cocos2d::Dictionary* arg2;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_number(tolua_S, 3,&arg1);
         ok &= luaval_to_dictionary(tolua_S, 4, &arg2);
         if(!ok)
@@ -12338,16 +12381,15 @@ int lua_cocos2dx_Animation_addSpriteFrame(lua_State* tolua_S)
     {
         cocos2d::SpriteFrame* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->addSpriteFrame(arg0);
@@ -12919,16 +12961,15 @@ int lua_cocos2dx_Animation_addSpriteFrameWithTexture(lua_State* tolua_S)
         cocos2d::Texture2D* arg0;
         cocos2d::Rect arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_rect(tolua_S, 3, &arg1);
         if(!ok)
             return 0;
@@ -13219,16 +13260,15 @@ int lua_cocos2dx_ActionInterval_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -13654,16 +13694,15 @@ int lua_cocos2dx_Sequence_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -13895,27 +13934,25 @@ int lua_cocos2dx_Sequence_initWithTwoActions(lua_State* tolua_S)
         cocos2d::FiniteTimeAction* arg0;
         cocos2d::FiniteTimeAction* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"FiniteTimeAction",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"FiniteTimeAction",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::FiniteTimeAction*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"FiniteTimeAction",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"FiniteTimeAction",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::FiniteTimeAction*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithTwoActions(arg0, arg1);
@@ -13983,16 +14020,15 @@ int lua_cocos2dx_Repeat_setInnerAction(lua_State* tolua_S)
     {
         cocos2d::FiniteTimeAction* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"FiniteTimeAction",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"FiniteTimeAction",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::FiniteTimeAction*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setInnerAction(arg0);
@@ -14035,16 +14071,15 @@ int lua_cocos2dx_Repeat_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -14276,16 +14311,15 @@ int lua_cocos2dx_Repeat_initWithAction(lua_State* tolua_S)
         cocos2d::FiniteTimeAction* arg0;
         unsigned int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"FiniteTimeAction",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"FiniteTimeAction",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::FiniteTimeAction*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_uint32(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -14415,16 +14449,15 @@ int lua_cocos2dx_Repeat_create(lua_State* tolua_S)
         cocos2d::FiniteTimeAction* arg0;
         unsigned int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"FiniteTimeAction",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"FiniteTimeAction",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::FiniteTimeAction*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_uint32(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -14509,16 +14542,15 @@ int lua_cocos2dx_RepeatForever_setInnerAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setInnerAction(arg0);
@@ -14561,16 +14593,15 @@ int lua_cocos2dx_RepeatForever_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -14761,16 +14792,15 @@ int lua_cocos2dx_RepeatForever_initWithAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithAction(arg0);
@@ -14898,16 +14928,15 @@ int lua_cocos2dx_RepeatForever_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::RepeatForever* ret = cocos2d::RepeatForever::create(arg0);
@@ -15031,16 +15060,15 @@ int lua_cocos2dx_Spawn_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -15272,27 +15300,25 @@ int lua_cocos2dx_Spawn_initWithTwoActions(lua_State* tolua_S)
         cocos2d::FiniteTimeAction* arg0;
         cocos2d::FiniteTimeAction* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"FiniteTimeAction",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"FiniteTimeAction",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::FiniteTimeAction*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"FiniteTimeAction",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"FiniteTimeAction",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::FiniteTimeAction*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithTwoActions(arg0, arg1);
@@ -15360,16 +15386,15 @@ int lua_cocos2dx_RotateTo_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -15725,16 +15750,15 @@ int lua_cocos2dx_RotateBy_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -16090,16 +16114,15 @@ int lua_cocos2dx_MoveBy_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -16406,16 +16429,15 @@ int lua_cocos2dx_MoveTo_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -16625,16 +16647,15 @@ int lua_cocos2dx_SkewTo_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -16986,16 +17007,15 @@ int lua_cocos2dx_SkewBy_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -17263,16 +17283,15 @@ int lua_cocos2dx_JumpBy_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -17587,16 +17606,15 @@ int lua_cocos2dx_JumpTo_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -17818,16 +17836,15 @@ int lua_cocos2dx_BezierBy_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -18086,16 +18103,15 @@ int lua_cocos2dx_BezierTo_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -18311,16 +18327,15 @@ int lua_cocos2dx_ScaleTo_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -18676,16 +18691,15 @@ int lua_cocos2dx_ScaleBy_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -18935,16 +18949,15 @@ int lua_cocos2dx_Blink_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -19722,16 +19735,15 @@ int lua_cocos2dx_FadeTo_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -20038,16 +20050,15 @@ int lua_cocos2dx_TintTo_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -20362,16 +20373,15 @@ int lua_cocos2dx_TintBy_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -20901,16 +20911,15 @@ int lua_cocos2dx_Animate_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -21207,16 +21216,15 @@ int lua_cocos2dx_Animate_initWithAnimation(lua_State* tolua_S)
     {
         cocos2d::Animation* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Animation",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Animation",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Animation*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithAnimation(arg0);
@@ -21260,16 +21268,15 @@ int lua_cocos2dx_Animate_setAnimation(lua_State* tolua_S)
     {
         cocos2d::Animation* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Animation",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Animation",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Animation*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setAnimation(arg0);
@@ -21302,16 +21309,15 @@ int lua_cocos2dx_Animate_create(lua_State* tolua_S)
     {
         cocos2d::Animation* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Animation",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Animation",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Animation*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::Animate* ret = cocos2d::Animate::create(arg0);
@@ -21435,16 +21441,15 @@ int lua_cocos2dx_TargetedAction_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -21540,16 +21545,15 @@ int lua_cocos2dx_TargetedAction_setForcedTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setForcedTarget(arg0);
@@ -21646,27 +21650,25 @@ int lua_cocos2dx_TargetedAction_initWithTarget(lua_State* tolua_S)
         cocos2d::Node* arg0;
         cocos2d::FiniteTimeAction* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"FiniteTimeAction",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"FiniteTimeAction",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::FiniteTimeAction*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithTarget(arg0, arg1);
@@ -21849,27 +21851,25 @@ int lua_cocos2dx_TargetedAction_create(lua_State* tolua_S)
         cocos2d::Node* arg0;
         cocos2d::FiniteTimeAction* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"FiniteTimeAction",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"FiniteTimeAction",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::FiniteTimeAction*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TargetedAction* ret = cocos2d::TargetedAction::create(arg0, arg1);
@@ -21993,16 +21993,15 @@ int lua_cocos2dx_ActionCamera_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -22213,16 +22212,15 @@ int lua_cocos2dx_OrbitCamera_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -22585,16 +22583,15 @@ int lua_cocos2dx_ActionManager_getActionByTag(lua_State* tolua_S)
         cocos2d::Object* arg1;
         ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Object*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::Action* ret = cobj->getActionByTag(arg0, arg1);
@@ -22652,16 +22649,15 @@ int lua_cocos2dx_ActionManager_removeActionByTag(lua_State* tolua_S)
         cocos2d::Object* arg1;
         ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Object*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->removeActionByTag(arg0, arg1);
@@ -22746,27 +22742,25 @@ int lua_cocos2dx_ActionManager_addAction(lua_State* tolua_S)
         cocos2d::Node* arg1;
         bool arg2;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Action",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Action",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Action*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Node*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_boolean(tolua_S, 4,&arg2);
         if(!ok)
             return 0;
@@ -22810,16 +22804,15 @@ int lua_cocos2dx_ActionManager_resumeTarget(lua_State* tolua_S)
     {
         cocos2d::Object* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Object*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->resumeTarget(arg0);
@@ -22862,16 +22855,15 @@ int lua_cocos2dx_ActionManager_getNumberOfRunningActionsInTarget(lua_State* tolu
     {
         cocos2d::Object* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Object*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         unsigned int ret = cobj->getNumberOfRunningActionsInTarget(arg0);
@@ -22915,16 +22907,15 @@ int lua_cocos2dx_ActionManager_removeAllActionsFromTarget(lua_State* tolua_S)
     {
         cocos2d::Object* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Object*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->removeAllActionsFromTarget(arg0);
@@ -22967,16 +22958,15 @@ int lua_cocos2dx_ActionManager_resumeTargets(lua_State* tolua_S)
     {
         cocos2d::Set* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Set",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Set",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Set*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->resumeTargets(arg0);
@@ -23019,16 +23009,15 @@ int lua_cocos2dx_ActionManager_removeAction(lua_State* tolua_S)
     {
         cocos2d::Action* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Action",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Action",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Action*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->removeAction(arg0);
@@ -23071,16 +23060,15 @@ int lua_cocos2dx_ActionManager_pauseTarget(lua_State* tolua_S)
     {
         cocos2d::Object* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Object*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->pauseTarget(arg0);
@@ -23246,16 +23234,15 @@ int lua_cocos2dx_ActionEase_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -23486,16 +23473,15 @@ int lua_cocos2dx_ActionEase_initWithAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithAction(arg0);
@@ -23713,16 +23699,15 @@ int lua_cocos2dx_EaseRateAction_initWithAction(lua_State* tolua_S)
         cocos2d::ActionInterval* arg0;
         double arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_number(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -24023,16 +24008,15 @@ int lua_cocos2dx_EaseIn_create(lua_State* tolua_S)
         cocos2d::ActionInterval* arg0;
         double arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_number(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -24250,16 +24234,15 @@ int lua_cocos2dx_EaseOut_create(lua_State* tolua_S)
         cocos2d::ActionInterval* arg0;
         double arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_number(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -24477,16 +24460,15 @@ int lua_cocos2dx_EaseInOut_create(lua_State* tolua_S)
         cocos2d::ActionInterval* arg0;
         double arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_number(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -24703,16 +24685,15 @@ int lua_cocos2dx_EaseExponentialIn_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseExponentialIn* ret = cocos2d::EaseExponentialIn::create(arg0);
@@ -24928,16 +24909,15 @@ int lua_cocos2dx_EaseExponentialOut_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseExponentialOut* ret = cocos2d::EaseExponentialOut::create(arg0);
@@ -25153,16 +25133,15 @@ int lua_cocos2dx_EaseExponentialInOut_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseExponentialInOut* ret = cocos2d::EaseExponentialInOut::create(arg0);
@@ -25378,16 +25357,15 @@ int lua_cocos2dx_EaseSineIn_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseSineIn* ret = cocos2d::EaseSineIn::create(arg0);
@@ -25603,16 +25581,15 @@ int lua_cocos2dx_EaseSineOut_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseSineOut* ret = cocos2d::EaseSineOut::create(arg0);
@@ -25828,16 +25805,15 @@ int lua_cocos2dx_EaseSineInOut_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseSineInOut* ret = cocos2d::EaseSineInOut::create(arg0);
@@ -25968,16 +25944,15 @@ int lua_cocos2dx_EaseElastic_initWithAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithAction(arg0);
@@ -25989,16 +25964,15 @@ int lua_cocos2dx_EaseElastic_initWithAction(lua_State* tolua_S)
         cocos2d::ActionInterval* arg0;
         double arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_number(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -26341,16 +26315,15 @@ int lua_cocos2dx_EaseElasticIn_create(lua_State* tolua_S)
         {
             cocos2d::ActionInterval* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::EaseElasticIn* ret = cocos2d::EaseElasticIn::create(arg0);
             do {
@@ -26375,16 +26348,15 @@ int lua_cocos2dx_EaseElasticIn_create(lua_State* tolua_S)
         {
             cocos2d::ActionInterval* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             double arg1;
             ok &= luaval_to_number(tolua_S, 3,&arg1);
@@ -26604,16 +26576,15 @@ int lua_cocos2dx_EaseElasticOut_create(lua_State* tolua_S)
         {
             cocos2d::ActionInterval* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::EaseElasticOut* ret = cocos2d::EaseElasticOut::create(arg0);
             do {
@@ -26638,16 +26609,15 @@ int lua_cocos2dx_EaseElasticOut_create(lua_State* tolua_S)
         {
             cocos2d::ActionInterval* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             double arg1;
             ok &= luaval_to_number(tolua_S, 3,&arg1);
@@ -26867,16 +26837,15 @@ int lua_cocos2dx_EaseElasticInOut_create(lua_State* tolua_S)
         {
             cocos2d::ActionInterval* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::EaseElasticInOut* ret = cocos2d::EaseElasticInOut::create(arg0);
             do {
@@ -26901,16 +26870,15 @@ int lua_cocos2dx_EaseElasticInOut_create(lua_State* tolua_S)
         {
             cocos2d::ActionInterval* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             double arg1;
             ok &= luaval_to_number(tolua_S, 3,&arg1);
@@ -27299,16 +27267,15 @@ int lua_cocos2dx_EaseBounceIn_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseBounceIn* ret = cocos2d::EaseBounceIn::create(arg0);
@@ -27524,16 +27491,15 @@ int lua_cocos2dx_EaseBounceOut_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseBounceOut* ret = cocos2d::EaseBounceOut::create(arg0);
@@ -27749,16 +27715,15 @@ int lua_cocos2dx_EaseBounceInOut_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseBounceInOut* ret = cocos2d::EaseBounceInOut::create(arg0);
@@ -27974,16 +27939,15 @@ int lua_cocos2dx_EaseBackIn_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseBackIn* ret = cocos2d::EaseBackIn::create(arg0);
@@ -28199,16 +28163,15 @@ int lua_cocos2dx_EaseBackOut_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseBackOut* ret = cocos2d::EaseBackOut::create(arg0);
@@ -28424,16 +28387,15 @@ int lua_cocos2dx_EaseBackInOut_create(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::EaseBackInOut* ret = cocos2d::EaseBackInOut::create(arg0);
@@ -30988,16 +30950,15 @@ int lua_cocos2dx_CallFunc_setTargetCallback(lua_State* tolua_S)
     {
         cocos2d::Object* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Object*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTargetCallback(arg0);
@@ -31105,16 +31066,15 @@ int lua_cocos2dx_GridAction_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -31636,16 +31596,15 @@ int lua_cocos2dx_StopGrid_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -31859,16 +31818,15 @@ int lua_cocos2dx_ReuseGrid_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -35475,16 +35433,15 @@ int lua_cocos2dx_ProgressTo_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -35791,16 +35748,15 @@ int lua_cocos2dx_ProgressFromTo_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -36545,16 +36501,15 @@ int lua_cocos2dx_ShuffleTiles_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -36599,16 +36554,15 @@ int lua_cocos2dx_ShuffleTiles_placeTile(lua_State* tolua_S)
         cocos2d::Tile* arg1;
         ok &= luaval_to_point(tolua_S, 2, &arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Tile",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Tile",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Tile*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->placeTile(arg0, arg1);
@@ -37880,16 +37834,15 @@ int lua_cocos2dx_TurnOffTiles_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -39039,16 +38992,15 @@ int lua_cocos2dx_SplitRows_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -39301,16 +39253,15 @@ int lua_cocos2dx_SplitCols_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -39563,16 +39514,15 @@ int lua_cocos2dx_ActionTween_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -39887,16 +39837,15 @@ int lua_cocos2dx_CardinalSplineTo_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -39995,16 +39944,15 @@ int lua_cocos2dx_CardinalSplineTo_initWithDuration(lua_State* tolua_S)
         double arg2;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"PointArray",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"PointArray",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::PointArray*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_number(tolua_S, 4,&arg2);
         if(!ok)
             return 0;
@@ -40305,16 +40253,15 @@ int lua_cocos2dx_CardinalSplineBy_startWithTarget(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->startWithTarget(arg0);
@@ -40676,16 +40623,15 @@ int lua_cocos2dx_CatmullRomTo_initWithDuration(lua_State* tolua_S)
         cocos2d::PointArray* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"PointArray",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"PointArray",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::PointArray*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithDuration(arg0, arg1);
@@ -40858,16 +40804,15 @@ int lua_cocos2dx_CatmullRomBy_initWithDuration(lua_State* tolua_S)
         cocos2d::PointArray* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"PointArray",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"PointArray",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::PointArray*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithDuration(arg0, arg1);
@@ -41015,16 +40960,15 @@ int lua_cocos2dx_AtlasNode_initWithTexture(lua_State* tolua_S)
         unsigned int arg2;
         unsigned int arg3;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_uint32(tolua_S, 3,&arg1);
         ok &= luaval_to_uint32(tolua_S, 4,&arg2);
         ok &= luaval_to_uint32(tolua_S, 5,&arg3);
@@ -41208,16 +41152,15 @@ int lua_cocos2dx_AtlasNode_setTextureAtlas(lua_State* tolua_S)
     {
         cocos2d::TextureAtlas* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"TextureAtlas",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"TextureAtlas",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::TextureAtlas*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTextureAtlas(arg0);
@@ -41396,16 +41339,15 @@ int lua_cocos2dx_AtlasNode_setTexture(lua_State* tolua_S)
     {
         cocos2d::Texture2D* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTexture(arg0);
@@ -42593,16 +42535,15 @@ int lua_cocos2dx_LabelAtlas_initWithString(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Texture2D* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             unsigned int arg2;
@@ -42929,16 +42870,15 @@ int lua_cocos2dx_Director_setNotificationNode(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setNotificationNode(arg0);
@@ -43186,16 +43126,15 @@ int lua_cocos2dx_Director_setActionManager(lua_State* tolua_S)
     {
         cocos2d::ActionManager* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionManager",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionManager",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionManager*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setActionManager(arg0);
@@ -43662,16 +43601,15 @@ int lua_cocos2dx_Director_setAccelerometer(lua_State* tolua_S)
     {
         cocos2d::Accelerometer* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Accelerometer",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Accelerometer",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Accelerometer*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setAccelerometer(arg0);
@@ -43795,16 +43733,15 @@ int lua_cocos2dx_Director_setScheduler(lua_State* tolua_S)
     {
         cocos2d::Scheduler* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Scheduler",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Scheduler",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Scheduler*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setScheduler(arg0);
@@ -44183,16 +44120,15 @@ int lua_cocos2dx_Director_setOpenGLView(lua_State* tolua_S)
     {
         cocos2d::EGLView* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"EGLView",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"EGLView",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::EGLView*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setOpenGLView(arg0);
@@ -44359,16 +44295,15 @@ int lua_cocos2dx_Director_runWithScene(lua_State* tolua_S)
     {
         cocos2d::Scene* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Scene*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->runWithScene(arg0);
@@ -44751,16 +44686,15 @@ int lua_cocos2dx_Director_pushScene(lua_State* tolua_S)
     {
         cocos2d::Scene* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Scene*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->pushScene(arg0);
@@ -44927,16 +44861,15 @@ int lua_cocos2dx_Director_replaceScene(lua_State* tolua_S)
     {
         cocos2d::Scene* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Scene*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->replaceScene(arg0);
@@ -45268,16 +45201,15 @@ int lua_cocos2dx_GridBase_afterDraw(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->afterDraw(arg0);
@@ -45740,16 +45672,15 @@ int lua_cocos2dx_GridBase_initWithSize(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Texture2D* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             bool arg2;
@@ -45939,16 +45870,15 @@ int lua_cocos2dx_GridBase_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Texture2D* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             bool arg2;
             ok &= luaval_to_boolean(tolua_S, 4,&arg2);
@@ -46181,16 +46111,15 @@ int lua_cocos2dx_Grid3D_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Texture2D* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             bool arg2;
             ok &= luaval_to_boolean(tolua_S, 4,&arg2);
@@ -46450,16 +46379,15 @@ int lua_cocos2dx_TiledGrid3D_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Texture2D* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             bool arg2;
             ok &= luaval_to_boolean(tolua_S, 4,&arg2);
@@ -46616,16 +46544,15 @@ int lua_cocos2dx_Sprite_addChild(lua_State* tolua_S)
         if (argc == 2) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -46640,16 +46567,15 @@ int lua_cocos2dx_Sprite_addChild(lua_State* tolua_S)
         if (argc == 1) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cobj->addChild(arg0);
@@ -46660,16 +46586,15 @@ int lua_cocos2dx_Sprite_addChild(lua_State* tolua_S)
         if (argc == 3) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -46721,16 +46646,15 @@ int lua_cocos2dx_Sprite_setTexture(lua_State* tolua_S)
     {
         cocos2d::Texture2D* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTexture(arg0);
@@ -47426,16 +47350,15 @@ int lua_cocos2dx_Sprite_reorderChild(lua_State* tolua_S)
         cocos2d::Node* arg0;
         int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         if(!ok)
             return 0;
@@ -47596,16 +47519,15 @@ int lua_cocos2dx_Sprite_isFrameDisplayed(lua_State* tolua_S)
     {
         cocos2d::SpriteFrame* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->isFrameDisplayed(arg0);
@@ -47732,16 +47654,15 @@ int lua_cocos2dx_Sprite_setDisplayFrame(lua_State* tolua_S)
     {
         cocos2d::SpriteFrame* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setDisplayFrame(arg0);
@@ -47784,16 +47705,15 @@ int lua_cocos2dx_Sprite_setBatchNode(lua_State* tolua_S)
     {
         cocos2d::SpriteBatchNode* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteBatchNode",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteBatchNode",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteBatchNode*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setBatchNode(arg0);
@@ -47873,16 +47793,15 @@ int lua_cocos2dx_Sprite_initWithTexture(lua_State* tolua_S)
         if (argc == 2) {
             cocos2d::Texture2D* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cocos2d::Rect arg1;
@@ -47898,16 +47817,15 @@ int lua_cocos2dx_Sprite_initWithTexture(lua_State* tolua_S)
         if (argc == 1) {
             cocos2d::Texture2D* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             bool ret = cobj->initWithTexture(arg0);
@@ -47919,16 +47837,15 @@ int lua_cocos2dx_Sprite_initWithTexture(lua_State* tolua_S)
         if (argc == 3) {
             cocos2d::Texture2D* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cocos2d::Rect arg1;
@@ -47981,16 +47898,15 @@ int lua_cocos2dx_Sprite_setTextureAtlas(lua_State* tolua_S)
     {
         cocos2d::TextureAtlas* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"TextureAtlas",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"TextureAtlas",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::TextureAtlas*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTextureAtlas(arg0);
@@ -48638,16 +48554,15 @@ int lua_cocos2dx_Sprite_initWithSpriteFrame(lua_State* tolua_S)
     {
         cocos2d::SpriteFrame* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithSpriteFrame(arg0);
@@ -48692,16 +48607,15 @@ int lua_cocos2dx_Sprite_removeChild(lua_State* tolua_S)
         cocos2d::Node* arg0;
         bool arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_boolean(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -49121,16 +49035,15 @@ int lua_cocos2dx_Sprite_createWithTexture(lua_State* tolua_S)
         {
             cocos2d::Texture2D* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::Rect arg1;
             ok &= luaval_to_rect(tolua_S, 3, &arg1);
@@ -49158,16 +49071,15 @@ int lua_cocos2dx_Sprite_createWithTexture(lua_State* tolua_S)
         {
             cocos2d::Texture2D* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::Sprite* ret = cocos2d::Sprite::createWithTexture(arg0);
             do {
@@ -49258,16 +49170,15 @@ int lua_cocos2dx_Sprite_createWithSpriteFrame(lua_State* tolua_S)
     {
         cocos2d::SpriteFrame* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::Sprite* ret = cocos2d::Sprite::createWithSpriteFrame(arg0);
@@ -50757,16 +50668,15 @@ int lua_cocos2dx_SpriteBatchNode_appendChild(lua_State* tolua_S)
     {
         cocos2d::Sprite* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->appendChild(arg0);
@@ -50846,16 +50756,15 @@ int lua_cocos2dx_SpriteBatchNode_addChild(lua_State* tolua_S)
         if (argc == 2) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -50870,16 +50779,15 @@ int lua_cocos2dx_SpriteBatchNode_addChild(lua_State* tolua_S)
         if (argc == 1) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cobj->addChild(arg0);
@@ -50890,16 +50798,15 @@ int lua_cocos2dx_SpriteBatchNode_addChild(lua_State* tolua_S)
         if (argc == 3) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -50991,16 +50898,15 @@ int lua_cocos2dx_SpriteBatchNode_setTexture(lua_State* tolua_S)
     {
         cocos2d::Texture2D* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTexture(arg0);
@@ -51087,16 +50993,15 @@ int lua_cocos2dx_SpriteBatchNode_removeSpriteFromAtlas(lua_State* tolua_S)
     {
         cocos2d::Sprite* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->removeSpriteFromAtlas(arg0);
@@ -51140,16 +51045,15 @@ int lua_cocos2dx_SpriteBatchNode_atlasIndexForChild(lua_State* tolua_S)
         cocos2d::Sprite* arg0;
         int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         if(!ok)
             return 0;
@@ -51338,16 +51242,15 @@ int lua_cocos2dx_SpriteBatchNode_insertChild(lua_State* tolua_S)
         cocos2d::Sprite* arg0;
         unsigned int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_uint32(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -51391,16 +51294,15 @@ int lua_cocos2dx_SpriteBatchNode_lowestAtlasIndexInChild(lua_State* tolua_S)
     {
         cocos2d::Sprite* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         unsigned int ret = cobj->lowestAtlasIndexInChild(arg0);
@@ -51485,16 +51387,15 @@ int lua_cocos2dx_SpriteBatchNode_initWithTexture(lua_State* tolua_S)
         cocos2d::Texture2D* arg0;
         int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         if(!ok)
             return 0;
@@ -51539,16 +51440,15 @@ int lua_cocos2dx_SpriteBatchNode_setTextureAtlas(lua_State* tolua_S)
     {
         cocos2d::TextureAtlas* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"TextureAtlas",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"TextureAtlas",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::TextureAtlas*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTextureAtlas(arg0);
@@ -51674,16 +51574,15 @@ int lua_cocos2dx_SpriteBatchNode_reorderChild(lua_State* tolua_S)
         cocos2d::Node* arg0;
         int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         if(!ok)
             return 0;
@@ -51728,16 +51627,15 @@ int lua_cocos2dx_SpriteBatchNode_rebuildIndexInOrder(lua_State* tolua_S)
         cocos2d::Sprite* arg0;
         unsigned int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_uint32(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -51877,16 +51775,15 @@ int lua_cocos2dx_SpriteBatchNode_removeChild(lua_State* tolua_S)
         cocos2d::Node* arg0;
         bool arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_boolean(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -51930,16 +51827,15 @@ int lua_cocos2dx_SpriteBatchNode_highestAtlasIndexInChild(lua_State* tolua_S)
     {
         cocos2d::Sprite* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         unsigned int ret = cobj->highestAtlasIndexInChild(arg0);
@@ -52042,16 +51938,15 @@ int lua_cocos2dx_SpriteBatchNode_createWithTexture(lua_State* tolua_S)
     {
         cocos2d::Texture2D* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::SpriteBatchNode* ret = cocos2d::SpriteBatchNode::createWithTexture(arg0);
@@ -52075,16 +51970,15 @@ int lua_cocos2dx_SpriteBatchNode_createWithTexture(lua_State* tolua_S)
         cocos2d::Texture2D* arg0;
         int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         if(!ok)
             return 0;
@@ -53990,16 +53884,15 @@ int lua_cocos2dx_Label_getLetterPosXRight(lua_State* tolua_S)
     {
         cocos2d::Sprite* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         float ret = cobj->getLetterPosXRight(arg0);
@@ -55145,16 +55038,15 @@ int lua_cocos2dx_Label_getLetterPosXLeft(lua_State* tolua_S)
     {
         cocos2d::Sprite* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         float ret = cobj->getLetterPosXLeft(arg0);
@@ -56126,27 +56018,25 @@ int lua_cocos2dx_Layer_ccTouchBegan(lua_State* tolua_S)
         cocos2d::Touch* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Touch",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Touch",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Touch*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->ccTouchBegan(arg0, arg1);
@@ -56274,27 +56164,25 @@ int lua_cocos2dx_Layer_ccTouchesCancelled(lua_State* tolua_S)
         cocos2d::Set* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Set",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Set",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Set*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->ccTouchesCancelled(arg0, arg1);
@@ -56338,27 +56226,25 @@ int lua_cocos2dx_Layer_ccTouchesMoved(lua_State* tolua_S)
         cocos2d::Set* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Set",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Set",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Set*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->ccTouchesMoved(arg0, arg1);
@@ -56608,27 +56494,25 @@ int lua_cocos2dx_Layer_ccTouchMoved(lua_State* tolua_S)
         cocos2d::Touch* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Touch",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Touch",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Touch*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->ccTouchMoved(arg0, arg1);
@@ -56797,27 +56681,25 @@ int lua_cocos2dx_Layer_ccTouchesEnded(lua_State* tolua_S)
         cocos2d::Set* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Set",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Set",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Set*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->ccTouchesEnded(arg0, arg1);
@@ -56944,27 +56826,25 @@ int lua_cocos2dx_Layer_ccTouchEnded(lua_State* tolua_S)
         cocos2d::Touch* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Touch",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Touch",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Touch*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->ccTouchEnded(arg0, arg1);
@@ -57008,27 +56888,25 @@ int lua_cocos2dx_Layer_ccTouchCancelled(lua_State* tolua_S)
         cocos2d::Touch* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Touch",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Touch",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Touch*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->ccTouchCancelled(arg0, arg1);
@@ -57114,27 +56992,25 @@ int lua_cocos2dx_Layer_ccTouchesBegan(lua_State* tolua_S)
         cocos2d::Set* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Set",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Set",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Set*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->ccTouchesBegan(arg0, arg1);
@@ -59601,16 +59477,15 @@ int lua_cocos2dx_LayerMultiplex_addLayer(lua_State* tolua_S)
     {
         cocos2d::Layer* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Layer",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Layer",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Layer*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->addLayer(arg0);
@@ -59904,16 +59779,15 @@ int lua_cocos2dx_TransitionEaseScene_easeActionWithAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::ActionInterval* ret = cobj->easeActionWithAction(arg0);
@@ -60070,16 +59944,15 @@ int lua_cocos2dx_TransitionScene_initWithDuration(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithDuration(arg0, arg1);
@@ -60195,16 +60068,15 @@ int lua_cocos2dx_TransitionScene_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionScene* ret = cocos2d::TransitionScene::create(arg0, arg1);
@@ -60328,16 +60200,15 @@ int lua_cocos2dx_TransitionSceneOriented_initWithDuration(lua_State* tolua_S)
         cocos2d::TransitionScene::Orientation arg2;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2);
         if(!ok)
             return 0;
@@ -60375,16 +60246,15 @@ int lua_cocos2dx_TransitionSceneOriented_create(lua_State* tolua_S)
         cocos2d::TransitionScene::Orientation arg2;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2);
         if(!ok)
             return 0;
@@ -60494,16 +60364,15 @@ int lua_cocos2dx_TransitionRotoZoom_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionRotoZoom* ret = cocos2d::TransitionRotoZoom::create(arg0, arg1);
@@ -60610,16 +60479,15 @@ int lua_cocos2dx_TransitionJumpZoom_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionJumpZoom* ret = cocos2d::TransitionJumpZoom::create(arg0, arg1);
@@ -60787,16 +60655,15 @@ int lua_cocos2dx_TransitionMoveInL_easeActionWithAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::ActionInterval* ret = cobj->easeActionWithAction(arg0);
@@ -60884,16 +60751,15 @@ int lua_cocos2dx_TransitionMoveInL_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionMoveInL* ret = cocos2d::TransitionMoveInL::create(arg0, arg1);
@@ -61044,16 +60910,15 @@ int lua_cocos2dx_TransitionMoveInR_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionMoveInR* ret = cocos2d::TransitionMoveInR::create(arg0, arg1);
@@ -61202,16 +61067,15 @@ int lua_cocos2dx_TransitionMoveInT_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionMoveInT* ret = cocos2d::TransitionMoveInT::create(arg0, arg1);
@@ -61360,16 +61224,15 @@ int lua_cocos2dx_TransitionMoveInB_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionMoveInB* ret = cocos2d::TransitionMoveInB::create(arg0, arg1);
@@ -61539,16 +61402,15 @@ int lua_cocos2dx_TransitionSlideInL_easeActionWithAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::ActionInterval* ret = cobj->easeActionWithAction(arg0);
@@ -61636,16 +61498,15 @@ int lua_cocos2dx_TransitionSlideInL_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionSlideInL* ret = cocos2d::TransitionSlideInL::create(arg0, arg1);
@@ -61849,16 +61710,15 @@ int lua_cocos2dx_TransitionSlideInR_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionSlideInR* ret = cocos2d::TransitionSlideInR::create(arg0, arg1);
@@ -62061,16 +61921,15 @@ int lua_cocos2dx_TransitionSlideInB_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionSlideInB* ret = cocos2d::TransitionSlideInB::create(arg0, arg1);
@@ -62273,16 +62132,15 @@ int lua_cocos2dx_TransitionSlideInT_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionSlideInT* ret = cocos2d::TransitionSlideInT::create(arg0, arg1);
@@ -62400,16 +62258,15 @@ int lua_cocos2dx_TransitionShrinkGrow_easeActionWithAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::ActionInterval* ret = cobj->easeActionWithAction(arg0);
@@ -62457,16 +62314,15 @@ int lua_cocos2dx_TransitionShrinkGrow_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionShrinkGrow* ret = cocos2d::TransitionShrinkGrow::create(arg0, arg1);
@@ -62577,16 +62433,15 @@ int lua_cocos2dx_TransitionFlipX_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionFlipX* ret = cocos2d::TransitionFlipX::create(arg0, arg1);
             do {
@@ -62614,16 +62469,15 @@ int lua_cocos2dx_TransitionFlipX_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionScene::Orientation arg2;
             ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2);
@@ -62735,16 +62589,15 @@ int lua_cocos2dx_TransitionFlipY_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionFlipY* ret = cocos2d::TransitionFlipY::create(arg0, arg1);
             do {
@@ -62772,16 +62625,15 @@ int lua_cocos2dx_TransitionFlipY_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionScene::Orientation arg2;
             ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2);
@@ -62893,16 +62745,15 @@ int lua_cocos2dx_TransitionFlipAngular_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionFlipAngular* ret = cocos2d::TransitionFlipAngular::create(arg0, arg1);
             do {
@@ -62930,16 +62781,15 @@ int lua_cocos2dx_TransitionFlipAngular_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionScene::Orientation arg2;
             ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2);
@@ -63051,16 +62901,15 @@ int lua_cocos2dx_TransitionZoomFlipX_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionZoomFlipX* ret = cocos2d::TransitionZoomFlipX::create(arg0, arg1);
             do {
@@ -63088,16 +62937,15 @@ int lua_cocos2dx_TransitionZoomFlipX_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionScene::Orientation arg2;
             ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2);
@@ -63209,16 +63057,15 @@ int lua_cocos2dx_TransitionZoomFlipY_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionZoomFlipY* ret = cocos2d::TransitionZoomFlipY::create(arg0, arg1);
             do {
@@ -63246,16 +63093,15 @@ int lua_cocos2dx_TransitionZoomFlipY_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionScene::Orientation arg2;
             ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2);
@@ -63367,16 +63213,15 @@ int lua_cocos2dx_TransitionZoomFlipAngular_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionZoomFlipAngular* ret = cocos2d::TransitionZoomFlipAngular::create(arg0, arg1);
             do {
@@ -63404,16 +63249,15 @@ int lua_cocos2dx_TransitionZoomFlipAngular_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionScene::Orientation arg2;
             ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2);
@@ -63530,16 +63374,15 @@ int lua_cocos2dx_TransitionFade_initWithDuration(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             bool ret = cobj->initWithDuration(arg0, arg1);
@@ -63555,16 +63398,15 @@ int lua_cocos2dx_TransitionFade_initWithDuration(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cocos2d::Color3B arg2;
@@ -63607,16 +63449,15 @@ int lua_cocos2dx_TransitionFade_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::TransitionFade* ret = cocos2d::TransitionFade::create(arg0, arg1);
             do {
@@ -63644,16 +63485,15 @@ int lua_cocos2dx_TransitionFade_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Scene* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::Color3B arg2;
             ok &= luaval_to_color3b(tolua_S, 4, &arg2);
@@ -63805,16 +63645,15 @@ int lua_cocos2dx_TransitionCrossFade_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionCrossFade* ret = cocos2d::TransitionCrossFade::create(arg0, arg1);
@@ -63931,16 +63770,15 @@ int lua_cocos2dx_TransitionTurnOffTiles_easeActionWithAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::ActionInterval* ret = cobj->easeActionWithAction(arg0);
@@ -63988,16 +63826,15 @@ int lua_cocos2dx_TransitionTurnOffTiles_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionTurnOffTiles* ret = cocos2d::TransitionTurnOffTiles::create(arg0, arg1);
@@ -64167,16 +64004,15 @@ int lua_cocos2dx_TransitionSplitCols_easeActionWithAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::ActionInterval* ret = cobj->easeActionWithAction(arg0);
@@ -64224,16 +64060,15 @@ int lua_cocos2dx_TransitionSplitCols_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionSplitCols* ret = cocos2d::TransitionSplitCols::create(arg0, arg1);
@@ -64396,16 +64231,15 @@ int lua_cocos2dx_TransitionSplitRows_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionSplitRows* ret = cocos2d::TransitionSplitRows::create(arg0, arg1);
@@ -64522,16 +64356,15 @@ int lua_cocos2dx_TransitionFadeTR_easeActionWithAction(lua_State* tolua_S)
     {
         cocos2d::ActionInterval* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ActionInterval",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ActionInterval",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ActionInterval*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::ActionInterval* ret = cobj->easeActionWithAction(arg0);
@@ -64634,16 +64467,15 @@ int lua_cocos2dx_TransitionFadeTR_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionFadeTR* ret = cocos2d::TransitionFadeTR::create(arg0, arg1);
@@ -64808,16 +64640,15 @@ int lua_cocos2dx_TransitionFadeBL_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionFadeBL* ret = cocos2d::TransitionFadeBL::create(arg0, arg1);
@@ -64981,16 +64812,15 @@ int lua_cocos2dx_TransitionFadeUp_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionFadeUp* ret = cocos2d::TransitionFadeUp::create(arg0, arg1);
@@ -65154,16 +64984,15 @@ int lua_cocos2dx_TransitionFadeDown_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionFadeDown* ret = cocos2d::TransitionFadeDown::create(arg0, arg1);
@@ -65338,16 +65167,15 @@ int lua_cocos2dx_TransitionPageTurn_initWithDuration(lua_State* tolua_S)
         bool arg2;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_boolean(tolua_S, 4,&arg2);
         if(!ok)
             return 0;
@@ -65385,16 +65213,15 @@ int lua_cocos2dx_TransitionPageTurn_create(lua_State* tolua_S)
         bool arg2;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_boolean(tolua_S, 4,&arg2);
         if(!ok)
             return 0;
@@ -65505,16 +65332,15 @@ int lua_cocos2dx_TransitionProgress_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionProgress* ret = cocos2d::TransitionProgress::create(arg0, arg1);
@@ -65621,16 +65447,15 @@ int lua_cocos2dx_TransitionProgressRadialCCW_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionProgressRadialCCW* ret = cocos2d::TransitionProgressRadialCCW::create(arg0, arg1);
@@ -65697,16 +65522,15 @@ int lua_cocos2dx_TransitionProgressRadialCW_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionProgressRadialCW* ret = cocos2d::TransitionProgressRadialCW::create(arg0, arg1);
@@ -65773,16 +65597,15 @@ int lua_cocos2dx_TransitionProgressHorizontal_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionProgressHorizontal* ret = cocos2d::TransitionProgressHorizontal::create(arg0, arg1);
@@ -65849,16 +65672,15 @@ int lua_cocos2dx_TransitionProgressVertical_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionProgressVertical* ret = cocos2d::TransitionProgressVertical::create(arg0, arg1);
@@ -65925,16 +65747,15 @@ int lua_cocos2dx_TransitionProgressInOut_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionProgressInOut* ret = cocos2d::TransitionProgressInOut::create(arg0, arg1);
@@ -66001,16 +65822,15 @@ int lua_cocos2dx_TransitionProgressOutIn_create(lua_State* tolua_S)
         cocos2d::Scene* arg1;
         ok &= luaval_to_number(tolua_S, 2,&arg0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Scene",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Scene",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Scene*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TransitionProgressOutIn* ret = cocos2d::TransitionProgressOutIn::create(arg0, arg1);
@@ -66478,16 +66298,15 @@ int lua_cocos2dx_MenuItemLabel_setLabel(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setLabel(arg0);
@@ -66694,16 +66513,15 @@ int lua_cocos2dx_MenuItemLabel_initWithLabel(lua_State* tolua_S)
         cocos2d::Node* arg0;
         cocos2d::ccMenuCallback arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
 			/*
 			std::shared_ptr<JSFunctionWrapper> func(new JSFunctionWrapper(cx, JS_THIS_OBJECT(cx, vp), argv[1]));
@@ -67633,16 +67451,15 @@ int lua_cocos2dx_MenuItemSprite_setNormalImage(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setNormalImage(arg0);
@@ -67685,16 +67502,15 @@ int lua_cocos2dx_MenuItemSprite_setDisabledImage(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setDisabledImage(arg0);
@@ -67740,38 +67556,35 @@ int lua_cocos2dx_MenuItemSprite_initWithNormalSprite(lua_State* tolua_S)
         cocos2d::Node* arg2;
         cocos2d::ccMenuCallback arg3;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Node*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,4,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,4,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg2 = (cocos2d::Node*)tolua_tousertype(tolua_S,4,0);
-				}} while (0);
+					if (nullptr == arg2){
+						LUA_PRECONDITION( arg2, "Invalid Native Object");
+			}}} while (0);
         do {
 			/*
 			std::shared_ptr<JSFunctionWrapper> func(new JSFunctionWrapper(cx, JS_THIS_OBJECT(cx, vp), argv[3]));
@@ -67843,16 +67656,15 @@ int lua_cocos2dx_MenuItemSprite_setSelectedImage(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setSelectedImage(arg0);
@@ -68163,16 +67975,15 @@ int lua_cocos2dx_MenuItemImage_setDisabledSpriteFrame(lua_State* tolua_S)
     {
         cocos2d::SpriteFrame* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setDisabledSpriteFrame(arg0);
@@ -68215,16 +68026,15 @@ int lua_cocos2dx_MenuItemImage_setSelectedSpriteFrame(lua_State* tolua_S)
     {
         cocos2d::SpriteFrame* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setSelectedSpriteFrame(arg0);
@@ -68267,16 +68077,15 @@ int lua_cocos2dx_MenuItemImage_setNormalSpriteFrame(lua_State* tolua_S)
     {
         cocos2d::SpriteFrame* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setNormalSpriteFrame(arg0);
@@ -68542,16 +68351,15 @@ int lua_cocos2dx_MenuItemToggle_initWithItem(lua_State* tolua_S)
     {
         cocos2d::MenuItem* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"MenuItem",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"MenuItem",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::MenuItem*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithItem(arg0);
@@ -68720,16 +68528,15 @@ int lua_cocos2dx_MenuItemToggle_addSubItem(lua_State* tolua_S)
     {
         cocos2d::MenuItem* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"MenuItem",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"MenuItem",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::MenuItem*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->addSubItem(arg0);
@@ -69052,16 +68859,15 @@ int lua_cocos2dx_Menu_addChild(lua_State* tolua_S)
         if (argc == 2) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -69076,16 +68882,15 @@ int lua_cocos2dx_Menu_addChild(lua_State* tolua_S)
         if (argc == 1) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cobj->addChild(arg0);
@@ -69096,16 +68901,15 @@ int lua_cocos2dx_Menu_addChild(lua_State* tolua_S)
         if (argc == 3) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -69198,27 +69002,25 @@ int lua_cocos2dx_Menu_ccTouchBegan(lua_State* tolua_S)
         cocos2d::Touch* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Touch",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Touch",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Touch*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->ccTouchBegan(arg0, arg1);
@@ -69263,27 +69065,25 @@ int lua_cocos2dx_Menu_ccTouchEnded(lua_State* tolua_S)
         cocos2d::Touch* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Touch",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Touch",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Touch*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->ccTouchEnded(arg0, arg1);
@@ -69658,27 +69458,25 @@ int lua_cocos2dx_Menu_ccTouchMoved(lua_State* tolua_S)
         cocos2d::Touch* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Touch",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Touch",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Touch*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->ccTouchMoved(arg0, arg1);
@@ -69722,27 +69520,25 @@ int lua_cocos2dx_Menu_ccTouchCancelled(lua_State* tolua_S)
         cocos2d::Touch* arg0;
         cocos2d::Event* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Touch",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Touch",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Touch*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Event",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Event",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Event*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->ccTouchCancelled(arg0, arg1);
@@ -69786,16 +69582,15 @@ int lua_cocos2dx_Menu_removeChild(lua_State* tolua_S)
         cocos2d::Node* arg0;
         bool arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_boolean(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -70121,16 +69916,15 @@ int lua_cocos2dx_ClippingNode_setStencil(lua_State* tolua_S)
     {
         cocos2d::Node* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setStencil(arg0);
@@ -70209,16 +70003,15 @@ int lua_cocos2dx_ClippingNode_init(lua_State* tolua_S)
         if (argc == 1) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             bool ret = cobj->init(arg0);
@@ -70356,16 +70149,15 @@ int lua_cocos2dx_ClippingNode_create(lua_State* tolua_S)
         {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::ClippingNode* ret = cocos2d::ClippingNode::create(arg0);
             do {
@@ -70550,16 +70342,15 @@ int lua_cocos2dx_MotionStreak_setTexture(lua_State* tolua_S)
     {
         cocos2d::Texture2D* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTexture(arg0);
@@ -70833,16 +70624,15 @@ int lua_cocos2dx_MotionStreak_initWithFade(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Texture2D* arg4;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,6,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,6,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg4 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,6,0);
-				}} while (0);
+					if (nullptr == arg4){
+						LUA_PRECONDITION( arg4, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             bool ret = cobj->initWithFade(arg0, arg1, arg2, arg3, arg4);
@@ -71125,16 +70915,15 @@ int lua_cocos2dx_MotionStreak_create(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Texture2D* arg4;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,6,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,6,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg4 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,6,0);
-				}} while (0);
+					if (nullptr == arg4){
+						LUA_PRECONDITION( arg4, "Invalid Native Object");
+			}}} while (0);
             if (!ok) { ok = true; break; }
             cocos2d::MotionStreak* ret = cocos2d::MotionStreak::create(arg0, arg1, arg2, arg3, arg4);
             do {
@@ -71506,16 +71295,15 @@ int lua_cocos2dx_ProgressTimer_setSprite(lua_State* tolua_S)
     {
         cocos2d::Sprite* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setSprite(arg0);
@@ -71948,16 +71736,15 @@ int lua_cocos2dx_ProgressTimer_initWithSprite(lua_State* tolua_S)
     {
         cocos2d::Sprite* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithSprite(arg0);
@@ -72117,16 +71904,15 @@ int lua_cocos2dx_ProgressTimer_create(lua_State* tolua_S)
     {
         cocos2d::Sprite* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::ProgressTimer* ret = cocos2d::ProgressTimer::create(arg0);
@@ -73048,16 +72834,15 @@ int lua_cocos2dx_RenderTexture_listenToForeground(lua_State* tolua_S)
     {
         cocos2d::Object* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Object*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->listenToForeground(arg0);
@@ -73917,16 +73702,15 @@ int lua_cocos2dx_RenderTexture_listenToBackground(lua_State* tolua_S)
     {
         cocos2d::Object* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Object",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Object",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Object*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->listenToBackground(arg0);
@@ -74175,16 +73959,15 @@ int lua_cocos2dx_RenderTexture_setSprite(lua_State* tolua_S)
     {
         cocos2d::Sprite* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Sprite",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setSprite(arg0);
@@ -74420,16 +74203,15 @@ int lua_cocos2dx_ParticleBatchNode_addChild(lua_State* tolua_S)
         if (argc == 2) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -74444,16 +74226,15 @@ int lua_cocos2dx_ParticleBatchNode_addChild(lua_State* tolua_S)
         if (argc == 1) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cobj->addChild(arg0);
@@ -74464,16 +74245,15 @@ int lua_cocos2dx_ParticleBatchNode_addChild(lua_State* tolua_S)
         if (argc == 3) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -74565,16 +74345,15 @@ int lua_cocos2dx_ParticleBatchNode_setTexture(lua_State* tolua_S)
     {
         cocos2d::Texture2D* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTexture(arg0);
@@ -74797,16 +74576,15 @@ int lua_cocos2dx_ParticleBatchNode_setTextureAtlas(lua_State* tolua_S)
     {
         cocos2d::TextureAtlas* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"TextureAtlas",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"TextureAtlas",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::TextureAtlas*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTextureAtlas(arg0);
@@ -74945,16 +74723,15 @@ int lua_cocos2dx_ParticleBatchNode_removeChild(lua_State* tolua_S)
         cocos2d::Node* arg0;
         bool arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_boolean(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -74999,16 +74776,15 @@ int lua_cocos2dx_ParticleBatchNode_insertChild(lua_State* tolua_S)
         cocos2d::ParticleSystem* arg0;
         int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ParticleSystem",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ParticleSystem",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ParticleSystem*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         if(!ok)
             return 0;
@@ -75053,16 +74829,15 @@ int lua_cocos2dx_ParticleBatchNode_initWithTexture(lua_State* tolua_S)
         cocos2d::Texture2D* arg0;
         unsigned int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_uint32(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -75152,16 +74927,15 @@ int lua_cocos2dx_ParticleBatchNode_reorderChild(lua_State* tolua_S)
         cocos2d::Node* arg0;
         int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         if(!ok)
             return 0;
@@ -75264,16 +75038,15 @@ int lua_cocos2dx_ParticleBatchNode_createWithTexture(lua_State* tolua_S)
     {
         cocos2d::Texture2D* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::ParticleBatchNode* ret = cocos2d::ParticleBatchNode::createWithTexture(arg0);
@@ -75297,16 +75070,15 @@ int lua_cocos2dx_ParticleBatchNode_createWithTexture(lua_State* tolua_S)
         cocos2d::Texture2D* arg0;
         unsigned int arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_uint32(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -76708,16 +76480,15 @@ int lua_cocos2dx_ParticleSystem_setTexture(lua_State* tolua_S)
     {
         cocos2d::Texture2D* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTexture(arg0);
@@ -78297,16 +78068,15 @@ int lua_cocos2dx_ParticleSystem_setBatchNode(lua_State* tolua_S)
     {
         cocos2d::ParticleBatchNode* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"ParticleBatchNode",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"ParticleBatchNode",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::ParticleBatchNode*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setBatchNode(arg0);
@@ -80152,16 +79922,15 @@ int lua_cocos2dx_ParticleSystemQuad_setTextureWithRect(lua_State* tolua_S)
         cocos2d::Texture2D* arg0;
         cocos2d::Rect arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_rect(tolua_S, 3, &arg1);
         if(!ok)
             return 0;
@@ -80245,16 +80014,15 @@ int lua_cocos2dx_ParticleSystemQuad_setDisplayFrame(lua_State* tolua_S)
     {
         cocos2d::SpriteFrame* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setDisplayFrame(arg0);
@@ -83996,16 +83764,15 @@ int lua_cocos2dx_ShaderCache_addProgram(lua_State* tolua_S)
         cocos2d::GLProgram* arg0;
         const char* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"GLProgram",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"GLProgram",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::GLProgram*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         std::string arg1_tmp; ok &= luaval_to_std_string(tolua_S, 3, &arg1_tmp); arg1 = arg1_tmp.c_str();
         if(!ok)
             return 0;
@@ -84338,16 +84105,15 @@ int lua_cocos2dx_AnimationCache_addAnimation(lua_State* tolua_S)
         cocos2d::Animation* arg0;
         const char* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Animation",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Animation",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Animation*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         std::string arg1_tmp; ok &= luaval_to_std_string(tolua_S, 3, &arg1_tmp); arg1 = arg1_tmp.c_str();
         if(!ok)
             return 0;
@@ -84721,16 +84487,15 @@ int lua_cocos2dx_SpriteFrameCache_addSpriteFramesWithFile(lua_State* tolua_S)
             if (!ok) { ok = true; break; }
             cocos2d::Texture2D* arg1;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             cobj->addSpriteFramesWithFile(arg0, arg1);
@@ -84775,16 +84540,15 @@ int lua_cocos2dx_SpriteFrameCache_addSpriteFrame(lua_State* tolua_S)
         cocos2d::SpriteFrame* arg0;
         const char* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"SpriteFrame",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"SpriteFrame",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::SpriteFrame*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         std::string arg1_tmp; ok &= luaval_to_std_string(tolua_S, 3, &arg1_tmp); arg1 = arg1_tmp.c_str();
         if(!ok)
             return 0;
@@ -85046,16 +84810,15 @@ int lua_cocos2dx_SpriteFrameCache_removeSpriteFramesFromTexture(lua_State* tolua
     {
         cocos2d::Texture2D* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->removeSpriteFramesFromTexture(arg0);
@@ -85937,16 +85700,15 @@ int lua_cocos2dx_TextureCache_addUIImage(lua_State* tolua_S)
         cocos2d::Image* arg0;
         const char* arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Image",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Image",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Image*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         std::string arg1_tmp; ok &= luaval_to_std_string(tolua_S, 3, &arg1_tmp); arg1 = arg1_tmp.c_str();
         if(!ok)
             return 0;
@@ -86276,16 +86038,15 @@ int lua_cocos2dx_TextureCache_removeTexture(lua_State* tolua_S)
     {
         cocos2d::Texture2D* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Texture2D",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Texture2D",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Texture2D*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->removeTexture(arg0);
@@ -86497,16 +86258,15 @@ int lua_cocos2dx_ParallaxNode_addChild(lua_State* tolua_S)
         if (argc == 3) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -86525,16 +86285,15 @@ int lua_cocos2dx_ParallaxNode_addChild(lua_State* tolua_S)
         if (argc == 4) {
             cocos2d::Node* arg0;
             do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
 
             if (!ok) { ok = true; break; }
             int arg1;
@@ -86673,16 +86432,15 @@ int lua_cocos2dx_ParallaxNode_removeChild(lua_State* tolua_S)
         cocos2d::Node* arg0;
         bool arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_boolean(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -89188,16 +88946,15 @@ int lua_cocos2dx_TMXLayer_addChild(lua_State* tolua_S)
         int arg1;
         int arg2;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2);
         if(!ok)
@@ -89716,38 +89473,35 @@ int lua_cocos2dx_TMXLayer_initWithTilesetInfo(lua_State* tolua_S)
         cocos2d::TMXLayerInfo* arg1;
         cocos2d::TMXMapInfo* arg2;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"TMXTilesetInfo",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"TMXTilesetInfo",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::TMXTilesetInfo*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"TMXLayerInfo",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"TMXLayerInfo",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::TMXLayerInfo*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,4,"TMXMapInfo",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,4,"TMXMapInfo",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg2 = (cocos2d::TMXMapInfo*)tolua_tousertype(tolua_S,4,0);
-				}} while (0);
+					if (nullptr == arg2){
+						LUA_PRECONDITION( arg2, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         bool ret = cobj->initWithTilesetInfo(arg0, arg1, arg2);
@@ -90070,16 +89824,15 @@ int lua_cocos2dx_TMXLayer_setTileSet(lua_State* tolua_S)
     {
         cocos2d::TMXTilesetInfo* arg0;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"TMXTilesetInfo",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"TMXTilesetInfo",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::TMXTilesetInfo*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cobj->setTileSet(arg0);
@@ -90123,16 +89876,15 @@ int lua_cocos2dx_TMXLayer_removeChild(lua_State* tolua_S)
         cocos2d::Node* arg0;
         bool arg1;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"Node",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         ok &= luaval_to_boolean(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -90317,38 +90069,35 @@ int lua_cocos2dx_TMXLayer_create(lua_State* tolua_S)
         cocos2d::TMXLayerInfo* arg1;
         cocos2d::TMXMapInfo* arg2;
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,2,"TMXTilesetInfo",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,2,"TMXTilesetInfo",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg0 = (cocos2d::TMXTilesetInfo*)tolua_tousertype(tolua_S,2,0);
-				}} while (0);
+					if (nullptr == arg0){
+						LUA_PRECONDITION( arg0, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,3,"TMXLayerInfo",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,3,"TMXLayerInfo",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg1 = (cocos2d::TMXLayerInfo*)tolua_tousertype(tolua_S,3,0);
-				}} while (0);
+					if (nullptr == arg1){
+						LUA_PRECONDITION( arg1, "Invalid Native Object");
+			}}} while (0);
         do {
-#if COCOS2D_DEBUG >= 1
-				if (!tolua_isusertype(tolua_S,4,"TMXMapInfo",0,&tolua_err)){
-					luaval_to_native_err(tolua_S,"#ferror:",&tolua_err);
+				if (!luaval_is_usertype(tolua_S,4,"TMXMapInfo",0)){
 					ok = false;
 					break;
 				}
-#endif
 				if (ok){
 					arg2 = (cocos2d::TMXMapInfo*)tolua_tousertype(tolua_S,4,0);
-				}} while (0);
+					if (nullptr == arg2){
+						LUA_PRECONDITION( arg2, "Invalid Native Object");
+			}}} while (0);
         if(!ok)
             return 0;
         cocos2d::TMXLayer* ret = cocos2d::TMXLayer::create(arg0, arg1, arg2);
