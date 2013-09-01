@@ -33687,9 +33687,9 @@ JSBool js_cocos2dx_SpriteBatchNode_removeChildAtIndex(JSContext *cx, uint32_t ar
 	cocos2d::SpriteBatchNode* cobj = (cocos2d::SpriteBatchNode *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_removeChildAtIndex : Invalid Native Object");
 	if (argc == 2) {
-		unsigned int arg0;
+		int arg0;
 		JSBool arg1;
-		ok &= jsval_to_uint32(cx, argv[0], &arg0);
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
 		ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_removeChildAtIndex : Error processing arguments");
 		cobj->removeChildAtIndex(arg0, arg1);
@@ -33748,9 +33748,9 @@ JSBool js_cocos2dx_SpriteBatchNode_atlasIndexForChild(JSContext *cx, uint32_t ar
 		} while (0);
 		ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_atlasIndexForChild : Error processing arguments");
-		unsigned int ret = cobj->atlasIndexForChild(arg0, arg1);
+		int ret = cobj->atlasIndexForChild(arg0, arg1);
 		jsval jsret;
-		jsret = uint32_to_jsval(cx, ret);
+		jsret = int32_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -33847,7 +33847,7 @@ JSBool js_cocos2dx_SpriteBatchNode_insertChild(JSContext *cx, uint32_t argc, jsv
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_insertChild : Invalid Native Object");
 	if (argc == 2) {
 		cocos2d::Sprite* arg0;
-		unsigned int arg1;
+		int arg1;
 		do {
 			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
 			js_proxy_t *proxy;
@@ -33856,7 +33856,7 @@ JSBool js_cocos2dx_SpriteBatchNode_insertChild(JSContext *cx, uint32_t argc, jsv
 			arg0 = (cocos2d::Sprite*)(proxy ? proxy->ptr : NULL);
 			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
 		} while (0);
-		ok &= jsval_to_uint32(cx, argv[1], &arg1);
+		ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_insertChild : Error processing arguments");
 		cobj->insertChild(arg0, arg1);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
@@ -33885,9 +33885,9 @@ JSBool js_cocos2dx_SpriteBatchNode_lowestAtlasIndexInChild(JSContext *cx, uint32
 			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
 		} while (0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_lowestAtlasIndexInChild : Error processing arguments");
-		unsigned int ret = cobj->lowestAtlasIndexInChild(arg0);
+		int ret = cobj->lowestAtlasIndexInChild(arg0);
 		jsval jsret;
-		jsret = uint32_to_jsval(cx, ret);
+		jsret = int32_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -34042,7 +34042,7 @@ JSBool js_cocos2dx_SpriteBatchNode_rebuildIndexInOrder(JSContext *cx, uint32_t a
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_rebuildIndexInOrder : Invalid Native Object");
 	if (argc == 2) {
 		cocos2d::Sprite* arg0;
-		unsigned int arg1;
+		int arg1;
 		do {
 			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
 			js_proxy_t *proxy;
@@ -34051,11 +34051,11 @@ JSBool js_cocos2dx_SpriteBatchNode_rebuildIndexInOrder(JSContext *cx, uint32_t a
 			arg0 = (cocos2d::Sprite*)(proxy ? proxy->ptr : NULL);
 			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
 		} while (0);
-		ok &= jsval_to_uint32(cx, argv[1], &arg1);
+		ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_rebuildIndexInOrder : Error processing arguments");
-		unsigned int ret = cobj->rebuildIndexInOrder(arg0, arg1);
+		int ret = cobj->rebuildIndexInOrder(arg0, arg1);
 		jsval jsret;
-		jsret = uint32_to_jsval(cx, ret);
+		jsret = int32_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -34152,9 +34152,9 @@ JSBool js_cocos2dx_SpriteBatchNode_highestAtlasIndexInChild(JSContext *cx, uint3
 			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
 		} while (0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_highestAtlasIndexInChild : Error processing arguments");
-		unsigned int ret = cobj->highestAtlasIndexInChild(arg0);
+		int ret = cobj->highestAtlasIndexInChild(arg0);
 		jsval jsret;
-		jsret = uint32_to_jsval(cx, ret);
+		jsret = int32_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
