@@ -50947,9 +50947,9 @@ int lua_cocos2dx_SpriteBatchNode_removeChildAtIndex(lua_State* tolua_S)
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
-        unsigned int arg0;
+        int arg0;
         bool arg1;
-        ok &= luaval_to_uint32(tolua_S, 2,&arg0);
+        ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0);
         ok &= luaval_to_boolean(tolua_S, 3,&arg1);
         if(!ok)
             return 0;
@@ -51057,7 +51057,7 @@ int lua_cocos2dx_SpriteBatchNode_atlasIndexForChild(lua_State* tolua_S)
         ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         if(!ok)
             return 0;
-        unsigned int ret = cobj->atlasIndexForChild(arg0, arg1);
+        int ret = cobj->atlasIndexForChild(arg0, arg1);
         tolua_pushnumber(tolua_S,(lua_Number)ret);
         return 1;
     }
@@ -51240,7 +51240,7 @@ int lua_cocos2dx_SpriteBatchNode_insertChild(lua_State* tolua_S)
     if (argc == 2) 
     {
         cocos2d::Sprite* arg0;
-        unsigned int arg1;
+        int arg1;
         do {
 				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
@@ -51251,7 +51251,7 @@ int lua_cocos2dx_SpriteBatchNode_insertChild(lua_State* tolua_S)
 					if (nullptr == arg0){
 						LUA_PRECONDITION( arg0, "Invalid Native Object");
 			}}} while (0);
-        ok &= luaval_to_uint32(tolua_S, 3,&arg1);
+        ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         if(!ok)
             return 0;
         cobj->insertChild(arg0, arg1);
@@ -51305,7 +51305,7 @@ int lua_cocos2dx_SpriteBatchNode_lowestAtlasIndexInChild(lua_State* tolua_S)
 			}}} while (0);
         if(!ok)
             return 0;
-        unsigned int ret = cobj->lowestAtlasIndexInChild(arg0);
+        int ret = cobj->lowestAtlasIndexInChild(arg0);
         tolua_pushnumber(tolua_S,(lua_Number)ret);
         return 1;
     }
@@ -51625,7 +51625,7 @@ int lua_cocos2dx_SpriteBatchNode_rebuildIndexInOrder(lua_State* tolua_S)
     if (argc == 2) 
     {
         cocos2d::Sprite* arg0;
-        unsigned int arg1;
+        int arg1;
         do {
 				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
 					ok = false;
@@ -51636,10 +51636,10 @@ int lua_cocos2dx_SpriteBatchNode_rebuildIndexInOrder(lua_State* tolua_S)
 					if (nullptr == arg0){
 						LUA_PRECONDITION( arg0, "Invalid Native Object");
 			}}} while (0);
-        ok &= luaval_to_uint32(tolua_S, 3,&arg1);
+        ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
         if(!ok)
             return 0;
-        unsigned int ret = cobj->rebuildIndexInOrder(arg0, arg1);
+        int ret = cobj->rebuildIndexInOrder(arg0, arg1);
         tolua_pushnumber(tolua_S,(lua_Number)ret);
         return 1;
     }
@@ -51838,7 +51838,7 @@ int lua_cocos2dx_SpriteBatchNode_highestAtlasIndexInChild(lua_State* tolua_S)
 			}}} while (0);
         if(!ok)
             return 0;
-        unsigned int ret = cobj->highestAtlasIndexInChild(arg0);
+        int ret = cobj->highestAtlasIndexInChild(arg0);
         tolua_pushnumber(tolua_S,(lua_Number)ret);
         return 1;
     }

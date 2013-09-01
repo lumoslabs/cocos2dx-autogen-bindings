@@ -6861,7 +6861,7 @@ setTexture : function () {},
 
 /**
  * @method removeChildAtIndex
- * @param {unsigned int}
+ * @param {int}
  * @param {bool}
  */
 removeChildAtIndex : function () {},
@@ -6874,7 +6874,7 @@ removeSpriteFromAtlas : function () {},
 
 /**
  * @method atlasIndexForChild
- * @return A value converted from C/C++ "unsigned int"
+ * @return A value converted from C/C++ "int"
  * @param {cocos2d::Sprite*}
  * @param {int}
  */
@@ -6894,13 +6894,13 @@ increaseAtlasCapacity : function () {},
 /**
  * @method insertChild
  * @param {cocos2d::Sprite*}
- * @param {unsigned int}
+ * @param {int}
  */
 insertChild : function () {},
 
 /**
  * @method lowestAtlasIndexInChild
- * @return A value converted from C/C++ "unsigned int"
+ * @return A value converted from C/C++ "int"
  * @param {cocos2d::Sprite*}
  */
 lowestAtlasIndexInChild : function () {},
@@ -6944,9 +6944,9 @@ reorderChild : function () {},
 
 /**
  * @method rebuildIndexInOrder
- * @return A value converted from C/C++ "unsigned int"
+ * @return A value converted from C/C++ "int"
  * @param {cocos2d::Sprite*}
- * @param {unsigned int}
+ * @param {int}
  */
 rebuildIndexInOrder : function () {},
 
@@ -6971,7 +6971,7 @@ removeChild : function () {},
 
 /**
  * @method highestAtlasIndexInChild
- * @return A value converted from C/C++ "unsigned int"
+ * @return A value converted from C/C++ "int"
  * @param {cocos2d::Sprite*}
  */
 highestAtlasIndexInChild : function () {},
