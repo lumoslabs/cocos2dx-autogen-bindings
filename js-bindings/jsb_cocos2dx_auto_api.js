@@ -6849,6 +6849,14 @@ appendChild : function () {},
 reorderBatch : function () {},
 
 /**
+ * @method addChild
+ * @param {cocos2d::Node*}
+ * @param {int}
+ * @param {int}
+ */
+addChild : function () {},
+
+/**
  * @method visit
  */
 visit : function () {},
@@ -6890,13 +6898,6 @@ getTexture : function () {},
  * @method increaseAtlasCapacity
  */
 increaseAtlasCapacity : function () {},
-
-/**
- * @method insertChild
- * @param {cocos2d::Sprite*}
- * @param {int}
- */
-insertChild : function () {},
 
 /**
  * @method lowestAtlasIndexInChild
@@ -6958,7 +6959,7 @@ getTextureAtlas : function () {},
 
 /**
  * @method getDescendants
- * @return A value converted from C/C++ "cocos2d::Array*"
+ * @return A value converted from C/C++ "std::vector<cocos2d::Sprite *, std::allocator<cocos2d::Sprite *> >"
  */
 getDescendants : function () {},
 

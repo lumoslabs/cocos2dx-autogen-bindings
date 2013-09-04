@@ -50735,27 +50735,34 @@ int lua_cocos2dx_SpriteBatchNode_reorderBatch(lua_State* tolua_S)
 int lua_cocos2dx_SpriteBatchNode_addChild(lua_State* tolua_S)
 {
     int argc = 0;
-    cocos2d::SpriteBatchNode* cobj = NULL;
+    cocos2d::SpriteBatchNode* cobj = nullptr;
     bool ok  = true;
+
 #if COCOS2D_DEBUG >= 1
     tolua_Error tolua_err;
 #endif
+
 #if COCOS2D_DEBUG >= 1
     if (!tolua_isusertype(tolua_S,1,"SpriteBatchNode",0,&tolua_err)) goto tolua_lerror;
 #endif
+
     cobj = (cocos2d::SpriteBatchNode*)tolua_tousertype(tolua_S,1,0);
+
 #if COCOS2D_DEBUG >= 1
-    if (!cobj)
+    if (!cobj) 
     {
         tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_SpriteBatchNode_addChild'", NULL);
         return 0;
     }
 #endif
+
     argc = lua_gettop(tolua_S)-1;
-    do{
-        if (argc == 2) {
-            cocos2d::Node* arg0;
-            do {
+    if (argc == 3) 
+    {
+        cocos2d::Node* arg0;
+        int arg1;
+        int arg2;
+        do {
 				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
 					ok = false;
 					break;
@@ -50765,62 +50772,13 @@ int lua_cocos2dx_SpriteBatchNode_addChild(lua_State* tolua_S)
 					if (nullptr == arg0){
 						LUA_PRECONDITION( arg0, "Invalid Native Object");
 			}}} while (0);
-
-            if (!ok) { ok = true; break; }
-            int arg1;
-            ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
-
-            if (!ok) { ok = true; break; }
-            cobj->addChild(arg0, arg1);
+        ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
+        ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2);
+        if(!ok)
             return 0;
-        }
-    }while(0);
-    do{
-        if (argc == 1) {
-            cocos2d::Node* arg0;
-            do {
-				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
-					ok = false;
-					break;
-				}
-				if (ok){
-					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-					if (nullptr == arg0){
-						LUA_PRECONDITION( arg0, "Invalid Native Object");
-			}}} while (0);
-
-            if (!ok) { ok = true; break; }
-            cobj->addChild(arg0);
-            return 0;
-        }
-    }while(0);
-    do{
-        if (argc == 3) {
-            cocos2d::Node* arg0;
-            do {
-				if (!luaval_is_usertype(tolua_S,2,"Node",0)){
-					ok = false;
-					break;
-				}
-				if (ok){
-					arg0 = (cocos2d::Node*)tolua_tousertype(tolua_S,2,0);
-					if (nullptr == arg0){
-						LUA_PRECONDITION( arg0, "Invalid Native Object");
-			}}} while (0);
-
-            if (!ok) { ok = true; break; }
-            int arg1;
-            ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
-
-            if (!ok) { ok = true; break; }
-            int arg2;
-            ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2);
-
-            if (!ok) { ok = true; break; }
-            cobj->addChild(arg0, arg1, arg2);
-            return 0;
-        }
-    }while(0);
+        cobj->addChild(arg0, arg1, arg2);
+        return 0;
+    }
     CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "addChild",argc, 3);
     return 0;
 #if COCOS2D_DEBUG >= 1
@@ -51209,59 +51167,6 @@ int lua_cocos2dx_SpriteBatchNode_init(lua_State* tolua_S)
 #if COCOS2D_DEBUG >= 1
     tolua_lerror:
     tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_SpriteBatchNode_init'.",&tolua_err);
-#endif
-    return 0;
-}
-int lua_cocos2dx_SpriteBatchNode_insertChild(lua_State* tolua_S)
-{
-    int argc = 0;
-    cocos2d::SpriteBatchNode* cobj = nullptr;
-    bool ok  = true;
-
-#if COCOS2D_DEBUG >= 1
-    tolua_Error tolua_err;
-#endif
-
-#if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"SpriteBatchNode",0,&tolua_err)) goto tolua_lerror;
-#endif
-
-    cobj = (cocos2d::SpriteBatchNode*)tolua_tousertype(tolua_S,1,0);
-
-#if COCOS2D_DEBUG >= 1
-    if (!cobj) 
-    {
-        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_SpriteBatchNode_insertChild'", NULL);
-        return 0;
-    }
-#endif
-
-    argc = lua_gettop(tolua_S)-1;
-    if (argc == 2) 
-    {
-        cocos2d::Sprite* arg0;
-        int arg1;
-        do {
-				if (!luaval_is_usertype(tolua_S,2,"Sprite",0)){
-					ok = false;
-					break;
-				}
-				if (ok){
-					arg0 = (cocos2d::Sprite*)tolua_tousertype(tolua_S,2,0);
-					if (nullptr == arg0){
-						LUA_PRECONDITION( arg0, "Invalid Native Object");
-			}}} while (0);
-        ok &= luaval_to_int32(tolua_S, 3,(int *)&arg1);
-        if(!ok)
-            return 0;
-        cobj->insertChild(arg0, arg1);
-        return 0;
-    }
-    CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "insertChild",argc, 2);
-    return 0;
-#if COCOS2D_DEBUG >= 1
-    tolua_lerror:
-    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_SpriteBatchNode_insertChild'.",&tolua_err);
 #endif
     return 0;
 }
@@ -51733,8 +51638,8 @@ int lua_cocos2dx_SpriteBatchNode_getDescendants(lua_State* tolua_S)
     {
         if(!ok)
             return 0;
-        cocos2d::Array* ret = cobj->getDescendants();
-        array_to_luaval(tolua_S,ret);
+        std::vector<cocos2d::Sprite *, std::allocator<cocos2d::Sprite *> > ret = cobj->getDescendants();
+        #pragma warning NO CONVERSION FROM NATIVE FOR const vector;
         return 1;
     }
     CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "getDescendants",argc, 0);
@@ -52069,7 +51974,6 @@ int lua_register_cocos2dx_SpriteBatchNode(lua_State* tolua_S)
         tolua_function(tolua_S,"getTexture",lua_cocos2dx_SpriteBatchNode_getTexture);
         tolua_function(tolua_S,"increaseAtlasCapacity",lua_cocos2dx_SpriteBatchNode_increaseAtlasCapacity);
         tolua_function(tolua_S,"init",lua_cocos2dx_SpriteBatchNode_init);
-        tolua_function(tolua_S,"insertChild",lua_cocos2dx_SpriteBatchNode_insertChild);
         tolua_function(tolua_S,"lowestAtlasIndexInChild",lua_cocos2dx_SpriteBatchNode_lowestAtlasIndexInChild);
         tolua_function(tolua_S,"draw",lua_cocos2dx_SpriteBatchNode_draw);
         tolua_function(tolua_S,"initWithTexture",lua_cocos2dx_SpriteBatchNode_initWithTexture);
