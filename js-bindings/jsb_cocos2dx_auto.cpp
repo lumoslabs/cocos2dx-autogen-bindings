@@ -33563,77 +33563,31 @@ JSBool js_cocos2dx_SpriteBatchNode_addChild(JSContext *cx, uint32_t argc, jsval 
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
-
-	JSObject *obj = NULL;
-	cocos2d::SpriteBatchNode* cobj = NULL;
-	obj = JS_THIS_OBJECT(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cobj = (cocos2d::SpriteBatchNode *)(proxy ? proxy->ptr : NULL);
+	cocos2d::SpriteBatchNode* cobj = (cocos2d::SpriteBatchNode *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_addChild : Invalid Native Object");
-	do {
-		if (argc == 2) {
-			cocos2d::Node* arg0;
-			do {
-				if (!argv[0].isObject()) { ok = JS_FALSE; break; }
-				js_proxy_t *proxy;
-				JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-				proxy = jsb_get_js_proxy(tmpObj);
-				arg0 = (cocos2d::Node*)(proxy ? proxy->ptr : NULL);
-				JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
-			} while (0);
-			if (!ok) { ok = JS_TRUE; break; }
-			int arg1;
-			ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
-			if (!ok) { ok = JS_TRUE; break; }
-			cobj->addChild(arg0, arg1);
-			JS_SET_RVAL(cx, vp, JSVAL_VOID);
-			return JS_TRUE;
-		}
-	} while(0);
+	if (argc == 3) {
+		cocos2d::Node* arg0;
+		int arg1;
+		int arg2;
+		do {
+			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg0 = (cocos2d::Node*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
+		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_addChild : Error processing arguments");
+		cobj->addChild(arg0, arg1, arg2);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
 
-	do {
-		if (argc == 1) {
-			cocos2d::Node* arg0;
-			do {
-				if (!argv[0].isObject()) { ok = JS_FALSE; break; }
-				js_proxy_t *proxy;
-				JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-				proxy = jsb_get_js_proxy(tmpObj);
-				arg0 = (cocos2d::Node*)(proxy ? proxy->ptr : NULL);
-				JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
-			} while (0);
-			if (!ok) { ok = JS_TRUE; break; }
-			cobj->addChild(arg0);
-			JS_SET_RVAL(cx, vp, JSVAL_VOID);
-			return JS_TRUE;
-		}
-	} while(0);
-
-	do {
-		if (argc == 3) {
-			cocos2d::Node* arg0;
-			do {
-				if (!argv[0].isObject()) { ok = JS_FALSE; break; }
-				js_proxy_t *proxy;
-				JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-				proxy = jsb_get_js_proxy(tmpObj);
-				arg0 = (cocos2d::Node*)(proxy ? proxy->ptr : NULL);
-				JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
-			} while (0);
-			if (!ok) { ok = JS_TRUE; break; }
-			int arg1;
-			ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
-			if (!ok) { ok = JS_TRUE; break; }
-			int arg2;
-			ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
-			if (!ok) { ok = JS_TRUE; break; }
-			cobj->addChild(arg0, arg1, arg2);
-			JS_SET_RVAL(cx, vp, JSVAL_VOID);
-			return JS_TRUE;
-		}
-	} while(0);
-
-	JS_ReportError(cx, "js_cocos2dx_SpriteBatchNode_addChild : wrong number of arguments");
+	JS_ReportError(cx, "js_cocos2dx_SpriteBatchNode_addChild : wrong number of arguments: %d, was expecting %d", argc, 3);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_SpriteBatchNode_visit(JSContext *cx, uint32_t argc, jsval *vp)
@@ -33835,35 +33789,6 @@ JSBool js_cocos2dx_SpriteBatchNode_init(JSContext *cx, uint32_t argc, jsval *vp)
 	} while(0);
 
 	JS_ReportError(cx, "js_cocos2dx_SpriteBatchNode_init : wrong number of arguments");
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SpriteBatchNode_insertChild(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::SpriteBatchNode* cobj = (cocos2d::SpriteBatchNode *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_insertChild : Invalid Native Object");
-	if (argc == 2) {
-		cocos2d::Sprite* arg0;
-		int arg1;
-		do {
-			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			proxy = jsb_get_js_proxy(tmpObj);
-			arg0 = (cocos2d::Sprite*)(proxy ? proxy->ptr : NULL);
-			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
-		} while (0);
-		ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_insertChild : Error processing arguments");
-		cobj->insertChild(arg0, arg1);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "js_cocos2dx_SpriteBatchNode_insertChild : wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_SpriteBatchNode_lowestAtlasIndexInChild(JSContext *cx, uint32_t argc, jsval *vp)
@@ -34094,9 +34019,9 @@ JSBool js_cocos2dx_SpriteBatchNode_getDescendants(JSContext *cx, uint32_t argc, 
 	cocos2d::SpriteBatchNode* cobj = (cocos2d::SpriteBatchNode *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_getDescendants : Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::Array* ret = cobj->getDescendants();
+		std::vector<cocos2d::Sprite *, std::allocator<cocos2d::Sprite *> > ret = cobj->getDescendants();
 		jsval jsret;
-		jsret = ccarray_to_jsval(cx, ret);
+		#pragma warning NO CONVERSION FROM NATIVE FOR const vector;
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -34328,7 +34253,7 @@ void js_register_cocos2dx_SpriteBatchNode(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("appendChild", js_cocos2dx_SpriteBatchNode_appendChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reorderBatch", js_cocos2dx_SpriteBatchNode_reorderBatch, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("addChild", js_cocos2dx_SpriteBatchNode_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addChild", js_cocos2dx_SpriteBatchNode_addChild, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("visit", js_cocos2dx_SpriteBatchNode_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTexture", js_cocos2dx_SpriteBatchNode_setTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeChildAtIndex", js_cocos2dx_SpriteBatchNode_removeChildAtIndex, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -34337,7 +34262,6 @@ void js_register_cocos2dx_SpriteBatchNode(JSContext *cx, JSObject *global) {
 		JS_FN("getTexture", js_cocos2dx_SpriteBatchNode_getTexture, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("increaseAtlasCapacity", js_cocos2dx_SpriteBatchNode_increaseAtlasCapacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_SpriteBatchNode_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("insertChild", js_cocos2dx_SpriteBatchNode_insertChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("lowestAtlasIndexInChild", js_cocos2dx_SpriteBatchNode_lowestAtlasIndexInChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("draw", js_cocos2dx_SpriteBatchNode_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTexture", js_cocos2dx_SpriteBatchNode_initWithTexture, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
