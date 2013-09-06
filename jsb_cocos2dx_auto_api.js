@@ -1360,6 +1360,12 @@ isCascadeColorEnabled : function () {},
 getDisplayedColor : function () {},
 
 /**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCNodeRGBA*"
+ */
+create : function () {},
+
+/**
  * @method CCNodeRGBA
  * @constructor
  */
@@ -5450,6 +5456,12 @@ init : function () {},
 setScheduler : function () {},
 
 /**
+ * @method reshapeProjection
+ * @param {cocos2d::CCSize}
+ */
+reshapeProjection : function () {},
+
+/**
  * @method startAnimation
  */
 startAnimation : function () {},
@@ -6472,6 +6484,12 @@ createFontChars : function () {},
  * @return A value converted from C/C++ "const char*"
  */
 getString : function () {},
+
+/**
+ * @method getConfiguration
+ * @return A value converted from C/C++ "cocos2d::CCBMFontConfiguration*"
+ */
+getConfiguration : function () {},
 
 /**
  * @method setScale
@@ -10126,10 +10144,10 @@ cc.FileUtils = {
 isFileExist : function () {},
 
 /**
- * @method isPopupNotify
- * @return A value converted from C/C++ "bool"
+ * @method removeSearchPath
+ * @param {const char*}
  */
-isPopupNotify : function () {},
+removeSearchPath : function () {},
 
 /**
  * @method purgeCachedEntries
@@ -10154,6 +10172,12 @@ fullPathFromRelativeFile : function () {},
 getFileData : function () {},
 
 /**
+ * @method isPopupNotify
+ * @return A value converted from C/C++ "bool"
+ */
+isPopupNotify : function () {},
+
+/**
  * @method setFilenameLookupDictionary
  * @param {cocos2d::CCDictionary*}
  */
@@ -10173,6 +10197,11 @@ addSearchResolutionsOrder : function () {},
  * @param {unsigned long*}
  */
 getFileDataFromZip : function () {},
+
+/**
+ * @method removeAllPaths
+ */
+removeAllPaths : function () {},
 
 /**
  * @method fullPathForFilename

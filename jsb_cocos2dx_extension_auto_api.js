@@ -263,6 +263,12 @@ isOpacityModifyRGB : function () {},
 setInsetTop : function () {},
 
 /**
+ * @method updateDisplayedOpacity
+ * @param {unsigned char}
+ */
+updateDisplayedOpacity : function () {},
+
+/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
@@ -364,6 +370,12 @@ setCapInsets : function () {},
  * @return A value converted from C/C++ "float"
  */
 getInsetLeft : function () {},
+
+/**
+ * @method updateDisplayedColor
+ * @param {cocos2d::ccColor3B}
+ */
+updateDisplayedColor : function () {},
 
 /**
  * @method setInsetRight
