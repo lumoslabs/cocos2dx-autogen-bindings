@@ -59296,8 +59296,8 @@ int lua_cocos2dx_LayerMultiplex_switchToAndReleaseMe(lua_State* tolua_S)
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
-        unsigned int arg0;
-        ok &= luaval_to_uint32(tolua_S, 2,&arg0);
+        int arg0;
+        ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0);
         if(!ok)
             return 0;
         cobj->switchToAndReleaseMe(arg0);
@@ -59430,8 +59430,8 @@ int lua_cocos2dx_LayerMultiplex_switchTo(lua_State* tolua_S)
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
-        unsigned int arg0;
-        ok &= luaval_to_uint32(tolua_S, 2,&arg0);
+        int arg0;
+        ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0);
         if(!ok)
             return 0;
         cobj->switchTo(arg0);
@@ -76761,8 +76761,8 @@ int lua_cocos2dx_ParticleSystem_setTotalParticles(lua_State* tolua_S)
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
-        unsigned int arg0;
-        ok &= luaval_to_uint32(tolua_S, 2,&arg0);
+        int arg0;
+        ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0);
         if(!ok)
             return 0;
         cobj->setTotalParticles(arg0);
@@ -79362,7 +79362,7 @@ int lua_cocos2dx_ParticleSystem_getTotalParticles(lua_State* tolua_S)
     {
         if(!ok)
             return 0;
-        unsigned int ret = cobj->getTotalParticles();
+        int ret = cobj->getTotalParticles();
         tolua_pushnumber(tolua_S,(lua_Number)ret);
         return 1;
     }

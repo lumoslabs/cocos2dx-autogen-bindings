@@ -38503,8 +38503,8 @@ JSBool js_cocos2dx_LayerMultiplex_switchToAndReleaseMe(JSContext *cx, uint32_t a
 	cocos2d::LayerMultiplex* cobj = (cocos2d::LayerMultiplex *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_LayerMultiplex_switchToAndReleaseMe : Invalid Native Object");
 	if (argc == 1) {
-		unsigned int arg0;
-		ok &= jsval_to_uint32(cx, argv[0], &arg0);
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_LayerMultiplex_switchToAndReleaseMe : Error processing arguments");
 		cobj->switchToAndReleaseMe(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
@@ -38567,8 +38567,8 @@ JSBool js_cocos2dx_LayerMultiplex_switchTo(JSContext *cx, uint32_t argc, jsval *
 	cocos2d::LayerMultiplex* cobj = (cocos2d::LayerMultiplex *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_LayerMultiplex_switchTo : Invalid Native Object");
 	if (argc == 1) {
-		unsigned int arg0;
-		ok &= jsval_to_uint32(cx, argv[0], &arg0);
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_LayerMultiplex_switchTo : Error processing arguments");
 		cobj->switchTo(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
@@ -50913,8 +50913,8 @@ JSBool js_cocos2dx_ParticleSystem_setTotalParticles(JSContext *cx, uint32_t argc
 	cocos2d::ParticleSystem* cobj = (cocos2d::ParticleSystem *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_ParticleSystem_setTotalParticles : Invalid Native Object");
 	if (argc == 1) {
-		unsigned int arg0;
-		ok &= jsval_to_uint32(cx, argv[0], &arg0);
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_ParticleSystem_setTotalParticles : Error processing arguments");
 		cobj->setTotalParticles(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
@@ -52100,9 +52100,9 @@ JSBool js_cocos2dx_ParticleSystem_getTotalParticles(JSContext *cx, uint32_t argc
 	cocos2d::ParticleSystem* cobj = (cocos2d::ParticleSystem *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_ParticleSystem_getTotalParticles : Invalid Native Object");
 	if (argc == 0) {
-		unsigned int ret = cobj->getTotalParticles();
+		int ret = cobj->getTotalParticles();
 		jsval jsret;
-		jsret = uint32_to_jsval(cx, ret);
+		jsret = int32_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}

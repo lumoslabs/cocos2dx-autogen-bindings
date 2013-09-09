@@ -7951,7 +7951,7 @@ initWithArray : function () {},
 
 /**
  * @method switchToAndReleaseMe
- * @param {unsigned int}
+ * @param {int}
  */
 switchToAndReleaseMe : function () {},
 
@@ -7969,7 +7969,7 @@ addLayer : function () {},
 
 /**
  * @method switchTo
- * @param {unsigned int}
+ * @param {int}
  */
 switchTo : function () {},
 
@@ -10200,7 +10200,7 @@ setLifeVar : function () {},
 
 /**
  * @method setTotalParticles
- * @param {unsigned int}
+ * @param {int}
  */
 setTotalParticles : function () {},
 
@@ -10566,7 +10566,7 @@ isAutoRemoveOnFinish : function () {},
 
 /**
  * @method getTotalParticles
- * @return A value converted from C/C++ "unsigned int"
+ * @return A value converted from C/C++ "int"
  */
 getTotalParticles : function () {},
 
