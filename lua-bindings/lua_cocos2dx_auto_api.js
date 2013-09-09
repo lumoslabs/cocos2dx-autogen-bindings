@@ -7982,7 +7982,7 @@ initWithArray : function () {},
 
 /**
  * @method switchToAndReleaseMe
- * @param {unsigned int}
+ * @param {int}
  */
 switchToAndReleaseMe : function () {},
 
@@ -8000,7 +8000,7 @@ addLayer : function () {},
 
 /**
  * @method switchTo
- * @param {unsigned int}
+ * @param {int}
  */
 switchTo : function () {},
 
@@ -10337,7 +10337,7 @@ setLifeVar : function () {},
 
 /**
  * @method setTotalParticles
- * @param {unsigned int}
+ * @param {int}
  */
 setTotalParticles : function () {},
 
@@ -10703,7 +10703,7 @@ isAutoRemoveOnFinish : function () {},
 
 /**
  * @method getTotalParticles
- * @return A value converted from C/C++ "unsigned int"
+ * @return A value converted from C/C++ "int"
  */
 getTotalParticles : function () {},
 
@@ -11241,15 +11241,15 @@ isPopupNotify : function () {},
 /**
  * @method fullPathForFilename
  * @return A value converted from C/C++ "std::string"
- * @param {const char*}
+ * @param {std::string}
  */
 fullPathForFilename : function () {},
 
 /**
  * @method fullPathFromRelativeFile
- * @return A value converted from C/C++ "const char*"
- * @param {const char*}
- * @param {const char*}
+ * @return A value converted from C/C++ "std::string"
+ * @param {std::string}
+ * @param {std::string}
  */
 fullPathFromRelativeFile : function () {},
 
@@ -11270,7 +11270,7 @@ setFilenameLookupDictionary : function () {},
 
 /**
  * @method addSearchResolutionsOrder
- * @param {const char*}
+ * @param {std::string}
  */
 addSearchResolutionsOrder : function () {},
 
@@ -11303,7 +11303,7 @@ getWritablePath : function () {},
 
 /**
  * @method addSearchPath
- * @param {const char*}
+ * @param {std::string}
  */
 addSearchPath : function () {},
 
@@ -11315,7 +11315,7 @@ setPopupNotify : function () {},
 
 /**
  * @method loadFilenameLookupDictionaryFromFile
- * @param {const char*}
+ * @param {std::string}
  */
 loadFilenameLookupDictionaryFromFile : function () {},
 
@@ -11376,14 +11376,14 @@ reloadDefaultShaders : function () {},
 /**
  * @method addProgram
  * @param {cocos2d::GLProgram*}
- * @param {const char*}
+ * @param {std::string}
  */
 addProgram : function () {},
 
 /**
  * @method programForKey
  * @return A value converted from C/C++ "cocos2d::GLProgram*"
- * @param {const char*}
+ * @param {std::string}
  */
 programForKey : function () {},
 
@@ -11614,43 +11614,22 @@ cc.TextureCache = {
 dumpCachedTextureInfo : function () {},
 
 /**
- * @method addUIImage
- * @return A value converted from C/C++ "cocos2d::Texture2D*"
- * @param {cocos2d::Image*}
- * @param {const char*}
+ * @method removeAllTextures
  */
-addUIImage : function () {},
+removeAllTextures : function () {},
 
 /**
  * @method removeTextureForKey
- * @param {const char*}
+ * @param {std::string}
  */
 removeTextureForKey : function () {},
 
 /**
- * @method textureForKey
+ * @method getTextureForKey
  * @return A value converted from C/C++ "cocos2d::Texture2D*"
- * @param {const char*}
+ * @param {std::string}
  */
-textureForKey : function () {},
-
-/**
- * @method snapshotTextures
- * @return A value converted from C/C++ "cocos2d::Dictionary*"
- */
-snapshotTextures : function () {},
-
-/**
- * @method addImage
- * @return A value converted from C/C++ "cocos2d::Texture2D*"
- * @param {const char*}
- */
-addImage : function () {},
-
-/**
- * @method removeAllTextures
- */
-removeAllTextures : function () {},
+getTextureForKey : function () {},
 
 /**
  * @method removeUnusedTextures
