@@ -51639,7 +51639,7 @@ int lua_cocos2dx_SpriteBatchNode_getDescendants(lua_State* tolua_S)
         if(!ok)
             return 0;
         std::vector<cocos2d::Sprite *, std::allocator<cocos2d::Sprite *> > ret = cobj->getDescendants();
-        #pragma warning NO CONVERSION FROM NATIVE FOR const vector;
+        std_vector_to_luaval(tolua_S,ret);
         return 1;
     }
     CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "getDescendants",argc, 0);
