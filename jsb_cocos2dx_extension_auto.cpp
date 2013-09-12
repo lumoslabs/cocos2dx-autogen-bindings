@@ -7662,6 +7662,23 @@ JSBool js_cocos2dx_extension_CCBone_getTweenData(JSContext *cx, uint32_t argc, j
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_extension_CCBone_getColliderBodyList(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCBone* cobj = (cocos2d::extension::CCBone *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCArray* ret = cobj->getColliderBodyList();
+		jsval jsret;
+		jsret = ccarray_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_extension_CCBone_setBoneData(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -8102,6 +8119,7 @@ void js_register_cocos2dx_extension_CCBone(JSContext *cx, JSObject *global) {
 		JS_FN("update", js_cocos2dx_extension_CCBone_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDisplayManager", js_cocos2dx_extension_CCBone_setDisplayManager, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTweenData", js_cocos2dx_extension_CCBone_getTweenData, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColliderBodyList", js_cocos2dx_extension_CCBone_getColliderBodyList, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setBoneData", js_cocos2dx_extension_CCBone_setBoneData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setArmature", js_cocos2dx_extension_CCBone_setArmature, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addDisplay", js_cocos2dx_extension_CCBone_addDisplay, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),

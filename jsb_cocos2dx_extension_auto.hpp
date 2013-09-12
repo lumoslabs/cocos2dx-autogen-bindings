@@ -355,6 +355,7 @@ JSBool js_cocos2dx_extension_CCBone_getChildArmature(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_extension_CCBone_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_setDisplayManager(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_getTweenData(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCBone_getColliderBodyList(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_setBoneData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_setArmature(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_addDisplay(JSContext *cx, uint32_t argc, jsval *vp);

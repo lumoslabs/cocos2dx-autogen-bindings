@@ -1676,6 +1676,12 @@ setDisplayManager : function () {},
 getTweenData : function () {},
 
 /**
+ * @method getColliderBodyList
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getColliderBodyList : function () {},
+
+/**
  * @method setBoneData
  * @param {cocos2d::extension::CCBoneData*}
  */

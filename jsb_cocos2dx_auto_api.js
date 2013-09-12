@@ -8625,6 +8625,107 @@ CCMenu : function () {},
 };
 
 /**
+ * @class CCMotionStreak
+ */
+cc.MotionStreak = {
+
+/**
+ * @method reset
+ */
+reset : function () {},
+
+/**
+ * @method draw
+ */
+draw : function () {},
+
+/**
+ * @method setTexture
+ * @param {cocos2d::CCTexture2D*}
+ */
+setTexture : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
+ * @method getTexture
+ * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
+ */
+getTexture : function () {},
+
+/**
+ * @method tintWithColor
+ * @param {ccColor3B}
+ */
+tintWithColor : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
+ * @method isFastMode
+ * @return A value converted from C/C++ "bool"
+ */
+isFastMode : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
+
+/**
+ * @method setPosition
+ * @param {cocos2d::CCPoint}
+ */
+setPosition : function () {},
+
+/**
+ * @method setStartingPositionInitialized
+ * @param {bool}
+ */
+setStartingPositionInitialized : function () {},
+
+/**
+ * @method setFastMode
+ * @param {bool}
+ */
+setFastMode : function () {},
+
+/**
+ * @method isStartingPositionInitialized
+ * @return A value converted from C/C++ "bool"
+ */
+isStartingPositionInitialized : function () {},
+
+/**
+ * @method CCMotionStreak
+ * @constructor
+ */
+CCMotionStreak : function () {},
+
+};
+
+/**
  * @class CCProgressTimer
  */
 cc.ProgressTimer = {

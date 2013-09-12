@@ -2581,6 +2581,32 @@ JSBool js_cocos2dx_CCMenu_alignItemsVerticallyWithPadding(JSContext *cx, uint32_
 JSBool js_cocos2dx_CCMenu_registerWithTouchDispatcher(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenu_CCMenu(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *jsb_CCMotionStreak_class;
+extern JSObject *jsb_CCMotionStreak_prototype;
+
+JSBool js_cocos2dx_CCMotionStreak_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCMotionStreak_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCMotionStreak(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCMotionStreak_reset(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_draw(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_setTexture(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_getTexture(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_tintWithColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_setOpacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_initWithFade(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_isFastMode(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_getOpacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_setPosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_setStartingPositionInitialized(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_setFastMode(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_isStartingPositionInitialized(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMotionStreak_CCMotionStreak(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *jsb_CCProgressTimer_class;
 extern JSObject *jsb_CCProgressTimer_prototype;
 
