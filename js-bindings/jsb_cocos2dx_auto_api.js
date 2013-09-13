@@ -282,10 +282,10 @@ Follow : function () {},
 cc.GLProgram = {
 
 /**
- * @method fragmentShaderLog
+ * @method getFragmentShaderLog
  * @return A value converted from C/C++ "const char*"
  */
-fragmentShaderLog : function () {},
+getFragmentShaderLog : function () {},
 
 /**
  * @method addAttribute
@@ -315,10 +315,10 @@ getUniformLocationForName : function () {},
 use : function () {},
 
 /**
- * @method vertexShaderLog
+ * @method getVertexShaderLog
  * @return A value converted from C/C++ "const char*"
  */
-vertexShaderLog : function () {},
+getVertexShaderLog : function () {},
 
 /**
  * @method initWithVertexShaderByteArray
@@ -1598,10 +1598,10 @@ initWithSpriteFrames : function () {},
 setLoops : function () {},
 
 /**
- * @method addSpriteFrameWithFileName
+ * @method addSpriteFrameWithFile
  * @param {const char*}
  */
-addSpriteFrameWithFileName : function () {},
+addSpriteFrameWithFile : function () {},
 
 /**
  * @method getTotalDelayUnits
@@ -5808,20 +5808,28 @@ locate : function () {},
 restore : function () {},
 
 /**
- * @method setEyeXYZ
+ * @method setEye
  * @param {float}
  * @param {float}
  * @param {float}
  */
-setEyeXYZ : function () {},
+setEye : function () {},
 
 /**
- * @method setCenterXYZ
+ * @method setCenter
  * @param {float}
  * @param {float}
  * @param {float}
  */
-setCenterXYZ : function () {},
+setCenter : function () {},
+
+/**
+ * @method getCenter
+ * @param {float*}
+ * @param {float*}
+ * @param {float*}
+ */
+getCenter : function () {},
 
 /**
  * @method isDirty
@@ -5841,12 +5849,28 @@ init : function () {},
 setDirty : function () {},
 
 /**
- * @method setUpXYZ
+ * @method setUp
  * @param {float}
  * @param {float}
  * @param {float}
  */
-setUpXYZ : function () {},
+setUp : function () {},
+
+/**
+ * @method getUp
+ * @param {float*}
+ * @param {float*}
+ * @param {float*}
+ */
+getUp : function () {},
+
+/**
+ * @method getEye
+ * @param {float*}
+ * @param {float*}
+ * @param {float*}
+ */
+getEye : function () {},
 
 /**
  * @method getZEye
@@ -6377,10 +6401,10 @@ draw : function () {},
 setTexture : function () {},
 
 /**
- * @method isFlipX
+ * @method isFlippedX
  * @return A value converted from C/C++ "bool"
  */
-isFlipX : function () {},
+isFlippedX : function () {},
 
 /**
  * @method getTexture
@@ -6393,6 +6417,18 @@ getTexture : function () {},
  * @param {float}
  */
 setRotationY : function () {},
+
+/**
+ * @method setFlippedY
+ * @param {bool}
+ */
+setFlippedY : function () {},
+
+/**
+ * @method setFlippedX
+ * @param {bool}
+ */
+setFlippedX : function () {},
 
 /**
  * @method setRotationX
@@ -6519,18 +6555,6 @@ setScaleY : function () {},
 setTextureAtlas : function () {},
 
 /**
- * @method setFlipY
- * @param {bool}
- */
-setFlipY : function () {},
-
-/**
- * @method setFlipX
- * @param {bool}
- */
-setFlipX : function () {},
-
-/**
  * @method removeAllChildrenWithCleanup
  * @param {bool}
  */
@@ -6621,10 +6645,10 @@ removeChild : function () {},
 updateTransform : function () {},
 
 /**
- * @method isFlipY
+ * @method isFlippedY
  * @return A value converted from C/C++ "bool"
  */
-isFlipY : function () {},
+isFlippedY : function () {},
 
 /**
  * @method setOpacityModifyRGB
@@ -11244,11 +11268,11 @@ reloadDefaultShaders : function () {},
 addProgram : function () {},
 
 /**
- * @method programForKey
+ * @method getProgram
  * @return A value converted from C/C++ "cocos2d::GLProgram*"
  * @param {std::string}
  */
-programForKey : function () {},
+getProgram : function () {},
 
 /**
  * @method loadDefaultShaders
@@ -11280,11 +11304,11 @@ ShaderCache : function () {},
 cc.AnimationCache = {
 
 /**
- * @method animationByName
+ * @method getAnimation
  * @return A value converted from C/C++ "cocos2d::Animation*"
  * @param {const char*}
  */
-animationByName : function () {},
+getAnimation : function () {},
 
 /**
  * @method addAnimation
@@ -11306,10 +11330,10 @@ init : function () {},
 addAnimationsWithDictionary : function () {},
 
 /**
- * @method removeAnimationByName
+ * @method removeAnimation
  * @param {const char*}
  */
-removeAnimationByName : function () {},
+removeAnimation : function () {},
 
 /**
  * @method addAnimationsWithFile
