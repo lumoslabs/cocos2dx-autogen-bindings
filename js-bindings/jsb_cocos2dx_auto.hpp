@@ -220,7 +220,6 @@ JSBool js_cocos2dx_Node_updateTransform(JSContext *cx, uint32_t argc, jsval *vp)
 JSBool js_cocos2dx_Node_isVisible(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_getChildrenCount(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Node_getEventPriority(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_convertToNodeSpaceAR(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_addComponent(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_visit(JSContext *cx, uint32_t argc, jsval *vp);

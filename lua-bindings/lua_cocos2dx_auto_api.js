@@ -956,12 +956,6 @@ getChildrenCount : function () {},
 setAnchorPoint : function () {},
 
 /**
- * @method getEventPriority
- * @return A value converted from C/C++ "int"
- */
-getEventPriority : function () {},
-
-/**
  * @method convertToNodeSpaceAR
  * @return A value converted from C/C++ "cocos2d::Point"
  * @param {cocos2d::Point}
