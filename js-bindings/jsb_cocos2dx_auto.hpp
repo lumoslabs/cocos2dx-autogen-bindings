@@ -2697,7 +2697,6 @@ JSBool js_cocos2dx_Menu_alignItemsVertically(JSContext *cx, uint32_t argc, jsval
 JSBool js_cocos2dx_Menu_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Menu_isEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Menu_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Menu_setHandlerPriority(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Menu_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Menu_alignItemsHorizontallyWithPadding(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Menu_alignItemsHorizontally(JSContext *cx, uint32_t argc, jsval *vp);
