@@ -9,29 +9,18 @@ var cc = cc || {};
 cc.Control = {
 
 /**
- * @method setEnabled
- * @param {bool}
- */
-setEnabled : function () {},
-
-/**
- * @method getState
- * @return A value converted from C/C++ "cocos2d::extension::Control::State"
- */
-getState : function () {},
-
-/**
- * @method isTouchInside
- * @return A value converted from C/C++ "bool"
+ * @method onTouchEnded
  * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
  */
-isTouchInside : function () {},
+onTouchEnded : function () {},
 
 /**
- * @method sendActionsForControlEvents
- * @param {cocos2d::extension::Control::EventType}
+ * @method onTouchMoved
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
  */
-sendActionsForControlEvents : function () {},
+onTouchMoved : function () {},
 
 /**
  * @method setSelected
@@ -40,9 +29,28 @@ sendActionsForControlEvents : function () {},
 setSelected : function () {},
 
 /**
- * @method registerWithTouchDispatcher
+ * @method hasVisibleParents
+ * @return A value converted from C/C++ "bool"
  */
-registerWithTouchDispatcher : function () {},
+hasVisibleParents : function () {},
+
+/**
+ * @method setHighlighted
+ * @param {bool}
+ */
+setHighlighted : function () {},
+
+/**
+ * @method isHighlighted
+ * @return A value converted from C/C++ "bool"
+ */
+isHighlighted : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
 
 /**
  * @method isEnabled
@@ -51,21 +59,16 @@ registerWithTouchDispatcher : function () {},
 isEnabled : function () {},
 
 /**
+ * @method sendActionsForControlEvents
+ * @param {cocos2d::extension::Control::EventType}
+ */
+sendActionsForControlEvents : function () {},
+
+/**
  * @method setOpacityModifyRGB
  * @param {bool}
  */
 setOpacityModifyRGB : function () {},
-
-/**
- * @method needsLayout
- */
-needsLayout : function () {},
-
-/**
- * @method hasVisibleParents
- * @return A value converted from C/C++ "bool"
- */
-hasVisibleParents : function () {},
 
 /**
  * @method isSelected
@@ -80,16 +83,36 @@ isSelected : function () {},
 init : function () {},
 
 /**
- * @method setHighlighted
+ * @method setEnabled
  * @param {bool}
  */
-setHighlighted : function () {},
+setEnabled : function () {},
 
 /**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
+ * @method getState
+ * @return A value converted from C/C++ "cocos2d::extension::Control::State"
  */
-isOpacityModifyRGB : function () {},
+getState : function () {},
+
+/**
+ * @method onTouchCancelled
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchCancelled : function () {},
+
+/**
+ * @method needsLayout
+ */
+needsLayout : function () {},
+
+/**
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchBegan : function () {},
 
 /**
  * @method getTouchLocation
@@ -99,10 +122,11 @@ isOpacityModifyRGB : function () {},
 getTouchLocation : function () {},
 
 /**
- * @method isHighlighted
+ * @method isTouchInside
  * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
  */
-isHighlighted : function () {},
+isTouchInside : function () {},
 
 /**
  * @method create
@@ -427,6 +451,13 @@ cc.ControlButton = {
 setTitleColorDispatchTable : function () {},
 
 /**
+ * @method onTouchEnded
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchEnded : function () {},
+
+/**
  * @method isPushed
  * @return A value converted from C/C++ "bool"
  */
@@ -446,25 +477,16 @@ setSelected : function () {},
 setTitleLabelForState : function () {},
 
 /**
- * @method ccTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchBegan : function () {},
-
-/**
  * @method setAdjustBackgroundImage
  * @param {bool}
  */
 setAdjustBackgroundImage : function () {},
 
 /**
- * @method ccTouchEnded
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
+ * @method getLabelAnchorPoint
+ * @return A value converted from C/C++ "cocos2d::Point"
  */
-ccTouchEnded : function () {},
+getLabelAnchorPoint : function () {},
 
 /**
  * @method setHighlighted
@@ -504,16 +526,11 @@ getTitleDispatchTable : function () {},
 setLabelAnchorPoint : function () {},
 
 /**
- * @method getPreferredSize
- * @return A value converted from C/C++ "cocos2d::Size"
+ * @method onTouchMoved
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
  */
-getPreferredSize : function () {},
-
-/**
- * @method getLabelAnchorPoint
- * @return A value converted from C/C++ "cocos2d::Point"
- */
-getLabelAnchorPoint : function () {},
+onTouchMoved : function () {},
 
 /**
  * @method initWithBackgroundSprite
@@ -568,13 +585,6 @@ setTitleTTFSizeForState : function () {},
 setTitleLabel : function () {},
 
 /**
- * @method ccTouchMoved
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchMoved : function () {},
-
-/**
  * @method getOpacity
  * @return A value converted from C/C++ "unsigned char"
  */
@@ -625,6 +635,13 @@ getColor : function () {},
 setMargins : function () {},
 
 /**
+ * @method onTouchCancelled
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchCancelled : function () {},
+
+/**
  * @method needsLayout
  */
 needsLayout : function () {},
@@ -669,6 +686,14 @@ getBackgroundSprite : function () {},
  * @param {cocos2d::extension::Control::State}
  */
 getTitleColorForState : function () {},
+
+/**
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchBegan : function () {},
 
 /**
  * @method setTitleColorForState
@@ -736,11 +761,10 @@ setTitleLabelDispatchTable : function () {},
 getTitleLabel : function () {},
 
 /**
- * @method ccTouchCancelled
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
+ * @method getPreferredSize
+ * @return A value converted from C/C++ "cocos2d::Size"
  */
-ccTouchCancelled : function () {},
+getPreferredSize : function () {},
 
 /**
  * @method getVerticalMargin
@@ -814,6 +838,13 @@ isClippingToBounds : function () {},
 setContainer : function () {},
 
 /**
+ * @method onTouchEnded
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchEnded : function () {},
+
+/**
  * @method setContentOffsetInDuration
  * @param {cocos2d::Point}
  * @param {float}
@@ -828,25 +859,10 @@ setContentOffsetInDuration : function () {},
 setZoomScaleInDuration : function () {},
 
 /**
- * @method ccTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchBegan : function () {},
-
-/**
  * @method getContainer
  * @return A value converted from C/C++ "cocos2d::Node*"
  */
 getContainer : function () {},
-
-/**
- * @method ccTouchEnded
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchEnded : function () {},
 
 /**
  * @method getDirection
@@ -923,17 +939,17 @@ isBounceable : function () {},
 getContentSize : function () {},
 
 /**
- * @method ccTouchMoved
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchMoved : function () {},
-
-/**
  * @method setTouchEnabled
  * @param {bool}
  */
 setTouchEnabled : function () {},
+
+/**
+ * @method onTouchMoved
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchMoved : function () {},
 
 /**
  * @method getContentOffset
@@ -960,6 +976,13 @@ setClippingToBounds : function () {},
 setViewSize : function () {},
 
 /**
+ * @method onTouchCancelled
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchCancelled : function () {},
+
+/**
  * @method getViewSize
  * @return A value converted from C/C++ "cocos2d::Size"
  */
@@ -978,6 +1001,14 @@ maxContainerOffset : function () {},
 setContentSize : function () {},
 
 /**
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchBegan : function () {},
+
+/**
  * @method isTouchMoved
  * @return A value converted from C/C++ "bool"
  */
@@ -991,22 +1022,10 @@ isTouchMoved : function () {},
 isNodeVisible : function () {},
 
 /**
- * @method ccTouchCancelled
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchCancelled : function () {},
-
-/**
  * @method minContainerOffset
  * @return A value converted from C/C++ "cocos2d::Point"
  */
 minContainerOffset : function () {},
-
-/**
- * @method registerWithTouchDispatcher
- */
-registerWithTouchDispatcher : function () {},
 
 /**
  * @method ScrollView
@@ -1287,18 +1306,31 @@ setHue : function () {},
 getStartPos : function () {},
 
 /**
+ * @method onTouchMoved
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchMoved : function () {},
+
+/**
  * @method getHue
  * @return A value converted from C/C++ "float"
  */
 getHue : function () {},
 
 /**
- * @method ccTouchBegan
+ * @method getSlider
+ * @return A value converted from C/C++ "cocos2d::Sprite*"
+ */
+getSlider : function () {},
+
+/**
+ * @method onTouchBegan
  * @return A value converted from C/C++ "bool"
  * @param {cocos2d::Touch*}
  * @param {cocos2d::Event*}
  */
-ccTouchBegan : function () {},
+onTouchBegan : function () {},
 
 /**
  * @method setBackground
@@ -1317,19 +1349,6 @@ setHuePercentage : function () {},
  * @return A value converted from C/C++ "cocos2d::Sprite*"
  */
 getBackground : function () {},
-
-/**
- * @method ccTouchMoved
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchMoved : function () {},
-
-/**
- * @method getSlider
- * @return A value converted from C/C++ "cocos2d::Sprite*"
- */
-getSlider : function () {},
 
 /**
  * @method getHuePercentage
@@ -1535,6 +1554,20 @@ cc.ControlPotentiometer = {
 setPreviousLocation : function () {},
 
 /**
+ * @method onTouchEnded
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchEnded : function () {},
+
+/**
+ * @method onTouchMoved
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchMoved : function () {},
+
+/**
  * @method setProgressTimer
  * @param {cocos2d::ProgressTimer*}
  */
@@ -1545,13 +1578,6 @@ setProgressTimer : function () {},
  * @param {cocos2d::Point}
  */
 potentiometerMoved : function () {},
-
-/**
- * @method ccTouchEnded
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchEnded : function () {},
 
 /**
  * @method getMinimumValue
@@ -1566,19 +1592,16 @@ getMinimumValue : function () {},
 setThumbSprite : function () {},
 
 /**
- * @method ccTouchMoved
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
+ * @method setMinimumValue
+ * @param {float}
  */
-ccTouchMoved : function () {},
+setMinimumValue : function () {},
 
 /**
- * @method ccTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
+ * @method getPreviousLocation
+ * @return A value converted from C/C++ "cocos2d::Point"
  */
-ccTouchBegan : function () {},
+getPreviousLocation : function () {},
 
 /**
  * @method setEnabled
@@ -1599,10 +1622,22 @@ setValue : function () {},
 setMaximumValue : function () {},
 
 /**
- * @method setMinimumValue
- * @param {float}
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
  */
-setMinimumValue : function () {},
+onTouchBegan : function () {},
+
+/**
+ * @method angleInDegreesBetweenLineFromPoint_toPoint_toLineFromPoint_toPoint
+ * @return A value converted from C/C++ "float"
+ * @param {cocos2d::Point}
+ * @param {cocos2d::Point}
+ * @param {cocos2d::Point}
+ * @param {cocos2d::Point}
+ */
+angleInDegreesBetweenLineFromPoint_toPoint_toLineFromPoint_toPoint : function () {},
 
 /**
  * @method potentiometerEnded
@@ -1629,16 +1664,6 @@ getProgressTimer : function () {},
  * @return A value converted from C/C++ "float"
  */
 getMaximumValue : function () {},
-
-/**
- * @method angleInDegreesBetweenLineFromPoint_toPoint_toLineFromPoint_toPoint
- * @return A value converted from C/C++ "float"
- * @param {cocos2d::Point}
- * @param {cocos2d::Point}
- * @param {cocos2d::Point}
- * @param {cocos2d::Point}
- */
-angleInDegreesBetweenLineFromPoint_toPoint_toLineFromPoint_toPoint : function () {},
 
 /**
  * @method isTouchInside
@@ -1673,12 +1698,6 @@ getThumbSprite : function () {},
  * @param {cocos2d::Sprite*}
  */
 initWithTrackSprite_ProgressTimer_ThumbSprite : function () {},
-
-/**
- * @method getPreviousLocation
- * @return A value converted from C/C++ "cocos2d::Point"
- */
-getPreviousLocation : function () {},
 
 /**
  * @method create
@@ -1846,18 +1865,17 @@ ControlSlider : function () {},
 cc.ControlStepper = {
 
 /**
+ * @method onTouchEnded
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchEnded : function () {},
+
+/**
  * @method setMinusSprite
  * @param {cocos2d::Sprite*}
  */
 setMinusSprite : function () {},
-
-/**
- * @method ccTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchBegan : function () {},
 
 /**
  * @method getMinusLabel
@@ -1870,13 +1888,6 @@ getMinusLabel : function () {},
  * @param {bool}
  */
 setWraps : function () {},
-
-/**
- * @method ccTouchEnded
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchEnded : function () {},
 
 /**
  * @method isContinuous
@@ -1915,17 +1926,16 @@ getPlusLabel : function () {},
 stopAutorepeat : function () {},
 
 /**
- * @method ccTouchMoved
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchMoved : function () {},
-
-/**
- * @method setMaximumValue
+ * @method setMinimumValue
  * @param {double}
  */
-setMaximumValue : function () {},
+setMinimumValue : function () {},
+
+/**
+ * @method getPlusSprite
+ * @return A value converted from C/C++ "cocos2d::Sprite*"
+ */
+getPlusSprite : function () {},
 
 /**
  * @method setPlusSprite
@@ -1940,6 +1950,13 @@ setPlusSprite : function () {},
 setMinusLabel : function () {},
 
 /**
+ * @method onTouchMoved
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchMoved : function () {},
+
+/**
  * @method setValue
  * @param {double}
  */
@@ -1952,10 +1969,10 @@ setValue : function () {},
 setStepValue : function () {},
 
 /**
- * @method getPlusSprite
- * @return A value converted from C/C++ "cocos2d::Sprite*"
+ * @method setMaximumValue
+ * @param {double}
  */
-getPlusSprite : function () {},
+setMaximumValue : function () {},
 
 /**
  * @method update
@@ -1964,10 +1981,12 @@ getPlusSprite : function () {},
 update : function () {},
 
 /**
- * @method setMinimumValue
- * @param {double}
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
  */
-setMinimumValue : function () {},
+onTouchBegan : function () {},
 
 /**
  * @method startAutorepeat
@@ -2022,12 +2041,25 @@ cc.ControlSwitch = {
 setEnabled : function () {},
 
 /**
- * @method ccTouchBegan
- * @return A value converted from C/C++ "bool"
+ * @method onTouchEnded
  * @param {cocos2d::Touch*}
  * @param {cocos2d::Event*}
  */
-ccTouchBegan : function () {},
+onTouchEnded : function () {},
+
+/**
+ * @method onTouchMoved
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchMoved : function () {},
+
+/**
+ * @method onTouchCancelled
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchCancelled : function () {},
 
 /**
  * @method isOn
@@ -2036,31 +2068,18 @@ ccTouchBegan : function () {},
 isOn : function () {},
 
 /**
- * @method ccTouchCancelled
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchCancelled : function () {},
-
-/**
- * @method ccTouchEnded
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchEnded : function () {},
-
-/**
- * @method ccTouchMoved
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchMoved : function () {},
-
-/**
  * @method hasMoved
  * @return A value converted from C/C++ "bool"
  */
 hasMoved : function () {},
+
+/**
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchBegan : function () {},
 
 /**
  * @method locationFromTouch
@@ -2131,6 +2150,13 @@ cc.TableView = {
 updateCellAtIndex : function () {},
 
 /**
+ * @method onTouchEnded
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchEnded : function () {},
+
+/**
  * @method setVerticalFillOrder
  * @param {cocos2d::extension::TableView::VerticalFillOrder}
  */
@@ -2143,12 +2169,9 @@ setVerticalFillOrder : function () {},
 scrollViewDidZoom : function () {},
 
 /**
- * @method ccTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
+ * @method _updateContentSize
  */
-ccTouchBegan : function () {},
+_updateContentSize : function () {},
 
 /**
  * @method getVerticalFillOrder
@@ -2182,30 +2205,26 @@ scrollViewDidScroll : function () {},
 reloadData : function () {},
 
 /**
- * @method ccTouchCancelled
+ * @method onTouchMoved
  * @param {cocos2d::Touch*}
  * @param {cocos2d::Event*}
  */
-ccTouchCancelled : function () {},
+onTouchMoved : function () {},
 
 /**
- * @method ccTouchEnded
+ * @method onTouchCancelled
  * @param {cocos2d::Touch*}
  * @param {cocos2d::Event*}
  */
-ccTouchEnded : function () {},
+onTouchCancelled : function () {},
 
 /**
- * @method ccTouchMoved
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
  * @param {cocos2d::Touch*}
  * @param {cocos2d::Event*}
  */
-ccTouchMoved : function () {},
-
-/**
- * @method _updateContentSize
- */
-_updateContentSize : function () {},
+onTouchBegan : function () {},
 
 /**
  * @method insertCellAtIndex
