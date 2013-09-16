@@ -6873,14 +6873,6 @@ appendChild : function () {},
 reorderBatch : function () {},
 
 /**
- * @method addChild
- * @param {cocos2d::Node*}
- * @param {int}
- * @param {int}
- */
-addChild : function () {},
-
-/**
  * @method visit
  */
 visit : function () {},
