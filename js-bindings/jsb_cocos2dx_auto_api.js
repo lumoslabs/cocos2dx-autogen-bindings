@@ -921,6 +921,12 @@ getChildrenCount : function () {},
 setAnchorPoint : function () {},
 
 /**
+ * @method getEventPriority
+ * @return A value converted from C/C++ "int"
+ */
+getEventPriority : function () {},
+
+/**
  * @method convertToNodeSpaceAR
  * @return A value converted from C/C++ "cocos2d::Point"
  * @param {cocos2d::Point}
@@ -6032,12 +6038,6 @@ getSecondsPerFrame : function () {},
 convertToUI : function () {},
 
 /**
- * @method setAccelerometer
- * @param {cocos2d::Accelerometer*}
- */
-setAccelerometer : function () {},
-
-/**
  * @method setDefaultValues
  */
 setDefaultValues : function () {},
@@ -7537,19 +7537,6 @@ createWithTTF : function () {},
 cc.Layer = {
 
 /**
- * @method keyBackClicked
- */
-keyBackClicked : function () {},
-
-/**
- * @method ccTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchBegan : function () {},
-
-/**
  * @method isKeyboardEnabled
  * @return A value converted from C/C++ "bool"
  */
@@ -7560,20 +7547,6 @@ isKeyboardEnabled : function () {},
  * @param {double}
  */
 setAccelerometerInterval : function () {},
-
-/**
- * @method ccTouchesCancelled
- * @param {cocos2d::Set*}
- * @param {cocos2d::Event*}
- */
-ccTouchesCancelled : function () {},
-
-/**
- * @method ccTouchesMoved
- * @param {cocos2d::Set*}
- * @param {cocos2d::Event*}
- */
-ccTouchesMoved : function () {},
 
 /**
  * @method isSwallowsTouches
@@ -7588,12 +7561,6 @@ isSwallowsTouches : function () {},
 getTouchMode : function () {},
 
 /**
- * @method setAccelerometerEnabled
- * @param {bool}
- */
-setAccelerometerEnabled : function () {},
-
-/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
@@ -7604,13 +7571,6 @@ init : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isTouchEnabled : function () {},
-
-/**
- * @method ccTouchMoved
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchMoved : function () {},
 
 /**
  * @method setTouchEnabled
@@ -7625,19 +7585,6 @@ setTouchEnabled : function () {},
 setKeyboardEnabled : function () {},
 
 /**
- * @method isKeypadEnabled
- * @return A value converted from C/C++ "bool"
- */
-isKeypadEnabled : function () {},
-
-/**
- * @method ccTouchesEnded
- * @param {cocos2d::Set*}
- * @param {cocos2d::Event*}
- */
-ccTouchesEnded : function () {},
-
-/**
  * @method setTouchMode
  * @param {cocos2d::Touch::DispatchMode}
  */
@@ -7650,59 +7597,16 @@ setTouchMode : function () {},
 isAccelerometerEnabled : function () {},
 
 /**
- * @method ccTouchEnded
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchEnded : function () {},
-
-/**
- * @method ccTouchCancelled
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchCancelled : function () {},
-
-/**
  * @method setSwallowsTouches
  * @param {bool}
  */
 setSwallowsTouches : function () {},
 
 /**
- * @method ccTouchesBegan
- * @param {cocos2d::Set*}
- * @param {cocos2d::Event*}
- */
-ccTouchesBegan : function () {},
-
-/**
- * @method setTouchPriority
- * @param {int}
- */
-setTouchPriority : function () {},
-
-/**
- * @method getTouchPriority
- * @return A value converted from C/C++ "int"
- */
-getTouchPriority : function () {},
-
-/**
- * @method setKeypadEnabled
+ * @method setAccelerometerEnabled
  * @param {bool}
  */
-setKeypadEnabled : function () {},
-
-/**
- * @method registerWithTouchDispatcher
- */
-registerWithTouchDispatcher : function () {},
-
-/**
- * @method keyMenuClicked
- */
-keyMenuClicked : function () {},
+setAccelerometerEnabled : function () {},
 
 /**
  * @method create
@@ -9349,21 +9253,6 @@ initWithArray : function () {},
 alignItemsVertically : function () {},
 
 /**
- * @method ccTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchBegan : function () {},
-
-/**
- * @method ccTouchEnded
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchEnded : function () {},
-
-/**
  * @method isOpacityModifyRGB
  * @return A value converted from C/C++ "bool"
  */
@@ -9411,20 +9300,6 @@ alignItemsHorizontally : function () {},
 setEnabled : function () {},
 
 /**
- * @method ccTouchMoved
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchMoved : function () {},
-
-/**
- * @method ccTouchCancelled
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-ccTouchCancelled : function () {},
-
-/**
  * @method removeChild
  * @param {cocos2d::Node*}
  * @param {bool}
@@ -9436,11 +9311,6 @@ removeChild : function () {},
  * @param {float}
  */
 alignItemsVerticallyWithPadding : function () {},
-
-/**
- * @method registerWithTouchDispatcher
- */
-registerWithTouchDispatcher : function () {},
 
 /**
  * @method Menu
