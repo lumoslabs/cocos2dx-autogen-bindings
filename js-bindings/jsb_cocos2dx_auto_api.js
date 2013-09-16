@@ -9257,12 +9257,6 @@ isEnabled : function () {},
 setOpacityModifyRGB : function () {},
 
 /**
- * @method setHandlerPriority
- * @param {int}
- */
-setHandlerPriority : function () {},
-
-/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
