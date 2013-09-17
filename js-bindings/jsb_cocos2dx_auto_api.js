@@ -6474,6 +6474,12 @@ getBatchNode : function () {},
 getOffsetPosition : function () {},
 
 /**
+ * @method setPhysicsBody
+ * @param {cocos2d::PhysicsBody*}
+ */
+setPhysicsBody : function () {},
+
+/**
  * @method isOpacityModifyRGB
  * @return A value converted from C/C++ "bool"
  */
@@ -6484,6 +6490,11 @@ isOpacityModifyRGB : function () {},
  * @param {unsigned char}
  */
 updateDisplayedOpacity : function () {},
+
+/**
+ * @method visit
+ */
+visit : function () {},
 
 /**
  * @method initWithSpriteFrameName
@@ -6577,6 +6588,12 @@ updateDisplayedColor : function () {},
  * @param {bool}
  */
 setDirty : function () {},
+
+/**
+ * @method getPhysicsBody
+ * @return A value converted from C/C++ "cocos2d::PhysicsBody*"
+ */
+getPhysicsBody : function () {},
 
 /**
  * @method isTextureRectRotated
@@ -7901,6 +7918,24 @@ LayerMultiplex : function () {},
 cc.Scene = {
 
 /**
+ * @method initWithPhysics
+ * @return A value converted from C/C++ "bool"
+ */
+initWithPhysics : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method getPhysicsWorld
+ * @return A value converted from C/C++ "cocos2d::PhysicsWorld*"
+ */
+getPhysicsWorld : function () {},
+
+/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
@@ -7911,6 +7946,12 @@ init : function () {},
  * @return A value converted from C/C++ "cocos2d::Scene*"
  */
 create : function () {},
+
+/**
+ * @method createWithPhysics
+ * @return A value converted from C/C++ "cocos2d::Scene*"
+ */
+createWithPhysics : function () {},
 
 /**
  * @method Scene
