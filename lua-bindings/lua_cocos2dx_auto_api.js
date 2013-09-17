@@ -6999,12 +6999,6 @@ rebuildIndexInOrder : function () {},
 getTextureAtlas : function () {},
 
 /**
- * @method getDescendants
- * @return A value converted from C/C++ "std::vector<cocos2d::Sprite *, std::allocator<cocos2d::Sprite *> >"
- */
-getDescendants : function () {},
-
-/**
  * @method removeChild
  * @param {cocos2d::Node*}
  * @param {bool}
