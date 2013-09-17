@@ -56460,46 +56460,6 @@ int lua_cocos2dx_Layer_isTouchEnabled(lua_State* tolua_S)
 #endif
     return 0;
 }
-int lua_cocos2dx_Layer_onRegisterTouchListener(lua_State* tolua_S)
-{
-    int argc = 0;
-    cocos2d::Layer* cobj = nullptr;
-    bool ok  = true;
-
-#if COCOS2D_DEBUG >= 1
-    tolua_Error tolua_err;
-#endif
-
-#if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"Layer",0,&tolua_err)) goto tolua_lerror;
-#endif
-
-    cobj = (cocos2d::Layer*)tolua_tousertype(tolua_S,1,0);
-
-#if COCOS2D_DEBUG >= 1
-    if (!cobj) 
-    {
-        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_Layer_onRegisterTouchListener'", NULL);
-        return 0;
-    }
-#endif
-
-    argc = lua_gettop(tolua_S)-1;
-    if (argc == 0) 
-    {
-        if(!ok)
-            return 0;
-        cobj->onRegisterTouchListener();
-        return 0;
-    }
-    CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "onRegisterTouchListener",argc, 0);
-    return 0;
-#if COCOS2D_DEBUG >= 1
-    tolua_lerror:
-    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_Layer_onRegisterTouchListener'.",&tolua_err);
-#endif
-    return 0;
-}
 int lua_cocos2dx_Layer_setTouchEnabled(lua_State* tolua_S)
 {
     int argc = 0;
@@ -57255,7 +57215,6 @@ int lua_register_cocos2dx_Layer(lua_State* tolua_S)
         tolua_function(tolua_S,"init",lua_cocos2dx_Layer_init);
         tolua_function(tolua_S,"onKeyPressed",lua_cocos2dx_Layer_onKeyPressed);
         tolua_function(tolua_S,"isTouchEnabled",lua_cocos2dx_Layer_isTouchEnabled);
-        tolua_function(tolua_S,"onRegisterTouchListener",lua_cocos2dx_Layer_onRegisterTouchListener);
         tolua_function(tolua_S,"setTouchEnabled",lua_cocos2dx_Layer_setTouchEnabled);
         tolua_function(tolua_S,"onTouchMoved",lua_cocos2dx_Layer_onTouchMoved);
         tolua_function(tolua_S,"onTouchesEnded",lua_cocos2dx_Layer_onTouchesEnded);
