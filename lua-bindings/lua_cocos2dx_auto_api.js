@@ -7618,11 +7618,6 @@ onKeyPressed : function () {},
 isTouchEnabled : function () {},
 
 /**
- * @method onRegisterTouchListener
- */
-onRegisterTouchListener : function () {},
-
-/**
  * @method setTouchEnabled
  * @param {bool}
  */
