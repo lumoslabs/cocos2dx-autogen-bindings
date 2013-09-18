@@ -34105,23 +34105,6 @@ JSBool js_cocos2dx_SpriteBatchNode_getTextureAtlas(JSContext *cx, uint32_t argc,
 	JS_ReportError(cx, "js_cocos2dx_SpriteBatchNode_getTextureAtlas : wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_SpriteBatchNode_getDescendants(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::SpriteBatchNode* cobj = (cocos2d::SpriteBatchNode *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_getDescendants : Invalid Native Object");
-	if (argc == 0) {
-		std::vector<cocos2d::Sprite *, std::allocator<cocos2d::Sprite *> > ret = cobj->getDescendants();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR const vector;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "js_cocos2dx_SpriteBatchNode_getDescendants : wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_SpriteBatchNode_removeChild(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -34364,7 +34347,6 @@ void js_register_cocos2dx_SpriteBatchNode(JSContext *cx, JSObject *global) {
 		JS_FN("reorderChild", js_cocos2dx_SpriteBatchNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("rebuildIndexInOrder", js_cocos2dx_SpriteBatchNode_rebuildIndexInOrder, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTextureAtlas", js_cocos2dx_SpriteBatchNode_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getDescendants", js_cocos2dx_SpriteBatchNode_getDescendants, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeChild", js_cocos2dx_SpriteBatchNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("highestAtlasIndexInChild", js_cocos2dx_SpriteBatchNode_highestAtlasIndexInChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_SpriteBatchNode_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
