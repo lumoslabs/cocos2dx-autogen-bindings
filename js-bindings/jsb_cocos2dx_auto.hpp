@@ -1960,7 +1960,6 @@ JSBool js_cocos2dx_SpriteBatchNode_sortAllChildren(JSContext *cx, uint32_t argc,
 JSBool js_cocos2dx_SpriteBatchNode_reorderChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_rebuildIndexInOrder(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_getTextureAtlas(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_SpriteBatchNode_getDescendants(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_removeChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_highestAtlasIndexInChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_create(JSContext *cx, uint32_t argc, jsval *vp);
