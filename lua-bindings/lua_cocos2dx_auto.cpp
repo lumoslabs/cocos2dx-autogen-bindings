@@ -56595,7 +56595,7 @@ int lua_cocos2dx_Layer_onKeyPressed(lua_State* tolua_S)
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
-        cocos2d::KeyboardEvent::KeyCode arg0;
+        cocos2d::EventKeyboard::KeyCode arg0;
         cocos2d::Event* arg1;
         ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0);
         do {
@@ -57096,7 +57096,7 @@ int lua_cocos2dx_Layer_onKeyReleased(lua_State* tolua_S)
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
-        cocos2d::KeyboardEvent::KeyCode arg0;
+        cocos2d::EventKeyboard::KeyCode arg0;
         cocos2d::Event* arg1;
         ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0);
         do {

@@ -7617,7 +7617,7 @@ init : function () {},
 
 /**
  * @method onKeyPressed
- * @param {cocos2d::KeyboardEvent::KeyCode}
+ * @param {cocos2d::EventKeyboard::KeyCode}
  * @param {cocos2d::Event*}
  */
 onKeyPressed : function () {},
@@ -7683,7 +7683,7 @@ isAccelerometerEnabled : function () {},
 
 /**
  * @method onKeyReleased
- * @param {cocos2d::KeyboardEvent::KeyCode}
+ * @param {cocos2d::EventKeyboard::KeyCode}
  * @param {cocos2d::Event*}
  */
 onKeyReleased : function () {},
