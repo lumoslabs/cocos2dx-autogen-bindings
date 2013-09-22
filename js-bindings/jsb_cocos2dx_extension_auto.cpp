@@ -10714,9 +10714,8 @@ JSBool js_cocos2dx_extension_AssetsManager_create(JSContext *cx, uint32_t argc, 
 		do {
 			std::shared_ptr<JSFunctionWrapper> func(new JSFunctionWrapper(cx, JS_THIS_OBJECT(cx, vp), argv[5]));
 			auto lambda = [=]() -> void {
-				jsval largv[0];
 				jsval rval;
-				JSBool ok = func->invoke(0, &largv[0], rval);
+				JSBool ok = func->invoke(0, nullptr, rval);
 				if (!ok && JS_IsExceptionPending(cx)) {
 					JS_ReportPendingException(cx);
 				}
