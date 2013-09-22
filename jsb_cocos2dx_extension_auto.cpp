@@ -7223,6 +7223,26 @@ JSBool js_cocos2dx_extension_CCBone_updateZOrder(JSContext *cx, uint32_t argc, j
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_extension_CCBone_setTransformDirty(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCBone* cobj = (cocos2d::extension::CCBone *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setTransformDirty(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_extension_CCBone_getDisplayRenderNode(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -7344,7 +7364,7 @@ JSBool js_cocos2dx_extension_CCBone_getName(JSContext *cx, uint32_t argc, jsval 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_extension_CCBone_setTransformDirty(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_extension_CCBone_setOpacity(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
@@ -7353,10 +7373,10 @@ JSBool js_cocos2dx_extension_CCBone_setTransformDirty(JSContext *cx, uint32_t ar
 	cocos2d::extension::CCBone* cobj = (cocos2d::extension::CCBone *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		uint16_t arg0;
+		ok &= jsval_to_uint16(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setTransformDirty(arg0);
+		cobj->setOpacity(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -7785,6 +7805,26 @@ JSBool js_cocos2dx_extension_CCBone_addDisplay(JSContext *cx, uint32_t argc, jsv
 	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_extension_CCBone_setColor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCBone* cobj = (cocos2d::extension::CCBone *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::ccColor3B arg0;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setColor(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_extension_CCBone_removeChildBone(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -8099,13 +8139,14 @@ void js_register_cocos2dx_extension_CCBone(JSContext *cx, JSObject *global) {
 		JS_FN("nodeToWorldTransform", js_cocos2dx_extension_CCBone_nodeToWorldTransform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isTransformDirty", js_cocos2dx_extension_CCBone_isTransformDirty, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updateZOrder", js_cocos2dx_extension_CCBone_updateZOrder, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTransformDirty", js_cocos2dx_extension_CCBone_setTransformDirty, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDisplayRenderNode", js_cocos2dx_extension_CCBone_getDisplayRenderNode, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTween", js_cocos2dx_extension_CCBone_getTween, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getParentBone", js_cocos2dx_extension_CCBone_getParentBone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getBlendType", js_cocos2dx_extension_CCBone_getBlendType, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updateColor", js_cocos2dx_extension_CCBone_updateColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getName", js_cocos2dx_extension_CCBone_getName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setTransformDirty", js_cocos2dx_extension_CCBone_setTransformDirty, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_extension_CCBone_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addChildBone", js_cocos2dx_extension_CCBone_addChildBone, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updateDisplayedOpacity", js_cocos2dx_extension_CCBone_updateDisplayedOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_extension_CCBone_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -8123,6 +8164,7 @@ void js_register_cocos2dx_extension_CCBone(JSContext *cx, JSObject *global) {
 		JS_FN("setBoneData", js_cocos2dx_extension_CCBone_setBoneData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setArmature", js_cocos2dx_extension_CCBone_setArmature, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addDisplay", js_cocos2dx_extension_CCBone_addDisplay, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_extension_CCBone_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeChildBone", js_cocos2dx_extension_CCBone_removeChildBone, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setChildArmature", js_cocos2dx_extension_CCBone_setChildArmature, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDisplayManager", js_cocos2dx_extension_CCBone_getDisplayManager, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
