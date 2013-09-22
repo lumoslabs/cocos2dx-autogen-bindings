@@ -1563,6 +1563,12 @@ isTransformDirty : function () {},
 updateZOrder : function () {},
 
 /**
+ * @method setTransformDirty
+ * @param {bool}
+ */
+setTransformDirty : function () {},
+
+/**
  * @method getDisplayRenderNode
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
@@ -1598,10 +1604,10 @@ updateColor : function () {},
 getName : function () {},
 
 /**
- * @method setTransformDirty
- * @param {bool}
+ * @method setOpacity
+ * @param {unsigned char}
  */
-setTransformDirty : function () {},
+setOpacity : function () {},
 
 /**
  * @method addChildBone
@@ -1692,6 +1698,12 @@ setBoneData : function () {},
  * @param {cocos2d::extension::CCArmature*}
  */
 setArmature : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::ccColor3B}
+ */
+setColor : function () {},
 
 /**
  * @method removeChildBone
