@@ -1114,12 +1114,6 @@ getVertexZ : function () {},
 _setZOrder : function () {},
 
 /**
- * @method setScale
- * @param {float}
- */
-setScale : function () {},
-
-/**
  * @method getChildByTag
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  * @param {int}
@@ -6333,6 +6327,12 @@ reorderBatch : function () {},
 visit : function () {},
 
 /**
+ * @method removeAllChildrenWithCleanup
+ * @param {bool}
+ */
+removeAllChildrenWithCleanup : function () {},
+
+/**
  * @method setTexture
  * @param {cocos2d::CCTexture2D*}
  */
@@ -6402,12 +6402,6 @@ initWithTexture : function () {},
  * @param {cocos2d::CCTextureAtlas*}
  */
 setTextureAtlas : function () {},
-
-/**
- * @method removeAllChildrenWithCleanup
- * @param {bool}
- */
-removeAllChildrenWithCleanup : function () {},
 
 /**
  * @method sortAllChildren
@@ -10559,6 +10553,97 @@ purgeSharedSpriteFrameCache : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSpriteFrameCache*"
  */
 sharedSpriteFrameCache : function () {},
+
+};
+
+/**
+ * @class CCTextFieldTTF
+ */
+cc.TextFieldTTF = {
+
+/**
+ * @method getCharCount
+ * @return A value converted from C/C++ "int"
+ */
+getCharCount : function () {},
+
+/**
+ * @method getDelegate
+ * @return A value converted from C/C++ "cocos2d::CCTextFieldDelegate*"
+ */
+getDelegate : function () {},
+
+/**
+ * @method setSecureTextEntry
+ * @param {bool}
+ */
+setSecureTextEntry : function () {},
+
+/**
+ * @method getString
+ * @return A value converted from C/C++ "const char*"
+ */
+getString : function () {},
+
+/**
+ * @method getColorSpaceHolder
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ */
+getColorSpaceHolder : function () {},
+
+/**
+ * @method getPlaceHolder
+ * @return A value converted from C/C++ "const char*"
+ */
+getPlaceHolder : function () {},
+
+/**
+ * @method setColorSpaceHolder
+ * @param {cocos2d::ccColor3B}
+ */
+setColorSpaceHolder : function () {},
+
+/**
+ * @method detachWithIME
+ * @return A value converted from C/C++ "bool"
+ */
+detachWithIME : function () {},
+
+/**
+ * @method setDelegate
+ * @param {cocos2d::CCTextFieldDelegate*}
+ */
+setDelegate : function () {},
+
+/**
+ * @method setPlaceHolder
+ * @param {const char*}
+ */
+setPlaceHolder : function () {},
+
+/**
+ * @method isSecureTextEntry
+ * @return A value converted from C/C++ "bool"
+ */
+isSecureTextEntry : function () {},
+
+/**
+ * @method setString
+ * @param {const char*}
+ */
+setString : function () {},
+
+/**
+ * @method attachWithIME
+ * @return A value converted from C/C++ "bool"
+ */
+attachWithIME : function () {},
+
+/**
+ * @method CCTextFieldTTF
+ * @constructor
+ */
+CCTextFieldTTF : function () {},
 
 };
 

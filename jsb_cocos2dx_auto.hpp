@@ -1838,6 +1838,7 @@ JSBool js_cocos2dx_CCSpriteBatchNode_appendChild(JSContext *cx, uint32_t argc, j
 JSBool js_cocos2dx_CCSpriteBatchNode_reorderBatch(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_addChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_visit(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSpriteBatchNode_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_setTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_removeChildAtIndex(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_removeSpriteFromAtlas(JSContext *cx, uint32_t argc, jsval *vp);
@@ -1850,7 +1851,6 @@ JSBool js_cocos2dx_CCSpriteBatchNode_lowestAtlasIndexInChild(JSContext *cx, uint
 JSBool js_cocos2dx_CCSpriteBatchNode_draw(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_initWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_setTextureAtlas(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSpriteBatchNode_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_sortAllChildren(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_reorderChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_rebuildIndexInOrder(JSContext *cx, uint32_t argc, jsval *vp);
@@ -3058,6 +3058,30 @@ JSBool js_cocos2dx_CCSpriteFrameCache_removeSpriteFramesFromTexture(JSContext *c
 JSBool js_cocos2dx_CCSpriteFrameCache_removeSpriteFrameByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteFrameCache_purgeSharedSpriteFrameCache(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteFrameCache_sharedSpriteFrameCache(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_CCTextFieldTTF_class;
+extern JSObject *jsb_CCTextFieldTTF_prototype;
+
+JSBool js_cocos2dx_CCTextFieldTTF_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCTextFieldTTF_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCTextFieldTTF(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCTextFieldTTF_getCharCount(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_getDelegate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_setSecureTextEntry(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_getString(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_getColorSpaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_initWithPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_getPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_setColorSpaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_detachWithIME(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_setDelegate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_setPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_isSecureTextEntry(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_setString(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_attachWithIME(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_textFieldWithPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextFieldTTF_CCTextFieldTTF(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCTextureCache_class;
 extern JSObject *jsb_CCTextureCache_prototype;
