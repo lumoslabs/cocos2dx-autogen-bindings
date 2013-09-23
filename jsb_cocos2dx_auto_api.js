@@ -717,12 +717,6 @@ cc.Node = {
 removeComponent : function () {},
 
 /**
- * @method nodeToWorldTransform
- * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
- */
-nodeToWorldTransform : function () {},
-
-/**
  * @method removeAllComponents
  */
 removeAllComponents : function () {},
@@ -800,6 +794,12 @@ unregisterScriptHandler : function () {},
 getTag : function () {},
 
 /**
+ * @method nodeToWorldTransform
+ * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
+ */
+nodeToWorldTransform : function () {},
+
+/**
  * @method convertToWorldSpace
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  * @param {cocos2d::CCPoint}
@@ -850,10 +850,11 @@ setParent : function () {},
 nodeToParentTransform : function () {},
 
 /**
- * @method numberOfRunningActions
- * @return A value converted from C/C++ "unsigned int"
+ * @method convertToNodeSpace
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ * @param {cocos2d::CCPoint}
  */
-numberOfRunningActions : function () {},
+convertToNodeSpace : function () {},
 
 /**
  * @method stopActionByTag
@@ -885,6 +886,12 @@ setPositionX : function () {},
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
 getAnchorPoint : function () {},
+
+/**
+ * @method numberOfRunningActions
+ * @return A value converted from C/C++ "unsigned int"
+ */
+numberOfRunningActions : function () {},
 
 /**
  * @method updateTransform
@@ -1084,6 +1091,12 @@ getPositionX : function () {},
 setVisible : function () {},
 
 /**
+ * @method parentToNodeTransform
+ * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
+ */
+parentToNodeTransform : function () {},
+
+/**
  * @method pauseSchedulerAndActions
  */
 pauseSchedulerAndActions : function () {},
@@ -1202,29 +1215,16 @@ update : function () {},
 sortAllChildren : function () {},
 
 /**
- * @method convertToNodeSpace
- * @return A value converted from C/C++ "cocos2d::CCPoint"
- * @param {cocos2d::CCPoint}
- */
-convertToNodeSpace : function () {},
-
-/**
- * @method getScale
- * @return A value converted from C/C++ "float"
- */
-getScale : function () {},
-
-/**
  * @method worldToNodeTransform
  * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
  */
 worldToNodeTransform : function () {},
 
 /**
- * @method parentToNodeTransform
- * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
+ * @method getScale
+ * @return A value converted from C/C++ "float"
  */
-parentToNodeTransform : function () {},
+getScale : function () {},
 
 /**
  * @method getCamera
@@ -11221,13 +11221,6 @@ CCTMXLayer : function () {},
 cc.TMXTiledMap = {
 
 /**
- * @method propertiesForGID
- * @return A value converted from C/C++ "cocos2d::CCDictionary*"
- * @param {int}
- */
-propertiesForGID : function () {},
-
-/**
  * @method setObjectGroups
  * @param {cocos2d::CCArray*}
  */
@@ -11250,6 +11243,13 @@ setMapSize : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getTileSize : function () {},
+
+/**
+ * @method propertiesForGID
+ * @return A value converted from C/C++ "cocos2d::CCDictionary*"
+ * @param {int}
+ */
+propertiesForGID : function () {},
 
 /**
  * @method getObjectGroups
