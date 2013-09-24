@@ -43783,7 +43783,7 @@ JSBool js_cocos2dx_CCMotionStreak_tintWithColor(JSContext *cx, uint32_t argc, js
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
 		ccColor3B arg0;
-		#pragma warning NO CONVERSION TO NATIVE FOR ccColor3B;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->tintWithColor(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
@@ -51396,6 +51396,252 @@ void js_register_cocos2dx_CCApplication(JSContext *cx, JSObject *global) {
 }
 
 
+JSClass  *jsb_CCEGLViewProtocol_class;
+JSObject *jsb_CCEGLViewProtocol_prototype;
+
+JSBool js_cocos2dx_CCEGLViewProtocol_getVisibleOrigin(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::CCEGLViewProtocol* cobj = (cocos2d::CCEGLViewProtocol *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCPoint ret = cobj->getVisibleOrigin();
+		jsval jsret;
+		jsret = ccpoint_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCEGLViewProtocol_setDesignResolutionSize(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::CCEGLViewProtocol* cobj = (cocos2d::CCEGLViewProtocol *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 3) {
+		double arg0;
+		double arg1;
+		ResolutionPolicy arg2;
+		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
+		ok &= JS_ValueToNumber(cx, argv[1], &arg1);
+		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setDesignResolutionSize(arg0, arg1, arg2);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCEGLViewProtocol_getVisibleSize(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::CCEGLViewProtocol* cobj = (cocos2d::CCEGLViewProtocol *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCSize ret = cobj->getVisibleSize();
+		jsval jsret;
+		jsret = ccsize_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+void js_cocos2dx_CCEGLViewProtocol_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEGLViewProtocol)", obj);
+}
+
+void js_register_cocos2dx_CCEGLViewProtocol(JSContext *cx, JSObject *global) {
+	jsb_CCEGLViewProtocol_class = (JSClass *)calloc(1, sizeof(JSClass));
+	jsb_CCEGLViewProtocol_class->name = "EGLViewProtocol";
+	jsb_CCEGLViewProtocol_class->addProperty = JS_PropertyStub;
+	jsb_CCEGLViewProtocol_class->delProperty = JS_PropertyStub;
+	jsb_CCEGLViewProtocol_class->getProperty = JS_PropertyStub;
+	jsb_CCEGLViewProtocol_class->setProperty = JS_StrictPropertyStub;
+	jsb_CCEGLViewProtocol_class->enumerate = JS_EnumerateStub;
+	jsb_CCEGLViewProtocol_class->resolve = JS_ResolveStub;
+	jsb_CCEGLViewProtocol_class->convert = JS_ConvertStub;
+	jsb_CCEGLViewProtocol_class->finalize = js_cocos2dx_CCEGLViewProtocol_finalize;
+	jsb_CCEGLViewProtocol_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, JSOP_NULLWRAPPER, JSOP_NULLWRAPPER}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("getVisibleOrigin", js_cocos2dx_CCEGLViewProtocol_getVisibleOrigin, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDesignResolutionSize", js_cocos2dx_CCEGLViewProtocol_setDesignResolutionSize, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getVisibleSize", js_cocos2dx_CCEGLViewProtocol_getVisibleSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
+	};
+
+	JSFunctionSpec *st_funcs = NULL;
+
+	jsb_CCEGLViewProtocol_prototype = JS_InitClass(
+		cx, global,
+		NULL, // parent proto
+		jsb_CCEGLViewProtocol_class,
+		empty_constructor, 0,
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "EGLViewProtocol", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCEGLViewProtocol> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = jsb_CCEGLViewProtocol_class;
+		p->proto = jsb_CCEGLViewProtocol_prototype;
+		p->parentProto = NULL;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
+JSClass  *jsb_CCEGLView_class;
+JSObject *jsb_CCEGLView_prototype;
+
+JSBool js_cocos2dx_CCEGLView_setIMEKeyboardState(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::CCEGLView* cobj = (cocos2d::CCEGLView *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setIMEKeyboardState(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCEGLView_isOpenGLReady(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::CCEGLView* cobj = (cocos2d::CCEGLView *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		bool ret = cobj->isOpenGLReady();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCEGLView_sharedOpenGLView(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	if (argc == 0) {
+		cocos2d::CCEGLView* ret = cocos2d::CCEGLView::sharedOpenGLView();
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCEGLView>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
+
+
+extern JSObject *jsb_CCEGLViewProtocol_prototype;
+
+void js_cocos2dx_CCEGLView_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEGLView)", obj);
+}
+
+void js_register_cocos2dx_CCEGLView(JSContext *cx, JSObject *global) {
+	jsb_CCEGLView_class = (JSClass *)calloc(1, sizeof(JSClass));
+	jsb_CCEGLView_class->name = "EGLView";
+	jsb_CCEGLView_class->addProperty = JS_PropertyStub;
+	jsb_CCEGLView_class->delProperty = JS_PropertyStub;
+	jsb_CCEGLView_class->getProperty = JS_PropertyStub;
+	jsb_CCEGLView_class->setProperty = JS_StrictPropertyStub;
+	jsb_CCEGLView_class->enumerate = JS_EnumerateStub;
+	jsb_CCEGLView_class->resolve = JS_ResolveStub;
+	jsb_CCEGLView_class->convert = JS_ConvertStub;
+	jsb_CCEGLView_class->finalize = js_cocos2dx_CCEGLView_finalize;
+	jsb_CCEGLView_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	JSPropertySpec *properties = NULL;
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("setIMEKeyboardState", js_cocos2dx_CCEGLView_setIMEKeyboardState, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isOpenGLReady", js_cocos2dx_CCEGLView_isOpenGLReady, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("getInstance", js_cocos2dx_CCEGLView_sharedOpenGLView, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
+
+	jsb_CCEGLView_prototype = JS_InitClass(
+		cx, global,
+		jsb_CCEGLViewProtocol_prototype,
+		jsb_CCEGLView_class,
+		empty_constructor, 0,
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "EGLView", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCEGLView> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = jsb_CCEGLView_class;
+		p->proto = jsb_CCEGLView_prototype;
+		p->parentProto = jsb_CCEGLViewProtocol_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
 JSClass  *jsb_CCShaderCache_class;
 JSObject *jsb_CCShaderCache_prototype;
 
@@ -57314,6 +57560,8 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCTransitionCrossFade(cx, obj);
 	js_register_cocos2dx_CCGrid3DAction(cx, obj);
 	js_register_cocos2dx_CCPageTurn3D(cx, obj);
+	js_register_cocos2dx_CCEGLViewProtocol(cx, obj);
+	js_register_cocos2dx_CCEGLView(cx, obj);
 	js_register_cocos2dx_CCEaseElasticIn(cx, obj);
 	js_register_cocos2dx_CCSpeed(cx, obj);
 	js_register_cocos2dx_CCRotateTo(cx, obj);

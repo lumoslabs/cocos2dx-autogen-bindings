@@ -3025,7 +3025,7 @@ JSBool js_cocos2dx_extension_CCControlButton_setTitleColorForState(JSContext *cx
 	if (argc == 2) {
 		ccColor3B arg0;
 		unsigned int arg1;
-		#pragma warning NO CONVERSION TO NATIVE FOR ccColor3B;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
 		ok &= jsval_to_uint32(cx, argv[1], &arg1);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setTitleColorForState(arg0, arg1);

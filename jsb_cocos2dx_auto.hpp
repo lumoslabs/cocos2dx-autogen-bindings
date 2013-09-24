@@ -3008,6 +3008,28 @@ JSBool js_cocos2dx_CCApplication_setAnimationInterval(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_CCApplication_getCurrentLanguage(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCApplication_sharedApplication(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *jsb_CCEGLViewProtocol_class;
+extern JSObject *jsb_CCEGLViewProtocol_prototype;
+
+JSBool js_cocos2dx_CCEGLViewProtocol_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCEGLViewProtocol_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCEGLViewProtocol(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCEGLViewProtocol_getVisibleOrigin(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCEGLViewProtocol_setDesignResolutionSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCEGLViewProtocol_getVisibleSize(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_CCEGLView_class;
+extern JSObject *jsb_CCEGLView_prototype;
+
+JSBool js_cocos2dx_CCEGLView_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCEGLView_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCEGLView(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCEGLView_setIMEKeyboardState(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCEGLView_isOpenGLReady(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCEGLView_sharedOpenGLView(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *jsb_CCShaderCache_class;
 extern JSObject *jsb_CCShaderCache_prototype;
 

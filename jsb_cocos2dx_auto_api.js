@@ -10381,6 +10381,58 @@ sharedApplication : function () {},
 };
 
 /**
+ * @class CCEGLViewProtocol
+ */
+cc.EGLViewProtocol = {
+
+/**
+ * @method getVisibleOrigin
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getVisibleOrigin : function () {},
+
+/**
+ * @method setDesignResolutionSize
+ * @param {float}
+ * @param {float}
+ * @param {ResolutionPolicy}
+ */
+setDesignResolutionSize : function () {},
+
+/**
+ * @method getVisibleSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getVisibleSize : function () {},
+
+};
+
+/**
+ * @class CCEGLView
+ */
+cc.EGLView = {
+
+/**
+ * @method setIMEKeyboardState
+ * @param {bool}
+ */
+setIMEKeyboardState : function () {},
+
+/**
+ * @method isOpenGLReady
+ * @return A value converted from C/C++ "bool"
+ */
+isOpenGLReady : function () {},
+
+/**
+ * @method sharedOpenGLView
+ * @return A value converted from C/C++ "cocos2d::CCEGLView*"
+ */
+sharedOpenGLView : function () {},
+
+};
+
+/**
  * @class CCShaderCache
  */
 cc.ShaderCache = {
