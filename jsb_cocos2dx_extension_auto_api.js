@@ -811,13 +811,6 @@ getDirection : function () {},
 getZoomScale : function () {},
 
 /**
- * @method getScriptHandler
- * @return A value converted from C/C++ "int"
- * @param {int}
- */
-getScriptHandler : function () {},
-
-/**
  * @method updateInset
  */
 updateInset : function () {},
@@ -841,13 +834,6 @@ pause : function () {},
  * @param {cocos2d::extension::CCScrollViewDirection}
  */
 setDirection : function () {},
-
-/**
- * @method registerScriptHandler
- * @param {int}
- * @param {int}
- */
-registerScriptHandler : function () {},
 
 /**
  * @method setBounceable
@@ -939,12 +925,6 @@ setContentSize : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isTouchMoved : function () {},
-
-/**
- * @method unregisterScriptHandler
- * @param {int}
- */
-unregisterScriptHandler : function () {},
 
 /**
  * @method isNodeVisible
@@ -2069,11 +2049,6 @@ cellAtIndex : function () {},
  * @method _updateContentSize
  */
 _updateContentSize : function () {},
-
-/**
- * @method unregisterAllScriptHandler
- */
-unregisterAllScriptHandler : function () {},
 
 /**
  * @method CCTableView
