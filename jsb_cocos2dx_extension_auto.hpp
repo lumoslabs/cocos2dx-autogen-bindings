@@ -487,6 +487,20 @@ JSBool js_cocos2dx_extension_CCEditBox_setVisible(JSContext *cx, uint32_t argc, 
 JSBool js_cocos2dx_extension_CCEditBox_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCEditBox_CCEditBox(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *jsb_CCBaseData_class;
+extern JSObject *jsb_CCBaseData_prototype;
+
+JSBool js_cocos2dx_extension_CCBaseData_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_extension_CCBaseData_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_extension_CCBaseData(JSContext *cx, JSObject *global);
+void register_all_cocos2dx_extension(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_extension_CCBaseData_getColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCBaseData_copy(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCBaseData_subtract(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCBaseData_setColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCBaseData_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCBaseData_CCBaseData(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *jsb_CCBone_class;
 extern JSObject *jsb_CCBone_prototype;
 
