@@ -2252,6 +2252,12 @@ setTransformDirty : function () {},
 getDisplayRenderNode : function () {},
 
 /**
+ * @method getWorldInfo
+ * @return A value converted from C/C++ "cocos2d::extension::CCBaseData*"
+ */
+getWorldInfo : function () {},
+
+/**
  * @method getTween
  * @return A value converted from C/C++ "cocos2d::extension::CCTween*"
  */
