@@ -811,6 +811,13 @@ getDirection : function () {},
 getZoomScale : function () {},
 
 /**
+ * @method getScriptHandler
+ * @return A value converted from C/C++ "int"
+ * @param {int}
+ */
+getScriptHandler : function () {},
+
+/**
  * @method updateInset
  */
 updateInset : function () {},
@@ -834,6 +841,13 @@ pause : function () {},
  * @param {cocos2d::extension::CCScrollViewDirection}
  */
 setDirection : function () {},
+
+/**
+ * @method registerScriptHandler
+ * @param {int}
+ * @param {int}
+ */
+registerScriptHandler : function () {},
 
 /**
  * @method setBounceable
@@ -925,6 +939,12 @@ setContentSize : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isTouchMoved : function () {},
+
+/**
+ * @method unregisterScriptHandler
+ * @param {int}
+ */
+unregisterScriptHandler : function () {},
 
 /**
  * @method isNodeVisible
@@ -1978,34 +1998,22 @@ CCTableViewCell : function () {},
 cc.TableView = {
 
 /**
- * @method updateCellAtIndex
- * @param {unsigned int}
- */
-updateCellAtIndex : function () {},
-
-/**
  * @method setVerticalFillOrder
  * @param {cocos2d::extension::CCTableViewVerticalFillOrder}
  */
 setVerticalFillOrder : function () {},
 
 /**
- * @method scrollViewDidZoom
+ * @method scrollViewDidScroll
  * @param {cocos2d::extension::CCScrollView*}
  */
-scrollViewDidZoom : function () {},
+scrollViewDidScroll : function () {},
 
 /**
- * @method getVerticalFillOrder
- * @return A value converted from C/C++ "cocos2d::extension::CCTableViewVerticalFillOrder"
- */
-getVerticalFillOrder : function () {},
-
-/**
- * @method removeCellAtIndex
+ * @method updateCellAtIndex
  * @param {unsigned int}
  */
-removeCellAtIndex : function () {},
+updateCellAtIndex : function () {},
 
 /**
  * @method initWithViewSize
@@ -2016,10 +2024,10 @@ removeCellAtIndex : function () {},
 initWithViewSize : function () {},
 
 /**
- * @method scrollViewDidScroll
- * @param {cocos2d::extension::CCScrollView*}
+ * @method removeCellAtIndex
+ * @param {unsigned int}
  */
-scrollViewDidScroll : function () {},
+removeCellAtIndex : function () {},
 
 /**
  * @method reloadData
@@ -2027,9 +2035,22 @@ scrollViewDidScroll : function () {},
 reloadData : function () {},
 
 /**
- * @method _updateContentSize
+ * @method dequeueCell
+ * @return A value converted from C/C++ "cocos2d::extension::CCTableViewCell*"
  */
-_updateContentSize : function () {},
+dequeueCell : function () {},
+
+/**
+ * @method getVerticalFillOrder
+ * @return A value converted from C/C++ "cocos2d::extension::CCTableViewVerticalFillOrder"
+ */
+getVerticalFillOrder : function () {},
+
+/**
+ * @method scrollViewDidZoom
+ * @param {cocos2d::extension::CCScrollView*}
+ */
+scrollViewDidZoom : function () {},
 
 /**
  * @method insertCellAtIndex
@@ -2045,10 +2066,14 @@ insertCellAtIndex : function () {},
 cellAtIndex : function () {},
 
 /**
- * @method dequeueCell
- * @return A value converted from C/C++ "cocos2d::extension::CCTableViewCell*"
+ * @method _updateContentSize
  */
-dequeueCell : function () {},
+_updateContentSize : function () {},
+
+/**
+ * @method unregisterAllScriptHandler
+ */
+unregisterAllScriptHandler : function () {},
 
 /**
  * @method CCTableView
