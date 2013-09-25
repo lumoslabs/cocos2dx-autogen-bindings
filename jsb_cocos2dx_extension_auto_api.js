@@ -2218,6 +2218,51 @@ CCEditBox : function () {},
 };
 
 /**
+ * @class CCBaseData
+ */
+cc.BaseData = {
+
+/**
+ * @method getColor
+ * @return A value converted from C/C++ "ccColor4B"
+ */
+getColor : function () {},
+
+/**
+ * @method copy
+ * @param {cocos2d::extension::CCBaseData*}
+ */
+copy : function () {},
+
+/**
+ * @method subtract
+ * @param {cocos2d::extension::CCBaseData*}
+ * @param {cocos2d::extension::CCBaseData*}
+ * @param {bool}
+ */
+subtract : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::ccColor4B}
+ */
+setColor : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::extension::CCBaseData*"
+ */
+create : function () {},
+
+/**
+ * @method CCBaseData
+ * @constructor
+ */
+CCBaseData : function () {},
+
+};
+
+/**
  * @class CCBone
  */
 cc.Bone = {
