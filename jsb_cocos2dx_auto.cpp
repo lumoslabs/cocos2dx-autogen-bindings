@@ -34135,23 +34135,6 @@ JSBool js_cocos2dx_CCLayerColor_draw(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLayerColor_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCLayerColor* cobj = (cocos2d::CCLayerColor *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		bool ret = cobj->isOpacityModifyRGB();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCLayerColor_setColor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -34194,7 +34177,7 @@ JSBool js_cocos2dx_CCLayerColor_changeWidthAndHeight(JSContext *cx, uint32_t arg
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLayerColor_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCLayerColor_setOpacity(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
@@ -34203,10 +34186,10 @@ JSBool js_cocos2dx_CCLayerColor_setOpacityModifyRGB(JSContext *cx, uint32_t argc
 	cocos2d::CCLayerColor* cobj = (cocos2d::CCLayerColor *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		uint16_t arg0;
+		ok &= jsval_to_uint16(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setOpacityModifyRGB(arg0);
+		cobj->setOpacity(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -34280,26 +34263,6 @@ JSBool js_cocos2dx_CCLayerColor_changeWidth(JSContext *cx, uint32_t argc, jsval 
 		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->changeWidth(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCLayerColor_setOpacity(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCLayerColor* cobj = (cocos2d::CCLayerColor *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		uint16_t arg0;
-		ok &= jsval_to_uint16(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setOpacity(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -34480,13 +34443,11 @@ void js_register_cocos2dx_CCLayerColor(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("draw", js_cocos2dx_CCLayerColor_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("isOpacityModifyRGB", js_cocos2dx_CCLayerColor_isOpacityModifyRGB, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setColor", js_cocos2dx_CCLayerColor_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("changeWidthAndHeight", js_cocos2dx_CCLayerColor_changeWidthAndHeight, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setOpacityModifyRGB", js_cocos2dx_CCLayerColor_setOpacityModifyRGB, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCLayerColor_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_CCLayerColor_initWithColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("changeWidth", js_cocos2dx_CCLayerColor_changeWidth, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setOpacity", js_cocos2dx_CCLayerColor_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setContentSize", js_cocos2dx_CCLayerColor_setContentSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("changeHeight", js_cocos2dx_CCLayerColor_changeHeight, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_CCLayerColor_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -41331,26 +41292,6 @@ JSBool js_cocos2dx_CCMenuItem_selected(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCMenuItem_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCMenuItem* cobj = (cocos2d::CCMenuItem *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setOpacityModifyRGB(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCMenuItem_getScriptTapHandler(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -41376,23 +41317,6 @@ JSBool js_cocos2dx_CCMenuItem_isSelected(JSContext *cx, uint32_t argc, jsval *vp
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
 		bool ret = cobj->isSelected();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCMenuItem_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCMenuItem* cobj = (cocos2d::CCMenuItem *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		bool ret = cobj->isOpacityModifyRGB();
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -41521,10 +41445,8 @@ void js_register_cocos2dx_CCMenuItem(JSContext *cx, JSObject *global) {
 		JS_FN("unregisterScriptTapHandler", js_cocos2dx_CCMenuItem_unregisterScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isEnabled", js_cocos2dx_CCMenuItem_isEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("selected", js_cocos2dx_CCMenuItem_selected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setOpacityModifyRGB", js_cocos2dx_CCMenuItem_setOpacityModifyRGB, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getScriptTapHandler", js_cocos2dx_CCMenuItem_getScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isSelected", js_cocos2dx_CCMenuItem_isSelected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("isOpacityModifyRGB", js_cocos2dx_CCMenuItem_isOpacityModifyRGB, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("registerScriptTapHandler", js_cocos2dx_CCMenuItem_registerScriptTapHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("unselected", js_cocos2dx_CCMenuItem_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("rect", js_cocos2dx_CCMenuItem_rect, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -42220,23 +42142,6 @@ JSBool js_cocos2dx_CCMenuItemSprite_selected(JSContext *cx, uint32_t argc, jsval
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCMenuItemSprite_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCMenuItemSprite* cobj = (cocos2d::CCMenuItemSprite *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		bool ret = cobj->isOpacityModifyRGB();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCMenuItemSprite_setNormalImage(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -42340,26 +42245,6 @@ JSBool js_cocos2dx_CCMenuItemSprite_getDisabledImage(JSContext *cx, uint32_t arg
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCMenuItemSprite_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCMenuItemSprite* cobj = (cocos2d::CCMenuItemSprite *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setOpacityModifyRGB(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCMenuItemSprite_getSelectedImage(JSContext *cx, uint32_t argc, jsval *vp)
@@ -42489,12 +42374,10 @@ void js_register_cocos2dx_CCMenuItemSprite(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("setEnabled", js_cocos2dx_CCMenuItemSprite_setEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("selected", js_cocos2dx_CCMenuItemSprite_selected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("isOpacityModifyRGB", js_cocos2dx_CCMenuItemSprite_isOpacityModifyRGB, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setNormalImage", js_cocos2dx_CCMenuItemSprite_setNormalImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDisabledImage", js_cocos2dx_CCMenuItemSprite_setDisabledImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setSelectedImage", js_cocos2dx_CCMenuItemSprite_setSelectedImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDisabledImage", js_cocos2dx_CCMenuItemSprite_getDisabledImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setOpacityModifyRGB", js_cocos2dx_CCMenuItemSprite_setOpacityModifyRGB, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getSelectedImage", js_cocos2dx_CCMenuItemSprite_getSelectedImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getNormalImage", js_cocos2dx_CCMenuItemSprite_getNormalImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("unselected", js_cocos2dx_CCMenuItemSprite_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -42785,23 +42668,6 @@ JSBool js_cocos2dx_CCMenuItemToggle_initWithItem(JSContext *cx, uint32_t argc, j
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCMenuItemToggle_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCMenuItemToggle* cobj = (cocos2d::CCMenuItemToggle *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		bool ret = cobj->isOpacityModifyRGB();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCMenuItemToggle_setSelectedIndex(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -42899,26 +42765,6 @@ JSBool js_cocos2dx_CCMenuItemToggle_selected(JSContext *cx, uint32_t argc, jsval
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCMenuItemToggle_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCMenuItemToggle* cobj = (cocos2d::CCMenuItemToggle *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setOpacityModifyRGB(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCMenuItemToggle_activate(JSContext *cx, uint32_t argc, jsval *vp)
@@ -43039,13 +42885,11 @@ void js_register_cocos2dx_CCMenuItemToggle(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("setSubItems", js_cocos2dx_CCMenuItemToggle_setSubItems, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithItem", js_cocos2dx_CCMenuItemToggle_initWithItem, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("isOpacityModifyRGB", js_cocos2dx_CCMenuItemToggle_isOpacityModifyRGB, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setSelectedIndex", js_cocos2dx_CCMenuItemToggle_setSelectedIndex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setEnabled", js_cocos2dx_CCMenuItemToggle_setEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getSelectedIndex", js_cocos2dx_CCMenuItemToggle_getSelectedIndex, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addSubItem", js_cocos2dx_CCMenuItemToggle_addSubItem, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("selected", js_cocos2dx_CCMenuItemToggle_selected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setOpacityModifyRGB", js_cocos2dx_CCMenuItemToggle_setOpacityModifyRGB, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("activate", js_cocos2dx_CCMenuItemToggle_activate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("unselected", js_cocos2dx_CCMenuItemToggle_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("selectedItem", js_cocos2dx_CCMenuItemToggle_selectedItem, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -44282,23 +44126,6 @@ JSBool js_cocos2dx_CCProgressTimer_isReverseDirection(JSContext *cx, uint32_t ar
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCProgressTimer_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCProgressTimer* cobj = (cocos2d::CCProgressTimer *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		bool ret = cobj->isOpacityModifyRGB();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCProgressTimer_setBarChangeRate(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -44317,6 +44144,43 @@ JSBool js_cocos2dx_CCProgressTimer_setBarChangeRate(JSContext *cx, uint32_t argc
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCProgressTimer_setColor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::CCProgressTimer* cobj = (cocos2d::CCProgressTimer *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::ccColor3B arg0;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setColor(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCProgressTimer_getBarChangeRate(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::CCProgressTimer* cobj = (cocos2d::CCProgressTimer *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCPoint ret = cobj->getBarChangeRate();
+		jsval jsret;
+		jsret = ccpoint_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCProgressTimer_getPercentage(JSContext *cx, uint32_t argc, jsval *vp)
@@ -44380,7 +44244,7 @@ JSBool js_cocos2dx_CCProgressTimer_getType(JSContext *cx, uint32_t argc, jsval *
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCProgressTimer_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCProgressTimer_setOpacity(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
@@ -44389,10 +44253,10 @@ JSBool js_cocos2dx_CCProgressTimer_setOpacityModifyRGB(JSContext *cx, uint32_t a
 	cocos2d::CCProgressTimer* cobj = (cocos2d::CCProgressTimer *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		uint16_t arg0;
+		ok &= jsval_to_uint16(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setOpacityModifyRGB(arg0);
+		cobj->setOpacity(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -44461,16 +44325,33 @@ JSBool js_cocos2dx_CCProgressTimer_getMidpoint(JSContext *cx, uint32_t argc, jsv
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCProgressTimer_getBarChangeRate(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCProgressTimer_getColor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy = jsb_get_js_proxy(obj);
 	cocos2d::CCProgressTimer* cobj = (cocos2d::CCProgressTimer *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::CCPoint ret = cobj->getBarChangeRate();
+		cocos2d::ccColor3B ret = cobj->getColor();
 		jsval jsret;
-		jsret = ccpoint_to_jsval(cx, ret);
+		jsret = cccolor3b_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCProgressTimer_getOpacity(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::CCProgressTimer* cobj = (cocos2d::CCProgressTimer *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		unsigned char ret = cobj->getOpacity();
+		jsval jsret;
+		jsret = uint32_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -44680,16 +44561,18 @@ void js_register_cocos2dx_CCProgressTimer(JSContext *cx, JSObject *global) {
 		JS_FN("setAnchorPoint", js_cocos2dx_CCProgressTimer_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("draw", js_cocos2dx_CCProgressTimer_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isReverseDirection", js_cocos2dx_CCProgressTimer_isReverseDirection, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("isOpacityModifyRGB", js_cocos2dx_CCProgressTimer_isOpacityModifyRGB, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setBarChangeRate", js_cocos2dx_CCProgressTimer_setBarChangeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCProgressTimer_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getBarChangeRate", js_cocos2dx_CCProgressTimer_getBarChangeRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getPercentage", js_cocos2dx_CCProgressTimer_getPercentage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setSprite", js_cocos2dx_CCProgressTimer_setSprite, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getType", js_cocos2dx_CCProgressTimer_getType, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setOpacityModifyRGB", js_cocos2dx_CCProgressTimer_setOpacityModifyRGB, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCProgressTimer_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getSprite", js_cocos2dx_CCProgressTimer_getSprite, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setMidpoint", js_cocos2dx_CCProgressTimer_setMidpoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getMidpoint", js_cocos2dx_CCProgressTimer_getMidpoint, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getBarChangeRate", js_cocos2dx_CCProgressTimer_getBarChangeRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCProgressTimer_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCProgressTimer_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setReverseDirection", js_cocos2dx_CCProgressTimer_setReverseDirection, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithSprite", js_cocos2dx_CCProgressTimer_initWithSprite, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setPercentage", js_cocos2dx_CCProgressTimer_setPercentage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
