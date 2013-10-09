@@ -1142,12 +1142,6 @@ getVertexZ : function () {},
 _setZOrder : function () {},
 
 /**
- * @method setScale
- * @param {float}
- */
-setScale : function () {},
-
-/**
  * @method getChildByTag
  * @return A value converted from C/C++ "cocos2d::Node*"
  * @param {int}
