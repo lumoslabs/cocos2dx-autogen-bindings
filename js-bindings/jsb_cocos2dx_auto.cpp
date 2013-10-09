@@ -4768,20 +4768,39 @@ JSBool js_cocos2dx_Node_setScale(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Node* cobj = (cocos2d::Node *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_Node_setScale : Invalid Native Object");
-	if (argc == 1) {
-		double arg0;
-		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_Node_setScale : Error processing arguments");
-		cobj->setScale(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
 
-	JS_ReportError(cx, "js_cocos2dx_Node_setScale : wrong number of arguments: %d, was expecting %d", argc, 1);
+	JSObject *obj = NULL;
+	cocos2d::Node* cobj = NULL;
+	obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cobj = (cocos2d::Node *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_Node_setScale : Invalid Native Object");
+	do {
+		if (argc == 2) {
+			double arg0;
+			ok &= JS_ValueToNumber(cx, argv[0], &arg0);
+			if (!ok) { ok = JS_TRUE; break; }
+			double arg1;
+			ok &= JS_ValueToNumber(cx, argv[1], &arg1);
+			if (!ok) { ok = JS_TRUE; break; }
+			cobj->setScale(arg0, arg1);
+			JS_SET_RVAL(cx, vp, JSVAL_VOID);
+			return JS_TRUE;
+		}
+	} while(0);
+
+	do {
+		if (argc == 1) {
+			double arg0;
+			ok &= JS_ValueToNumber(cx, argv[0], &arg0);
+			if (!ok) { ok = JS_TRUE; break; }
+			cobj->setScale(arg0);
+			JS_SET_RVAL(cx, vp, JSVAL_VOID);
+			return JS_TRUE;
+		}
+	} while(0);
+
+	JS_ReportError(cx, "js_cocos2dx_Node_setScale : wrong number of arguments");
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_Node_getChildByTag(JSContext *cx, uint32_t argc, jsval *vp)
@@ -33785,6 +33804,26 @@ JSBool js_cocos2dx_SpriteBatchNode_visit(JSContext *cx, uint32_t argc, jsval *vp
 	JS_ReportError(cx, "js_cocos2dx_SpriteBatchNode_visit : wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::SpriteBatchNode* cobj = (cocos2d::SpriteBatchNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup : Invalid Native Object");
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup : Error processing arguments");
+		cobj->removeAllChildrenWithCleanup(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup : wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_SpriteBatchNode_setTexture(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -34071,26 +34110,6 @@ JSBool js_cocos2dx_SpriteBatchNode_setTextureAtlas(JSContext *cx, uint32_t argc,
 	}
 
 	JS_ReportError(cx, "js_cocos2dx_SpriteBatchNode_setTextureAtlas : wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::SpriteBatchNode* cobj = (cocos2d::SpriteBatchNode *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup : Invalid Native Object");
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup : Error processing arguments");
-		cobj->removeAllChildrenWithCleanup(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup : wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_SpriteBatchNode_sortAllChildren(JSContext *cx, uint32_t argc, jsval *vp)
@@ -34418,6 +34437,7 @@ void js_register_cocos2dx_SpriteBatchNode(JSContext *cx, JSObject *global) {
 		JS_FN("reorderBatch", js_cocos2dx_SpriteBatchNode_reorderBatch, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addChild", js_cocos2dx_SpriteBatchNode_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("visit", js_cocos2dx_SpriteBatchNode_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAllChildren", js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTexture", js_cocos2dx_SpriteBatchNode_setTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeChildAtIndex", js_cocos2dx_SpriteBatchNode_removeChildAtIndex, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeSpriteFromAtlas", js_cocos2dx_SpriteBatchNode_removeSpriteFromAtlas, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -34429,7 +34449,6 @@ void js_register_cocos2dx_SpriteBatchNode(JSContext *cx, JSObject *global) {
 		JS_FN("draw", js_cocos2dx_SpriteBatchNode_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTexture", js_cocos2dx_SpriteBatchNode_initWithTexture, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTextureAtlas", js_cocos2dx_SpriteBatchNode_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("sortAllChildren", js_cocos2dx_SpriteBatchNode_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reorderChild", js_cocos2dx_SpriteBatchNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("rebuildIndexInOrder", js_cocos2dx_SpriteBatchNode_rebuildIndexInOrder, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -55092,6 +55111,252 @@ void js_register_cocos2dx_Application(JSContext *cx, JSObject *global) {
 }
 
 
+JSClass  *jsb_EGLViewProtocol_class;
+JSObject *jsb_EGLViewProtocol_prototype;
+
+JSBool js_cocos2dx_EGLViewProtocol_getVisibleOrigin(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::EGLViewProtocol* cobj = (cocos2d::EGLViewProtocol *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_EGLViewProtocol_getVisibleOrigin : Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::Point ret = cobj->getVisibleOrigin();
+		jsval jsret;
+		jsret = ccpoint_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_EGLViewProtocol_getVisibleOrigin : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_EGLViewProtocol_setDesignResolutionSize(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::EGLViewProtocol* cobj = (cocos2d::EGLViewProtocol *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_EGLViewProtocol_setDesignResolutionSize : Invalid Native Object");
+	if (argc == 3) {
+		double arg0;
+		double arg1;
+		ResolutionPolicy arg2;
+		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
+		ok &= JS_ValueToNumber(cx, argv[1], &arg1);
+		ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_EGLViewProtocol_setDesignResolutionSize : Error processing arguments");
+		cobj->setDesignResolutionSize(arg0, arg1, arg2);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_EGLViewProtocol_setDesignResolutionSize : wrong number of arguments: %d, was expecting %d", argc, 3);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_EGLViewProtocol_getVisibleSize(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::EGLViewProtocol* cobj = (cocos2d::EGLViewProtocol *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_EGLViewProtocol_getVisibleSize : Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::Size ret = cobj->getVisibleSize();
+		jsval jsret;
+		jsret = ccsize_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_EGLViewProtocol_getVisibleSize : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+void js_cocos2dx_EGLViewProtocol_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (EGLViewProtocol)", obj);
+}
+
+void js_register_cocos2dx_EGLViewProtocol(JSContext *cx, JSObject *global) {
+	jsb_EGLViewProtocol_class = (JSClass *)calloc(1, sizeof(JSClass));
+	jsb_EGLViewProtocol_class->name = "EGLViewProtocol";
+	jsb_EGLViewProtocol_class->addProperty = JS_PropertyStub;
+	jsb_EGLViewProtocol_class->delProperty = JS_DeletePropertyStub;
+	jsb_EGLViewProtocol_class->getProperty = JS_PropertyStub;
+	jsb_EGLViewProtocol_class->setProperty = JS_StrictPropertyStub;
+	jsb_EGLViewProtocol_class->enumerate = JS_EnumerateStub;
+	jsb_EGLViewProtocol_class->resolve = JS_ResolveStub;
+	jsb_EGLViewProtocol_class->convert = JS_ConvertStub;
+	jsb_EGLViewProtocol_class->finalize = js_cocos2dx_EGLViewProtocol_finalize;
+	jsb_EGLViewProtocol_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, JSOP_NULLWRAPPER, JSOP_NULLWRAPPER}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("getVisibleOrigin", js_cocos2dx_EGLViewProtocol_getVisibleOrigin, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDesignResolutionSize", js_cocos2dx_EGLViewProtocol_setDesignResolutionSize, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getVisibleSize", js_cocos2dx_EGLViewProtocol_getVisibleSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
+	};
+
+	JSFunctionSpec *st_funcs = NULL;
+
+	jsb_EGLViewProtocol_prototype = JS_InitClass(
+		cx, global,
+		NULL, // parent proto
+		jsb_EGLViewProtocol_class,
+		empty_constructor, 0,
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "EGLViewProtocol", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::EGLViewProtocol> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = jsb_EGLViewProtocol_class;
+		p->proto = jsb_EGLViewProtocol_prototype;
+		p->parentProto = NULL;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
+JSClass  *jsb_EGLView_class;
+JSObject *jsb_EGLView_prototype;
+
+JSBool js_cocos2dx_EGLView_setIMEKeyboardState(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::EGLView* cobj = (cocos2d::EGLView *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_EGLView_setIMEKeyboardState : Invalid Native Object");
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_EGLView_setIMEKeyboardState : Error processing arguments");
+		cobj->setIMEKeyboardState(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_EGLView_setIMEKeyboardState : wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_EGLView_isOpenGLReady(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::EGLView* cobj = (cocos2d::EGLView *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_EGLView_isOpenGLReady : Invalid Native Object");
+	if (argc == 0) {
+		bool ret = cobj->isOpenGLReady();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_EGLView_isOpenGLReady : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_EGLView_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	if (argc == 0) {
+		cocos2d::EGLView* ret = cocos2d::EGLView::getInstance();
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::EGLView>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "js_cocos2dx_EGLView_getInstance : wrong number of arguments");
+	return JS_FALSE;
+}
+
+
+
+extern JSObject *jsb_EGLViewProtocol_prototype;
+
+void js_cocos2dx_EGLView_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (EGLView)", obj);
+}
+
+void js_register_cocos2dx_EGLView(JSContext *cx, JSObject *global) {
+	jsb_EGLView_class = (JSClass *)calloc(1, sizeof(JSClass));
+	jsb_EGLView_class->name = "EGLView";
+	jsb_EGLView_class->addProperty = JS_PropertyStub;
+	jsb_EGLView_class->delProperty = JS_DeletePropertyStub;
+	jsb_EGLView_class->getProperty = JS_PropertyStub;
+	jsb_EGLView_class->setProperty = JS_StrictPropertyStub;
+	jsb_EGLView_class->enumerate = JS_EnumerateStub;
+	jsb_EGLView_class->resolve = JS_ResolveStub;
+	jsb_EGLView_class->convert = JS_ConvertStub;
+	jsb_EGLView_class->finalize = js_cocos2dx_EGLView_finalize;
+	jsb_EGLView_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	JSPropertySpec *properties = NULL;
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("setIMEKeyboardState", js_cocos2dx_EGLView_setIMEKeyboardState, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isOpenGLReady", js_cocos2dx_EGLView_isOpenGLReady, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("getInstance", js_cocos2dx_EGLView_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
+
+	jsb_EGLView_prototype = JS_InitClass(
+		cx, global,
+		jsb_EGLViewProtocol_prototype,
+		jsb_EGLView_class,
+		empty_constructor, 0,
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "EGLView", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::EGLView> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = jsb_EGLView_class;
+		p->proto = jsb_EGLView_prototype;
+		p->parentProto = jsb_EGLViewProtocol_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
 JSClass  *jsb_ShaderCache_class;
 JSObject *jsb_ShaderCache_prototype;
 
@@ -55926,6 +56191,496 @@ void js_register_cocos2dx_SpriteFrameCache(JSContext *cx, JSObject *global) {
 		p->jsclass = jsb_SpriteFrameCache_class;
 		p->proto = jsb_SpriteFrameCache_prototype;
 		p->parentProto = NULL;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
+JSClass  *jsb_TextFieldTTF_class;
+JSObject *jsb_TextFieldTTF_prototype;
+
+JSBool js_cocos2dx_TextFieldTTF_getCharCount(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_getCharCount : Invalid Native Object");
+	if (argc == 0) {
+		int ret = cobj->getCharCount();
+		jsval jsret;
+		jsret = int32_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_getCharCount : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_getDelegate(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_getDelegate : Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::TextFieldDelegate* ret = cobj->getDelegate();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::TextFieldDelegate>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_getDelegate : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_setSecureTextEntry(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_setSecureTextEntry : Invalid Native Object");
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_setSecureTextEntry : Error processing arguments");
+		cobj->setSecureTextEntry(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_setSecureTextEntry : wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_getString(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_getString : Invalid Native Object");
+	if (argc == 0) {
+		const char* ret = cobj->getString();
+		jsval jsret;
+		jsret = c_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_getString : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_getColorSpaceHolder(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_getColorSpaceHolder : Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::Color3B ret = cobj->getColorSpaceHolder();
+		jsval jsret;
+		jsret = cccolor3b_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_getColorSpaceHolder : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_initWithPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+
+	JSObject *obj = NULL;
+	cocos2d::TextFieldTTF* cobj = NULL;
+	obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_initWithPlaceHolder : Invalid Native Object");
+	do {
+		if (argc == 3) {
+			const char* arg0;
+			std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+			if (!ok) { ok = JS_TRUE; break; }
+			const char* arg1;
+			std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+			if (!ok) { ok = JS_TRUE; break; }
+			double arg2;
+			ok &= JS_ValueToNumber(cx, argv[2], &arg2);
+			if (!ok) { ok = JS_TRUE; break; }
+			bool ret = cobj->initWithPlaceHolder(arg0, arg1, arg2);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
+			JS_SET_RVAL(cx, vp, jsret);
+			return JS_TRUE;
+		}
+	} while(0);
+
+	do {
+		if (argc == 5) {
+			const char* arg0;
+			std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+			if (!ok) { ok = JS_TRUE; break; }
+			cocos2d::Size arg1;
+			ok &= jsval_to_ccsize(cx, argv[1], &arg1);
+			if (!ok) { ok = JS_TRUE; break; }
+			cocos2d::TextHAlignment arg2;
+			ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+			if (!ok) { ok = JS_TRUE; break; }
+			const char* arg3;
+			std::string arg3_tmp; ok &= jsval_to_std_string(cx, argv[3], &arg3_tmp); arg3 = arg3_tmp.c_str();
+			if (!ok) { ok = JS_TRUE; break; }
+			double arg4;
+			ok &= JS_ValueToNumber(cx, argv[4], &arg4);
+			if (!ok) { ok = JS_TRUE; break; }
+			bool ret = cobj->initWithPlaceHolder(arg0, arg1, arg2, arg3, arg4);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
+			JS_SET_RVAL(cx, vp, jsret);
+			return JS_TRUE;
+		}
+	} while(0);
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_initWithPlaceHolder : wrong number of arguments");
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_getPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_getPlaceHolder : Invalid Native Object");
+	if (argc == 0) {
+		const char* ret = cobj->getPlaceHolder();
+		jsval jsret;
+		jsret = c_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_getPlaceHolder : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_setColorSpaceHolder(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_setColorSpaceHolder : Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::Color3B arg0;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_setColorSpaceHolder : Error processing arguments");
+		cobj->setColorSpaceHolder(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_setColorSpaceHolder : wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_detachWithIME(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_detachWithIME : Invalid Native Object");
+	if (argc == 0) {
+		bool ret = cobj->detachWithIME();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_detachWithIME : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_setDelegate(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_setDelegate : Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::TextFieldDelegate* arg0;
+		do {
+			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg0 = (cocos2d::TextFieldDelegate*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_setDelegate : Error processing arguments");
+		cobj->setDelegate(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_setDelegate : wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_setPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_setPlaceHolder : Invalid Native Object");
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_setPlaceHolder : Error processing arguments");
+		cobj->setPlaceHolder(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_setPlaceHolder : wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_isSecureTextEntry(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_isSecureTextEntry : Invalid Native Object");
+	if (argc == 0) {
+		bool ret = cobj->isSecureTextEntry();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_isSecureTextEntry : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_setString(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_setString : Invalid Native Object");
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_setString : Error processing arguments");
+		cobj->setString(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_setString : wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_attachWithIME(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::TextFieldTTF* cobj = (cocos2d::TextFieldTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_TextFieldTTF_attachWithIME : Invalid Native Object");
+	if (argc == 0) {
+		bool ret = cobj->attachWithIME();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_attachWithIME : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_textFieldWithPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	
+	do {
+		if (argc == 3) {
+			const char* arg0;
+			std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+			if (!ok) { ok = JS_TRUE; break; }
+			const char* arg1;
+			std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+			if (!ok) { ok = JS_TRUE; break; }
+			double arg2;
+			ok &= JS_ValueToNumber(cx, argv[2], &arg2);
+			if (!ok) { ok = JS_TRUE; break; }
+			cocos2d::TextFieldTTF* ret = cocos2d::TextFieldTTF::textFieldWithPlaceHolder(arg0, arg1, arg2);
+			jsval jsret;
+			do {
+				if (ret) {
+					js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::TextFieldTTF>(cx, ret);
+					jsret = OBJECT_TO_JSVAL(proxy->obj);
+				} else {
+					jsret = JSVAL_NULL;
+				}
+			} while (0);
+			JS_SET_RVAL(cx, vp, jsret);
+			return JS_TRUE;
+		}
+	} while (0);
+	
+	do {
+		if (argc == 5) {
+			const char* arg0;
+			std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+			if (!ok) { ok = JS_TRUE; break; }
+			cocos2d::Size arg1;
+			ok &= jsval_to_ccsize(cx, argv[1], &arg1);
+			if (!ok) { ok = JS_TRUE; break; }
+			cocos2d::TextHAlignment arg2;
+			ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+			if (!ok) { ok = JS_TRUE; break; }
+			const char* arg3;
+			std::string arg3_tmp; ok &= jsval_to_std_string(cx, argv[3], &arg3_tmp); arg3 = arg3_tmp.c_str();
+			if (!ok) { ok = JS_TRUE; break; }
+			double arg4;
+			ok &= JS_ValueToNumber(cx, argv[4], &arg4);
+			if (!ok) { ok = JS_TRUE; break; }
+			cocos2d::TextFieldTTF* ret = cocos2d::TextFieldTTF::textFieldWithPlaceHolder(arg0, arg1, arg2, arg3, arg4);
+			jsval jsret;
+			do {
+				if (ret) {
+					js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::TextFieldTTF>(cx, ret);
+					jsret = OBJECT_TO_JSVAL(proxy->obj);
+				} else {
+					jsret = JSVAL_NULL;
+				}
+			} while (0);
+			JS_SET_RVAL(cx, vp, jsret);
+			return JS_TRUE;
+		}
+	} while (0);
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_textFieldWithPlaceHolder : wrong number of arguments");
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_TextFieldTTF_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	if (argc == 0) {
+		cocos2d::TextFieldTTF* cobj = new cocos2d::TextFieldTTF();
+		cocos2d::Object *_ccobj = dynamic_cast<cocos2d::Object *>(cobj);
+		if (_ccobj) {
+			_ccobj->autorelease();
+		}
+		TypeTest<cocos2d::TextFieldTTF> t;
+		js_type_class_t *typeClass;
+		uint32_t typeId = t.s_id();
+		HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
+		assert(typeClass);
+		JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+		// link the native object with the javascript object
+		js_proxy_t* p = jsb_new_proxy(cobj, obj);
+		JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::TextFieldTTF");
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_TextFieldTTF_constructor : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+extern JSObject *jsb_LabelTTF_prototype;
+
+void js_cocos2dx_TextFieldTTF_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (TextFieldTTF)", obj);
+}
+
+static JSBool js_cocos2dx_TextFieldTTF_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::TextFieldTTF *nobj = new cocos2d::TextFieldTTF();
+    js_proxy_t* p = jsb_new_proxy(nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::TextFieldTTF");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
+void js_register_cocos2dx_TextFieldTTF(JSContext *cx, JSObject *global) {
+	jsb_TextFieldTTF_class = (JSClass *)calloc(1, sizeof(JSClass));
+	jsb_TextFieldTTF_class->name = "TextFieldTTF";
+	jsb_TextFieldTTF_class->addProperty = JS_PropertyStub;
+	jsb_TextFieldTTF_class->delProperty = JS_DeletePropertyStub;
+	jsb_TextFieldTTF_class->getProperty = JS_PropertyStub;
+	jsb_TextFieldTTF_class->setProperty = JS_StrictPropertyStub;
+	jsb_TextFieldTTF_class->enumerate = JS_EnumerateStub;
+	jsb_TextFieldTTF_class->resolve = JS_ResolveStub;
+	jsb_TextFieldTTF_class->convert = JS_ConvertStub;
+	jsb_TextFieldTTF_class->finalize = js_cocos2dx_TextFieldTTF_finalize;
+	jsb_TextFieldTTF_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, JSOP_NULLWRAPPER, JSOP_NULLWRAPPER}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("getCharCount", js_cocos2dx_TextFieldTTF_getCharCount, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDelegate", js_cocos2dx_TextFieldTTF_getDelegate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSecureTextEntry", js_cocos2dx_TextFieldTTF_setSecureTextEntry, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getString", js_cocos2dx_TextFieldTTF_getString, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColorSpaceHolder", js_cocos2dx_TextFieldTTF_getColorSpaceHolder, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithPlaceHolder", js_cocos2dx_TextFieldTTF_initWithPlaceHolder, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPlaceHolder", js_cocos2dx_TextFieldTTF_getPlaceHolder, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColorSpaceHolder", js_cocos2dx_TextFieldTTF_setColorSpaceHolder, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("detachWithIME", js_cocos2dx_TextFieldTTF_detachWithIME, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDelegate", js_cocos2dx_TextFieldTTF_setDelegate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPlaceHolder", js_cocos2dx_TextFieldTTF_setPlaceHolder, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isSecureTextEntry", js_cocos2dx_TextFieldTTF_isSecureTextEntry, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setString", js_cocos2dx_TextFieldTTF_setString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("attachWithIME", js_cocos2dx_TextFieldTTF_attachWithIME, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("ctor", js_cocos2dx_TextFieldTTF_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("textFieldWithPlaceHolder", js_cocos2dx_TextFieldTTF_textFieldWithPlaceHolder, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
+
+	jsb_TextFieldTTF_prototype = JS_InitClass(
+		cx, global,
+		jsb_LabelTTF_prototype,
+		jsb_TextFieldTTF_class,
+		js_cocos2dx_TextFieldTTF_constructor, 0, // constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "TextFieldTTF", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::TextFieldTTF> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = jsb_TextFieldTTF_class;
+		p->proto = jsb_TextFieldTTF_prototype;
+		p->parentProto = jsb_LabelTTF_prototype;
 		HASH_ADD_INT(_js_global_type_ht, type, p);
 	}
 }
@@ -60423,6 +61178,8 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_FlipY3D(cx, obj);
 	js_register_cocos2dx_EaseSineInOut(cx, obj);
 	js_register_cocos2dx_TransitionFlipAngular(cx, obj);
+	js_register_cocos2dx_EGLViewProtocol(cx, obj);
+	js_register_cocos2dx_EGLView(cx, obj);
 	js_register_cocos2dx_EaseElasticInOut(cx, obj);
 	js_register_cocos2dx_Show(cx, obj);
 	js_register_cocos2dx_FadeOut(cx, obj);
@@ -60550,6 +61307,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_Liquid(cx, obj);
 	js_register_cocos2dx_OrbitCamera(cx, obj);
 	js_register_cocos2dx_ParticleBatchNode(cx, obj);
+	js_register_cocos2dx_TextFieldTTF(cx, obj);
 	js_register_cocos2dx_ParticleRain(cx, obj);
 	js_register_cocos2dx_Waves(cx, obj);
 	js_register_cocos2dx_EaseOut(cx, obj);

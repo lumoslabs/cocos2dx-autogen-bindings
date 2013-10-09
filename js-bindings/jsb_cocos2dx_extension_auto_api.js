@@ -119,6 +119,18 @@ Control : function () {},
 cc._Reader = {
 
 /**
+ * @method getAnimationManager
+ * @return A value converted from C/C++ "cocos2d::extension::CCBAnimationManager*"
+ */
+getAnimationManager : function () {},
+
+/**
+ * @method setAnimationManager
+ * @param {cocos2d::extension::CCBAnimationManager*}
+ */
+setAnimationManager : function () {},
+
+/**
  * @method addOwnerOutletName
  * @param {std::string}
  */
@@ -198,12 +210,6 @@ addOwnerCallbackControlEvents : function () {},
 getOwnerOutletNames : function () {},
 
 /**
- * @method setAnimationManager
- * @param {cocos2d::extension::CCBAnimationManager*}
- */
-setAnimationManager : function () {},
-
-/**
  * @method readCallbackKeyframesForSeq
  * @return A value converted from C/C++ "bool"
  * @param {cocos2d::extension::CCBSequence*}
@@ -221,12 +227,6 @@ getAnimationManagersForNodes : function () {},
  * @return A value converted from C/C++ "cocos2d::Array*"
  */
 getNodesWithAnimationManagers : function () {},
-
-/**
- * @method getAnimationManager
- * @return A value converted from C/C++ "cocos2d::extension::CCBAnimationManager*"
- */
-getAnimationManager : function () {},
 
 /**
  * @method setResolutionScale
@@ -951,7 +951,7 @@ ScrollView : function () {},
 /**
  * @class CCBAnimationManager
  */
-cc.AnimationManager = {
+cc.BuilderAnimationManager = {
 
 /**
  * @method moveAnimationsFromNode
@@ -1150,13 +1150,6 @@ getSequenceDuration : function () {},
 addDocumentCallbackNode : function () {},
 
 /**
- * @method setCallFunc
- * @param {cocos2d::CallFunc*}
- * @param {std::string}
- */
-setCallFunc : function () {},
-
-/**
  * @method getDelegate
  * @return A value converted from C/C++ "cocos2d::extension::CCBAnimationManagerDelegate*"
  */
@@ -1174,6 +1167,13 @@ runAnimationsForSequenceNamed : function () {},
  * @param {const char*}
  */
 getSequenceId : function () {},
+
+/**
+ * @method setCallFunc
+ * @param {cocos2d::CallFunc*}
+ * @param {std::string}
+ */
+setCallFunc : function () {},
 
 /**
  * @method getDocumentCallbackNodes
@@ -2224,6 +2224,712 @@ create : function () {},
  * @constructor
  */
 EditBox : function () {},
+
+};
+
+/**
+ * @class Bone
+ */
+cc.Bone = {
+
+/**
+ * @method isTransformDirty
+ * @return A value converted from C/C++ "bool"
+ */
+isTransformDirty : function () {},
+
+/**
+ * @method updateZOrder
+ */
+updateZOrder : function () {},
+
+/**
+ * @method getDisplayRenderNode
+ * @return A value converted from C/C++ "cocos2d::Node*"
+ */
+getDisplayRenderNode : function () {},
+
+/**
+ * @method getTween
+ * @return A value converted from C/C++ "cocos2d::extension::armature::Tween*"
+ */
+getTween : function () {},
+
+/**
+ * @method getParentBone
+ * @return A value converted from C/C++ "cocos2d::extension::armature::Bone*"
+ */
+getParentBone : function () {},
+
+/**
+ * @method getBlendType
+ * @return A value converted from C/C++ "cocos2d::extension::armature::BlendType"
+ */
+getBlendType : function () {},
+
+/**
+ * @method updateColor
+ */
+updateColor : function () {},
+
+/**
+ * @method getName
+ * @return A value converted from C/C++ "std::string"
+ */
+getName : function () {},
+
+/**
+ * @method setTransformDirty
+ * @param {bool}
+ */
+setTransformDirty : function () {},
+
+/**
+ * @method addChildBone
+ * @param {cocos2d::extension::armature::Bone*}
+ */
+addChildBone : function () {},
+
+/**
+ * @method updateDisplayedOpacity
+ * @param {unsigned char}
+ */
+updateDisplayedOpacity : function () {},
+
+/**
+ * @method setParentBone
+ * @param {cocos2d::extension::armature::Bone*}
+ */
+setParentBone : function () {},
+
+/**
+ * @method setZOrder
+ * @param {int}
+ */
+setZOrder : function () {},
+
+/**
+ * @method getIgnoreMovementBoneData
+ * @return A value converted from C/C++ "bool"
+ */
+getIgnoreMovementBoneData : function () {},
+
+/**
+ * @method setIgnoreMovementBoneData
+ * @param {bool}
+ */
+setIgnoreMovementBoneData : function () {},
+
+/**
+ * @method setName
+ * @param {std::string}
+ */
+setName : function () {},
+
+/**
+ * @method removeFromParent
+ * @param {bool}
+ */
+removeFromParent : function () {},
+
+/**
+ * @method getChildArmature
+ * @return A value converted from C/C++ "cocos2d::extension::armature::Armature*"
+ */
+getChildArmature : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method setDisplayManager
+ * @param {cocos2d::extension::armature::DisplayManager*}
+ */
+setDisplayManager : function () {},
+
+/**
+ * @method getTweenData
+ * @return A value converted from C/C++ "cocos2d::extension::armature::FrameData*"
+ */
+getTweenData : function () {},
+
+/**
+ * @method getColliderBodyList
+ * @return A value converted from C/C++ "cocos2d::Array*"
+ */
+getColliderBodyList : function () {},
+
+/**
+ * @method setBoneData
+ * @param {cocos2d::extension::armature::BoneData*}
+ */
+setBoneData : function () {},
+
+/**
+ * @method setArmature
+ * @param {cocos2d::extension::armature::Armature*}
+ */
+setArmature : function () {},
+
+/**
+ * @method getNodeToWorldTransform
+ * @return A value converted from C/C++ "cocos2d::AffineTransform"
+ */
+getNodeToWorldTransform : function () {},
+
+/**
+ * @method removeChildBone
+ * @param {cocos2d::extension::armature::Bone*}
+ * @param {bool}
+ */
+removeChildBone : function () {},
+
+/**
+ * @method setChildArmature
+ * @param {cocos2d::extension::armature::Armature*}
+ */
+setChildArmature : function () {},
+
+/**
+ * @method getNodeToArmatureTransform
+ * @return A value converted from C/C++ "cocos2d::AffineTransform"
+ */
+getNodeToArmatureTransform : function () {},
+
+/**
+ * @method getDisplayManager
+ * @return A value converted from C/C++ "cocos2d::extension::armature::DisplayManager*"
+ */
+getDisplayManager : function () {},
+
+/**
+ * @method getArmature
+ * @return A value converted from C/C++ "cocos2d::extension::armature::Armature*"
+ */
+getArmature : function () {},
+
+/**
+ * @method setBlendType
+ * @param {cocos2d::extension::armature::BlendType}
+ */
+setBlendType : function () {},
+
+/**
+ * @method changeDisplayByIndex
+ * @param {int}
+ * @param {bool}
+ */
+changeDisplayByIndex : function () {},
+
+/**
+ * @method updateDisplayedColor
+ * @param {cocos2d::Color3B}
+ */
+updateDisplayedColor : function () {},
+
+/**
+ * @method getBoneData
+ * @return A value converted from C/C++ "cocos2d::extension::armature::BoneData*"
+ */
+getBoneData : function () {},
+
+/**
+ * @method Bone
+ * @constructor
+ */
+Bone : function () {},
+
+};
+
+/**
+ * @class ArmatureAnimation
+ */
+cc.ArmatureAnimation = {
+
+/**
+ * @method getSpeedScale
+ * @return A value converted from C/C++ "float"
+ */
+getSpeedScale : function () {},
+
+/**
+ * @method getAnimationScale
+ * @return A value converted from C/C++ "float"
+ */
+getAnimationScale : function () {},
+
+/**
+ * @method play
+ * @param {const char*}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ */
+play : function () {},
+
+/**
+ * @method pause
+ */
+pause : function () {},
+
+/**
+ * @method setAnimationScale
+ * @param {float}
+ */
+setAnimationScale : function () {},
+
+/**
+ * @method resume
+ */
+resume : function () {},
+
+/**
+ * @method stop
+ */
+stop : function () {},
+
+/**
+ * @method setAnimationData
+ * @param {cocos2d::extension::armature::AnimationData*}
+ */
+setAnimationData : function () {},
+
+/**
+ * @method setSpeedScale
+ * @param {float}
+ */
+setSpeedScale : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method getAnimationData
+ * @return A value converted from C/C++ "cocos2d::extension::armature::AnimationData*"
+ */
+getAnimationData : function () {},
+
+/**
+ * @method playByIndex
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ */
+playByIndex : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::extension::armature::Armature*}
+ */
+init : function () {},
+
+/**
+ * @method getMovementCount
+ * @return A value converted from C/C++ "int"
+ */
+getMovementCount : function () {},
+
+/**
+ * @method getCurrentMovementID
+ * @return A value converted from C/C++ "std::string"
+ */
+getCurrentMovementID : function () {},
+
+/**
+ * @method setAnimationInternal
+ * @param {float}
+ */
+setAnimationInternal : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::extension::armature::ArmatureAnimation*"
+ * @param {cocos2d::extension::armature::Armature*}
+ */
+create : function () {},
+
+/**
+ * @method ArmatureAnimation
+ * @constructor
+ */
+ArmatureAnimation : function () {},
+
+};
+
+/**
+ * @class ArmatureDataManager
+ */
+cc.ArmatureDataManager = {
+
+/**
+ * @method getAnimationDatas
+ * @return A value converted from C/C++ "cocos2d::Dictionary*"
+ */
+getAnimationDatas : function () {},
+
+/**
+ * @method removeAnimationData
+ * @param {const char*}
+ */
+removeAnimationData : function () {},
+
+/**
+ * @method addArmatureData
+ * @param {const char*}
+ * @param {cocos2d::extension::armature::ArmatureData*}
+ */
+addArmatureData : function () {},
+
+/**
+ * @method getTextureDatas
+ * @return A value converted from C/C++ "cocos2d::Dictionary*"
+ */
+getTextureDatas : function () {},
+
+/**
+ * @method getTextureData
+ * @return A value converted from C/C++ "cocos2d::extension::armature::TextureData*"
+ * @param {const char*}
+ */
+getTextureData : function () {},
+
+/**
+ * @method getArmatureData
+ * @return A value converted from C/C++ "cocos2d::extension::armature::ArmatureData*"
+ * @param {const char*}
+ */
+getArmatureData : function () {},
+
+/**
+ * @method getAnimationData
+ * @return A value converted from C/C++ "cocos2d::extension::armature::AnimationData*"
+ * @param {const char*}
+ */
+getAnimationData : function () {},
+
+/**
+ * @method removeAll
+ */
+removeAll : function () {},
+
+/**
+ * @method addAnimationData
+ * @param {const char*}
+ * @param {cocos2d::extension::armature::AnimationData*}
+ */
+addAnimationData : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method removeArmatureData
+ * @param {const char*}
+ */
+removeArmatureData : function () {},
+
+/**
+ * @method getArmatureDatas
+ * @return A value converted from C/C++ "cocos2d::Dictionary*"
+ */
+getArmatureDatas : function () {},
+
+/**
+ * @method removeTextureData
+ * @param {const char*}
+ */
+removeTextureData : function () {},
+
+/**
+ * @method addTextureData
+ * @param {const char*}
+ * @param {cocos2d::extension::armature::TextureData*}
+ */
+addTextureData : function () {},
+
+/**
+ * @method isAutoLoadSpriteFile
+ * @return A value converted from C/C++ "bool"
+ */
+isAutoLoadSpriteFile : function () {},
+
+/**
+ * @method addSpriteFrameFromFile
+ * @param {const char*}
+ * @param {const char*}
+ */
+addSpriteFrameFromFile : function () {},
+
+/**
+ * @method destoryInstance
+ */
+destoryInstance : function () {},
+
+/**
+ * @method getInstance
+ * @return A value converted from C/C++ "cocos2d::extension::armature::ArmatureDataManager*"
+ */
+getInstance : function () {},
+
+};
+
+/**
+ * @class Armature
+ */
+cc.Armature = {
+
+/**
+ * @method getBone
+ * @return A value converted from C/C++ "cocos2d::extension::armature::Bone*"
+ * @param {const char*}
+ */
+getBone : function () {},
+
+/**
+ * @method changeBoneParent
+ * @param {cocos2d::extension::armature::Bone*}
+ * @param {const char*}
+ */
+changeBoneParent : function () {},
+
+/**
+ * @method setAnimation
+ * @param {cocos2d::extension::armature::ArmatureAnimation*}
+ */
+setAnimation : function () {},
+
+/**
+ * @method getBoneAtPoint
+ * @return A value converted from C/C++ "cocos2d::extension::armature::Bone*"
+ * @param {float}
+ * @param {float}
+ */
+getBoneAtPoint : function () {},
+
+/**
+ * @method getArmatureTransformDirty
+ * @return A value converted from C/C++ "bool"
+ */
+getArmatureTransformDirty : function () {},
+
+/**
+ * @method setVersion
+ * @param {float}
+ */
+setVersion : function () {},
+
+/**
+ * @method updateOffsetPoint
+ */
+updateOffsetPoint : function () {},
+
+/**
+ * @method getParentBone
+ * @return A value converted from C/C++ "cocos2d::extension::armature::Bone*"
+ */
+getParentBone : function () {},
+
+/**
+ * @method setName
+ * @param {std::string}
+ */
+setName : function () {},
+
+/**
+ * @method removeBone
+ * @param {cocos2d::extension::armature::Bone*}
+ * @param {bool}
+ */
+removeBone : function () {},
+
+/**
+ * @method getBatchNode
+ * @return A value converted from C/C++ "cocos2d::extension::armature::BatchNode*"
+ */
+getBatchNode : function () {},
+
+/**
+ * @method getName
+ * @return A value converted from C/C++ "std::string"
+ */
+getName : function () {},
+
+/**
+ * @method getNodeToParentTransform
+ * @return A value converted from C/C++ "cocos2d::AffineTransform"
+ */
+getNodeToParentTransform : function () {},
+
+/**
+ * @method setParentBone
+ * @param {cocos2d::extension::armature::Bone*}
+ */
+setParentBone : function () {},
+
+/**
+ * @method getBoundingBox
+ * @return A value converted from C/C++ "cocos2d::Rect"
+ */
+getBoundingBox : function () {},
+
+/**
+ * @method setBatchNode
+ * @param {cocos2d::extension::armature::BatchNode*}
+ */
+setBatchNode : function () {},
+
+/**
+ * @method draw
+ */
+draw : function () {},
+
+/**
+ * @method setArmatureData
+ * @param {cocos2d::extension::armature::ArmatureData*}
+ */
+setArmatureData : function () {},
+
+/**
+ * @method setTextureAtlas
+ * @param {cocos2d::TextureAtlas*}
+ */
+setTextureAtlas : function () {},
+
+/**
+ * @method addBone
+ * @param {cocos2d::extension::armature::Bone*}
+ * @param {const char*}
+ */
+addBone : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method getArmatureData
+ * @return A value converted from C/C++ "cocos2d::extension::armature::ArmatureData*"
+ */
+getArmatureData : function () {},
+
+/**
+ * @method getVersion
+ * @return A value converted from C/C++ "float"
+ */
+getVersion : function () {},
+
+/**
+ * @method getAnimation
+ * @return A value converted from C/C++ "cocos2d::extension::armature::ArmatureAnimation*"
+ */
+getAnimation : function () {},
+
+/**
+ * @method getBoneDic
+ * @return A value converted from C/C++ "cocos2d::Dictionary*"
+ */
+getBoneDic : function () {},
+
+/**
+ * @method getTextureAtlas
+ * @return A value converted from C/C++ "cocos2d::TextureAtlas*"
+ */
+getTextureAtlas : function () {},
+
+/**
+ * @method Armature
+ * @constructor
+ */
+Armature : function () {},
+
+};
+
+/**
+ * @class Skin
+ */
+cc.Skin = {
+
+/**
+ * @method getBone
+ * @return A value converted from C/C++ "cocos2d::extension::armature::Bone*"
+ */
+getBone : function () {},
+
+/**
+ * @method getNodeToWorldTransformAR
+ * @return A value converted from C/C++ "cocos2d::AffineTransform"
+ */
+getNodeToWorldTransformAR : function () {},
+
+/**
+ * @method getNodeToWorldTransform
+ * @return A value converted from C/C++ "cocos2d::AffineTransform"
+ */
+getNodeToWorldTransform : function () {},
+
+/**
+ * @method updateTransform
+ */
+updateTransform : function () {},
+
+/**
+ * @method getDisplayName
+ * @return A value converted from C/C++ "std::string"
+ */
+getDisplayName : function () {},
+
+/**
+ * @method updateArmatureTransform
+ */
+updateArmatureTransform : function () {},
+
+/**
+ * @method initWithSpriteFrameName
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ */
+initWithSpriteFrameName : function () {},
+
+/**
+ * @method initWithFile
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ */
+initWithFile : function () {},
+
+/**
+ * @method setBone
+ * @param {cocos2d::extension::armature::Bone*}
+ */
+setBone : function () {},
+
+/**
+ * @method createWithSpriteFrameName
+ * @return A value converted from C/C++ "cocos2d::extension::armature::Skin*"
+ * @param {const char*}
+ */
+createWithSpriteFrameName : function () {},
+
+/**
+ * @method Skin
+ * @constructor
+ */
+Skin : function () {},
 
 };
 
