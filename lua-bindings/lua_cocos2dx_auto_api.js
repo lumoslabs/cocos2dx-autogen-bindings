@@ -6057,6 +6057,12 @@ mainLoop : function () {},
 setDepthTest : function () {},
 
 /**
+ * @method getFrameRate
+ * @return A value converted from C/C++ "float"
+ */
+getFrameRate : function () {},
+
+/**
  * @method getSecondsPerFrame
  * @return A value converted from C/C++ "float"
  */

@@ -29418,6 +29418,23 @@ JSBool js_cocos2dx_Director_setDepthTest(JSContext *cx, uint32_t argc, jsval *vp
 	JS_ReportError(cx, "js_cocos2dx_Director_setDepthTest : wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_Director_getFrameRate(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::Director* cobj = (cocos2d::Director *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "js_cocos2dx_Director_getFrameRate : Invalid Native Object");
+	if (argc == 0) {
+		float ret = cobj->getFrameRate();
+		jsval jsret;
+		jsret = DOUBLE_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "js_cocos2dx_Director_getFrameRate : wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_Director_getSecondsPerFrame(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -30155,6 +30172,7 @@ void js_register_cocos2dx_Director(JSContext *cx, JSObject *global) {
 		JS_FN("getVisibleOrigin", js_cocos2dx_Director_getVisibleOrigin, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("mainLoop", js_cocos2dx_Director_mainLoop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDepthTest", js_cocos2dx_Director_setDepthTest, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getFrameRate", js_cocos2dx_Director_getFrameRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getSecondsPerFrame", js_cocos2dx_Director_getSecondsPerFrame, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("convertToUI", js_cocos2dx_Director_convertToUI, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDefaultValues", js_cocos2dx_Director_setDefaultValues, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),

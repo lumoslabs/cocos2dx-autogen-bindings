@@ -1744,6 +1744,7 @@ JSBool js_cocos2dx_Director_isSendCleanupToScene(JSContext *cx, uint32_t argc, j
 JSBool js_cocos2dx_Director_getVisibleOrigin(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_mainLoop(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_setDepthTest(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Director_getFrameRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_getSecondsPerFrame(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_convertToUI(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_setDefaultValues(JSContext *cx, uint32_t argc, jsval *vp);
