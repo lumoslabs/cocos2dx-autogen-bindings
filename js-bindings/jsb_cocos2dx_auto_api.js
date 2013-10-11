@@ -731,6 +731,12 @@ cc.Node = {
 removeComponent : function () {},
 
 /**
+ * @method setPhysicsBody
+ * @param {cocos2d::PhysicsBody*}
+ */
+setPhysicsBody : function () {},
+
+/**
  * @method convertToWorldSpaceAR
  * @return A value converted from C/C++ "cocos2d::Point"
  * @param {cocos2d::Point}
@@ -853,6 +859,12 @@ getNodeToParentTransform : function () {},
  * @param {cocos2d::Point}
  */
 convertToNodeSpace : function () {},
+
+/**
+ * @method getPhysicsBody
+ * @return A value converted from C/C++ "cocos2d::PhysicsBody*"
+ */
+getPhysicsBody : function () {},
 
 /**
  * @method stopActionByTag
@@ -6474,12 +6486,6 @@ getBatchNode : function () {},
 getOffsetPosition : function () {},
 
 /**
- * @method setPhysicsBody
- * @param {cocos2d::PhysicsBody*}
- */
-setPhysicsBody : function () {},
-
-/**
  * @method isOpacityModifyRGB
  * @return A value converted from C/C++ "bool"
  */
@@ -6490,11 +6496,6 @@ isOpacityModifyRGB : function () {},
  * @param {unsigned char}
  */
 updateDisplayedOpacity : function () {},
-
-/**
- * @method visit
- */
-visit : function () {},
 
 /**
  * @method initWithSpriteFrameName
@@ -6588,12 +6589,6 @@ updateDisplayedColor : function () {},
  * @param {bool}
  */
 setDirty : function () {},
-
-/**
- * @method getPhysicsBody
- * @return A value converted from C/C++ "cocos2d::PhysicsBody*"
- */
-getPhysicsBody : function () {},
 
 /**
  * @method isTextureRectRotated
