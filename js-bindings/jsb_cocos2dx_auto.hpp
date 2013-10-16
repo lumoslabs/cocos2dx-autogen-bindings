@@ -1746,6 +1746,7 @@ JSBool js_cocos2dx_Director_isSendCleanupToScene(JSContext *cx, uint32_t argc, j
 JSBool js_cocos2dx_Director_getVisibleOrigin(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_mainLoop(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_setDepthTest(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_Director_getFrameRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_getSecondsPerFrame(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_convertToUI(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Director_setDefaultValues(JSContext *cx, uint32_t argc, jsval *vp);
@@ -1943,6 +1944,7 @@ JSBool js_cocos2dx_SpriteBatchNode_appendChild(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_SpriteBatchNode_reorderBatch(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_addChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_visit(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_setTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_removeChildAtIndex(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_removeSpriteFromAtlas(JSContext *cx, uint32_t argc, jsval *vp);
@@ -1954,7 +1956,6 @@ JSBool js_cocos2dx_SpriteBatchNode_lowestAtlasIndexInChild(JSContext *cx, uint32
 JSBool js_cocos2dx_SpriteBatchNode_draw(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_initWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_setTextureAtlas(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_sortAllChildren(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_reorderChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_rebuildIndexInOrder(JSContext *cx, uint32_t argc, jsval *vp);
@@ -3154,6 +3155,28 @@ JSBool js_cocos2dx_Application_setAnimationInterval(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_Application_getCurrentLanguage(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Application_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *jsb_EGLViewProtocol_class;
+extern JSObject *jsb_EGLViewProtocol_prototype;
+
+JSBool js_cocos2dx_EGLViewProtocol_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_EGLViewProtocol_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_EGLViewProtocol(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_EGLViewProtocol_getVisibleOrigin(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_EGLViewProtocol_setDesignResolutionSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_EGLViewProtocol_getVisibleSize(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_EGLView_class;
+extern JSObject *jsb_EGLView_prototype;
+
+JSBool js_cocos2dx_EGLView_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_EGLView_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_EGLView(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_EGLView_setIMEKeyboardState(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_EGLView_isOpenGLReady(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_EGLView_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *jsb_ShaderCache_class;
 extern JSObject *jsb_ShaderCache_prototype;
 
@@ -3204,6 +3227,30 @@ JSBool js_cocos2dx_SpriteFrameCache_removeSpriteFramesFromTexture(JSContext *cx,
 JSBool js_cocos2dx_SpriteFrameCache_removeSpriteFrameByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteFrameCache_destroyInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteFrameCache_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_TextFieldTTF_class;
+extern JSObject *jsb_TextFieldTTF_prototype;
+
+JSBool js_cocos2dx_TextFieldTTF_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_TextFieldTTF_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_TextFieldTTF(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_TextFieldTTF_getCharCount(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_getDelegate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_setSecureTextEntry(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_getString(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_getColorSpaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_initWithPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_getPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_setColorSpaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_detachWithIME(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_setDelegate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_setPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_isSecureTextEntry(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_setString(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_attachWithIME(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_textFieldWithPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_TextFieldTTF_TextFieldTTF(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_TextureCache_class;
 extern JSObject *jsb_TextureCache_prototype;

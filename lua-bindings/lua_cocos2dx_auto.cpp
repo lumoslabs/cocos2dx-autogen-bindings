@@ -8821,37 +8821,47 @@ int lua_cocos2dx_Node__setZOrder(lua_State* tolua_S)
 int lua_cocos2dx_Node_setScale(lua_State* tolua_S)
 {
     int argc = 0;
-    cocos2d::Node* cobj = nullptr;
+    cocos2d::Node* cobj = NULL;
     bool ok  = true;
-
 #if COCOS2D_DEBUG >= 1
     tolua_Error tolua_err;
 #endif
-
 #if COCOS2D_DEBUG >= 1
     if (!tolua_isusertype(tolua_S,1,"Node",0,&tolua_err)) goto tolua_lerror;
 #endif
-
     cobj = (cocos2d::Node*)tolua_tousertype(tolua_S,1,0);
-
 #if COCOS2D_DEBUG >= 1
-    if (!cobj) 
+    if (!cobj)
     {
         tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_Node_setScale'", NULL);
         return 0;
     }
 #endif
-
     argc = lua_gettop(tolua_S)-1;
-    if (argc == 1) 
-    {
-        double arg0;
-        ok &= luaval_to_number(tolua_S, 2,&arg0);
-        if(!ok)
+    do{
+        if (argc == 2) {
+            double arg0;
+            ok &= luaval_to_number(tolua_S, 2,&arg0);
+
+            if (!ok) { ok = true; break; }
+            double arg1;
+            ok &= luaval_to_number(tolua_S, 3,&arg1);
+
+            if (!ok) { ok = true; break; }
+            cobj->setScale(arg0, arg1);
             return 0;
-        cobj->setScale(arg0);
-        return 0;
-    }
+        }
+    }while(0);
+    do{
+        if (argc == 1) {
+            double arg0;
+            ok &= luaval_to_number(tolua_S, 2,&arg0);
+
+            if (!ok) { ok = true; break; }
+            cobj->setScale(arg0);
+            return 0;
+        }
+    }while(0);
     CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "setScale",argc, 1);
     return 0;
 #if COCOS2D_DEBUG >= 1
@@ -43735,6 +43745,47 @@ int lua_cocos2dx_Director_setDepthTest(lua_State* tolua_S)
 #endif
     return 0;
 }
+int lua_cocos2dx_Director_getFrameRate(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Director* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"Director",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Director*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_Director_getFrameRate'", NULL);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+            return 0;
+        float ret = cobj->getFrameRate();
+        tolua_pushnumber(tolua_S,(lua_Number)ret);
+        return 1;
+    }
+    CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "getFrameRate",argc, 0);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_Director_getFrameRate'.",&tolua_err);
+#endif
+    return 0;
+}
 int lua_cocos2dx_Director_getSecondsPerFrame(lua_State* tolua_S)
 {
     int argc = 0;
@@ -45245,6 +45296,7 @@ int lua_register_cocos2dx_Director(lua_State* tolua_S)
         tolua_function(tolua_S,"getVisibleOrigin",lua_cocos2dx_Director_getVisibleOrigin);
         tolua_function(tolua_S,"mainLoop",lua_cocos2dx_Director_mainLoop);
         tolua_function(tolua_S,"setDepthTest",lua_cocos2dx_Director_setDepthTest);
+        tolua_function(tolua_S,"getFrameRate",lua_cocos2dx_Director_getFrameRate);
         tolua_function(tolua_S,"getSecondsPerFrame",lua_cocos2dx_Director_getSecondsPerFrame);
         tolua_function(tolua_S,"convertToUI",lua_cocos2dx_Director_convertToUI);
         tolua_function(tolua_S,"setDefaultValues",lua_cocos2dx_Director_setDefaultValues);

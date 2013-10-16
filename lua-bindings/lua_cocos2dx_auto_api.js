@@ -1154,12 +1154,6 @@ getVertexZ : function () {},
 _setZOrder : function () {},
 
 /**
- * @method setScale
- * @param {float}
- */
-setScale : function () {},
-
-/**
  * @method getChildByTag
  * @return A value converted from C/C++ "cocos2d::Node*"
  * @param {int}
@@ -6067,6 +6061,12 @@ mainLoop : function () {},
  * @param {bool}
  */
 setDepthTest : function () {},
+
+/**
+ * @method getFrameRate
+ * @return A value converted from C/C++ "float"
+ */
+getFrameRate : function () {},
 
 /**
  * @method getSecondsPerFrame

@@ -4,268 +4,6 @@
 var cc = cc || {};
 
 /**
- * @class Control
- */
-cc.Control = {
-
-/**
- * @method onTouchEnded
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-onTouchEnded : function () {},
-
-/**
- * @method onTouchMoved
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-onTouchMoved : function () {},
-
-/**
- * @method setSelected
- * @param {bool}
- */
-setSelected : function () {},
-
-/**
- * @method hasVisibleParents
- * @return A value converted from C/C++ "bool"
- */
-hasVisibleParents : function () {},
-
-/**
- * @method setHighlighted
- * @param {bool}
- */
-setHighlighted : function () {},
-
-/**
- * @method isHighlighted
- * @return A value converted from C/C++ "bool"
- */
-isHighlighted : function () {},
-
-/**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
- * @method isEnabled
- * @return A value converted from C/C++ "bool"
- */
-isEnabled : function () {},
-
-/**
- * @method sendActionsForControlEvents
- * @param {cocos2d::extension::Control::EventType}
- */
-sendActionsForControlEvents : function () {},
-
-/**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
-
-/**
- * @method isSelected
- * @return A value converted from C/C++ "bool"
- */
-isSelected : function () {},
-
-/**
- * @method init
- * @return A value converted from C/C++ "bool"
- */
-init : function () {},
-
-/**
- * @method setEnabled
- * @param {bool}
- */
-setEnabled : function () {},
-
-/**
- * @method getState
- * @return A value converted from C/C++ "cocos2d::extension::Control::State"
- */
-getState : function () {},
-
-/**
- * @method onTouchCancelled
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-onTouchCancelled : function () {},
-
-/**
- * @method needsLayout
- */
-needsLayout : function () {},
-
-/**
- * @method onTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-onTouchBegan : function () {},
-
-/**
- * @method getTouchLocation
- * @return A value converted from C/C++ "cocos2d::Point"
- * @param {cocos2d::Touch*}
- */
-getTouchLocation : function () {},
-
-/**
- * @method isTouchInside
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- */
-isTouchInside : function () {},
-
-/**
- * @method create
- * @return A value converted from C/C++ "cocos2d::extension::Control*"
- */
-create : function () {},
-
-/**
- * @method Control
- * @constructor
- */
-Control : function () {},
-
-};
-
-/**
- * @class CCBReader
- */
-cc._Reader = {
-
-/**
- * @method addOwnerOutletName
- * @param {std::string}
- */
-addOwnerOutletName : function () {},
-
-/**
- * @method getOwnerCallbackNames
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getOwnerCallbackNames : function () {},
-
-/**
- * @method addDocumentCallbackControlEvents
- * @param {cocos2d::extension::Control::EventType}
- */
-addDocumentCallbackControlEvents : function () {},
-
-/**
- * @method setCCBRootPath
- * @param {const char*}
- */
-setCCBRootPath : function () {},
-
-/**
- * @method addOwnerOutletNode
- * @param {cocos2d::Node*}
- */
-addOwnerOutletNode : function () {},
-
-/**
- * @method getOwnerCallbackNodes
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getOwnerCallbackNodes : function () {},
-
-/**
- * @method readSoundKeyframesForSeq
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::extension::CCBSequence*}
- */
-readSoundKeyframesForSeq : function () {},
-
-/**
- * @method getCCBRootPath
- * @return A value converted from C/C++ "std::string"
- */
-getCCBRootPath : function () {},
-
-/**
- * @method getOwnerCallbackControlEvents
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getOwnerCallbackControlEvents : function () {},
-
-/**
- * @method getOwnerOutletNodes
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getOwnerOutletNodes : function () {},
-
-/**
- * @method readUTF8
- * @return A value converted from C/C++ "std::string"
- */
-readUTF8 : function () {},
-
-/**
- * @method addOwnerCallbackControlEvents
- * @param {cocos2d::extension::Control::EventType}
- */
-addOwnerCallbackControlEvents : function () {},
-
-/**
- * @method getOwnerOutletNames
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getOwnerOutletNames : function () {},
-
-/**
- * @method setAnimationManager
- * @param {cocos2d::extension::CCBAnimationManager*}
- */
-setAnimationManager : function () {},
-
-/**
- * @method readCallbackKeyframesForSeq
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::extension::CCBSequence*}
- */
-readCallbackKeyframesForSeq : function () {},
-
-/**
- * @method getAnimationManagersForNodes
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getAnimationManagersForNodes : function () {},
-
-/**
- * @method getNodesWithAnimationManagers
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getNodesWithAnimationManagers : function () {},
-
-/**
- * @method getAnimationManager
- * @return A value converted from C/C++ "cocos2d::extension::CCBAnimationManager*"
- */
-getAnimationManager : function () {},
-
-/**
- * @method setResolutionScale
- * @param {float}
- */
-setResolutionScale : function () {},
-
-};
-
-/**
  * @class Scale9Sprite
  */
 cc.Scale9Sprite = {
@@ -436,6 +174,145 @@ setInsetRight : function () {},
  * @constructor
  */
 Scale9Sprite : function () {},
+
+};
+
+/**
+ * @class Control
+ */
+cc.Control = {
+
+/**
+ * @method onTouchEnded
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchEnded : function () {},
+
+/**
+ * @method onTouchMoved
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchMoved : function () {},
+
+/**
+ * @method setSelected
+ * @param {bool}
+ */
+setSelected : function () {},
+
+/**
+ * @method hasVisibleParents
+ * @return A value converted from C/C++ "bool"
+ */
+hasVisibleParents : function () {},
+
+/**
+ * @method setHighlighted
+ * @param {bool}
+ */
+setHighlighted : function () {},
+
+/**
+ * @method isHighlighted
+ * @return A value converted from C/C++ "bool"
+ */
+isHighlighted : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
+ * @method isEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isEnabled : function () {},
+
+/**
+ * @method sendActionsForControlEvents
+ * @param {cocos2d::extension::Control::EventType}
+ */
+sendActionsForControlEvents : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
+ * @method isSelected
+ * @return A value converted from C/C++ "bool"
+ */
+isSelected : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method setEnabled
+ * @param {bool}
+ */
+setEnabled : function () {},
+
+/**
+ * @method getState
+ * @return A value converted from C/C++ "cocos2d::extension::Control::State"
+ */
+getState : function () {},
+
+/**
+ * @method onTouchCancelled
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchCancelled : function () {},
+
+/**
+ * @method needsLayout
+ */
+needsLayout : function () {},
+
+/**
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchBegan : function () {},
+
+/**
+ * @method getTouchLocation
+ * @return A value converted from C/C++ "cocos2d::Point"
+ * @param {cocos2d::Touch*}
+ */
+getTouchLocation : function () {},
+
+/**
+ * @method isTouchInside
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
+ */
+isTouchInside : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::extension::Control*"
+ */
+create : function () {},
+
+/**
+ * @method Control
+ * @constructor
+ */
+Control : function () {},
 
 };
 
@@ -817,460 +694,6 @@ getTitleForState : function () {},
  * @constructor
  */
 ControlButton : function () {},
-
-};
-
-/**
- * @class ScrollView
- */
-cc.ScrollView = {
-
-/**
- * @method isClippingToBounds
- * @return A value converted from C/C++ "bool"
- */
-isClippingToBounds : function () {},
-
-/**
- * @method setContainer
- * @param {cocos2d::Node*}
- */
-setContainer : function () {},
-
-/**
- * @method onTouchEnded
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-onTouchEnded : function () {},
-
-/**
- * @method setContentOffsetInDuration
- * @param {cocos2d::Point}
- * @param {float}
- */
-setContentOffsetInDuration : function () {},
-
-/**
- * @method setZoomScaleInDuration
- * @param {float}
- * @param {float}
- */
-setZoomScaleInDuration : function () {},
-
-/**
- * @method getContainer
- * @return A value converted from C/C++ "cocos2d::Node*"
- */
-getContainer : function () {},
-
-/**
- * @method getDirection
- * @return A value converted from C/C++ "cocos2d::extension::ScrollView::Direction"
- */
-getDirection : function () {},
-
-/**
- * @method getZoomScale
- * @return A value converted from C/C++ "float"
- */
-getZoomScale : function () {},
-
-/**
- * @method updateInset
- */
-updateInset : function () {},
-
-/**
- * @method initWithViewSize
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Size}
- * @param {cocos2d::Node*}
- */
-initWithViewSize : function () {},
-
-/**
- * @method pause
- * @param {cocos2d::Object*}
- */
-pause : function () {},
-
-/**
- * @method setDirection
- * @param {cocos2d::extension::ScrollView::Direction}
- */
-setDirection : function () {},
-
-/**
- * @method setBounceable
- * @param {bool}
- */
-setBounceable : function () {},
-
-/**
- * @method setContentOffset
- * @param {cocos2d::Point}
- * @param {bool}
- */
-setContentOffset : function () {},
-
-/**
- * @method isDragging
- * @return A value converted from C/C++ "bool"
- */
-isDragging : function () {},
-
-/**
- * @method init
- * @return A value converted from C/C++ "bool"
- */
-init : function () {},
-
-/**
- * @method isBounceable
- * @return A value converted from C/C++ "bool"
- */
-isBounceable : function () {},
-
-/**
- * @method getContentSize
- * @return A value converted from C/C++ "cocos2d::Size"
- */
-getContentSize : function () {},
-
-/**
- * @method setTouchEnabled
- * @param {bool}
- */
-setTouchEnabled : function () {},
-
-/**
- * @method onTouchMoved
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-onTouchMoved : function () {},
-
-/**
- * @method getContentOffset
- * @return A value converted from C/C++ "cocos2d::Point"
- */
-getContentOffset : function () {},
-
-/**
- * @method resume
- * @param {cocos2d::Object*}
- */
-resume : function () {},
-
-/**
- * @method setClippingToBounds
- * @param {bool}
- */
-setClippingToBounds : function () {},
-
-/**
- * @method setViewSize
- * @param {cocos2d::Size}
- */
-setViewSize : function () {},
-
-/**
- * @method onTouchCancelled
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-onTouchCancelled : function () {},
-
-/**
- * @method getViewSize
- * @return A value converted from C/C++ "cocos2d::Size"
- */
-getViewSize : function () {},
-
-/**
- * @method maxContainerOffset
- * @return A value converted from C/C++ "cocos2d::Point"
- */
-maxContainerOffset : function () {},
-
-/**
- * @method setContentSize
- * @param {cocos2d::Size}
- */
-setContentSize : function () {},
-
-/**
- * @method onTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Touch*}
- * @param {cocos2d::Event*}
- */
-onTouchBegan : function () {},
-
-/**
- * @method isTouchMoved
- * @return A value converted from C/C++ "bool"
- */
-isTouchMoved : function () {},
-
-/**
- * @method isNodeVisible
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::Node*}
- */
-isNodeVisible : function () {},
-
-/**
- * @method minContainerOffset
- * @return A value converted from C/C++ "cocos2d::Point"
- */
-minContainerOffset : function () {},
-
-/**
- * @method ScrollView
- * @constructor
- */
-ScrollView : function () {},
-
-};
-
-/**
- * @class CCBAnimationManager
- */
-cc.AnimationManager = {
-
-/**
- * @method moveAnimationsFromNode
- * @param {cocos2d::Node*}
- * @param {cocos2d::Node*}
- */
-moveAnimationsFromNode : function () {},
-
-/**
- * @method setAutoPlaySequenceId
- * @param {int}
- */
-setAutoPlaySequenceId : function () {},
-
-/**
- * @method getDocumentCallbackNames
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getDocumentCallbackNames : function () {},
-
-/**
- * @method actionForSoundChannel
- * @return A value converted from C/C++ "cocos2d::Object*"
- * @param {cocos2d::extension::CCBSequenceProperty*}
- */
-actionForSoundChannel : function () {},
-
-/**
- * @method setBaseValue
- * @param {cocos2d::Object*}
- * @param {cocos2d::Node*}
- * @param {const char*}
- */
-setBaseValue : function () {},
-
-/**
- * @method getDocumentOutletNodes
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getDocumentOutletNodes : function () {},
-
-/**
- * @method addNode
- * @param {cocos2d::Node*}
- * @param {cocos2d::Dictionary*}
- */
-addNode : function () {},
-
-/**
- * @method getLastCompletedSequenceName
- * @return A value converted from C/C++ "std::string"
- */
-getLastCompletedSequenceName : function () {},
-
-/**
- * @method setRootNode
- * @param {cocos2d::Node*}
- */
-setRootNode : function () {},
-
-/**
- * @method runAnimationsForSequenceNamedTweenDuration
- * @param {const char*}
- * @param {float}
- */
-runAnimationsForSequenceNamedTweenDuration : function () {},
-
-/**
- * @method addDocumentOutletName
- * @param {std::string}
- */
-addDocumentOutletName : function () {},
-
-/**
- * @method getSequences
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getSequences : function () {},
-
-/**
- * @method getRootContainerSize
- * @return A value converted from C/C++ "cocos2d::Size"
- */
-getRootContainerSize : function () {},
-
-/**
- * @method setDocumentControllerName
- * @param {std::string}
- */
-setDocumentControllerName : function () {},
-
-/**
- * @method getContainerSize
- * @return A value converted from C/C++ "cocos2d::Size"
- * @param {cocos2d::Node*}
- */
-getContainerSize : function () {},
-
-/**
- * @method actionForCallbackChannel
- * @return A value converted from C/C++ "cocos2d::Object*"
- * @param {cocos2d::extension::CCBSequenceProperty*}
- */
-actionForCallbackChannel : function () {},
-
-/**
- * @method getDocumentOutletNames
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getDocumentOutletNames : function () {},
-
-/**
- * @method addDocumentCallbackControlEvents
- * @param {cocos2d::extension::Control::EventType}
- */
-addDocumentCallbackControlEvents : function () {},
-
-/**
- * @method init
- * @return A value converted from C/C++ "bool"
- */
-init : function () {},
-
-/**
- * @method getKeyframeCallbacks
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getKeyframeCallbacks : function () {},
-
-/**
- * @method getDocumentCallbackControlEvents
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getDocumentCallbackControlEvents : function () {},
-
-/**
- * @method setRootContainerSize
- * @param {cocos2d::Size}
- */
-setRootContainerSize : function () {},
-
-/**
- * @method runAnimationsForSequenceIdTweenDuration
- * @param {int}
- * @param {float}
- */
-runAnimationsForSequenceIdTweenDuration : function () {},
-
-/**
- * @method getRunningSequenceName
- * @return A value converted from C/C++ "const char*"
- */
-getRunningSequenceName : function () {},
-
-/**
- * @method getAutoPlaySequenceId
- * @return A value converted from C/C++ "int"
- */
-getAutoPlaySequenceId : function () {},
-
-/**
- * @method addDocumentCallbackName
- * @param {std::string}
- */
-addDocumentCallbackName : function () {},
-
-/**
- * @method getRootNode
- * @return A value converted from C/C++ "cocos2d::Node*"
- */
-getRootNode : function () {},
-
-/**
- * @method addDocumentOutletNode
- * @param {cocos2d::Node*}
- */
-addDocumentOutletNode : function () {},
-
-/**
- * @method getSequenceDuration
- * @return A value converted from C/C++ "float"
- * @param {const char*}
- */
-getSequenceDuration : function () {},
-
-/**
- * @method addDocumentCallbackNode
- * @param {cocos2d::Node*}
- */
-addDocumentCallbackNode : function () {},
-
-/**
- * @method runAnimationsForSequenceNamed
- * @param {const char*}
- */
-runAnimationsForSequenceNamed : function () {},
-
-/**
- * @method getSequenceId
- * @return A value converted from C/C++ "int"
- * @param {const char*}
- */
-getSequenceId : function () {},
-
-/**
- * @method getDocumentCallbackNodes
- * @return A value converted from C/C++ "cocos2d::Array*"
- */
-getDocumentCallbackNodes : function () {},
-
-/**
- * @method setSequences
- * @param {cocos2d::Array*}
- */
-setSequences : function () {},
-
-/**
- * @method debug
- */
-debug : function () {},
-
-/**
- * @method getDocumentControllerName
- * @return A value converted from C/C++ "std::string"
- */
-getDocumentControllerName : function () {},
-
-/**
- * @method CCBAnimationManager
- * @constructor
- */
-CCBAnimationManager : function () {},
 
 };
 
@@ -2097,6 +1520,221 @@ ControlSwitch : function () {},
 };
 
 /**
+ * @class ScrollView
+ */
+cc.ScrollView = {
+
+/**
+ * @method isClippingToBounds
+ * @return A value converted from C/C++ "bool"
+ */
+isClippingToBounds : function () {},
+
+/**
+ * @method setContainer
+ * @param {cocos2d::Node*}
+ */
+setContainer : function () {},
+
+/**
+ * @method onTouchEnded
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchEnded : function () {},
+
+/**
+ * @method setContentOffsetInDuration
+ * @param {cocos2d::Point}
+ * @param {float}
+ */
+setContentOffsetInDuration : function () {},
+
+/**
+ * @method setZoomScaleInDuration
+ * @param {float}
+ * @param {float}
+ */
+setZoomScaleInDuration : function () {},
+
+/**
+ * @method getContainer
+ * @return A value converted from C/C++ "cocos2d::Node*"
+ */
+getContainer : function () {},
+
+/**
+ * @method getDirection
+ * @return A value converted from C/C++ "cocos2d::extension::ScrollView::Direction"
+ */
+getDirection : function () {},
+
+/**
+ * @method getZoomScale
+ * @return A value converted from C/C++ "float"
+ */
+getZoomScale : function () {},
+
+/**
+ * @method updateInset
+ */
+updateInset : function () {},
+
+/**
+ * @method initWithViewSize
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Size}
+ * @param {cocos2d::Node*}
+ */
+initWithViewSize : function () {},
+
+/**
+ * @method pause
+ * @param {cocos2d::Object*}
+ */
+pause : function () {},
+
+/**
+ * @method setDirection
+ * @param {cocos2d::extension::ScrollView::Direction}
+ */
+setDirection : function () {},
+
+/**
+ * @method setBounceable
+ * @param {bool}
+ */
+setBounceable : function () {},
+
+/**
+ * @method setContentOffset
+ * @param {cocos2d::Point}
+ * @param {bool}
+ */
+setContentOffset : function () {},
+
+/**
+ * @method isDragging
+ * @return A value converted from C/C++ "bool"
+ */
+isDragging : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method isBounceable
+ * @return A value converted from C/C++ "bool"
+ */
+isBounceable : function () {},
+
+/**
+ * @method getContentSize
+ * @return A value converted from C/C++ "cocos2d::Size"
+ */
+getContentSize : function () {},
+
+/**
+ * @method setTouchEnabled
+ * @param {bool}
+ */
+setTouchEnabled : function () {},
+
+/**
+ * @method onTouchMoved
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchMoved : function () {},
+
+/**
+ * @method getContentOffset
+ * @return A value converted from C/C++ "cocos2d::Point"
+ */
+getContentOffset : function () {},
+
+/**
+ * @method resume
+ * @param {cocos2d::Object*}
+ */
+resume : function () {},
+
+/**
+ * @method setClippingToBounds
+ * @param {bool}
+ */
+setClippingToBounds : function () {},
+
+/**
+ * @method setViewSize
+ * @param {cocos2d::Size}
+ */
+setViewSize : function () {},
+
+/**
+ * @method onTouchCancelled
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchCancelled : function () {},
+
+/**
+ * @method getViewSize
+ * @return A value converted from C/C++ "cocos2d::Size"
+ */
+getViewSize : function () {},
+
+/**
+ * @method maxContainerOffset
+ * @return A value converted from C/C++ "cocos2d::Point"
+ */
+maxContainerOffset : function () {},
+
+/**
+ * @method setContentSize
+ * @param {cocos2d::Size}
+ */
+setContentSize : function () {},
+
+/**
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Touch*}
+ * @param {cocos2d::Event*}
+ */
+onTouchBegan : function () {},
+
+/**
+ * @method isTouchMoved
+ * @return A value converted from C/C++ "bool"
+ */
+isTouchMoved : function () {},
+
+/**
+ * @method isNodeVisible
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::Node*}
+ */
+isNodeVisible : function () {},
+
+/**
+ * @method minContainerOffset
+ * @return A value converted from C/C++ "cocos2d::Point"
+ */
+minContainerOffset : function () {},
+
+/**
+ * @method ScrollView
+ * @constructor
+ */
+ScrollView : function () {},
+
+};
+
+/**
  * @class TableViewCell
  */
 cc.TableViewCell = {
@@ -2409,5 +2047,1509 @@ create : function () {},
  * @constructor
  */
 EditBox : function () {},
+
+};
+
+/**
+ * @class CCBAnimationManager
+ */
+cc.AnimationManager = {
+
+/**
+ * @method moveAnimationsFromNode
+ * @param {Node*}
+ * @param {Node*}
+ */
+moveAnimationsFromNode : function () {},
+
+/**
+ * @method setAutoPlaySequenceId
+ * @param {int}
+ */
+setAutoPlaySequenceId : function () {},
+
+/**
+ * @method getDocumentCallbackNames
+ * @return A value converted from C/C++ "Array*"
+ */
+getDocumentCallbackNames : function () {},
+
+/**
+ * @method actionForSoundChannel
+ * @return A value converted from C/C++ "Object*"
+ * @param {cocosbuilder::CCBSequenceProperty*}
+ */
+actionForSoundChannel : function () {},
+
+/**
+ * @method setBaseValue
+ * @param {Object*}
+ * @param {Node*}
+ * @param {const char*}
+ */
+setBaseValue : function () {},
+
+/**
+ * @method getDocumentOutletNodes
+ * @return A value converted from C/C++ "Array*"
+ */
+getDocumentOutletNodes : function () {},
+
+/**
+ * @method addNode
+ * @param {Node*}
+ * @param {Dictionary*}
+ */
+addNode : function () {},
+
+/**
+ * @method getLastCompletedSequenceName
+ * @return A value converted from C/C++ "std::string"
+ */
+getLastCompletedSequenceName : function () {},
+
+/**
+ * @method setRootNode
+ * @param {Node*}
+ */
+setRootNode : function () {},
+
+/**
+ * @method runAnimationsForSequenceNamedTweenDuration
+ * @param {const char*}
+ * @param {float}
+ */
+runAnimationsForSequenceNamedTweenDuration : function () {},
+
+/**
+ * @method addDocumentOutletName
+ * @param {std::string}
+ */
+addDocumentOutletName : function () {},
+
+/**
+ * @method getSequences
+ * @return A value converted from C/C++ "Array*"
+ */
+getSequences : function () {},
+
+/**
+ * @method getRootContainerSize
+ * @return A value converted from C/C++ "cocos2d::Size"
+ */
+getRootContainerSize : function () {},
+
+/**
+ * @method setDocumentControllerName
+ * @param {std::string}
+ */
+setDocumentControllerName : function () {},
+
+/**
+ * @method getContainerSize
+ * @return A value converted from C/C++ "cocos2d::Size"
+ * @param {Node*}
+ */
+getContainerSize : function () {},
+
+/**
+ * @method actionForCallbackChannel
+ * @return A value converted from C/C++ "Object*"
+ * @param {cocosbuilder::CCBSequenceProperty*}
+ */
+actionForCallbackChannel : function () {},
+
+/**
+ * @method getDocumentOutletNames
+ * @return A value converted from C/C++ "Array*"
+ */
+getDocumentOutletNames : function () {},
+
+/**
+ * @method addDocumentCallbackControlEvents
+ * @param {cocos2d::extension::Control::EventType}
+ */
+addDocumentCallbackControlEvents : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method getKeyframeCallbacks
+ * @return A value converted from C/C++ "Array*"
+ */
+getKeyframeCallbacks : function () {},
+
+/**
+ * @method getDocumentCallbackControlEvents
+ * @return A value converted from C/C++ "Array*"
+ */
+getDocumentCallbackControlEvents : function () {},
+
+/**
+ * @method setRootContainerSize
+ * @param {cocos2d::Size}
+ */
+setRootContainerSize : function () {},
+
+/**
+ * @method runAnimationsForSequenceIdTweenDuration
+ * @param {int}
+ * @param {float}
+ */
+runAnimationsForSequenceIdTweenDuration : function () {},
+
+/**
+ * @method getRunningSequenceName
+ * @return A value converted from C/C++ "const char*"
+ */
+getRunningSequenceName : function () {},
+
+/**
+ * @method getAutoPlaySequenceId
+ * @return A value converted from C/C++ "int"
+ */
+getAutoPlaySequenceId : function () {},
+
+/**
+ * @method addDocumentCallbackName
+ * @param {std::string}
+ */
+addDocumentCallbackName : function () {},
+
+/**
+ * @method getRootNode
+ * @return A value converted from C/C++ "Node*"
+ */
+getRootNode : function () {},
+
+/**
+ * @method addDocumentOutletNode
+ * @param {Node*}
+ */
+addDocumentOutletNode : function () {},
+
+/**
+ * @method getSequenceDuration
+ * @return A value converted from C/C++ "float"
+ * @param {const char*}
+ */
+getSequenceDuration : function () {},
+
+/**
+ * @method addDocumentCallbackNode
+ * @param {Node*}
+ */
+addDocumentCallbackNode : function () {},
+
+/**
+ * @method runAnimationsForSequenceNamed
+ * @param {const char*}
+ */
+runAnimationsForSequenceNamed : function () {},
+
+/**
+ * @method getSequenceId
+ * @return A value converted from C/C++ "int"
+ * @param {const char*}
+ */
+getSequenceId : function () {},
+
+/**
+ * @method getDocumentCallbackNodes
+ * @return A value converted from C/C++ "Array*"
+ */
+getDocumentCallbackNodes : function () {},
+
+/**
+ * @method setSequences
+ * @param {Array*}
+ */
+setSequences : function () {},
+
+/**
+ * @method debug
+ */
+debug : function () {},
+
+/**
+ * @method getDocumentControllerName
+ * @return A value converted from C/C++ "std::string"
+ */
+getDocumentControllerName : function () {},
+
+/**
+ * @method CCBAnimationManager
+ * @constructor
+ */
+CCBAnimationManager : function () {},
+
+};
+
+/**
+ * @class CCBReader
+ */
+cc._Reader = {
+
+/**
+ * @method addOwnerOutletName
+ * @param {std::string}
+ */
+addOwnerOutletName : function () {},
+
+/**
+ * @method getOwnerCallbackNames
+ * @return A value converted from C/C++ "Array*"
+ */
+getOwnerCallbackNames : function () {},
+
+/**
+ * @method addDocumentCallbackControlEvents
+ * @param {cocos2d::extension::Control::EventType}
+ */
+addDocumentCallbackControlEvents : function () {},
+
+/**
+ * @method setCCBRootPath
+ * @param {const char*}
+ */
+setCCBRootPath : function () {},
+
+/**
+ * @method addOwnerOutletNode
+ * @param {Node*}
+ */
+addOwnerOutletNode : function () {},
+
+/**
+ * @method getOwnerCallbackNodes
+ * @return A value converted from C/C++ "Array*"
+ */
+getOwnerCallbackNodes : function () {},
+
+/**
+ * @method readSoundKeyframesForSeq
+ * @return A value converted from C/C++ "bool"
+ * @param {cocosbuilder::CCBSequence*}
+ */
+readSoundKeyframesForSeq : function () {},
+
+/**
+ * @method getCCBRootPath
+ * @return A value converted from C/C++ "std::string"
+ */
+getCCBRootPath : function () {},
+
+/**
+ * @method getOwnerCallbackControlEvents
+ * @return A value converted from C/C++ "Array*"
+ */
+getOwnerCallbackControlEvents : function () {},
+
+/**
+ * @method getOwnerOutletNodes
+ * @return A value converted from C/C++ "Array*"
+ */
+getOwnerOutletNodes : function () {},
+
+/**
+ * @method readUTF8
+ * @return A value converted from C/C++ "std::string"
+ */
+readUTF8 : function () {},
+
+/**
+ * @method addOwnerCallbackControlEvents
+ * @param {cocos2d::extension::Control::EventType}
+ */
+addOwnerCallbackControlEvents : function () {},
+
+/**
+ * @method getOwnerOutletNames
+ * @return A value converted from C/C++ "Array*"
+ */
+getOwnerOutletNames : function () {},
+
+/**
+ * @method setAnimationManager
+ * @param {cocosbuilder::CCBAnimationManager*}
+ */
+setAnimationManager : function () {},
+
+/**
+ * @method readCallbackKeyframesForSeq
+ * @return A value converted from C/C++ "bool"
+ * @param {cocosbuilder::CCBSequence*}
+ */
+readCallbackKeyframesForSeq : function () {},
+
+/**
+ * @method getAnimationManagersForNodes
+ * @return A value converted from C/C++ "Array*"
+ */
+getAnimationManagersForNodes : function () {},
+
+/**
+ * @method getNodesWithAnimationManagers
+ * @return A value converted from C/C++ "Array*"
+ */
+getNodesWithAnimationManagers : function () {},
+
+/**
+ * @method getAnimationManager
+ * @return A value converted from C/C++ "cocosbuilder::CCBAnimationManager*"
+ */
+getAnimationManager : function () {},
+
+/**
+ * @method setResolutionScale
+ * @param {float}
+ */
+setResolutionScale : function () {},
+
+};
+
+/**
+ * @class BaseData
+ */
+cc.BaseData = {
+
+/**
+ * @method getColor
+ * @return A value converted from C/C++ "Color4B"
+ */
+getColor : function () {},
+
+/**
+ * @method copy
+ * @param {cocostudio::BaseData*}
+ */
+copy : function () {},
+
+/**
+ * @method subtract
+ * @param {cocostudio::BaseData*}
+ * @param {cocostudio::BaseData*}
+ * @param {bool}
+ */
+subtract : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::Color4B}
+ */
+setColor : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::BaseData*"
+ */
+create : function () {},
+
+/**
+ * @method BaseData
+ * @constructor
+ */
+BaseData : function () {},
+
+};
+
+/**
+ * @class DisplayData
+ */
+cc.DisplayData = {
+
+/**
+ * @method changeDisplayToTexture
+ * @return A value converted from C/C++ "const char*"
+ * @param {const char*}
+ */
+changeDisplayToTexture : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::DisplayData*"
+ */
+create : function () {},
+
+/**
+ * @method DisplayData
+ * @constructor
+ */
+DisplayData : function () {},
+
+};
+
+/**
+ * @class SpriteDisplayData
+ */
+cc.SpriteDisplayData = {
+
+/**
+ * @method copy
+ * @param {cocostudio::SpriteDisplayData*}
+ */
+copy : function () {},
+
+/**
+ * @method setParam
+ * @param {const char*}
+ */
+setParam : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::SpriteDisplayData*"
+ */
+create : function () {},
+
+/**
+ * @method SpriteDisplayData
+ * @constructor
+ */
+SpriteDisplayData : function () {},
+
+};
+
+/**
+ * @class ArmatureDisplayData
+ */
+cc.ArmatureDisplayData = {
+
+/**
+ * @method copy
+ * @param {cocostudio::ArmatureDisplayData*}
+ */
+copy : function () {},
+
+/**
+ * @method setParam
+ * @param {const char*}
+ */
+setParam : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::ArmatureDisplayData*"
+ */
+create : function () {},
+
+/**
+ * @method ArmatureDisplayData
+ * @constructor
+ */
+ArmatureDisplayData : function () {},
+
+};
+
+/**
+ * @class ParticleDisplayData
+ */
+cc.ParticleDisplayData = {
+
+/**
+ * @method copy
+ * @param {cocostudio::ParticleDisplayData*}
+ */
+copy : function () {},
+
+/**
+ * @method setParam
+ * @param {const char*}
+ */
+setParam : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::ParticleDisplayData*"
+ */
+create : function () {},
+
+/**
+ * @method ParticleDisplayData
+ * @constructor
+ */
+ParticleDisplayData : function () {},
+
+};
+
+/**
+ * @class BoneData
+ */
+cc.BoneData = {
+
+/**
+ * @method getDisplayData
+ * @return A value converted from C/C++ "cocostudio::DisplayData*"
+ * @param {int}
+ */
+getDisplayData : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method addDisplayData
+ * @param {cocostudio::DisplayData*}
+ */
+addDisplayData : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::BoneData*"
+ */
+create : function () {},
+
+/**
+ * @method BoneData
+ * @constructor
+ */
+BoneData : function () {},
+
+};
+
+/**
+ * @class ArmatureData
+ */
+cc.ArmatureData = {
+
+/**
+ * @method addBoneData
+ * @param {cocostudio::BoneData*}
+ */
+addBoneData : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method getBoneData
+ * @return A value converted from C/C++ "cocostudio::BoneData*"
+ * @param {const char*}
+ */
+getBoneData : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::ArmatureData*"
+ */
+create : function () {},
+
+/**
+ * @method ArmatureData
+ * @constructor
+ */
+ArmatureData : function () {},
+
+};
+
+/**
+ * @class FrameData
+ */
+cc.FrameData = {
+
+/**
+ * @method copy
+ * @param {cocostudio::BaseData*}
+ */
+copy : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::FrameData*"
+ */
+create : function () {},
+
+/**
+ * @method FrameData
+ * @constructor
+ */
+FrameData : function () {},
+
+};
+
+/**
+ * @class MovementBoneData
+ */
+cc.MovementBoneData = {
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method getFrameData
+ * @return A value converted from C/C++ "cocostudio::FrameData*"
+ * @param {int}
+ */
+getFrameData : function () {},
+
+/**
+ * @method addFrameData
+ * @param {cocostudio::FrameData*}
+ */
+addFrameData : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::MovementBoneData*"
+ */
+create : function () {},
+
+/**
+ * @method MovementBoneData
+ * @constructor
+ */
+MovementBoneData : function () {},
+
+};
+
+/**
+ * @class MovementData
+ */
+cc.MovementData = {
+
+/**
+ * @method getMovementBoneData
+ * @return A value converted from C/C++ "cocostudio::MovementBoneData*"
+ * @param {const char*}
+ */
+getMovementBoneData : function () {},
+
+/**
+ * @method addMovementBoneData
+ * @param {cocostudio::MovementBoneData*}
+ */
+addMovementBoneData : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::MovementData*"
+ */
+create : function () {},
+
+/**
+ * @method MovementData
+ * @constructor
+ */
+MovementData : function () {},
+
+};
+
+/**
+ * @class AnimationData
+ */
+cc.AnimationData = {
+
+/**
+ * @method getMovement
+ * @return A value converted from C/C++ "cocostudio::MovementData*"
+ * @param {const char*}
+ */
+getMovement : function () {},
+
+/**
+ * @method getMovementCount
+ * @return A value converted from C/C++ "int"
+ */
+getMovementCount : function () {},
+
+/**
+ * @method addMovement
+ * @param {cocostudio::MovementData*}
+ */
+addMovement : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::AnimationData*"
+ */
+create : function () {},
+
+/**
+ * @method AnimationData
+ * @constructor
+ */
+AnimationData : function () {},
+
+};
+
+/**
+ * @class ContourData
+ */
+cc.ContourData = {
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method addVertex
+ * @param {Point*}
+ */
+addVertex : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::ContourData*"
+ */
+create : function () {},
+
+/**
+ * @method ContourData
+ * @constructor
+ */
+ContourData : function () {},
+
+};
+
+/**
+ * @class TextureData
+ */
+cc.TextureData = {
+
+/**
+ * @method getContourData
+ * @return A value converted from C/C++ "cocostudio::ContourData*"
+ * @param {int}
+ */
+getContourData : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method addContourData
+ * @param {cocostudio::ContourData*}
+ */
+addContourData : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::TextureData*"
+ */
+create : function () {},
+
+/**
+ * @method TextureData
+ * @constructor
+ */
+TextureData : function () {},
+
+};
+
+/**
+ * @class Bone
+ */
+cc.Bone = {
+
+/**
+ * @method isTransformDirty
+ * @return A value converted from C/C++ "bool"
+ */
+isTransformDirty : function () {},
+
+/**
+ * @method updateZOrder
+ */
+updateZOrder : function () {},
+
+/**
+ * @method getDisplayRenderNode
+ * @return A value converted from C/C++ "cocos2d::Node*"
+ */
+getDisplayRenderNode : function () {},
+
+/**
+ * @method getTween
+ * @return A value converted from C/C++ "cocostudio::Tween*"
+ */
+getTween : function () {},
+
+/**
+ * @method getParentBone
+ * @return A value converted from C/C++ "cocostudio::Bone*"
+ */
+getParentBone : function () {},
+
+/**
+ * @method getBlendType
+ * @return A value converted from C/C++ "cocostudio::BlendType"
+ */
+getBlendType : function () {},
+
+/**
+ * @method updateColor
+ */
+updateColor : function () {},
+
+/**
+ * @method getName
+ * @return A value converted from C/C++ "std::string"
+ */
+getName : function () {},
+
+/**
+ * @method setTransformDirty
+ * @param {bool}
+ */
+setTransformDirty : function () {},
+
+/**
+ * @method addChildBone
+ * @param {cocostudio::Bone*}
+ */
+addChildBone : function () {},
+
+/**
+ * @method updateDisplayedOpacity
+ * @param {unsigned char}
+ */
+updateDisplayedOpacity : function () {},
+
+/**
+ * @method setParentBone
+ * @param {cocostudio::Bone*}
+ */
+setParentBone : function () {},
+
+/**
+ * @method setZOrder
+ * @param {int}
+ */
+setZOrder : function () {},
+
+/**
+ * @method setName
+ * @param {std::string}
+ */
+setName : function () {},
+
+/**
+ * @method removeFromParent
+ * @param {bool}
+ */
+removeFromParent : function () {},
+
+/**
+ * @method getChildArmature
+ * @return A value converted from C/C++ "cocostudio::Armature*"
+ */
+getChildArmature : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method setDisplayManager
+ * @param {cocostudio::DisplayManager*}
+ */
+setDisplayManager : function () {},
+
+/**
+ * @method getTweenData
+ * @return A value converted from C/C++ "cocostudio::FrameData*"
+ */
+getTweenData : function () {},
+
+/**
+ * @method getColliderBodyList
+ * @return A value converted from C/C++ "Array*"
+ */
+getColliderBodyList : function () {},
+
+/**
+ * @method setBoneData
+ * @param {cocostudio::BoneData*}
+ */
+setBoneData : function () {},
+
+/**
+ * @method setArmature
+ * @param {cocostudio::Armature*}
+ */
+setArmature : function () {},
+
+/**
+ * @method getNodeToWorldTransform
+ * @return A value converted from C/C++ "AffineTransform"
+ */
+getNodeToWorldTransform : function () {},
+
+/**
+ * @method removeChildBone
+ * @param {cocostudio::Bone*}
+ * @param {bool}
+ */
+removeChildBone : function () {},
+
+/**
+ * @method setChildArmature
+ * @param {cocostudio::Armature*}
+ */
+setChildArmature : function () {},
+
+/**
+ * @method getNodeToArmatureTransform
+ * @return A value converted from C/C++ "AffineTransform"
+ */
+getNodeToArmatureTransform : function () {},
+
+/**
+ * @method getDisplayManager
+ * @return A value converted from C/C++ "cocostudio::DisplayManager*"
+ */
+getDisplayManager : function () {},
+
+/**
+ * @method getArmature
+ * @return A value converted from C/C++ "cocostudio::Armature*"
+ */
+getArmature : function () {},
+
+/**
+ * @method setBlendType
+ * @param {cocostudio::BlendType}
+ */
+setBlendType : function () {},
+
+/**
+ * @method changeDisplayByIndex
+ * @param {int}
+ * @param {bool}
+ */
+changeDisplayByIndex : function () {},
+
+/**
+ * @method updateDisplayedColor
+ * @param {cocos2d::Color3B}
+ */
+updateDisplayedColor : function () {},
+
+/**
+ * @method getBoneData
+ * @return A value converted from C/C++ "cocostudio::BoneData*"
+ */
+getBoneData : function () {},
+
+/**
+ * @method Bone
+ * @constructor
+ */
+Bone : function () {},
+
+};
+
+/**
+ * @class ArmatureAnimation
+ */
+cc.ArmatureAnimation = {
+
+/**
+ * @method getSpeedScale
+ * @return A value converted from C/C++ "float"
+ */
+getSpeedScale : function () {},
+
+/**
+ * @method getAnimationScale
+ * @return A value converted from C/C++ "float"
+ */
+getAnimationScale : function () {},
+
+/**
+ * @method play
+ * @param {const char*}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ */
+play : function () {},
+
+/**
+ * @method pause
+ */
+pause : function () {},
+
+/**
+ * @method setAnimationScale
+ * @param {float}
+ */
+setAnimationScale : function () {},
+
+/**
+ * @method resume
+ */
+resume : function () {},
+
+/**
+ * @method stop
+ */
+stop : function () {},
+
+/**
+ * @method setAnimationData
+ * @param {cocostudio::AnimationData*}
+ */
+setAnimationData : function () {},
+
+/**
+ * @method setSpeedScale
+ * @param {float}
+ */
+setSpeedScale : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method getAnimationData
+ * @return A value converted from C/C++ "cocostudio::AnimationData*"
+ */
+getAnimationData : function () {},
+
+/**
+ * @method playByIndex
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ */
+playByIndex : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ * @param {cocostudio::Armature*}
+ */
+init : function () {},
+
+/**
+ * @method getMovementCount
+ * @return A value converted from C/C++ "int"
+ */
+getMovementCount : function () {},
+
+/**
+ * @method getCurrentMovementID
+ * @return A value converted from C/C++ "std::string"
+ */
+getCurrentMovementID : function () {},
+
+/**
+ * @method setAnimationInternal
+ * @param {float}
+ */
+setAnimationInternal : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocostudio::ArmatureAnimation*"
+ * @param {cocostudio::Armature*}
+ */
+create : function () {},
+
+/**
+ * @method ArmatureAnimation
+ * @constructor
+ */
+ArmatureAnimation : function () {},
+
+};
+
+/**
+ * @class ArmatureDataManager
+ */
+cc.ArmatureDataManager = {
+
+/**
+ * @method getAnimationDatas
+ * @return A value converted from C/C++ "Dictionary*"
+ */
+getAnimationDatas : function () {},
+
+/**
+ * @method removeAnimationData
+ * @param {const char*}
+ */
+removeAnimationData : function () {},
+
+/**
+ * @method addArmatureData
+ * @param {const char*}
+ * @param {cocostudio::ArmatureData*}
+ */
+addArmatureData : function () {},
+
+/**
+ * @method getTextureDatas
+ * @return A value converted from C/C++ "Dictionary*"
+ */
+getTextureDatas : function () {},
+
+/**
+ * @method getTextureData
+ * @return A value converted from C/C++ "cocostudio::TextureData*"
+ * @param {const char*}
+ */
+getTextureData : function () {},
+
+/**
+ * @method getArmatureData
+ * @return A value converted from C/C++ "cocostudio::ArmatureData*"
+ * @param {const char*}
+ */
+getArmatureData : function () {},
+
+/**
+ * @method getAnimationData
+ * @return A value converted from C/C++ "cocostudio::AnimationData*"
+ * @param {const char*}
+ */
+getAnimationData : function () {},
+
+/**
+ * @method removeAll
+ */
+removeAll : function () {},
+
+/**
+ * @method addAnimationData
+ * @param {const char*}
+ * @param {cocostudio::AnimationData*}
+ */
+addAnimationData : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method removeArmatureData
+ * @param {const char*}
+ */
+removeArmatureData : function () {},
+
+/**
+ * @method getArmatureDatas
+ * @return A value converted from C/C++ "Dictionary*"
+ */
+getArmatureDatas : function () {},
+
+/**
+ * @method removeTextureData
+ * @param {const char*}
+ */
+removeTextureData : function () {},
+
+/**
+ * @method addTextureData
+ * @param {const char*}
+ * @param {cocostudio::TextureData*}
+ */
+addTextureData : function () {},
+
+/**
+ * @method isAutoLoadSpriteFile
+ * @return A value converted from C/C++ "bool"
+ */
+isAutoLoadSpriteFile : function () {},
+
+/**
+ * @method addSpriteFrameFromFile
+ * @param {const char*}
+ * @param {const char*}
+ */
+addSpriteFrameFromFile : function () {},
+
+/**
+ * @method destoryInstance
+ */
+destoryInstance : function () {},
+
+/**
+ * @method getInstance
+ * @return A value converted from C/C++ "cocostudio::ArmatureDataManager*"
+ */
+getInstance : function () {},
+
+};
+
+/**
+ * @class Armature
+ */
+cc.Armature = {
+
+/**
+ * @method getBone
+ * @return A value converted from C/C++ "cocostudio::Bone*"
+ * @param {const char*}
+ */
+getBone : function () {},
+
+/**
+ * @method changeBoneParent
+ * @param {cocostudio::Bone*}
+ * @param {const char*}
+ */
+changeBoneParent : function () {},
+
+/**
+ * @method setAnimation
+ * @param {cocostudio::ArmatureAnimation*}
+ */
+setAnimation : function () {},
+
+/**
+ * @method getBoneAtPoint
+ * @return A value converted from C/C++ "cocostudio::Bone*"
+ * @param {float}
+ * @param {float}
+ */
+getBoneAtPoint : function () {},
+
+/**
+ * @method getArmatureTransformDirty
+ * @return A value converted from C/C++ "bool"
+ */
+getArmatureTransformDirty : function () {},
+
+/**
+ * @method setVersion
+ * @param {float}
+ */
+setVersion : function () {},
+
+/**
+ * @method updateOffsetPoint
+ */
+updateOffsetPoint : function () {},
+
+/**
+ * @method getParentBone
+ * @return A value converted from C/C++ "cocostudio::Bone*"
+ */
+getParentBone : function () {},
+
+/**
+ * @method setName
+ * @param {std::string}
+ */
+setName : function () {},
+
+/**
+ * @method removeBone
+ * @param {cocostudio::Bone*}
+ * @param {bool}
+ */
+removeBone : function () {},
+
+/**
+ * @method getBatchNode
+ * @return A value converted from C/C++ "cocostudio::BatchNode*"
+ */
+getBatchNode : function () {},
+
+/**
+ * @method getName
+ * @return A value converted from C/C++ "std::string"
+ */
+getName : function () {},
+
+/**
+ * @method getNodeToParentTransform
+ * @return A value converted from C/C++ "cocos2d::AffineTransform"
+ */
+getNodeToParentTransform : function () {},
+
+/**
+ * @method setParentBone
+ * @param {cocostudio::Bone*}
+ */
+setParentBone : function () {},
+
+/**
+ * @method getBoundingBox
+ * @return A value converted from C/C++ "Rect"
+ */
+getBoundingBox : function () {},
+
+/**
+ * @method setBatchNode
+ * @param {cocostudio::BatchNode*}
+ */
+setBatchNode : function () {},
+
+/**
+ * @method draw
+ */
+draw : function () {},
+
+/**
+ * @method setArmatureData
+ * @param {cocostudio::ArmatureData*}
+ */
+setArmatureData : function () {},
+
+/**
+ * @method setTextureAtlas
+ * @param {TextureAtlas*}
+ */
+setTextureAtlas : function () {},
+
+/**
+ * @method addBone
+ * @param {cocostudio::Bone*}
+ * @param {const char*}
+ */
+addBone : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method getArmatureData
+ * @return A value converted from C/C++ "cocostudio::ArmatureData*"
+ */
+getArmatureData : function () {},
+
+/**
+ * @method setBody
+ * @param {cpBody*}
+ */
+setBody : function () {},
+
+/**
+ * @method getVersion
+ * @return A value converted from C/C++ "float"
+ */
+getVersion : function () {},
+
+/**
+ * @method getAnimation
+ * @return A value converted from C/C++ "cocostudio::ArmatureAnimation*"
+ */
+getAnimation : function () {},
+
+/**
+ * @method getBoneDic
+ * @return A value converted from C/C++ "Dictionary*"
+ */
+getBoneDic : function () {},
+
+/**
+ * @method getTextureAtlas
+ * @return A value converted from C/C++ "TextureAtlas*"
+ */
+getTextureAtlas : function () {},
+
+/**
+ * @method Armature
+ * @constructor
+ */
+Armature : function () {},
+
+};
+
+/**
+ * @class Skin
+ */
+cc.Skin = {
+
+/**
+ * @method getBone
+ * @return A value converted from C/C++ "cocostudio::Bone*"
+ */
+getBone : function () {},
+
+/**
+ * @method getNodeToWorldTransformAR
+ * @return A value converted from C/C++ "AffineTransform"
+ */
+getNodeToWorldTransformAR : function () {},
+
+/**
+ * @method getNodeToWorldTransform
+ * @return A value converted from C/C++ "AffineTransform"
+ */
+getNodeToWorldTransform : function () {},
+
+/**
+ * @method updateTransform
+ */
+updateTransform : function () {},
+
+/**
+ * @method getDisplayName
+ * @return A value converted from C/C++ "std::string"
+ */
+getDisplayName : function () {},
+
+/**
+ * @method updateArmatureTransform
+ */
+updateArmatureTransform : function () {},
+
+/**
+ * @method initWithSpriteFrameName
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ */
+initWithSpriteFrameName : function () {},
+
+/**
+ * @method initWithFile
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ */
+initWithFile : function () {},
+
+/**
+ * @method setBone
+ * @param {cocostudio::Bone*}
+ */
+setBone : function () {},
+
+/**
+ * @method createWithSpriteFrameName
+ * @return A value converted from C/C++ "cocostudio::Skin*"
+ * @param {const char*}
+ */
+createWithSpriteFrameName : function () {},
+
+/**
+ * @method Skin
+ * @constructor
+ */
+Skin : function () {},
 
 };

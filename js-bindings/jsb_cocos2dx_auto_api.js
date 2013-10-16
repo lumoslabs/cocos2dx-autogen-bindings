@@ -1119,12 +1119,6 @@ getVertexZ : function () {},
 _setZOrder : function () {},
 
 /**
- * @method setScale
- * @param {float}
- */
-setScale : function () {},
-
-/**
  * @method getChildByTag
  * @return A value converted from C/C++ "cocos2d::Node*"
  * @param {int}
@@ -6031,6 +6025,12 @@ mainLoop : function () {},
 setDepthTest : function () {},
 
 /**
+ * @method getFrameRate
+ * @return A value converted from C/C++ "float"
+ */
+getFrameRate : function () {},
+
+/**
  * @method getSecondsPerFrame
  * @return A value converted from C/C++ "float"
  */
@@ -6884,6 +6884,12 @@ reorderBatch : function () {},
 visit : function () {},
 
 /**
+ * @method removeAllChildrenWithCleanup
+ * @param {bool}
+ */
+removeAllChildrenWithCleanup : function () {},
+
+/**
  * @method setTexture
  * @param {cocos2d::Texture2D*}
  */
@@ -6946,12 +6952,6 @@ initWithTexture : function () {},
  * @param {cocos2d::TextureAtlas*}
  */
 setTextureAtlas : function () {},
-
-/**
- * @method removeAllChildrenWithCleanup
- * @param {bool}
- */
-removeAllChildrenWithCleanup : function () {},
 
 /**
  * @method sortAllChildren
@@ -11131,6 +11131,58 @@ getInstance : function () {},
 };
 
 /**
+ * @class EGLViewProtocol
+ */
+cc.EGLViewProtocol = {
+
+/**
+ * @method getVisibleOrigin
+ * @return A value converted from C/C++ "cocos2d::Point"
+ */
+getVisibleOrigin : function () {},
+
+/**
+ * @method setDesignResolutionSize
+ * @param {float}
+ * @param {float}
+ * @param {ResolutionPolicy}
+ */
+setDesignResolutionSize : function () {},
+
+/**
+ * @method getVisibleSize
+ * @return A value converted from C/C++ "cocos2d::Size"
+ */
+getVisibleSize : function () {},
+
+};
+
+/**
+ * @class EGLView
+ */
+cc.EGLView = {
+
+/**
+ * @method setIMEKeyboardState
+ * @param {bool}
+ */
+setIMEKeyboardState : function () {},
+
+/**
+ * @method isOpenGLReady
+ * @return A value converted from C/C++ "bool"
+ */
+isOpenGLReady : function () {},
+
+/**
+ * @method getInstance
+ * @return A value converted from C/C++ "cocos2d::EGLView*"
+ */
+getInstance : function () {},
+
+};
+
+/**
  * @class ShaderCache
  */
 cc.ShaderCache = {
@@ -11303,6 +11355,97 @@ destroyInstance : function () {},
  * @return A value converted from C/C++ "cocos2d::SpriteFrameCache*"
  */
 getInstance : function () {},
+
+};
+
+/**
+ * @class TextFieldTTF
+ */
+cc.TextFieldTTF = {
+
+/**
+ * @method getCharCount
+ * @return A value converted from C/C++ "int"
+ */
+getCharCount : function () {},
+
+/**
+ * @method getDelegate
+ * @return A value converted from C/C++ "cocos2d::TextFieldDelegate*"
+ */
+getDelegate : function () {},
+
+/**
+ * @method setSecureTextEntry
+ * @param {bool}
+ */
+setSecureTextEntry : function () {},
+
+/**
+ * @method getString
+ * @return A value converted from C/C++ "const char*"
+ */
+getString : function () {},
+
+/**
+ * @method getColorSpaceHolder
+ * @return A value converted from C/C++ "cocos2d::Color3B"
+ */
+getColorSpaceHolder : function () {},
+
+/**
+ * @method getPlaceHolder
+ * @return A value converted from C/C++ "const char*"
+ */
+getPlaceHolder : function () {},
+
+/**
+ * @method setColorSpaceHolder
+ * @param {cocos2d::Color3B}
+ */
+setColorSpaceHolder : function () {},
+
+/**
+ * @method detachWithIME
+ * @return A value converted from C/C++ "bool"
+ */
+detachWithIME : function () {},
+
+/**
+ * @method setDelegate
+ * @param {cocos2d::TextFieldDelegate*}
+ */
+setDelegate : function () {},
+
+/**
+ * @method setPlaceHolder
+ * @param {const char*}
+ */
+setPlaceHolder : function () {},
+
+/**
+ * @method isSecureTextEntry
+ * @return A value converted from C/C++ "bool"
+ */
+isSecureTextEntry : function () {},
+
+/**
+ * @method setString
+ * @param {const char*}
+ */
+setString : function () {},
+
+/**
+ * @method attachWithIME
+ * @return A value converted from C/C++ "bool"
+ */
+attachWithIME : function () {},
+
+/**
+ * @method TextFieldTTF
+ * @constructor
+ */
+TextFieldTTF : function () {},
 
 };
 
