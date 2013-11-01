@@ -2297,6 +2297,12 @@ setTransformDirty : function () {},
 getDisplayRenderNode : function () {},
 
 /**
+ * @method addChildBone
+ * @param {cocos2d::extension::CCBone*}
+ */
+addChildBone : function () {},
+
+/**
  * @method getWorldInfo
  * @return A value converted from C/C++ "cocos2d::extension::CCBaseData*"
  */
@@ -2338,10 +2344,10 @@ getName : function () {},
 setOpacity : function () {},
 
 /**
- * @method addChildBone
- * @param {cocos2d::extension::CCBone*}
+ * @method removeDisplay
+ * @param {int}
  */
-addChildBone : function () {},
+removeDisplay : function () {},
 
 /**
  * @method updateDisplayedOpacity

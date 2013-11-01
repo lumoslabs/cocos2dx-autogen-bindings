@@ -513,6 +513,7 @@ JSBool js_cocos2dx_extension_CCBone_isTransformDirty(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_extension_CCBone_updateZOrder(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_setTransformDirty(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_getDisplayRenderNode(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCBone_addChildBone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_getWorldInfo(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_getTween(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_getParentBone(JSContext *cx, uint32_t argc, jsval *vp);
@@ -520,7 +521,7 @@ JSBool js_cocos2dx_extension_CCBone_getBlendType(JSContext *cx, uint32_t argc, j
 JSBool js_cocos2dx_extension_CCBone_updateColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_getName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_setOpacity(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCBone_addChildBone(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCBone_removeDisplay(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_updateDisplayedOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBone_setParentBone(JSContext *cx, uint32_t argc, jsval *vp);
