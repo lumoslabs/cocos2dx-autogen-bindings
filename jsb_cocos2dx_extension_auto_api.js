@@ -2344,6 +2344,12 @@ getName : function () {},
 setOpacity : function () {},
 
 /**
+ * @method getDisplayRenderNodeType
+ * @return A value converted from C/C++ "cocos2d::extension::DisplayType"
+ */
+getDisplayRenderNodeType : function () {},
+
+/**
  * @method removeDisplay
  * @param {int}
  */
@@ -2372,6 +2378,12 @@ setZOrder : function () {},
  * @return A value converted from C/C++ "bool"
  */
 getIgnoreMovementBoneData : function () {},
+
+/**
+ * @method getColliderFilter
+ * @return A value converted from C/C++ "cocos2d::extension::CCColliderFilter*"
+ */
+getColliderFilter : function () {},
 
 /**
  * @method setIgnoreMovementBoneData
@@ -2414,6 +2426,12 @@ setDisplayManager : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::CCFrameData*"
  */
 getTweenData : function () {},
+
+/**
+ * @method setColliderFilter
+ * @param {cocos2d::extension::CCColliderFilter*}
+ */
+setColliderFilter : function () {},
 
 /**
  * @method getColliderBodyList
@@ -2542,6 +2560,12 @@ pause : function () {},
 setAnimationScale : function () {},
 
 /**
+ * @method gotoAndPause
+ * @param {int}
+ */
+gotoAndPause : function () {},
+
+/**
  * @method resume
  */
 resume : function () {},
@@ -2584,6 +2608,12 @@ getAnimationData : function () {},
  * @param {int}
  */
 playByIndex : function () {},
+
+/**
+ * @method gotoAndPlay
+ * @param {int}
+ */
+gotoAndPlay : function () {},
 
 /**
  * @method init
@@ -2645,6 +2675,13 @@ getBone : function () {},
 changeBoneParent : function () {},
 
 /**
+ * @method getTexureAtlasWithTexture
+ * @return A value converted from C/C++ "cocos2d::CCTextureAtlas*"
+ * @param {cocos2d::CCTexture2D*}
+ */
+getTexureAtlasWithTexture : function () {},
+
+/**
  * @method setAnimation
  * @param {cocos2d::extension::CCArmatureAnimation*}
  */
@@ -2676,10 +2713,10 @@ setVersion : function () {},
 updateOffsetPoint : function () {},
 
 /**
- * @method getParentBone
- * @return A value converted from C/C++ "cocos2d::extension::CCBone*"
+ * @method setColliderFilter
+ * @param {cocos2d::extension::CCColliderFilter*}
  */
-getParentBone : function () {},
+setColliderFilter : function () {},
 
 /**
  * @method setName
@@ -2765,6 +2802,12 @@ update : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::CCArmatureData*"
  */
 getArmatureData : function () {},
+
+/**
+ * @method getParentBone
+ * @return A value converted from C/C++ "cocos2d::extension::CCBone*"
+ */
+getParentBone : function () {},
 
 /**
  * @method boundingBox
@@ -2905,8 +2948,15 @@ removeAnimationData : function () {},
  * @method addArmatureData
  * @param {const char*}
  * @param {cocos2d::extension::CCArmatureData*}
+ * @param {const char*}
  */
 addArmatureData : function () {},
+
+/**
+ * @method removeArmatureFileInfo
+ * @param {const char*}
+ */
+removeArmatureFileInfo : function () {},
 
 /**
  * @method getTextureDatas
@@ -2936,14 +2986,10 @@ getArmatureData : function () {},
 getAnimationData : function () {},
 
 /**
- * @method removeAll
- */
-removeAll : function () {},
-
-/**
  * @method addAnimationData
  * @param {const char*}
  * @param {cocos2d::extension::CCAnimationData*}
+ * @param {const char*}
  */
 addAnimationData : function () {},
 
@@ -2975,6 +3021,7 @@ removeTextureData : function () {},
  * @method addTextureData
  * @param {const char*}
  * @param {cocos2d::extension::CCTextureData*}
+ * @param {const char*}
  */
 addTextureData : function () {},
 
@@ -2986,6 +3033,7 @@ isAutoLoadSpriteFile : function () {},
 
 /**
  * @method addSpriteFrameFromFile
+ * @param {const char*}
  * @param {const char*}
  * @param {const char*}
  */

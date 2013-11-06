@@ -10951,6 +10951,23 @@ JSBool js_cocos2dx_extension_CCBone_setOpacity(JSContext *cx, uint32_t argc, jsv
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_extension_CCBone_getDisplayRenderNodeType(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCBone* cobj = (cocos2d::extension::CCBone *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::extension::DisplayType ret = cobj->getDisplayRenderNodeType();
+		jsval jsret;
+		jsret = int32_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_extension_CCBone_removeDisplay(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -11083,6 +11100,30 @@ JSBool js_cocos2dx_extension_CCBone_getIgnoreMovementBoneData(JSContext *cx, uin
 		bool ret = cobj->getIgnoreMovementBoneData();
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCBone_getColliderFilter(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCBone* cobj = (cocos2d::extension::CCBone *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::extension::CCColliderFilter* ret = cobj->getColliderFilter();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::extension::CCColliderFilter>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -11243,6 +11284,33 @@ JSBool js_cocos2dx_extension_CCBone_getTweenData(JSContext *cx, uint32_t argc, j
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCBone_setColliderFilter(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCBone* cobj = (cocos2d::extension::CCBone *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::extension::CCColliderFilter* arg0;
+		do {
+			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg0 = (cocos2d::extension::CCColliderFilter*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setColliderFilter(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_extension_CCBone_getColliderBodyList(JSContext *cx, uint32_t argc, jsval *vp)
@@ -11718,12 +11786,14 @@ void js_register_cocos2dx_extension_CCBone(JSContext *cx, JSObject *global) {
 		JS_FN("updateColor", js_cocos2dx_extension_CCBone_updateColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getName", js_cocos2dx_extension_CCBone_getName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setOpacity", js_cocos2dx_extension_CCBone_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDisplayRenderNodeType", js_cocos2dx_extension_CCBone_getDisplayRenderNodeType, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeDisplay", js_cocos2dx_extension_CCBone_removeDisplay, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updateDisplayedOpacity", js_cocos2dx_extension_CCBone_updateDisplayedOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_extension_CCBone_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setParentBone", js_cocos2dx_extension_CCBone_setParentBone, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setZOrder", js_cocos2dx_extension_CCBone_setZOrder, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getIgnoreMovementBoneData", js_cocos2dx_extension_CCBone_getIgnoreMovementBoneData, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColliderFilter", js_cocos2dx_extension_CCBone_getColliderFilter, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setIgnoreMovementBoneData", js_cocos2dx_extension_CCBone_setIgnoreMovementBoneData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setName", js_cocos2dx_extension_CCBone_setName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeFromParent", js_cocos2dx_extension_CCBone_removeFromParent, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -11731,6 +11801,7 @@ void js_register_cocos2dx_extension_CCBone(JSContext *cx, JSObject *global) {
 		JS_FN("update", js_cocos2dx_extension_CCBone_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDisplayManager", js_cocos2dx_extension_CCBone_setDisplayManager, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTweenData", js_cocos2dx_extension_CCBone_getTweenData, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColliderFilter", js_cocos2dx_extension_CCBone_setColliderFilter, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getColliderBodyList", js_cocos2dx_extension_CCBone_getColliderBodyList, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setBoneData", js_cocos2dx_extension_CCBone_setBoneData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setArmature", js_cocos2dx_extension_CCBone_setArmature, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -11920,6 +11991,26 @@ JSBool js_cocos2dx_extension_CCArmatureAnimation_setAnimationScale(JSContext *cx
 		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setAnimationScale(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCArmatureAnimation_gotoAndPause(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCArmatureAnimation* cobj = (cocos2d::extension::CCArmatureAnimation *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->gotoAndPause(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -12120,6 +12211,26 @@ JSBool js_cocos2dx_extension_CCArmatureAnimation_playByIndex(JSContext *cx, uint
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_extension_CCArmatureAnimation_gotoAndPlay(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCArmatureAnimation* cobj = (cocos2d::extension::CCArmatureAnimation *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->gotoAndPlay(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_extension_CCArmatureAnimation_init(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -12301,6 +12412,7 @@ void js_register_cocos2dx_extension_CCArmatureAnimation(JSContext *cx, JSObject 
 		JS_FN("play", js_cocos2dx_extension_CCArmatureAnimation_play, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("pause", js_cocos2dx_extension_CCArmatureAnimation_pause, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAnimationScale", js_cocos2dx_extension_CCArmatureAnimation_setAnimationScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("gotoAndPause", js_cocos2dx_extension_CCArmatureAnimation_gotoAndPause, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resume", js_cocos2dx_extension_CCArmatureAnimation_resume, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("stop", js_cocos2dx_extension_CCArmatureAnimation_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAnimationData", js_cocos2dx_extension_CCArmatureAnimation_setAnimationData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -12308,6 +12420,7 @@ void js_register_cocos2dx_extension_CCArmatureAnimation(JSContext *cx, JSObject 
 		JS_FN("update", js_cocos2dx_extension_CCArmatureAnimation_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAnimationData", js_cocos2dx_extension_CCArmatureAnimation_getAnimationData, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("playByIndex", js_cocos2dx_extension_CCArmatureAnimation_playByIndex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("gotoAndPlay", js_cocos2dx_extension_CCArmatureAnimation_gotoAndPlay, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_extension_CCArmatureAnimation_init, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getMovementCount", js_cocos2dx_extension_CCArmatureAnimation_getMovementCount, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getCurrentMovementID", js_cocos2dx_extension_CCArmatureAnimation_getCurrentMovementID, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -12409,6 +12522,42 @@ JSBool js_cocos2dx_extension_CCArmature_changeBoneParent(JSContext *cx, uint32_t
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCArmature_getTexureAtlasWithTexture(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCArmature* cobj = (cocos2d::extension::CCArmature *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCTexture2D* arg0;
+		do {
+			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg0 = (cocos2d::CCTexture2D*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::CCTextureAtlas* ret = cobj->getTexureAtlasWithTexture(arg0);
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCTextureAtlas>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_extension_CCArmature_setAnimation(JSContext *cx, uint32_t argc, jsval *vp)
@@ -12528,28 +12677,31 @@ JSBool js_cocos2dx_extension_CCArmature_updateOffsetPoint(JSContext *cx, uint32_
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_extension_CCArmature_getParentBone(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_extension_CCArmature_setColliderFilter(JSContext *cx, uint32_t argc, jsval *vp)
 {
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy = jsb_get_js_proxy(obj);
 	cocos2d::extension::CCArmature* cobj = (cocos2d::extension::CCArmature *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cocos2d::extension::CCBone* ret = cobj->getParentBone();
-		jsval jsret;
+	if (argc == 1) {
+		cocos2d::extension::CCColliderFilter* arg0;
 		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::extension::CCBone>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
+			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg0 = (cocos2d::extension::CCColliderFilter*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
 		} while (0);
-		JS_SET_RVAL(cx, vp, jsret);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setColliderFilter(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_extension_CCArmature_setName(JSContext *cx, uint32_t argc, jsval *vp)
@@ -12922,6 +13074,30 @@ JSBool js_cocos2dx_extension_CCArmature_getArmatureData(JSContext *cx, uint32_t 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_extension_CCArmature_getParentBone(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCArmature* cobj = (cocos2d::extension::CCArmature *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::extension::CCBone* ret = cobj->getParentBone();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::extension::CCBone>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_extension_CCArmature_boundingBox(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -13179,12 +13355,13 @@ void js_register_cocos2dx_extension_CCArmature(JSContext *cx, JSObject *global) 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("getBone", js_cocos2dx_extension_CCArmature_getBone, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("changeBoneParent", js_cocos2dx_extension_CCArmature_changeBoneParent, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTexureAtlasWithTexture", js_cocos2dx_extension_CCArmature_getTexureAtlasWithTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAnimation", js_cocos2dx_extension_CCArmature_setAnimation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getBoneAtPoint", js_cocos2dx_extension_CCArmature_getBoneAtPoint, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getBatchNode", js_cocos2dx_extension_CCArmature_getBatchNode, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setVersion", js_cocos2dx_extension_CCArmature_setVersion, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updateOffsetPoint", js_cocos2dx_extension_CCArmature_updateOffsetPoint, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getParentBone", js_cocos2dx_extension_CCArmature_getParentBone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColliderFilter", js_cocos2dx_extension_CCArmature_setColliderFilter, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setName", js_cocos2dx_extension_CCArmature_setName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeBone", js_cocos2dx_extension_CCArmature_removeBone, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getArmatureTransformDirty", js_cocos2dx_extension_CCArmature_getArmatureTransformDirty, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -13200,6 +13377,7 @@ void js_register_cocos2dx_extension_CCArmature(JSContext *cx, JSObject *global) 
 		JS_FN("addBone", js_cocos2dx_extension_CCArmature_addBone, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_extension_CCArmature_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getArmatureData", js_cocos2dx_extension_CCArmature_getArmatureData, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getParentBone", js_cocos2dx_extension_CCArmature_getParentBone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("boundingBox", js_cocos2dx_extension_CCArmature_boundingBox, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getVersion", js_cocos2dx_extension_CCArmature_getVersion, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAnimation", js_cocos2dx_extension_CCArmature_getAnimation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -13667,6 +13845,25 @@ JSBool js_cocos2dx_extension_CCArmatureDataManager_addArmatureData(JSContext *cx
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
+	if (argc == 3) {
+		const char* arg0;
+		cocos2d::extension::CCArmatureData* arg1;
+		const char* arg2;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		do {
+			if (!argv[1].isObject()) { ok = JS_FALSE; break; }
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg1 = (cocos2d::extension::CCArmatureData*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg1, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		std::string arg2_tmp; ok &= jsval_to_std_string(cx, argv[2], &arg2_tmp); arg2 = arg2_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->addArmatureData(arg0, arg1, arg2);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
@@ -13711,6 +13908,26 @@ JSBool js_cocos2dx_extension_CCArmatureDataManager_addArmatureFileInfo(JSContext
 	} while(0);
 
 	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCArmatureDataManager_removeArmatureFileInfo(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCArmatureDataManager* cobj = (cocos2d::extension::CCArmatureDataManager *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->removeArmatureFileInfo(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_extension_CCArmatureDataManager_getTextureDatas(JSContext *cx, uint32_t argc, jsval *vp)
@@ -13817,21 +14034,6 @@ JSBool js_cocos2dx_extension_CCArmatureDataManager_getAnimationData(JSContext *c
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_extension_CCArmatureDataManager_removeAll(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::extension::CCArmatureDataManager* cobj = (cocos2d::extension::CCArmatureDataManager *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->removeAll();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_extension_CCArmatureDataManager_addAnimationData(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -13854,6 +14056,25 @@ JSBool js_cocos2dx_extension_CCArmatureDataManager_addAnimationData(JSContext *c
 		} while (0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->addAnimationData(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	if (argc == 3) {
+		const char* arg0;
+		cocos2d::extension::CCAnimationData* arg1;
+		const char* arg2;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		do {
+			if (!argv[1].isObject()) { ok = JS_FALSE; break; }
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg1 = (cocos2d::extension::CCAnimationData*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg1, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		std::string arg2_tmp; ok &= jsval_to_std_string(cx, argv[2], &arg2_tmp); arg2 = arg2_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->addAnimationData(arg0, arg1, arg2);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -13960,6 +14181,25 @@ JSBool js_cocos2dx_extension_CCArmatureDataManager_addTextureData(JSContext *cx,
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
+	if (argc == 3) {
+		const char* arg0;
+		cocos2d::extension::CCTextureData* arg1;
+		const char* arg2;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		do {
+			if (!argv[1].isObject()) { ok = JS_FALSE; break; }
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg1 = (cocos2d::extension::CCTextureData*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg1, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		std::string arg2_tmp; ok &= jsval_to_std_string(cx, argv[2], &arg2_tmp); arg2 = arg2_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->addTextureData(arg0, arg1, arg2);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
@@ -13996,6 +14236,18 @@ JSBool js_cocos2dx_extension_CCArmatureDataManager_addSpriteFrameFromFile(JSCont
 		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->addSpriteFrameFromFile(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	if (argc == 3) {
+		const char* arg0;
+		const char* arg1;
+		const char* arg2;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		std::string arg2_tmp; ok &= jsval_to_std_string(cx, argv[2], &arg2_tmp); arg2 = arg2_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->addSpriteFrameFromFile(arg0, arg1, arg2);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -14063,11 +14315,11 @@ void js_register_cocos2dx_extension_CCArmatureDataManager(JSContext *cx, JSObjec
 		JS_FN("removeAnimationData", js_cocos2dx_extension_CCArmatureDataManager_removeAnimationData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addArmatureData", js_cocos2dx_extension_CCArmatureDataManager_addArmatureData, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addArmatureFileInfo", js_cocos2dx_extension_CCArmatureDataManager_addArmatureFileInfo, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeArmatureFileInfo", js_cocos2dx_extension_CCArmatureDataManager_removeArmatureFileInfo, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTextureDatas", js_cocos2dx_extension_CCArmatureDataManager_getTextureDatas, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTextureData", js_cocos2dx_extension_CCArmatureDataManager_getTextureData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getArmatureData", js_cocos2dx_extension_CCArmatureDataManager_getArmatureData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAnimationData", js_cocos2dx_extension_CCArmatureDataManager_getAnimationData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("removeAll", js_cocos2dx_extension_CCArmatureDataManager_removeAll, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addAnimationData", js_cocos2dx_extension_CCArmatureDataManager_addAnimationData, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_extension_CCArmatureDataManager_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeArmatureData", js_cocos2dx_extension_CCArmatureDataManager_removeArmatureData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
