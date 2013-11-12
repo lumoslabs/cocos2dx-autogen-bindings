@@ -11978,6 +11978,30 @@ JSBool js_cocos2dx_extension_CCArmatureAnimation_pause(JSContext *cx, uint32_t a
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_extension_CCArmatureAnimation_getUserObject(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCArmatureAnimation* cobj = (cocos2d::extension::CCArmatureAnimation *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCObject* ret = cobj->getUserObject();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCObject>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_extension_CCArmatureAnimation_setAnimationScale(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -12048,7 +12072,7 @@ JSBool js_cocos2dx_extension_CCArmatureAnimation_stop(JSContext *cx, uint32_t ar
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_extension_CCArmatureAnimation_setAnimationData(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_extension_CCArmatureAnimation_setUserObject(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
@@ -12057,17 +12081,17 @@ JSBool js_cocos2dx_extension_CCArmatureAnimation_setAnimationData(JSContext *cx,
 	cocos2d::extension::CCArmatureAnimation* cobj = (cocos2d::extension::CCArmatureAnimation *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::extension::CCAnimationData* arg0;
+		cocos2d::CCObject* arg0;
 		do {
 			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
 			proxy = jsb_get_js_proxy(tmpObj);
-			arg0 = (cocos2d::extension::CCAnimationData*)(proxy ? proxy->ptr : NULL);
+			arg0 = (cocos2d::CCObject*)(proxy ? proxy->ptr : NULL);
 			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
 		} while (0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setAnimationData(arg0);
+		cobj->setUserObject(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -12294,6 +12318,33 @@ JSBool js_cocos2dx_extension_CCArmatureAnimation_getCurrentMovementID(JSContext 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_extension_CCArmatureAnimation_setAnimationData(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCArmatureAnimation* cobj = (cocos2d::extension::CCArmatureAnimation *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::extension::CCAnimationData* arg0;
+		do {
+			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg0 = (cocos2d::extension::CCAnimationData*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setAnimationData(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_extension_CCArmatureAnimation_setAnimationInternal(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -12411,11 +12462,12 @@ void js_register_cocos2dx_extension_CCArmatureAnimation(JSContext *cx, JSObject 
 		JS_FN("getAnimationScale", js_cocos2dx_extension_CCArmatureAnimation_getAnimationScale, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("play", js_cocos2dx_extension_CCArmatureAnimation_play, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("pause", js_cocos2dx_extension_CCArmatureAnimation_pause, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getUserObject", js_cocos2dx_extension_CCArmatureAnimation_getUserObject, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAnimationScale", js_cocos2dx_extension_CCArmatureAnimation_setAnimationScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("gotoAndPause", js_cocos2dx_extension_CCArmatureAnimation_gotoAndPause, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resume", js_cocos2dx_extension_CCArmatureAnimation_resume, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("stop", js_cocos2dx_extension_CCArmatureAnimation_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setAnimationData", js_cocos2dx_extension_CCArmatureAnimation_setAnimationData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setUserObject", js_cocos2dx_extension_CCArmatureAnimation_setUserObject, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setSpeedScale", js_cocos2dx_extension_CCArmatureAnimation_setSpeedScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_extension_CCArmatureAnimation_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAnimationData", js_cocos2dx_extension_CCArmatureAnimation_getAnimationData, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -12424,6 +12476,7 @@ void js_register_cocos2dx_extension_CCArmatureAnimation(JSContext *cx, JSObject 
 		JS_FN("init", js_cocos2dx_extension_CCArmatureAnimation_init, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getMovementCount", js_cocos2dx_extension_CCArmatureAnimation_getMovementCount, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getCurrentMovementID", js_cocos2dx_extension_CCArmatureAnimation_getCurrentMovementID, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAnimationData", js_cocos2dx_extension_CCArmatureAnimation_setAnimationData, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAnimationInternal", js_cocos2dx_extension_CCArmatureAnimation_setAnimationInternal, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_extension_CCArmatureAnimation_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END

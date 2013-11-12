@@ -2554,6 +2554,12 @@ play : function () {},
 pause : function () {},
 
 /**
+ * @method getUserObject
+ * @return A value converted from C/C++ "cocos2d::CCObject*"
+ */
+getUserObject : function () {},
+
+/**
  * @method setAnimationScale
  * @param {float}
  */
@@ -2576,10 +2582,10 @@ resume : function () {},
 stop : function () {},
 
 /**
- * @method setAnimationData
- * @param {cocos2d::extension::CCAnimationData*}
+ * @method setUserObject
+ * @param {cocos2d::CCObject*}
  */
-setAnimationData : function () {},
+setUserObject : function () {},
 
 /**
  * @method setSpeedScale
@@ -2633,6 +2639,12 @@ getMovementCount : function () {},
  * @return A value converted from C/C++ "std::string"
  */
 getCurrentMovementID : function () {},
+
+/**
+ * @method setAnimationData
+ * @param {cocos2d::extension::CCAnimationData*}
+ */
+setAnimationData : function () {},
 
 /**
  * @method setAnimationInternal
