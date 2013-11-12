@@ -565,11 +565,12 @@ JSBool js_cocos2dx_extension_CCArmatureAnimation_getSpeedScale(JSContext *cx, ui
 JSBool js_cocos2dx_extension_CCArmatureAnimation_getAnimationScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_play(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_pause(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCArmatureAnimation_getUserObject(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_setAnimationScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_gotoAndPause(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_resume(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_stop(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCArmatureAnimation_setAnimationData(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCArmatureAnimation_setUserObject(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_setSpeedScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_getAnimationData(JSContext *cx, uint32_t argc, jsval *vp);
@@ -578,6 +579,7 @@ JSBool js_cocos2dx_extension_CCArmatureAnimation_gotoAndPlay(JSContext *cx, uint
 JSBool js_cocos2dx_extension_CCArmatureAnimation_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_getMovementCount(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_getCurrentMovementID(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCArmatureAnimation_setAnimationData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_setAnimationInternal(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCArmatureAnimation_CCArmatureAnimation(JSContext *cx, uint32_t argc, jsval *vp);
