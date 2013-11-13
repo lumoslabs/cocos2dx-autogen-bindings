@@ -308,6 +308,33 @@ CCBone : function () {},
 };
 
 /**
+ * @class CCBatchNode
+ */
+ccs.BatchNode = {
+
+/**
+ * @method getTexureAtlasWithTexture
+ * @return A value converted from C/C++ "cocos2d::CCTextureAtlas*"
+ * @param {cocos2d::CCTexture2D*}
+ */
+getTexureAtlasWithTexture : function () {},
+
+/**
+ * @method removeChild
+ * @param {cocos2d::CCNode*}
+ * @param {bool}
+ */
+removeChild : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::extension::CCBatchNode*"
+ */
+create : function () {},
+
+};
+
+/**
  * @class CCArmatureAnimation
  */
 ccs.ArmatureAnimation = {
