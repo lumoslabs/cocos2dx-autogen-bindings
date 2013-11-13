@@ -8571,6 +8571,54 @@ CCMenu : function () {},
 };
 
 /**
+ * @class CCClippingNode
+ */
+cc.ClippingNode = {
+
+/**
+ * @method setInverted
+ * @param {bool}
+ */
+setInverted : function () {},
+
+/**
+ * @method visit
+ */
+visit : function () {},
+
+/**
+ * @method setStencil
+ * @param {cocos2d::CCNode*}
+ */
+setStencil : function () {},
+
+/**
+ * @method getAlphaThreshold
+ * @return A value converted from C/C++ "float"
+ */
+getAlphaThreshold : function () {},
+
+/**
+ * @method getStencil
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getStencil : function () {},
+
+/**
+ * @method setAlphaThreshold
+ * @param {float}
+ */
+setAlphaThreshold : function () {},
+
+/**
+ * @method isInverted
+ * @return A value converted from C/C++ "bool"
+ */
+isInverted : function () {},
+
+};
+
+/**
  * @class CCMotionStreak
  */
 cc.MotionStreak = {
@@ -10786,13 +10834,13 @@ removeChild : function () {},
 
 /**
  * @method getParallaxArray
- * @return A value converted from C/C++ "_ccArray*"
+ * @return A value converted from C/C++ "cocos2d::_ccArray*"
  */
 getParallaxArray : function () {},
 
 /**
  * @method setParallaxArray
- * @param {_ccArray*}
+ * @param {cocos2d::_ccArray*}
  */
 setParallaxArray : function () {},
 
@@ -11469,7 +11517,7 @@ releaseMap : function () {},
 
 /**
  * @method getTGAInfo
- * @return A value converted from C/C++ "sImageTGA*"
+ * @return A value converted from C/C++ "cocos2d::sImageTGA*"
  */
 getTGAInfo : function () {},
 
@@ -11489,7 +11537,7 @@ setTile : function () {},
 
 /**
  * @method setTGAInfo
- * @param {sImageTGA*}
+ * @param {cocos2d::sImageTGA*}
  */
 setTGAInfo : function () {},
 
@@ -11586,6 +11634,85 @@ getTimeScale : function () {},
  * @constructor
  */
 CCScheduler : function () {},
+
+};
+
+/**
+ * @class CCComponent
+ */
+cc.Component = {
+
+/**
+ * @method setEnabled
+ * @param {bool}
+ */
+setEnabled : function () {},
+
+/**
+ * @method setNode
+ * @param {cocos2d::CCNode*}
+ */
+setNode : function () {},
+
+/**
+ * @method setName
+ * @param {const char*}
+ */
+setName : function () {},
+
+/**
+ * @method isEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isEnabled : function () {},
+
+/**
+ * @method serialize
+ * @param {void*}
+ */
+serialize : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method getOwner
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getOwner : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method setOwner
+ * @param {cocos2d::CCNode*}
+ */
+setOwner : function () {},
+
+/**
+ * @method getName
+ * @return A value converted from C/C++ "const char*"
+ */
+getName : function () {},
+
+/**
+ * @method getNode
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getNode : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCComponent*"
+ */
+create : function () {},
 
 };
 
