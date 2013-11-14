@@ -1424,6 +1424,237 @@ void js_register_cocos2dx_studio_CCBone(JSContext *cx, JSObject *global) {
 }
 
 
+JSClass  *jsb_CCBatchNode_class;
+JSObject *jsb_CCBatchNode_prototype;
+
+JSBool js_cocos2dx_studio_CCBatchNode_addChild(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+
+	JSObject *obj = NULL;
+	cocos2d::extension::CCBatchNode* cobj = NULL;
+	obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cobj = (cocos2d::extension::CCBatchNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	do {
+		if (argc == 2) {
+			cocos2d::CCNode* arg0;
+			do {
+				if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+				js_proxy_t *proxy;
+				JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+				proxy = jsb_get_js_proxy(tmpObj);
+				arg0 = (cocos2d::CCNode*)(proxy ? proxy->ptr : NULL);
+				JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+			} while (0);
+			if (!ok) { ok = JS_TRUE; break; }
+			int arg1;
+			ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
+			if (!ok) { ok = JS_TRUE; break; }
+			cobj->addChild(arg0, arg1);
+			JS_SET_RVAL(cx, vp, JSVAL_VOID);
+			return JS_TRUE;
+		}
+	} while(0);
+
+	do {
+		if (argc == 1) {
+			cocos2d::CCNode* arg0;
+			do {
+				if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+				js_proxy_t *proxy;
+				JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+				proxy = jsb_get_js_proxy(tmpObj);
+				arg0 = (cocos2d::CCNode*)(proxy ? proxy->ptr : NULL);
+				JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+			} while (0);
+			if (!ok) { ok = JS_TRUE; break; }
+			cobj->addChild(arg0);
+			JS_SET_RVAL(cx, vp, JSVAL_VOID);
+			return JS_TRUE;
+		}
+	} while(0);
+
+	do {
+		if (argc == 3) {
+			cocos2d::CCNode* arg0;
+			do {
+				if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+				js_proxy_t *proxy;
+				JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+				proxy = jsb_get_js_proxy(tmpObj);
+				arg0 = (cocos2d::CCNode*)(proxy ? proxy->ptr : NULL);
+				JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+			} while (0);
+			if (!ok) { ok = JS_TRUE; break; }
+			int arg1;
+			ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
+			if (!ok) { ok = JS_TRUE; break; }
+			int arg2;
+			ok &= jsval_to_int32(cx, argv[2], (int32_t *)&arg2);
+			if (!ok) { ok = JS_TRUE; break; }
+			cobj->addChild(arg0, arg1, arg2);
+			JS_SET_RVAL(cx, vp, JSVAL_VOID);
+			return JS_TRUE;
+		}
+	} while(0);
+
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_studio_CCBatchNode_getTexureAtlasWithTexture(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCBatchNode* cobj = (cocos2d::extension::CCBatchNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCTexture2D* arg0;
+		do {
+			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg0 = (cocos2d::CCTexture2D*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::CCTextureAtlas* ret = cobj->getTexureAtlasWithTexture(arg0);
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCTextureAtlas>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_studio_CCBatchNode_removeChild(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCBatchNode* cobj = (cocos2d::extension::CCBatchNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 2) {
+		cocos2d::CCNode* arg0;
+		JSBool arg1;
+		do {
+			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg0 = (cocos2d::CCNode*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->removeChild(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_studio_CCBatchNode_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	if (argc == 0) {
+		cocos2d::extension::CCBatchNode* ret = cocos2d::extension::CCBatchNode::create();
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::extension::CCBatchNode>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
+
+
+extern JSObject *jsb_CCNode_prototype;
+
+void js_cocos2dx_studio_CCBatchNode_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCBatchNode)", obj);
+}
+
+void js_register_cocos2dx_studio_CCBatchNode(JSContext *cx, JSObject *global) {
+	jsb_CCBatchNode_class = (JSClass *)calloc(1, sizeof(JSClass));
+	jsb_CCBatchNode_class->name = "BatchNode";
+	jsb_CCBatchNode_class->addProperty = JS_PropertyStub;
+	jsb_CCBatchNode_class->delProperty = JS_PropertyStub;
+	jsb_CCBatchNode_class->getProperty = JS_PropertyStub;
+	jsb_CCBatchNode_class->setProperty = JS_StrictPropertyStub;
+	jsb_CCBatchNode_class->enumerate = JS_EnumerateStub;
+	jsb_CCBatchNode_class->resolve = JS_ResolveStub;
+	jsb_CCBatchNode_class->convert = JS_ConvertStub;
+	jsb_CCBatchNode_class->finalize = js_cocos2dx_studio_CCBatchNode_finalize;
+	jsb_CCBatchNode_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, JSOP_NULLWRAPPER, JSOP_NULLWRAPPER}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("addChild", js_cocos2dx_studio_CCBatchNode_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTexureAtlasWithTexture", js_cocos2dx_studio_CCBatchNode_getTexureAtlasWithTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeChild", js_cocos2dx_studio_CCBatchNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_studio_CCBatchNode_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
+
+	jsb_CCBatchNode_prototype = JS_InitClass(
+		cx, global,
+		jsb_CCNode_prototype,
+		jsb_CCBatchNode_class,
+		empty_constructor, 0,
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "BatchNode", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::extension::CCBatchNode> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = jsb_CCBatchNode_class;
+		p->proto = jsb_CCBatchNode_prototype;
+		p->parentProto = jsb_CCNode_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
 JSClass  *jsb_CCArmatureAnimation_class;
 JSObject *jsb_CCArmatureAnimation_prototype;
 
@@ -17508,7 +17739,7 @@ void js_register_cocos2dx_studio_SceneReader(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("purgeSceneReader", js_cocos2dx_studio_SceneReader_purgeSceneReader, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("purge", js_cocos2dx_studio_SceneReader_purgeSceneReader, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("createNodeWithSceneFile", js_cocos2dx_studio_SceneReader_createNodeWithSceneFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
 	};
@@ -17755,10 +17986,11 @@ void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_studio_UIRelativeLayoutParameter(cx, obj);
 	js_register_cocos2dx_studio_UICheckBox(cx, obj);
 	js_register_cocos2dx_studio_CCComAudio(cx, obj);
-	js_register_cocos2dx_studio_CCArmature(cx, obj);
+	js_register_cocos2dx_studio_CCBatchNode(cx, obj);
 	js_register_cocos2dx_studio_SceneReader(cx, obj);
 	js_register_cocos2dx_studio_CCBaseData(cx, obj);
 	js_register_cocos2dx_studio_UIPageView(cx, obj);
+	js_register_cocos2dx_studio_CCArmature(cx, obj);
 	js_register_cocos2dx_studio_UITextField(cx, obj);
 	js_register_cocos2dx_studio_UISlider(cx, obj);
 	js_register_cocos2dx_studio_CCBone(cx, obj);
