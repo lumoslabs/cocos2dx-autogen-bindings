@@ -871,94 +871,10 @@ sharedArmatureDataManager : function () {},
 ccs.ComAttribute = {
 
 /**
- * @method getDouble
- * @return A value converted from C/C++ "double"
- * @param {const char*}
- */
-getDouble : function () {},
-
-/**
- * @method setObject
- * @param {const char*}
- * @param {cocos2d::CCObject*}
- */
-setObject : function () {},
-
-/**
- * @method setCString
- * @param {const char*}
- * @param {const char*}
- */
-setCString : function () {},
-
-/**
- * @method setFloat
- * @param {const char*}
- * @param {float}
- */
-setFloat : function () {},
-
-/**
- * @method getCString
- * @return A value converted from C/C++ "const char*"
- * @param {const char*}
- */
-getCString : function () {},
-
-/**
- * @method getBool
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
- */
-getBool : function () {},
-
-/**
- * @method setDouble
- * @param {const char*}
- * @param {double}
- */
-setDouble : function () {},
-
-/**
- * @method setInt
- * @param {const char*}
- * @param {int}
- */
-setInt : function () {},
-
-/**
- * @method getObject
- * @return A value converted from C/C++ "cocos2d::CCObject*"
- * @param {const char*}
- */
-getObject : function () {},
-
-/**
- * @method getInt
- * @return A value converted from C/C++ "int"
- * @param {const char*}
- */
-getInt : function () {},
-
-/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
 init : function () {},
-
-/**
- * @method setBool
- * @param {const char*}
- * @param {bool}
- */
-setBool : function () {},
-
-/**
- * @method getFloat
- * @return A value converted from C/C++ "float"
- * @param {const char*}
- */
-getFloat : function () {},
 
 /**
  * @method create
