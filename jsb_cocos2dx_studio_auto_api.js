@@ -2843,34 +2843,16 @@ UIImageView : function () {},
 ccs.UILabel = {
 
 /**
- * @method getStringLength
- * @return A value converted from C/C++ "int"
- */
-getStringLength : function () {},
-
-/**
- * @method setFontName
- * @param {const char*}
- */
-setFontName : function () {},
-
-/**
- * @method setTouchScaleChangeEnabled
- * @param {bool}
- */
-setTouchScaleChangeEnabled : function () {},
-
-/**
- * @method setFlipX
- * @param {bool}
- */
-setFlipX : function () {},
-
-/**
  * @method setAnchorPoint
  * @param {cocos2d::CCPoint}
  */
 setAnchorPoint : function () {},
+
+/**
+ * @method getVirtualRenderer
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getVirtualRenderer : function () {},
 
 /**
  * @method getStringValue
@@ -2885,10 +2867,28 @@ getStringValue : function () {},
 getDescription : function () {},
 
 /**
- * @method setText
+ * @method setScale
+ * @param {float}
+ */
+setScale : function () {},
+
+/**
+ * @method setTextVerticalAlignment
+ * @param {cocos2d::CCVerticalTextAlignment}
+ */
+setTextVerticalAlignment : function () {},
+
+/**
+ * @method setFontName
  * @param {const char*}
  */
-setText : function () {},
+setFontName : function () {},
+
+/**
+ * @method setTouchScaleChangeEnabled
+ * @param {bool}
+ */
+setTouchScaleChangeEnabled : function () {},
 
 /**
  * @method isFlipX
@@ -2903,40 +2903,10 @@ isFlipX : function () {},
 isFlipY : function () {},
 
 /**
- * @method getTouchScaleChangeAble
- * @return A value converted from C/C++ "bool"
- */
-getTouchScaleChangeAble : function () {},
-
-/**
- * @method getVirtualRenderer
- * @return A value converted from C/C++ "cocos2d::CCNode*"
- */
-getVirtualRenderer : function () {},
-
-/**
- * @method setTouchScaleChangeAble
- * @param {bool}
- */
-setTouchScaleChangeAble : function () {},
-
-/**
- * @method setTextVerticalAlignment
- * @param {cocos2d::CCVerticalTextAlignment}
- */
-setTextVerticalAlignment : function () {},
-
-/**
  * @method getContentSize
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getContentSize : function () {},
-
-/**
- * @method setFontSize
- * @param {int}
- */
-setFontSize : function () {},
 
 /**
  * @method isTouchScaleChangeEnabled
@@ -2945,10 +2915,28 @@ setFontSize : function () {},
 isTouchScaleChangeEnabled : function () {},
 
 /**
- * @method setTextHorizontalAlignment
- * @param {cocos2d::CCTextAlignment}
+ * @method setTextAreaSize
+ * @param {cocos2d::CCSize}
  */
-setTextHorizontalAlignment : function () {},
+setTextAreaSize : function () {},
+
+/**
+ * @method getStringLength
+ * @return A value converted from C/C++ "int"
+ */
+getStringLength : function () {},
+
+/**
+ * @method setScaleY
+ * @param {float}
+ */
+setScaleY : function () {},
+
+/**
+ * @method setScaleX
+ * @param {float}
+ */
+setScaleX : function () {},
 
 /**
  * @method setFlipY
@@ -2957,10 +2945,40 @@ setTextHorizontalAlignment : function () {},
 setFlipY : function () {},
 
 /**
- * @method setTextAreaSize
- * @param {cocos2d::CCSize}
+ * @method setFlipX
+ * @param {bool}
  */
-setTextAreaSize : function () {},
+setFlipX : function () {},
+
+/**
+ * @method setTouchScaleChangeAble
+ * @param {bool}
+ */
+setTouchScaleChangeAble : function () {},
+
+/**
+ * @method setFontSize
+ * @param {int}
+ */
+setFontSize : function () {},
+
+/**
+ * @method setText
+ * @param {const char*}
+ */
+setText : function () {},
+
+/**
+ * @method getTouchScaleChangeAble
+ * @return A value converted from C/C++ "bool"
+ */
+getTouchScaleChangeAble : function () {},
+
+/**
+ * @method setTextHorizontalAlignment
+ * @param {cocos2d::CCTextAlignment}
+ */
+setTextHorizontalAlignment : function () {},
 
 /**
  * @method create
@@ -3986,17 +4004,16 @@ UILabelBMFont : function () {},
 ccs.UIPageView = {
 
 /**
+ * @method getLayoutType
+ * @return A value converted from C/C++ "cocos2d::extension::LayoutType"
+ */
+getLayoutType : function () {},
+
+/**
  * @method getCurPageIndex
  * @return A value converted from C/C++ "int"
  */
 getCurPageIndex : function () {},
-
-/**
- * @method removeChild
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::extension::UIWidget*}
- */
-removeChild : function () {},
 
 /**
  * @method addWidgetToPage
@@ -4007,21 +4024,10 @@ removeChild : function () {},
 addWidgetToPage : function () {},
 
 /**
- * @method update
- * @param {float}
- */
-update : function () {},
-
-/**
  * @method getDescription
  * @return A value converted from C/C++ "const char*"
  */
 getDescription : function () {},
-
-/**
- * @method removeAllChildren
- */
-removeAllChildren : function () {},
 
 /**
  * @method insertPage
@@ -4031,10 +4037,22 @@ removeAllChildren : function () {},
 insertPage : function () {},
 
 /**
+ * @method setLayoutType
+ * @param {cocos2d::extension::LayoutType}
+ */
+setLayoutType : function () {},
+
+/**
  * @method scrollToPage
  * @param {int}
  */
 scrollToPage : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
 
 /**
  * @method doLayout
@@ -4048,10 +4066,9 @@ doLayout : function () {},
 getPages : function () {},
 
 /**
- * @method getPage
- * @return A value converted from C/C++ "int"
+ * @method removeAllPages
  */
-getPage : function () {},
+removeAllPages : function () {},
 
 /**
  * @method addPage
