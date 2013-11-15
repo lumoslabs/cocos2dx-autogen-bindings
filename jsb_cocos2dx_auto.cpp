@@ -3662,6 +3662,30 @@ JSBool js_cocos2dx_CCNode_convertToNodeSpace(JSContext *cx, uint32_t argc, jsval
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCNode_getGrid(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCGridBase* ret = cobj->getGrid();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCGridBase>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCNode_stopActionByTag(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -4781,33 +4805,6 @@ JSBool js_cocos2dx_CCNode_getContentSize(JSContext *cx, uint32_t argc, jsval *vp
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCNode_setGrid(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::CCGridBase* arg0;
-		do {
-			if (!argv[0].isObject()) { ok = JS_FALSE; break; }
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			proxy = jsb_get_js_proxy(tmpObj);
-			arg0 = (cocos2d::CCGridBase*)(proxy ? proxy->ptr : NULL);
-			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
-		} while (0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setGrid(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCNode_boundingBox(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -5236,6 +5233,7 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		JS_FN("setParent", js_cocos2dx_CCNode_setParent, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getNodeToParentTransform", js_cocos2dx_CCNode_nodeToParentTransform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("convertToNodeSpace", js_cocos2dx_CCNode_convertToNodeSpace, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getGrid", js_cocos2dx_CCNode_getGrid, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("stopActionByTag", js_cocos2dx_CCNode_stopActionByTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reorderChild", js_cocos2dx_CCNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setPositionY", js_cocos2dx_CCNode_setPositionY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -5289,7 +5287,6 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		JS_FN("cleanup", js_cocos2dx_CCNode_cleanup, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getComponent", js_cocos2dx_CCNode_getComponent, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getContentSize", js_cocos2dx_CCNode_getContentSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setGrid", js_cocos2dx_CCNode_setGrid, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getBoundingBox", js_cocos2dx_CCNode_boundingBox, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("draw", js_cocos2dx_CCNode_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("transformAncestors", js_cocos2dx_CCNode_transformAncestors, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
