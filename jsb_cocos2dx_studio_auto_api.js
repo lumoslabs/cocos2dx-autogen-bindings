@@ -871,10 +871,66 @@ sharedArmatureDataManager : function () {},
 ccs.ComAttribute = {
 
 /**
+ * @method getFloat
+ * @return A value converted from C/C++ "float"
+ * @param {const char*}
+ */
+getFloat : function () {},
+
+/**
+ * @method setFloat
+ * @param {const char*}
+ * @param {float}
+ */
+setFloat : function () {},
+
+/**
+ * @method setCString
+ * @param {const char*}
+ * @param {const char*}
+ */
+setCString : function () {},
+
+/**
+ * @method getCString
+ * @return A value converted from C/C++ "const char*"
+ * @param {const char*}
+ */
+getCString : function () {},
+
+/**
+ * @method getBool
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ */
+getBool : function () {},
+
+/**
+ * @method setInt
+ * @param {const char*}
+ * @param {int}
+ */
+setInt : function () {},
+
+/**
+ * @method getInt
+ * @return A value converted from C/C++ "int"
+ * @param {const char*}
+ */
+getInt : function () {},
+
+/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
 init : function () {},
+
+/**
+ * @method setBool
+ * @param {const char*}
+ * @param {bool}
+ */
+setBool : function () {},
 
 /**
  * @method create

@@ -207,7 +207,15 @@ JSBool js_cocos2dx_studio_CCComAttribute_constructor(JSContext *cx, uint32_t arg
 void js_cocos2dx_studio_CCComAttribute_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_CCComAttribute(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_studio_CCComAttribute_getFloat(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_setFloat(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_setCString(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_getCString(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_getBool(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_setInt(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_getInt(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_init(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_setBool(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_create(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCComAudio_class;
