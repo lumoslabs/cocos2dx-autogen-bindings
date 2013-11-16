@@ -72,6 +72,18 @@ JSBool js_cocos2dx_studio_CCBone_getBoneData(JSContext *cx, uint32_t argc, jsval
 JSBool js_cocos2dx_studio_CCBone_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_CCBone(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *jsb_CCBatchNode_class;
+extern JSObject *jsb_CCBatchNode_prototype;
+
+JSBool js_cocos2dx_studio_CCBatchNode_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_studio_CCBatchNode_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_studio_CCBatchNode(JSContext *cx, JSObject *global);
+void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_studio_CCBatchNode_addChild(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCBatchNode_getTexureAtlasWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCBatchNode_removeChild(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCBatchNode_create(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *jsb_CCArmatureAnimation_class;
 extern JSObject *jsb_CCArmatureAnimation_prototype;
 
