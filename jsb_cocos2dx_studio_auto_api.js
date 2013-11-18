@@ -1521,12 +1521,6 @@ addRenderer : function () {},
 getSize : function () {},
 
 /**
- * @method removeCCNode
- * @param {bool}
- */
-removeCCNode : function () {},
-
-/**
  * @method getSizeType
  * @return A value converted from C/C++ "cocos2d::extension::SizeType"
  */

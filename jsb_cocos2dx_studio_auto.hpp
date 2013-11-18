@@ -372,7 +372,6 @@ JSBool js_cocos2dx_studio_UIWidget_getRelativeRightPos(JSContext *cx, uint32_t a
 JSBool js_cocos2dx_studio_UIWidget_getTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_addRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_getSize(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_UIWidget_removeCCNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_getSizeType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_getPositionPercent(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_removeChild(JSContext *cx, uint32_t argc, jsval *vp);

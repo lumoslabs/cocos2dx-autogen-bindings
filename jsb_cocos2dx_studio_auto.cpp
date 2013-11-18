@@ -6861,26 +6861,6 @@ JSBool js_cocos2dx_studio_UIWidget_getSize(JSContext *cx, uint32_t argc, jsval *
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_studio_UIWidget_removeCCNode(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::extension::UIWidget* cobj = (cocos2d::extension::UIWidget *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->removeCCNode(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_studio_UIWidget_getSizeType(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -8963,7 +8943,6 @@ void js_register_cocos2dx_studio_UIWidget(JSContext *cx, JSObject *global) {
 		JS_FN("getTag", js_cocos2dx_studio_UIWidget_getTag, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addRenderer", js_cocos2dx_studio_UIWidget_addRenderer, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getSize", js_cocos2dx_studio_UIWidget_getSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("removeCCNode", js_cocos2dx_studio_UIWidget_removeCCNode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getSizeType", js_cocos2dx_studio_UIWidget_getSizeType, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getPositionPercent", js_cocos2dx_studio_UIWidget_getPositionPercent, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeChild", js_cocos2dx_studio_UIWidget_removeChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
