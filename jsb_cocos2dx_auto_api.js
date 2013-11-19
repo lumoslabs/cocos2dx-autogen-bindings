@@ -857,6 +857,12 @@ nodeToParentTransform : function () {},
 convertToNodeSpace : function () {},
 
 /**
+ * @method getGrid
+ * @return A value converted from C/C++ "cocos2d::CCGridBase*"
+ */
+getGrid : function () {},
+
+/**
  * @method stopActionByTag
  * @param {int}
  */
@@ -1155,12 +1161,6 @@ getComponent : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getContentSize : function () {},
-
-/**
- * @method setGrid
- * @param {cocos2d::CCGridBase*}
- */
-setGrid : function () {},
 
 /**
  * @method boundingBox
