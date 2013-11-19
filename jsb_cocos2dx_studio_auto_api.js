@@ -4238,6 +4238,7 @@ ccs.ActionManager = {
 
 /**
  * @method playActionByName
+ * @return A value converted from C/C++ "cocos2d::extension::ActionObject*"
  * @param {const char*}
  * @param {const char*}
  */
