@@ -13,11 +13,64 @@ void js_cocos2dx_studio_CCBaseData_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_CCBaseData(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_studio_CCBaseData_getColor(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCBaseData_copy(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCBaseData_subtract(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBaseData_setColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBaseData_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBaseData_CCBaseData(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_CCTween_class;
+extern JSObject *jsb_CCTween_prototype;
+
+JSBool js_cocos2dx_studio_CCTween_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_studio_CCTween_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_studio_CCTween(JSContext *cx, JSObject *global);
+void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_studio_CCTween_play(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCTween_gotoAndPause(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCTween_getAnimation(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCTween_gotoAndPlay(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCTween_init(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCTween_setAnimation(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCTween_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCTween_CCTween(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_CCColliderFilter_class;
+extern JSObject *jsb_CCColliderFilter_prototype;
+
+JSBool js_cocos2dx_studio_CCColliderFilter_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_studio_CCColliderFilter_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_studio_CCColliderFilter(JSContext *cx, JSObject *global);
+void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_studio_CCColliderFilter_setCollisionType(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCColliderFilter_setGroup(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCColliderFilter_getCollisionType(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCColliderFilter_getGroup(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_CCDisplayManager_class;
+extern JSObject *jsb_CCDisplayManager_prototype;
+
+JSBool js_cocos2dx_studio_CCDisplayManager_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_studio_CCDisplayManager_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_studio_CCDisplayManager(JSContext *cx, JSObject *global);
+void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_studio_CCDisplayManager_getDisplayRenderNode(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_getAnchorPointInPoints(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_getDisplayRenderNodeType(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_removeDisplay(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_setForceChangeDisplay(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_init(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_getContentSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_getBoundingBox(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_addDisplay(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_containPoint(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_getCurrentDisplayIndex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_setVisible(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_getAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_getDecorativeDisplayList(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_changeDisplayByIndex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_isVisible(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_getForceChangeDisplay(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_CCDisplayManager(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCBone_class;
 extern JSObject *jsb_CCBone_prototype;
@@ -53,10 +106,8 @@ JSBool js_cocos2dx_studio_CCBone_removeFromParent(JSContext *cx, uint32_t argc, 
 JSBool js_cocos2dx_studio_CCBone_getChildArmature(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_setDisplayManager(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCBone_getTweenData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_setColliderFilter(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_getColliderBodyList(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCBone_setBoneData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_setArmature(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_addDisplay(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_setColor(JSContext *cx, uint32_t argc, jsval *vp);
@@ -68,7 +119,6 @@ JSBool js_cocos2dx_studio_CCBone_setBlendType(JSContext *cx, uint32_t argc, jsva
 JSBool js_cocos2dx_studio_CCBone_changeDisplayByIndex(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_nodeToArmatureTransform(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_updateDisplayedColor(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCBone_getBoneData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_CCBone(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -95,12 +145,10 @@ JSBool js_cocos2dx_studio_CCArmatureAnimation_getSpeedScale(JSContext *cx, uint3
 JSBool js_cocos2dx_studio_CCArmatureAnimation_getAnimationScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_play(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_pause(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureAnimation_getUserObject(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_setAnimationScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_gotoAndPause(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_resume(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_stop(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureAnimation_setUserObject(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_setSpeedScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_getAnimationData(JSContext *cx, uint32_t argc, jsval *vp);
@@ -180,21 +228,9 @@ JSBool js_cocos2dx_studio_CCArmatureDataManager_constructor(JSContext *cx, uint3
 void js_cocos2dx_studio_CCArmatureDataManager_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_CCArmatureDataManager(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_getAnimationDatas(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_removeAnimationData(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_addArmatureData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureDataManager_addArmatureFileInfo(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureDataManager_removeArmatureFileInfo(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_getTextureDatas(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_getTextureData(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_getArmatureData(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_getAnimationData(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_addAnimationData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureDataManager_init(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_removeArmatureData(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_getArmatureDatas(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_removeTextureData(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmatureDataManager_addTextureData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureDataManager_isAutoLoadSpriteFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureDataManager_addSpriteFrameFromFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureDataManager_purge(JSContext *cx, uint32_t argc, jsval *vp);
@@ -501,6 +537,17 @@ JSBool js_cocos2dx_studio_UILayout_setBackGroundImageScale9Enabled(JSContext *cx
 JSBool js_cocos2dx_studio_UILayout_setLayoutType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UILayout_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UILayout_UILayout(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_UIRootWidget_class;
+extern JSObject *jsb_UIRootWidget_prototype;
+
+JSBool js_cocos2dx_studio_UIRootWidget_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_studio_UIRootWidget_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_studio_UIRootWidget(JSContext *cx, JSObject *global);
+void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_studio_UIRootWidget_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_UIRootWidget_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_UIRootWidget_UIRootWidget(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_UIButton_class;
 extern JSObject *jsb_UIButton_prototype;
@@ -933,6 +980,32 @@ JSBool js_cocos2dx_studio_SceneReader_purgeSceneReader(JSContext *cx, uint32_t a
 JSBool js_cocos2dx_studio_SceneReader_createNodeWithSceneFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_SceneReader_sceneReaderVersion(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_SceneReader_sharedSceneReader(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_ActionObject_class;
+extern JSObject *jsb_ActionObject_prototype;
+
+JSBool js_cocos2dx_studio_ActionObject_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_studio_ActionObject_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_studio_ActionObject(JSContext *cx, JSObject *global);
+void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_studio_ActionObject_setCurrentTime(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_pause(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_setName(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_setUnitTime(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_getName(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_stop(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_play(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_getCurrentTime(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_removeActionNode(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_getLoop(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_initWithDictionary(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_addActionNode(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_getUnitTime(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_isPlaying(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_updateToFrameByTime(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_setLoop(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_simulationActionUpdate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_ActionObject(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_ActionManager_class;
 extern JSObject *jsb_ActionManager_prototype;

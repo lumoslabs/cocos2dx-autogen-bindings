@@ -15,20 +15,6 @@ ccs.BaseData = {
 getColor : function () {},
 
 /**
- * @method copy
- * @param {cocos2d::extension::CCBaseData*}
- */
-copy : function () {},
-
-/**
- * @method subtract
- * @param {cocos2d::extension::CCBaseData*}
- * @param {cocos2d::extension::CCBaseData*}
- * @param {bool}
- */
-subtract : function () {},
-
-/**
  * @method setColor
  * @param {cocos2d::ccColor4B}
  */
@@ -45,6 +31,210 @@ create : function () {},
  * @constructor
  */
 CCBaseData : function () {},
+
+};
+
+/**
+ * @class CCTween
+ */
+ccs.Tween = {
+
+/**
+ * @method play
+ * @param {cocos2d::extension::CCMovementBoneData*}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ */
+play : function () {},
+
+/**
+ * @method gotoAndPause
+ * @param {int}
+ */
+gotoAndPause : function () {},
+
+/**
+ * @method getAnimation
+ * @return A value converted from C/C++ "cocos2d::extension::CCArmatureAnimation*"
+ */
+getAnimation : function () {},
+
+/**
+ * @method gotoAndPlay
+ * @param {int}
+ */
+gotoAndPlay : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::extension::CCBone*}
+ */
+init : function () {},
+
+/**
+ * @method setAnimation
+ * @param {cocos2d::extension::CCArmatureAnimation*}
+ */
+setAnimation : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::extension::CCTween*"
+ * @param {cocos2d::extension::CCBone*}
+ */
+create : function () {},
+
+/**
+ * @method CCTween
+ * @constructor
+ */
+CCTween : function () {},
+
+};
+
+/**
+ * @class CCColliderFilter
+ */
+ccs.ColliderFilter = {
+
+/**
+ * @method setCollisionType
+ * @param {unsigned int}
+ */
+setCollisionType : function () {},
+
+/**
+ * @method setGroup
+ * @param {unsigned int}
+ */
+setGroup : function () {},
+
+/**
+ * @method getCollisionType
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getCollisionType : function () {},
+
+/**
+ * @method getGroup
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getGroup : function () {},
+
+};
+
+/**
+ * @class CCDisplayManager
+ */
+ccs.DisplayManager = {
+
+/**
+ * @method getDisplayRenderNode
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getDisplayRenderNode : function () {},
+
+/**
+ * @method getAnchorPointInPoints
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getAnchorPointInPoints : function () {},
+
+/**
+ * @method getDisplayRenderNodeType
+ * @return A value converted from C/C++ "cocos2d::extension::DisplayType"
+ */
+getDisplayRenderNodeType : function () {},
+
+/**
+ * @method removeDisplay
+ * @param {int}
+ */
+removeDisplay : function () {},
+
+/**
+ * @method setForceChangeDisplay
+ * @param {bool}
+ */
+setForceChangeDisplay : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::extension::CCBone*}
+ */
+init : function () {},
+
+/**
+ * @method getContentSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getContentSize : function () {},
+
+/**
+ * @method getBoundingBox
+ * @return A value converted from C/C++ "cocos2d::CCRect"
+ */
+getBoundingBox : function () {},
+
+/**
+ * @method getCurrentDisplayIndex
+ * @return A value converted from C/C++ "int"
+ */
+getCurrentDisplayIndex : function () {},
+
+/**
+ * @method setVisible
+ * @param {bool}
+ */
+setVisible : function () {},
+
+/**
+ * @method getAnchorPoint
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getAnchorPoint : function () {},
+
+/**
+ * @method getDecorativeDisplayList
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getDecorativeDisplayList : function () {},
+
+/**
+ * @method changeDisplayByIndex
+ * @param {int}
+ * @param {bool}
+ */
+changeDisplayByIndex : function () {},
+
+/**
+ * @method isVisible
+ * @return A value converted from C/C++ "bool"
+ */
+isVisible : function () {},
+
+/**
+ * @method getForceChangeDisplay
+ * @return A value converted from C/C++ "bool"
+ */
+getForceChangeDisplay : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::extension::CCDisplayManager*"
+ * @param {cocos2d::extension::CCBone*}
+ */
+create : function () {},
+
+/**
+ * @method CCDisplayManager
+ * @constructor
+ */
+CCDisplayManager : function () {},
 
 };
 
@@ -208,12 +398,6 @@ update : function () {},
 setDisplayManager : function () {},
 
 /**
- * @method getTweenData
- * @return A value converted from C/C++ "cocos2d::extension::CCFrameData*"
- */
-getTweenData : function () {},
-
-/**
  * @method setColliderFilter
  * @param {cocos2d::extension::CCColliderFilter*}
  */
@@ -224,12 +408,6 @@ setColliderFilter : function () {},
  * @return A value converted from C/C++ "cocos2d::CCArray*"
  */
 getColliderBodyList : function () {},
-
-/**
- * @method setBoneData
- * @param {cocos2d::extension::CCBoneData*}
- */
-setBoneData : function () {},
 
 /**
  * @method setArmature
@@ -292,12 +470,6 @@ nodeToArmatureTransform : function () {},
  * @param {cocos2d::ccColor3B}
  */
 updateDisplayedColor : function () {},
-
-/**
- * @method getBoneData
- * @return A value converted from C/C++ "cocos2d::extension::CCBoneData*"
- */
-getBoneData : function () {},
 
 /**
  * @method CCBone
@@ -367,12 +539,6 @@ play : function () {},
 pause : function () {},
 
 /**
- * @method getUserObject
- * @return A value converted from C/C++ "cocos2d::CCObject*"
- */
-getUserObject : function () {},
-
-/**
  * @method setAnimationScale
  * @param {float}
  */
@@ -393,12 +559,6 @@ resume : function () {},
  * @method stop
  */
 stop : function () {},
-
-/**
- * @method setUserObject
- * @param {cocos2d::CCObject*}
- */
-setUserObject : function () {},
 
 /**
  * @method setSpeedScale
@@ -746,97 +906,16 @@ CCSkin : function () {},
 ccs.ArmatureDataManager = {
 
 /**
- * @method getAnimationDatas
- * @return A value converted from C/C++ "cocos2d::CCDictionary*"
- */
-getAnimationDatas : function () {},
-
-/**
- * @method removeAnimationData
- * @param {const char*}
- */
-removeAnimationData : function () {},
-
-/**
- * @method addArmatureData
- * @param {const char*}
- * @param {cocos2d::extension::CCArmatureData*}
- * @param {const char*}
- */
-addArmatureData : function () {},
-
-/**
  * @method removeArmatureFileInfo
  * @param {const char*}
  */
 removeArmatureFileInfo : function () {},
 
 /**
- * @method getTextureDatas
- * @return A value converted from C/C++ "cocos2d::CCDictionary*"
- */
-getTextureDatas : function () {},
-
-/**
- * @method getTextureData
- * @return A value converted from C/C++ "cocos2d::extension::CCTextureData*"
- * @param {const char*}
- */
-getTextureData : function () {},
-
-/**
- * @method getArmatureData
- * @return A value converted from C/C++ "cocos2d::extension::CCArmatureData*"
- * @param {const char*}
- */
-getArmatureData : function () {},
-
-/**
- * @method getAnimationData
- * @return A value converted from C/C++ "cocos2d::extension::CCAnimationData*"
- * @param {const char*}
- */
-getAnimationData : function () {},
-
-/**
- * @method addAnimationData
- * @param {const char*}
- * @param {cocos2d::extension::CCAnimationData*}
- * @param {const char*}
- */
-addAnimationData : function () {},
-
-/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
 init : function () {},
-
-/**
- * @method removeArmatureData
- * @param {const char*}
- */
-removeArmatureData : function () {},
-
-/**
- * @method getArmatureDatas
- * @return A value converted from C/C++ "cocos2d::CCDictionary*"
- */
-getArmatureDatas : function () {},
-
-/**
- * @method removeTextureData
- * @param {const char*}
- */
-removeTextureData : function () {},
-
-/**
- * @method addTextureData
- * @param {const char*}
- * @param {cocos2d::extension::CCTextureData*}
- * @param {const char*}
- */
-addTextureData : function () {},
 
 /**
  * @method isAutoLoadSpriteFile
@@ -2239,6 +2318,31 @@ create : function () {},
  * @constructor
  */
 UILayout : function () {},
+
+};
+
+/**
+ * @class UIRootWidget
+ */
+ccs.UIRootWidget = {
+
+/**
+ * @method getDescription
+ * @return A value converted from C/C++ "const char*"
+ */
+getDescription : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::extension::UIRootWidget*"
+ */
+create : function () {},
+
+/**
+ * @method UIRootWidget
+ * @constructor
+ */
+UIRootWidget : function () {},
 
 };
 
@@ -4228,6 +4332,119 @@ sceneReaderVersion : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::SceneReader*"
  */
 sharedSceneReader : function () {},
+
+};
+
+/**
+ * @class ActionObject
+ */
+ccs.ActionObject = {
+
+/**
+ * @method setCurrentTime
+ * @param {float}
+ */
+setCurrentTime : function () {},
+
+/**
+ * @method pause
+ */
+pause : function () {},
+
+/**
+ * @method setName
+ * @param {const char*}
+ */
+setName : function () {},
+
+/**
+ * @method setUnitTime
+ * @param {float}
+ */
+setUnitTime : function () {},
+
+/**
+ * @method getName
+ * @return A value converted from C/C++ "const char*"
+ */
+getName : function () {},
+
+/**
+ * @method stop
+ */
+stop : function () {},
+
+/**
+ * @method play
+ */
+play : function () {},
+
+/**
+ * @method getCurrentTime
+ * @return A value converted from C/C++ "float"
+ */
+getCurrentTime : function () {},
+
+/**
+ * @method removeActionNode
+ * @param {cocos2d::extension::ActionNode*}
+ */
+removeActionNode : function () {},
+
+/**
+ * @method getLoop
+ * @return A value converted from C/C++ "bool"
+ */
+getLoop : function () {},
+
+/**
+ * @method initWithDictionary
+ * @param {cs::CSJsonDictionary*}
+ * @param {cocos2d::CCObject*}
+ */
+initWithDictionary : function () {},
+
+/**
+ * @method addActionNode
+ * @param {cocos2d::extension::ActionNode*}
+ */
+addActionNode : function () {},
+
+/**
+ * @method getUnitTime
+ * @return A value converted from C/C++ "float"
+ */
+getUnitTime : function () {},
+
+/**
+ * @method isPlaying
+ * @return A value converted from C/C++ "bool"
+ */
+isPlaying : function () {},
+
+/**
+ * @method updateToFrameByTime
+ * @param {float}
+ */
+updateToFrameByTime : function () {},
+
+/**
+ * @method setLoop
+ * @param {bool}
+ */
+setLoop : function () {},
+
+/**
+ * @method simulationActionUpdate
+ * @param {float}
+ */
+simulationActionUpdate : function () {},
+
+/**
+ * @method ActionObject
+ * @constructor
+ */
+ActionObject : function () {},
 
 };
 
