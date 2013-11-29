@@ -249,6 +249,7 @@ JSBool js_cocos2dx_studio_CCComAttribute_setCString(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_studio_CCComAttribute_getCString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_getBool(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_setInt(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_parse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_getInt(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_setBool(JSContext *cx, uint32_t argc, jsval *vp);
@@ -992,13 +993,13 @@ JSBool js_cocos2dx_studio_ActionObject_setCurrentTime(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_studio_ActionObject_pause(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionObject_setName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionObject_setUnitTime(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionObject_getTotalTime(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionObject_getName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionObject_stop(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionObject_play(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionObject_getCurrentTime(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionObject_removeActionNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionObject_getLoop(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_ActionObject_initWithDictionary(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionObject_addActionNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionObject_getUnitTime(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionObject_isPlaying(JSContext *cx, uint32_t argc, jsval *vp);

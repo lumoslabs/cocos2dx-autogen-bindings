@@ -953,6 +953,7 @@ ccs.ComAttribute = {
  * @method getFloat
  * @return A value converted from C/C++ "float"
  * @param {const char*}
+ * @param {float}
  */
 getFloat : function () {},
 
@@ -974,6 +975,7 @@ setCString : function () {},
  * @method getCString
  * @return A value converted from C/C++ "const char*"
  * @param {const char*}
+ * @param {const char*}
  */
 getCString : function () {},
 
@@ -981,6 +983,7 @@ getCString : function () {},
  * @method getBool
  * @return A value converted from C/C++ "bool"
  * @param {const char*}
+ * @param {bool}
  */
 getBool : function () {},
 
@@ -992,9 +995,16 @@ getBool : function () {},
 setInt : function () {},
 
 /**
+ * @method parse
+ * @param {const char*}
+ */
+parse : function () {},
+
+/**
  * @method getInt
  * @return A value converted from C/C++ "int"
  * @param {const char*}
+ * @param {int}
  */
 getInt : function () {},
 
@@ -1298,20 +1308,20 @@ ccs.ComRender = {
 
 /**
  * @method setNode
- * @param {cocos2d::CCNode*}
+ * @param {CCNode*}
  */
 setNode : function () {},
 
 /**
  * @method getNode
- * @return A value converted from C/C++ "cocos2d::CCNode*"
+ * @return A value converted from C/C++ "CCNode*"
  */
 getNode : function () {},
 
 /**
  * @method create
  * @return A value converted from C/C++ "cocos2d::extension::CCComRender*"
- * @param {cocos2d::CCNode*}
+ * @param {CCNode*}
  * @param {const char*}
  */
 create : function () {},
@@ -4316,7 +4326,7 @@ purgeSceneReader : function () {},
 
 /**
  * @method createNodeWithSceneFile
- * @return A value converted from C/C++ "cocos2d::CCNode*"
+ * @return A value converted from C/C++ "CCNode*"
  * @param {const char*}
  */
 createNodeWithSceneFile : function () {},
@@ -4364,6 +4374,12 @@ setName : function () {},
 setUnitTime : function () {},
 
 /**
+ * @method getTotalTime
+ * @return A value converted from C/C++ "float"
+ */
+getTotalTime : function () {},
+
+/**
  * @method getName
  * @return A value converted from C/C++ "const char*"
  */
@@ -4373,11 +4389,6 @@ getName : function () {},
  * @method stop
  */
 stop : function () {},
-
-/**
- * @method play
- */
-play : function () {},
 
 /**
  * @method getCurrentTime
@@ -4396,13 +4407,6 @@ removeActionNode : function () {},
  * @return A value converted from C/C++ "bool"
  */
 getLoop : function () {},
-
-/**
- * @method initWithDictionary
- * @param {cs::CSJsonDictionary*}
- * @param {cocos2d::CCObject*}
- */
-initWithDictionary : function () {},
 
 /**
  * @method addActionNode
@@ -4452,14 +4456,6 @@ ActionObject : function () {},
  * @class ActionManager
  */
 ccs.ActionManager = {
-
-/**
- * @method playActionByName
- * @return A value converted from C/C++ "cocos2d::extension::ActionObject*"
- * @param {const char*}
- * @param {const char*}
- */
-playActionByName : function () {},
 
 /**
  * @method getActionByName
