@@ -40,10 +40,6 @@ JSBool js_cocos2dx_studio_CCColliderFilter_constructor(JSContext *cx, uint32_t a
 void js_cocos2dx_studio_CCColliderFilter_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_CCColliderFilter(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_studio_CCColliderFilter_setCollisionType(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCColliderFilter_setGroup(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCColliderFilter_getCollisionType(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCColliderFilter_getGroup(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCDisplayManager_class;
 extern JSObject *jsb_CCDisplayManager_prototype;
@@ -59,6 +55,7 @@ JSBool js_cocos2dx_studio_CCDisplayManager_removeDisplay(JSContext *cx, uint32_t
 JSBool js_cocos2dx_studio_CCDisplayManager_setForceChangeDisplay(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCDisplayManager_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCDisplayManager_getContentSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_changeDisplayByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCDisplayManager_getBoundingBox(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCDisplayManager_addDisplay(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCDisplayManager_containPoint(JSContext *cx, uint32_t argc, jsval *vp);
@@ -96,17 +93,16 @@ JSBool js_cocos2dx_studio_CCBone_getDisplayRenderNodeType(JSContext *cx, uint32_
 JSBool js_cocos2dx_studio_CCBone_removeDisplay(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_updateDisplayedOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_init(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCBone_setParentBone(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCBone_changeDisplayByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_setZOrder(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_getIgnoreMovementBoneData(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCBone_getColliderFilter(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_setIgnoreMovementBoneData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_setName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_removeFromParent(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCBone_getChildArmature(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCBone_setParentBone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_setDisplayManager(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCBone_setColliderFilter(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCBone_getChildArmature(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_getColliderBodyList(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_setArmature(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_addDisplay(JSContext *cx, uint32_t argc, jsval *vp);
@@ -177,13 +173,14 @@ JSBool js_cocos2dx_studio_CCArmature_getBoneAtPoint(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_studio_CCArmature_getBatchNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_setVersion(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_updateOffsetPoint(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmature_setColliderFilter(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCArmature_getParentBone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_setName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_removeBone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_getArmatureTransformDirty(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_getName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_setParentBone(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCArmature_drawContour(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_setBatchNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_draw(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_nodeToParentTransform(JSContext *cx, uint32_t argc, jsval *vp);
@@ -192,7 +189,6 @@ JSBool js_cocos2dx_studio_CCArmature_setTextureAtlas(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_studio_CCArmature_addBone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_getArmatureData(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCArmature_getParentBone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_boundingBox(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_getVersion(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmature_getAnimation(JSContext *cx, uint32_t argc, jsval *vp);

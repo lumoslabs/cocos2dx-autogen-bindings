@@ -100,30 +100,6 @@ CCTween : function () {},
  */
 ccs.ColliderFilter = {
 
-/**
- * @method setCollisionType
- * @param {unsigned long}
- */
-setCollisionType : function () {},
-
-/**
- * @method setGroup
- * @param {unsigned long}
- */
-setGroup : function () {},
-
-/**
- * @method getCollisionType
- * @return A value converted from C/C++ "unsigned long"
- */
-getCollisionType : function () {},
-
-/**
- * @method getGroup
- * @return A value converted from C/C++ "unsigned long"
- */
-getGroup : function () {},
-
 };
 
 /**
@@ -173,6 +149,13 @@ init : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getContentSize : function () {},
+
+/**
+ * @method changeDisplayByName
+ * @param {const char*}
+ * @param {bool}
+ */
+changeDisplayByName : function () {},
 
 /**
  * @method getBoundingBox
@@ -338,10 +321,11 @@ removeDisplay : function () {},
 updateDisplayedOpacity : function () {},
 
 /**
- * @method setParentBone
- * @param {cocos2d::extension::CCBone*}
+ * @method changeDisplayByName
+ * @param {const char*}
+ * @param {bool}
  */
-setParentBone : function () {},
+changeDisplayByName : function () {},
 
 /**
  * @method setZOrder
@@ -354,12 +338,6 @@ setZOrder : function () {},
  * @return A value converted from C/C++ "bool"
  */
 getIgnoreMovementBoneData : function () {},
-
-/**
- * @method getColliderFilter
- * @return A value converted from C/C++ "cocos2d::extension::CCColliderFilter*"
- */
-getColliderFilter : function () {},
 
 /**
  * @method setIgnoreMovementBoneData
@@ -380,10 +358,10 @@ setName : function () {},
 removeFromParent : function () {},
 
 /**
- * @method getChildArmature
- * @return A value converted from C/C++ "cocos2d::extension::CCArmature*"
+ * @method setParentBone
+ * @param {cocos2d::extension::CCBone*}
  */
-getChildArmature : function () {},
+setParentBone : function () {},
 
 /**
  * @method update
@@ -398,10 +376,10 @@ update : function () {},
 setDisplayManager : function () {},
 
 /**
- * @method setColliderFilter
- * @param {cocos2d::extension::CCColliderFilter*}
+ * @method getChildArmature
+ * @return A value converted from C/C++ "cocos2d::extension::CCArmature*"
  */
-setColliderFilter : function () {},
+getChildArmature : function () {},
 
 /**
  * @method getColliderBodyList
@@ -524,16 +502,6 @@ getSpeedScale : function () {},
 getAnimationScale : function () {},
 
 /**
- * @method play
- * @param {const char*}
- * @param {int}
- * @param {int}
- * @param {int}
- * @param {int}
- */
-play : function () {},
-
-/**
  * @method pause
  */
 pause : function () {},
@@ -577,16 +545,6 @@ update : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::CCAnimationData*"
  */
 getAnimationData : function () {},
-
-/**
- * @method playByIndex
- * @param {int}
- * @param {int}
- * @param {int}
- * @param {int}
- * @param {int}
- */
-playByIndex : function () {},
 
 /**
  * @method gotoAndPlay
@@ -698,10 +656,10 @@ setVersion : function () {},
 updateOffsetPoint : function () {},
 
 /**
- * @method setColliderFilter
- * @param {cocos2d::extension::CCColliderFilter*}
+ * @method getParentBone
+ * @return A value converted from C/C++ "cocos2d::extension::CCBone*"
  */
-setColliderFilter : function () {},
+getParentBone : function () {},
 
 /**
  * @method setName
@@ -733,6 +691,11 @@ getName : function () {},
  * @param {cocos2d::extension::CCBone*}
  */
 setParentBone : function () {},
+
+/**
+ * @method drawContour
+ */
+drawContour : function () {},
 
 /**
  * @method setBatchNode
@@ -781,12 +744,6 @@ update : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::CCArmatureData*"
  */
 getArmatureData : function () {},
-
-/**
- * @method getParentBone
- * @return A value converted from C/C++ "cocos2d::extension::CCBone*"
- */
-getParentBone : function () {},
 
 /**
  * @method boundingBox
