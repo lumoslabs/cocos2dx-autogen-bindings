@@ -256,6 +256,12 @@ setTransformDirty : function () {},
 getDisplayRenderNode : function () {},
 
 /**
+ * @method isBlendDirty
+ * @return A value converted from C/C++ "bool"
+ */
+isBlendDirty : function () {},
+
+/**
  * @method addChildBone
  * @param {cocos2d::extension::CCBone*}
  */
@@ -280,15 +286,15 @@ getTween : function () {},
 getParentBone : function () {},
 
 /**
- * @method getBlendType
- * @return A value converted from C/C++ "cocos2d::extension::CCBlendType"
- */
-getBlendType : function () {},
-
-/**
  * @method updateColor
  */
 updateColor : function () {},
+
+/**
+ * @method setChildArmature
+ * @param {cocos2d::extension::CCArmature*}
+ */
+setChildArmature : function () {},
 
 /**
  * @method getName
@@ -394,6 +400,12 @@ getColliderBodyList : function () {},
 setArmature : function () {},
 
 /**
+ * @method setBlendDirty
+ * @param {bool}
+ */
+setBlendDirty : function () {},
+
+/**
  * @method setColor
  * @param {cocos2d::ccColor3B}
  */
@@ -407,12 +419,6 @@ setColor : function () {},
 removeChildBone : function () {},
 
 /**
- * @method setChildArmature
- * @param {cocos2d::extension::CCArmature*}
- */
-setChildArmature : function () {},
-
-/**
  * @method getDisplayManager
  * @return A value converted from C/C++ "cocos2d::extension::CCDisplayManager*"
  */
@@ -423,12 +429,6 @@ getDisplayManager : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::CCArmature*"
  */
 getArmature : function () {},
-
-/**
- * @method setBlendType
- * @param {cocos2d::extension::CCBlendType}
- */
-setBlendType : function () {},
 
 /**
  * @method changeDisplayByIndex
