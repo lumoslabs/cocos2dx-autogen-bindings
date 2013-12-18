@@ -17955,7 +17955,9 @@ void js_register_cocos2dx_studio_SceneReader(JSContext *cx, JSObject *global) {
 	jsb_SceneReader_class->finalize = js_cocos2dx_studio_SceneReader_finalize;
 	jsb_SceneReader_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
 
-	JSPropertySpec *properties = NULL;
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, JSOP_NULLWRAPPER, JSOP_NULLWRAPPER}
+	};
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("purge", js_cocos2dx_studio_SceneReader_purgeSceneReader, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
