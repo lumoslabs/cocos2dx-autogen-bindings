@@ -1627,12 +1627,6 @@ getRotationY : function () {},
 getSizePercent : function () {},
 
 /**
- * @method setPositionType
- * @param {cocos2d::extension::PositionType}
- */
-setPositionType : function () {},
-
-/**
  * @method isCascadeOpacityEnabled
  * @return A value converted from C/C++ "bool"
  */
@@ -1697,12 +1691,6 @@ removeFromParentAndCleanup : function () {},
  * @method active
  */
 active : function () {},
-
-/**
- * @method setPosition
- * @param {cocos2d::CCPoint}
- */
-setPosition : function () {},
 
 /**
  * @method removeRenderer
@@ -1773,22 +1761,10 @@ isVisible : function () {},
 setTouchEnable : function () {},
 
 /**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
-
-/**
  * @method getLeftInParent
  * @return A value converted from C/C++ "float"
  */
 getLeftInParent : function () {},
-
-/**
- * @method setPositionPercent
- * @param {cocos2d::CCPoint}
- */
-setPositionPercent : function () {},
 
 /**
  * @method getRotation
@@ -2319,12 +2295,6 @@ UIRootWidget : function () {},
 ccs.UIButton = {
 
 /**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
-
-/**
  * @method getVirtualRenderer
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
@@ -2580,12 +2550,6 @@ UIButton : function () {},
 ccs.UICheckBox = {
 
 /**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
-
-/**
  * @method getVirtualRenderer
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
@@ -2751,12 +2715,6 @@ UICheckBox : function () {},
 ccs.UIImageView = {
 
 /**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
-
-/**
  * @method getVirtualRenderer
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
@@ -2878,12 +2836,6 @@ UIImageView : function () {},
  * @class UILabel
  */
 ccs.UILabel = {
-
-/**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
 
 /**
  * @method getVirtualRenderer
@@ -3035,12 +2987,6 @@ UILabel : function () {},
  * @class UILabelAtlas
  */
 ccs.UILabelAtlas = {
-
-/**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
 
 /**
  * @method getVirtualRenderer
@@ -3657,12 +3603,6 @@ UISlider : function () {},
 ccs.UITextField = {
 
 /**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
-
-/**
  * @method setAttachWithIME
  * @param {bool}
  */
@@ -3978,12 +3918,6 @@ UIListView : function () {},
  * @class UILabelBMFont
  */
 ccs.UILabelBMFont = {
-
-/**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
 
 /**
  * @method getVirtualRenderer
