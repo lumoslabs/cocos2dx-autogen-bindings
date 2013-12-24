@@ -416,7 +416,6 @@ JSBool js_cocos2dx_studio_UIWidget_removeAllChildren(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_studio_UIWidget_getRotationX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_getRotationY(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_getSizePercent(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_UIWidget_setPositionType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_isCascadeOpacityEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_setParent(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_getName(JSContext *cx, uint32_t argc, jsval *vp);
@@ -428,7 +427,6 @@ JSBool js_cocos2dx_studio_UIWidget_addCCNode(JSContext *cx, uint32_t argc, jsval
 JSBool js_cocos2dx_studio_UIWidget_clippingParentAreaContainPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_removeFromParentAndCleanup(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_active(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_UIWidget_setPosition(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_removeRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_stopActionByTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_reorderChild(JSContext *cx, uint32_t argc, jsval *vp);
@@ -440,9 +438,7 @@ JSBool js_cocos2dx_studio_UIWidget_setWidgetTag(JSContext *cx, uint32_t argc, js
 JSBool js_cocos2dx_studio_UIWidget_isFocused(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_isVisible(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_setTouchEnable(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_UIWidget_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_getLeftInParent(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_UIWidget_setPositionPercent(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_getRotation(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_getBottomInParent(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIWidget_ignoreContentAdaptWithSize(JSContext *cx, uint32_t argc, jsval *vp);
@@ -553,7 +549,6 @@ JSBool js_cocos2dx_studio_UIButton_constructor(JSContext *cx, uint32_t argc, jsv
 void js_cocos2dx_studio_UIButton_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_UIButton(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_studio_UIButton_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIButton_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIButton_setNormalTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIButton_getTitleText(JSContext *cx, uint32_t argc, jsval *vp);
@@ -601,7 +596,6 @@ JSBool js_cocos2dx_studio_UICheckBox_constructor(JSContext *cx, uint32_t argc, j
 void js_cocos2dx_studio_UICheckBox_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_UICheckBox(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_studio_UICheckBox_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UICheckBox_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UICheckBox_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UICheckBox_setBackGroundDisabledTexture(JSContext *cx, uint32_t argc, jsval *vp);
@@ -633,7 +627,6 @@ JSBool js_cocos2dx_studio_UIImageView_constructor(JSContext *cx, uint32_t argc, 
 void js_cocos2dx_studio_UIImageView_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_UIImageView(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_studio_UIImageView_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIImageView_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIImageView_setTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UIImageView_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
@@ -661,7 +654,6 @@ JSBool js_cocos2dx_studio_UILabel_constructor(JSContext *cx, uint32_t argc, jsva
 void js_cocos2dx_studio_UILabel_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_UILabel(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_studio_UILabel_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UILabel_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UILabel_getStringValue(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UILabel_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
@@ -694,7 +686,6 @@ JSBool js_cocos2dx_studio_UILabelAtlas_constructor(JSContext *cx, uint32_t argc,
 void js_cocos2dx_studio_UILabelAtlas_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_UILabelAtlas(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_studio_UILabelAtlas_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UILabelAtlas_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UILabelAtlas_getStringValue(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UILabelAtlas_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
@@ -820,7 +811,6 @@ JSBool js_cocos2dx_studio_UITextField_constructor(JSContext *cx, uint32_t argc, 
 void js_cocos2dx_studio_UITextField_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_UITextField(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_studio_UITextField_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UITextField_setAttachWithIME(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UITextField_getStringValue(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UITextField_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
@@ -888,7 +878,6 @@ JSBool js_cocos2dx_studio_UILabelBMFont_constructor(JSContext *cx, uint32_t argc
 void js_cocos2dx_studio_UILabelBMFont_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_UILabelBMFont(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_studio_UILabelBMFont_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UILabelBMFont_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UILabelBMFont_getStringValue(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_UILabelBMFont_setText(JSContext *cx, uint32_t argc, jsval *vp);
