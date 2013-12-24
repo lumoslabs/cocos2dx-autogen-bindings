@@ -490,16 +490,16 @@ create : function () {},
 ccs.ArmatureAnimation = {
 
 /**
+ * @method setAnimationInternal
+ * @param {float}
+ */
+setAnimationInternal : function () {},
+
+/**
  * @method getSpeedScale
  * @return A value converted from C/C++ "float"
  */
 getSpeedScale : function () {},
-
-/**
- * @method getAnimationScale
- * @return A value converted from C/C++ "float"
- */
-getAnimationScale : function () {},
 
 /**
  * @method pause
@@ -507,10 +507,23 @@ getAnimationScale : function () {},
 pause : function () {},
 
 /**
- * @method setAnimationScale
+ * @method setSpeedScale
  * @param {float}
  */
-setAnimationScale : function () {},
+setSpeedScale : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::extension::CCArmature*}
+ */
+init : function () {},
+
+/**
+ * @method getAnimationScale
+ * @return A value converted from C/C++ "float"
+ */
+getAnimationScale : function () {},
 
 /**
  * @method gotoAndPause
@@ -529,12 +542,6 @@ resume : function () {},
 stop : function () {},
 
 /**
- * @method setSpeedScale
- * @param {float}
- */
-setSpeedScale : function () {},
-
-/**
  * @method update
  * @param {float}
  */
@@ -547,23 +554,20 @@ update : function () {},
 getAnimationData : function () {},
 
 /**
- * @method gotoAndPlay
+ * @method playWithArray
+ * @param {CCArray*}
  * @param {int}
+ * @param {bool}
  */
-gotoAndPlay : function () {},
+playWithArray : function () {},
 
 /**
- * @method init
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::extension::CCArmature*}
+ * @method playWithIndexArray
+ * @param {CCArray*}
+ * @param {int}
+ * @param {bool}
  */
-init : function () {},
-
-/**
- * @method getMovementCount
- * @return A value converted from C/C++ "int"
- */
-getMovementCount : function () {},
+playWithIndexArray : function () {},
 
 /**
  * @method getCurrentMovementID
@@ -572,16 +576,28 @@ getMovementCount : function () {},
 getCurrentMovementID : function () {},
 
 /**
+ * @method setAnimationScale
+ * @param {float}
+ */
+setAnimationScale : function () {},
+
+/**
  * @method setAnimationData
  * @param {cocos2d::extension::CCAnimationData*}
  */
 setAnimationData : function () {},
 
 /**
- * @method setAnimationInternal
- * @param {float}
+ * @method gotoAndPlay
+ * @param {int}
  */
-setAnimationInternal : function () {},
+gotoAndPlay : function () {},
+
+/**
+ * @method getMovementCount
+ * @return A value converted from C/C++ "int"
+ */
+getMovementCount : function () {},
 
 /**
  * @method create
