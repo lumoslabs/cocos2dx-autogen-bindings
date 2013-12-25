@@ -968,12 +968,6 @@ getBool : function () {},
 setInt : function () {},
 
 /**
- * @method parse
- * @param {const char*}
- */
-parse : function () {},
-
-/**
  * @method getInt
  * @return A value converted from C/C++ "int"
  * @param {const char*}
@@ -4237,6 +4231,13 @@ purgeSceneReader : function () {},
  * @param {const char*}
  */
 createNodeWithSceneFile : function () {},
+
+/**
+ * @method getNodeByTag
+ * @return A value converted from C/C++ "CCNode*"
+ * @param {int}
+ */
+getNodeByTag : function () {},
 
 /**
  * @method sceneReaderVersion
