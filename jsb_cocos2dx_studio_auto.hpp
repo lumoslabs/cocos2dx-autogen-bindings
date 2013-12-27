@@ -138,6 +138,7 @@ void js_cocos2dx_studio_CCArmatureAnimation_finalize(JSContext *cx, JSObject *ob
 void js_register_cocos2dx_studio_CCArmatureAnimation(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_setAnimationInternal(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCArmatureAnimation_playWithIndexes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_playByIndex(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_getSpeedScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_pause(JSContext *cx, uint32_t argc, jsval *vp);
@@ -152,10 +153,12 @@ JSBool js_cocos2dx_studio_CCArmatureAnimation_update(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_studio_CCArmatureAnimation_getAnimationData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_playWithArray(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_playWithIndexArray(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCArmatureAnimation_playWithIndex(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_getCurrentMovementID(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_setAnimationScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_setAnimationData(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_gotoAndPlay(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCArmatureAnimation_playWithNames(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_getMovementCount(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCArmatureAnimation_CCArmatureAnimation(JSContext *cx, uint32_t argc, jsval *vp);

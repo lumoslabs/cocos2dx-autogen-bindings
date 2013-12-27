@@ -496,6 +496,24 @@ ccs.ArmatureAnimation = {
 setAnimationInternal : function () {},
 
 /**
+ * @method playWithIndexes
+ * @param {std::vector<int, std::allocator<int> >}
+ * @param {int}
+ * @param {bool}
+ */
+playWithIndexes : function () {},
+
+/**
+ * @method playByIndex
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ */
+playByIndex : function () {},
+
+/**
  * @method getSpeedScale
  * @return A value converted from C/C++ "float"
  */
@@ -524,6 +542,16 @@ init : function () {},
  * @return A value converted from C/C++ "float"
  */
 getAnimationScale : function () {},
+
+/**
+ * @method play
+ * @param {const char*}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ */
+play : function () {},
 
 /**
  * @method gotoAndPause
@@ -570,6 +598,16 @@ playWithArray : function () {},
 playWithIndexArray : function () {},
 
 /**
+ * @method playWithIndex
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ */
+playWithIndex : function () {},
+
+/**
  * @method getCurrentMovementID
  * @return A value converted from C/C++ "std::string"
  */
@@ -592,6 +630,14 @@ setAnimationData : function () {},
  * @param {int}
  */
 gotoAndPlay : function () {},
+
+/**
+ * @method playWithNames
+ * @param {std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >}
+ * @param {int}
+ * @param {bool}
+ */
+playWithNames : function () {},
 
 /**
  * @method getMovementCount
