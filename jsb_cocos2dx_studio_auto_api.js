@@ -583,7 +583,7 @@ getAnimationData : function () {},
 
 /**
  * @method playWithArray
- * @param {CCArray*}
+ * @param {cocos2d::CCArray*}
  * @param {int}
  * @param {bool}
  */
@@ -591,7 +591,7 @@ playWithArray : function () {},
 
 /**
  * @method playWithIndexArray
- * @param {CCArray*}
+ * @param {cocos2d::CCArray*}
  * @param {int}
  * @param {bool}
  */
@@ -1321,20 +1321,20 @@ ccs.ComRender = {
 
 /**
  * @method setNode
- * @param {CCNode*}
+ * @param {cocos2d::CCNode*}
  */
 setNode : function () {},
 
 /**
  * @method getNode
- * @return A value converted from C/C++ "CCNode*"
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
 getNode : function () {},
 
 /**
  * @method create
  * @return A value converted from C/C++ "cocos2d::extension::CCComRender*"
- * @param {CCNode*}
+ * @param {cocos2d::CCNode*}
  * @param {const char*}
  */
 create : function () {},
@@ -4273,14 +4273,14 @@ purgeSceneReader : function () {},
 
 /**
  * @method createNodeWithSceneFile
- * @return A value converted from C/C++ "CCNode*"
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
  * @param {const char*}
  */
 createNodeWithSceneFile : function () {},
 
 /**
  * @method getNodeByTag
- * @return A value converted from C/C++ "CCNode*"
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
  * @param {int}
  */
 getNodeByTag : function () {},

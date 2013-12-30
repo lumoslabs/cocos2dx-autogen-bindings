@@ -10780,13 +10780,13 @@ removeChild : function () {},
 
 /**
  * @method getParallaxArray
- * @return A value converted from C/C++ "_ccArray*"
+ * @return A value converted from C/C++ "cocos2d::_ccArray*"
  */
 getParallaxArray : function () {},
 
 /**
  * @method setParallaxArray
- * @param {_ccArray*}
+ * @param {cocos2d::_ccArray*}
  */
 setParallaxArray : function () {},
 
@@ -11463,7 +11463,7 @@ releaseMap : function () {},
 
 /**
  * @method getTGAInfo
- * @return A value converted from C/C++ "sImageTGA*"
+ * @return A value converted from C/C++ "cocos2d::sImageTGA*"
  */
 getTGAInfo : function () {},
 
@@ -11483,7 +11483,7 @@ setTile : function () {},
 
 /**
  * @method setTGAInfo
- * @param {sImageTGA*}
+ * @param {cocos2d::sImageTGA*}
  */
 setTGAInfo : function () {},
 
