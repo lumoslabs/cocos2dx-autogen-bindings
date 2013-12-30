@@ -496,14 +496,6 @@ ccs.ArmatureAnimation = {
 setAnimationInternal : function () {},
 
 /**
- * @method playWithIndexes
- * @param {std::vector<int, std::allocator<int> >}
- * @param {int}
- * @param {bool}
- */
-playWithIndexes : function () {},
-
-/**
  * @method playByIndex
  * @param {int}
  * @param {int}
@@ -630,14 +622,6 @@ setAnimationData : function () {},
  * @param {int}
  */
 gotoAndPlay : function () {},
-
-/**
- * @method playWithNames
- * @param {std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >}
- * @param {int}
- * @param {bool}
- */
-playWithNames : function () {},
 
 /**
  * @method getMovementCount
