@@ -352,6 +352,12 @@ getIgnoreMovementBoneData : function () {},
 setIgnoreMovementBoneData : function () {},
 
 /**
+ * @method getBlendFunc
+ * @return A value converted from C/C++ "ccBlendFunc"
+ */
+getBlendFunc : function () {},
+
+/**
  * @method setName
  * @param {std::string}
  */
@@ -419,6 +425,12 @@ setColor : function () {},
 removeChildBone : function () {},
 
 /**
+ * @method setBlendFunc
+ * @param {cocos2d::ccBlendFunc}
+ */
+setBlendFunc : function () {},
+
+/**
  * @method getDisplayManager
  * @return A value converted from C/C++ "cocos2d::extension::CCDisplayManager*"
  */
@@ -468,6 +480,11 @@ ccs.BatchNode = {
  * @param {cocos2d::CCTexture2D*}
  */
 getTexureAtlasWithTexture : function () {},
+
+/**
+ * @method visit
+ */
+visit : function () {},
 
 /**
  * @method removeChild
@@ -530,6 +547,12 @@ setSpeedScale : function () {},
 init : function () {},
 
 /**
+ * @method getUserObject
+ * @return A value converted from C/C++ "cocos2d::CCObject*"
+ */
+getUserObject : function () {},
+
+/**
  * @method getAnimationScale
  * @return A value converted from C/C++ "float"
  */
@@ -544,6 +567,12 @@ getAnimationScale : function () {},
  * @param {int}
  */
 play : function () {},
+
+/**
+ * @method setUserObject
+ * @param {cocos2d::CCObject*}
+ */
+setUserObject : function () {},
 
 /**
  * @method gotoAndPause
@@ -664,6 +693,11 @@ getBone : function () {},
 changeBoneParent : function () {},
 
 /**
+ * @method onEnter
+ */
+onEnter : function () {},
+
+/**
  * @method getTexureAtlasWithTexture
  * @return A value converted from C/C++ "cocos2d::CCTextureAtlas*"
  * @param {cocos2d::CCTexture2D*}
@@ -733,6 +767,11 @@ getArmatureTransformDirty : function () {},
 getName : function () {},
 
 /**
+ * @method visit
+ */
+visit : function () {},
+
+/**
  * @method setParentBone
  * @param {cocos2d::extension::CCBone*}
  */
@@ -753,6 +792,12 @@ setBatchNode : function () {},
  * @method draw
  */
 draw : function () {},
+
+/**
+ * @method getBlendFunc
+ * @return A value converted from C/C++ "ccBlendFunc"
+ */
+getBlendFunc : function () {},
 
 /**
  * @method nodeToParentTransform
@@ -808,6 +853,17 @@ getVersion : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::CCArmatureAnimation*"
  */
 getAnimation : function () {},
+
+/**
+ * @method onExit
+ */
+onExit : function () {},
+
+/**
+ * @method setBlendFunc
+ * @param {ccBlendFunc}
+ */
+setBlendFunc : function () {},
 
 /**
  * @method getBoneDic
@@ -1037,6 +1093,11 @@ ccs.ComAudio = {
 stopAllEffects : function () {},
 
 /**
+ * @method onEnter
+ */
+onEnter : function () {},
+
+/**
  * @method getEffectsVolume
  * @return A value converted from C/C++ "float"
  */
@@ -1140,6 +1201,11 @@ unloadEffect : function () {},
 rewindBackgroundMusic : function () {},
 
 /**
+ * @method onExit
+ */
+onExit : function () {},
+
+/**
  * @method preloadEffect
  * @param {const char*}
  */
@@ -1218,10 +1284,46 @@ getTouchMode : function () {},
 setAccelerometerEnabled : function () {},
 
 /**
+ * @method ccTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchBegan : function () {},
+
+/**
  * @method isKeypadEnabled
  * @return A value converted from C/C++ "bool"
  */
 isKeypadEnabled : function () {},
+
+/**
+ * @method ccTouchesCancelled
+ * @param {cocos2d::CCSet*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchesCancelled : function () {},
+
+/**
+ * @method ccTouchesEnded
+ * @param {cocos2d::CCSet*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchesEnded : function () {},
+
+/**
+ * @method ccTouchCancelled
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchCancelled : function () {},
+
+/**
+ * @method ccTouchEnded
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchEnded : function () {},
 
 /**
  * @method isTouchEnabled
@@ -1230,10 +1332,31 @@ isKeypadEnabled : function () {},
 isTouchEnabled : function () {},
 
 /**
+ * @method ccTouchesBegan
+ * @param {cocos2d::CCSet*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchesBegan : function () {},
+
+/**
  * @method setTouchPriority
  * @param {int}
  */
 setTouchPriority : function () {},
+
+/**
+ * @method ccTouchesMoved
+ * @param {cocos2d::CCSet*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchesMoved : function () {},
+
+/**
+ * @method ccTouchMoved
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchMoved : function () {},
 
 /**
  * @method getTouchPriority
@@ -1265,6 +1388,16 @@ ccs.ComController = {
  * @param {bool}
  */
 setEnabled : function () {},
+
+/**
+ * @method onEnter
+ */
+onEnter : function () {},
+
+/**
+ * @method onExit
+ */
+onExit : function () {},
 
 /**
  * @method isEnabled
@@ -1310,6 +1443,16 @@ ccs.ComRender = {
 setNode : function () {},
 
 /**
+ * @method onEnter
+ */
+onEnter : function () {},
+
+/**
+ * @method onExit
+ */
+onExit : function () {},
+
+/**
  * @method getNode
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
@@ -1326,69 +1469,69 @@ create : function () {},
 };
 
 /**
- * @class UILayoutParameter
+ * @class LayoutParameter
  */
-ccs.UILayoutParameter = {
+ccs.LayoutParameter = {
 
 /**
  * @method getLayoutType
- * @return A value converted from C/C++ "cocos2d::extension::LayoutParameterType"
+ * @return A value converted from C/C++ "cocos2d::gui::LayoutParameterType"
  */
 getLayoutType : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UILayoutParameter*"
+ * @return A value converted from C/C++ "cocos2d::gui::LayoutParameter*"
  */
 create : function () {},
 
 /**
- * @method UILayoutParameter
+ * @method LayoutParameter
  * @constructor
  */
-UILayoutParameter : function () {},
+LayoutParameter : function () {},
 
 };
 
 /**
- * @class UILinearLayoutParameter
+ * @class LinearLayoutParameter
  */
-ccs.UILinearLayoutParameter = {
+ccs.LinearLayoutParameter = {
 
 /**
  * @method setGravity
- * @param {cocos2d::extension::UILinearGravity}
+ * @param {cocos2d::gui::LinearGravity}
  */
 setGravity : function () {},
 
 /**
  * @method getGravity
- * @return A value converted from C/C++ "cocos2d::extension::UILinearGravity"
+ * @return A value converted from C/C++ "cocos2d::gui::LinearGravity"
  */
 getGravity : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UILinearLayoutParameter*"
+ * @return A value converted from C/C++ "cocos2d::gui::LinearLayoutParameter*"
  */
 create : function () {},
 
 /**
- * @method UILinearLayoutParameter
+ * @method LinearLayoutParameter
  * @constructor
  */
-UILinearLayoutParameter : function () {},
+LinearLayoutParameter : function () {},
 
 };
 
 /**
- * @class UIRelativeLayoutParameter
+ * @class RelativeLayoutParameter
  */
-ccs.UIRelativeLayoutParameter = {
+ccs.RelativeLayoutParameter = {
 
 /**
  * @method setAlign
- * @param {cocos2d::extension::UIRelativeAlign}
+ * @param {cocos2d::gui::RelativeAlign}
  */
 setAlign : function () {},
 
@@ -1418,41 +1561,59 @@ setRelativeName : function () {},
 
 /**
  * @method getAlign
- * @return A value converted from C/C++ "cocos2d::extension::UIRelativeAlign"
+ * @return A value converted from C/C++ "cocos2d::gui::RelativeAlign"
  */
 getAlign : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UIRelativeLayoutParameter*"
+ * @return A value converted from C/C++ "cocos2d::gui::RelativeLayoutParameter*"
  */
 create : function () {},
 
 /**
- * @method UIRelativeLayoutParameter
+ * @method RelativeLayoutParameter
  * @constructor
  */
-UIRelativeLayoutParameter : function () {},
+RelativeLayoutParameter : function () {},
 
 };
 
 /**
- * @class UIWidget
+ * @class Widget
  */
-ccs.UIWidget = {
-
-/**
- * @method addChild
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::extension::UIWidget*}
- */
-addChild : function () {},
+ccs.Widget = {
 
 /**
  * @method getVirtualRenderer
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
 getVirtualRenderer : function () {},
+
+/**
+ * @method setSizePercent
+ * @param {cocos2d::CCPoint}
+ */
+setSizePercent : function () {},
+
+/**
+ * @method setPositionType
+ * @param {cocos2d::gui::PositionType}
+ */
+setPositionType : function () {},
+
+/**
+ * @method onTouchMoved
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchMoved : function () {},
+
+/**
+ * @method isFlipX
+ * @return A value converted from C/C++ "bool"
+ */
+isFlipX : function () {},
 
 /**
  * @method setActionTag
@@ -1462,15 +1623,27 @@ setActionTag : function () {},
 
 /**
  * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @return A value converted from C/C++ "std::string"
  */
 getDescription : function () {},
 
 /**
- * @method setCascadeOpacityEnabled
+ * @method getLeftInParent
+ * @return A value converted from C/C++ "float"
+ */
+getLeftInParent : function () {},
+
+/**
+ * @method setUpdateEnabled
  * @param {bool}
  */
-setCascadeOpacityEnabled : function () {},
+setUpdateEnabled : function () {},
+
+/**
+ * @method getTouchEndPos
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getTouchEndPos : function () {},
 
 /**
  * @method getChildren
@@ -1479,23 +1652,85 @@ setCascadeOpacityEnabled : function () {},
 getChildren : function () {},
 
 /**
- * @method getRelativeLeftPos
+ * @method getChildByTag
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ * @param {int}
+ */
+getChildByTag : function () {},
+
+/**
+ * @method getName
+ * @return A value converted from C/C++ "const char*"
+ */
+getName : function () {},
+
+/**
+ * @method isIgnoreContentAdaptWithSize
+ * @return A value converted from C/C++ "bool"
+ */
+isIgnoreContentAdaptWithSize : function () {},
+
+/**
+ * @method onTouchEnded
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchEnded : function () {},
+
+/**
+ * @method updateSizeAndPosition
+ */
+updateSizeAndPosition : function () {},
+
+/**
+ * @method onTouchLongClicked
+ * @param {cocos2d::CCPoint}
+ */
+onTouchLongClicked : function () {},
+
+/**
+ * @method getBottomInParent
  * @return A value converted from C/C++ "float"
  */
-getRelativeLeftPos : function () {},
+getBottomInParent : function () {},
+
+/**
+ * @method getActionTag
+ * @return A value converted from C/C++ "int"
+ */
+getActionTag : function () {},
+
+/**
+ * @method getLayoutParameter
+ * @return A value converted from C/C++ "cocos2d::gui::LayoutParameter*"
+ * @param {cocos2d::gui::LayoutParameterType}
+ */
+getLayoutParameter : function () {},
 
 /**
  * @method getPositionType
- * @return A value converted from C/C++ "cocos2d::extension::PositionType"
+ * @return A value converted from C/C++ "cocos2d::gui::PositionType"
  */
 getPositionType : function () {},
 
 /**
+ * @method getWidgetType
+ * @return A value converted from C/C++ "cocos2d::gui::WidgetType"
+ */
+getWidgetType : function () {},
+
+/**
  * @method getChildByName
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
  * @param {const char*}
  */
 getChildByName : function () {},
+
+/**
+ * @method setPosition
+ * @param {cocos2d::CCPoint}
+ */
+setPosition : function () {},
 
 /**
  * @method isEnabled
@@ -1504,16 +1739,38 @@ getChildByName : function () {},
 isEnabled : function () {},
 
 /**
- * @method isFlipX
- * @return A value converted from C/C++ "bool"
+ * @method visit
  */
-isFlipX : function () {},
+visit : function () {},
 
 /**
  * @method isFlipY
  * @return A value converted from C/C++ "bool"
  */
 isFlipY : function () {},
+
+/**
+ * @method removeAllChildren
+ */
+removeAllChildren : function () {},
+
+/**
+ * @method isTouchEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isTouchEnabled : function () {},
+
+/**
+ * @method getContentSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getContentSize : function () {},
+
+/**
+ * @method getTouchStartPos
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getTouchStartPos : function () {},
 
 /**
  * @method didNotSelectSelf
@@ -1527,349 +1784,32 @@ didNotSelectSelf : function () {},
 setFocused : function () {},
 
 /**
- * @method setZOrder
- * @param {int}
- */
-setZOrder : function () {},
-
-/**
- * @method getWidgetParent
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
- */
-getWidgetParent : function () {},
-
-/**
- * @method setScaleY
- * @param {float}
- */
-setScaleY : function () {},
-
-/**
- * @method setScaleX
- * @param {float}
- */
-setScaleX : function () {},
-
-/**
- * @method getLayoutParameter
- * @return A value converted from C/C++ "cocos2d::extension::UILayoutParameter*"
- * @param {cocos2d::extension::LayoutParameterType}
- */
-getLayoutParameter : function () {},
-
-/**
- * @method getContainerNode
- * @return A value converted from C/C++ "cocos2d::CCNode*"
- */
-getContainerNode : function () {},
-
-/**
- * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
- */
-getColor : function () {},
-
-/**
- * @method getWidgetZOrder
- * @return A value converted from C/C++ "int"
- */
-getWidgetZOrder : function () {},
-
-/**
- * @method isBright
- * @return A value converted from C/C++ "bool"
- */
-isBright : function () {},
-
-/**
- * @method getRelativeRightPos
- * @return A value converted from C/C++ "float"
- */
-getRelativeRightPos : function () {},
-
-/**
- * @method getTag
- * @return A value converted from C/C++ "int"
- */
-getTag : function () {},
-
-/**
- * @method addRenderer
- * @param {cocos2d::CCNode*}
- * @param {int}
- */
-addRenderer : function () {},
-
-/**
- * @method getSize
- * @return A value converted from C/C++ "cocos2d::CCSize"
- */
-getSize : function () {},
-
-/**
- * @method getSizeType
- * @return A value converted from C/C++ "cocos2d::extension::SizeType"
- */
-getSizeType : function () {},
-
-/**
- * @method getPositionPercent
- * @return A value converted from C/C++ "cocos2d::CCPoint"
- */
-getPositionPercent : function () {},
-
-/**
- * @method getValidNode
- * @return A value converted from C/C++ "cocos2d::CCNode*"
- */
-getValidNode : function () {},
-
-/**
- * @method convertToWorldSpace
- * @return A value converted from C/C++ "cocos2d::CCPoint"
- * @param {cocos2d::CCPoint}
- */
-convertToWorldSpace : function () {},
-
-/**
- * @method setSize
- * @param {cocos2d::CCSize}
- */
-setSize : function () {},
-
-/**
- * @method setWidgetParent
- * @param {cocos2d::extension::UIWidget*}
- */
-setWidgetParent : function () {},
-
-/**
- * @method removeAllChildren
- */
-removeAllChildren : function () {},
-
-/**
- * @method getRotationX
- * @return A value converted from C/C++ "float"
- */
-getRotationX : function () {},
-
-/**
- * @method getRotationY
- * @return A value converted from C/C++ "float"
- */
-getRotationY : function () {},
-
-/**
- * @method getSizePercent
- * @return A value converted from C/C++ "cocos2d::CCPoint"
- */
-getSizePercent : function () {},
-
-/**
- * @method isCascadeOpacityEnabled
- * @return A value converted from C/C++ "bool"
- */
-isCascadeOpacityEnabled : function () {},
-
-/**
- * @method setParent
- * @param {cocos2d::extension::UIWidget*}
- */
-setParent : function () {},
-
-/**
- * @method getName
- * @return A value converted from C/C++ "const char*"
- */
-getName : function () {},
-
-/**
- * @method getWidgetTag
- * @return A value converted from C/C++ "int"
- */
-getWidgetTag : function () {},
-
-/**
- * @method isTouchEnabled
- * @return A value converted from C/C++ "bool"
- */
-isTouchEnabled : function () {},
-
-/**
  * @method setTouchEnabled
  * @param {bool}
  */
 setTouchEnabled : function () {},
 
 /**
- * @method setLayoutParameter
- * @param {cocos2d::extension::UILayoutParameter*}
+ * @method clone
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
  */
-setLayoutParameter : function () {},
+clone : function () {},
 
 /**
- * @method addCCNode
- * @param {cocos2d::CCNode*}
- */
-addCCNode : function () {},
-
-/**
- * @method clippingParentAreaContainPoint
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCPoint}
- */
-clippingParentAreaContainPoint : function () {},
-
-/**
- * @method removeFromParentAndCleanup
- * @param {bool}
- */
-removeFromParentAndCleanup : function () {},
-
-/**
- * @method active
- */
-active : function () {},
-
-/**
- * @method removeRenderer
- * @param {cocos2d::CCNode*}
- * @param {bool}
- */
-removeRenderer : function () {},
-
-/**
- * @method stopActionByTag
- * @param {int}
- */
-stopActionByTag : function () {},
-
-/**
- * @method reorderChild
- * @param {cocos2d::extension::UIWidget*}
- */
-reorderChild : function () {},
-
-/**
- * @method isActive
- * @return A value converted from C/C++ "bool"
- */
-isActive : function () {},
-
-/**
- * @method getScale
- * @return A value converted from C/C++ "float"
- */
-getScale : function () {},
-
-/**
- * @method setColor
- * @param {cocos2d::ccColor3B}
- */
-setColor : function () {},
-
-/**
- * @method getAnchorPoint
+ * @method getTouchMovePos
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
-getAnchorPoint : function () {},
+getTouchMovePos : function () {},
 
 /**
- * @method setWidgetTag
- * @param {int}
- */
-setWidgetTag : function () {},
-
-/**
- * @method isFocused
- * @return A value converted from C/C++ "bool"
- */
-isFocused : function () {},
-
-/**
- * @method isVisible
- * @return A value converted from C/C++ "bool"
- */
-isVisible : function () {},
-
-/**
- * @method setTouchEnable
- * @param {bool}
+ * @method setEnabled
  * @param {bool}
  */
-setTouchEnable : function () {},
-
-/**
- * @method getLeftInParent
- * @return A value converted from C/C++ "float"
- */
-getLeftInParent : function () {},
-
-/**
- * @method getRotation
- * @return A value converted from C/C++ "float"
- */
-getRotation : function () {},
-
-/**
- * @method getBottomInParent
- * @return A value converted from C/C++ "float"
- */
-getBottomInParent : function () {},
-
-/**
- * @method ignoreContentAdaptWithSize
- * @param {bool}
- */
-ignoreContentAdaptWithSize : function () {},
-
-/**
- * @method getZOrder
- * @return A value converted from C/C++ "int"
- */
-getZOrder : function () {},
-
-/**
- * @method runAction
- * @return A value converted from C/C++ "cocos2d::CCAction*"
- * @param {cocos2d::CCAction*}
- */
-runAction : function () {},
-
-/**
- * @method stopAllActions
- */
-stopAllActions : function () {},
-
-/**
- * @method getActionTag
- * @return A value converted from C/C++ "int"
- */
-getActionTag : function () {},
-
-/**
- * @method getActionByTag
- * @return A value converted from C/C++ "cocos2d::CCAction*"
- * @param {int}
- */
-getActionByTag : function () {},
-
-/**
- * @method setRotationX
- * @param {float}
- */
-setRotationX : function () {},
-
-/**
- * @method setRotationY
- * @param {float}
- */
-setRotationY : function () {},
+setEnabled : function () {},
 
 /**
  * @method setBrightStyle
- * @param {cocos2d::extension::BrightStyle}
+ * @param {cocos2d::gui::BrightStyle}
  */
 setBrightStyle : function () {},
 
@@ -1878,6 +1818,17 @@ setBrightStyle : function () {},
  * @param {const char*}
  */
 setName : function () {},
+
+/**
+ * @method removeFromParent
+ */
+removeFromParent : function () {},
+
+/**
+ * @method setLayoutParameter
+ * @param {cocos2d::gui::LayoutParameter*}
+ */
+setLayoutParameter : function () {},
 
 /**
  * @method setFlipY
@@ -1892,209 +1843,47 @@ setFlipY : function () {},
 setFlipX : function () {},
 
 /**
- * @method setUpdateEnabled
+ * @method removeAllChildrenWithCleanup
  * @param {bool}
  */
-setUpdateEnabled : function () {},
+removeAllChildrenWithCleanup : function () {},
 
 /**
- * @method setRotation
- * @param {float}
+ * @method onTouchCancelled
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
  */
-setRotation : function () {},
+onTouchCancelled : function () {},
 
 /**
- * @method setActionManager
- * @param {cocos2d::CCActionManager*}
+ * @method sortAllChildren
  */
-setActionManager : function () {},
+sortAllChildren : function () {},
 
 /**
- * @method getPosition
- * @return A value converted from C/C++ "cocos2d::CCPoint"
+ * @method isBright
+ * @return A value converted from C/C++ "bool"
  */
-getPosition : function () {},
+isBright : function () {},
 
 /**
- * @method getParent
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
- */
-getParent : function () {},
-
-/**
- * @method hitTest
+ * @method clippingParentAreaContainPoint
  * @return A value converted from C/C++ "bool"
  * @param {cocos2d::CCPoint}
  */
-hitTest : function () {},
+clippingParentAreaContainPoint : function () {},
 
 /**
- * @method setVisible
- * @param {bool}
- */
-setVisible : function () {},
-
-/**
- * @method setWidgetZOrder
- * @param {int}
- */
-setWidgetZOrder : function () {},
-
-/**
- * @method setSizePercent
- * @param {cocos2d::CCPoint}
- */
-setSizePercent : function () {},
-
-/**
- * @method setEnabled
- * @param {bool}
- */
-setEnabled : function () {},
-
-/**
- * @method setScale
- * @param {float}
- */
-setScale : function () {},
-
-/**
- * @method getTouchEndPos
+ * @method getSizePercent
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
-getTouchEndPos : function () {},
+getSizePercent : function () {},
 
 /**
- * @method getChildByTag
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
- * @param {int}
- */
-getChildByTag : function () {},
-
-/**
- * @method isIgnoreContentAdaptWithSize
- * @return A value converted from C/C++ "bool"
- */
-isIgnoreContentAdaptWithSize : function () {},
-
-/**
- * @method isUpdateEnabled
- * @return A value converted from C/C++ "bool"
- */
-isUpdateEnabled : function () {},
-
-/**
- * @method updateSizeAndPosition
- */
-updateSizeAndPosition : function () {},
-
-/**
- * @method getRenderer
- * @return A value converted from C/C++ "cocos2d::CCNode*"
- */
-getRenderer : function () {},
-
-/**
- * @method getWidgetType
- * @return A value converted from C/C++ "cocos2d::extension::WidgetType"
- */
-getWidgetType : function () {},
-
-/**
- * @method getScaleY
- * @return A value converted from C/C++ "float"
- */
-getScaleY : function () {},
-
-/**
- * @method getScaleX
- * @return A value converted from C/C++ "float"
- */
-getScaleX : function () {},
-
-/**
- * @method getRect
- * @return A value converted from C/C++ "cocos2d::CCRect"
- */
-getRect : function () {},
-
-/**
- * @method setCascadeColorEnabled
+ * @method removeFromParentAndCleanup
  * @param {bool}
  */
-setCascadeColorEnabled : function () {},
-
-/**
- * @method setOpacity
- * @param {int}
- */
-setOpacity : function () {},
-
-/**
- * @method getContentSize
- * @return A value converted from C/C++ "cocos2d::CCSize"
- */
-getContentSize : function () {},
-
-/**
- * @method getRelativeBottomPos
- * @return A value converted from C/C++ "float"
- */
-getRelativeBottomPos : function () {},
-
-/**
- * @method getOpacity
- * @return A value converted from C/C++ "int"
- */
-getOpacity : function () {},
-
-/**
- * @method removeAllChildrenAndCleanUp
- * @param {bool}
- */
-removeAllChildrenAndCleanUp : function () {},
-
-/**
- * @method getTouchMovePos
- * @return A value converted from C/C++ "cocos2d::CCPoint"
- */
-getTouchMovePos : function () {},
-
-/**
- * @method removeFromParent
- */
-removeFromParent : function () {},
-
-/**
- * @method getWorldPosition
- * @return A value converted from C/C++ "cocos2d::CCPoint"
- */
-getWorldPosition : function () {},
-
-/**
- * @method clone
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
- */
-clone : function () {},
-
-/**
- * @method isCascadeColorEnabled
- * @return A value converted from C/C++ "bool"
- */
-isCascadeColorEnabled : function () {},
-
-/**
- * @method disable
- */
-disable : function () {},
-
-/**
- * @method checkChildInfo
- * @param {int}
- * @param {cocos2d::extension::UIWidget*}
- * @param {cocos2d::CCPoint}
- */
-checkChildInfo : function () {},
+removeFromParentAndCleanup : function () {},
 
 /**
  * @method getTopInParent
@@ -2103,173 +1892,72 @@ checkChildInfo : function () {},
 getTopInParent : function () {},
 
 /**
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchBegan : function () {},
+
+/**
+ * @method onExit
+ */
+onExit : function () {},
+
+/**
+ * @method isUpdateEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isUpdateEnabled : function () {},
+
+/**
+ * @method getSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getSize : function () {},
+
+/**
  * @method getRightInParent
  * @return A value converted from C/C++ "float"
  */
 getRightInParent : function () {},
 
 /**
- * @method getRelativeTopPos
- * @return A value converted from C/C++ "float"
+ * @method getSizeType
+ * @return A value converted from C/C++ "cocos2d::gui::SizeType"
  */
-getRelativeTopPos : function () {},
+getSizeType : function () {},
 
 /**
- * @method setTag
- * @param {int}
+ * @method ignoreContentAdaptWithSize
+ * @param {bool}
  */
-setTag : function () {},
+ignoreContentAdaptWithSize : function () {},
 
 /**
- * @method getTouchStartPos
+ * @method getWorldPosition
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
-getTouchStartPos : function () {},
+getWorldPosition : function () {},
 
 /**
- * @method setSizeType
- * @param {cocos2d::extension::SizeType}
- */
-setSizeType : function () {},
-
-/**
- * @method stopAction
- * @param {cocos2d::CCAction*}
- */
-stopAction : function () {},
-
-/**
- * @method getActionManager
- * @return A value converted from C/C++ "cocos2d::CCActionManager*"
- */
-getActionManager : function () {},
-
-/**
- * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
- */
-create : function () {},
-
-/**
- * @method UIWidget
- * @constructor
- */
-UIWidget : function () {},
-
-};
-
-/**
- * @class UILayout
- */
-ccs.UILayout = {
-
-/**
- * @method setBackGroundColorVector
+ * @method setPositionPercent
  * @param {cocos2d::CCPoint}
  */
-setBackGroundColorVector : function () {},
+setPositionPercent : function () {},
 
 /**
- * @method addChild
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::extension::UIWidget*}
+ * @method getPositionPercent
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
-addChild : function () {},
+getPositionPercent : function () {},
 
 /**
- * @method setBackGroundColorType
- * @param {cocos2d::extension::LayoutBackGroundColorType}
- */
-setBackGroundColorType : function () {},
-
-/**
- * @method getDescription
- * @return A value converted from C/C++ "const char*"
- */
-getDescription : function () {},
-
-/**
- * @method removeBackGroundImage
- */
-removeBackGroundImage : function () {},
-
-/**
- * @method setBackGroundImage
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setBackGroundImage : function () {},
-
-/**
- * @method setOpacity
+ * @method removeChildByTag
  * @param {int}
- */
-setOpacity : function () {},
-
-/**
- * @method isClippingEnabled
- * @return A value converted from C/C++ "bool"
- */
-isClippingEnabled : function () {},
-
-/**
- * @method getContentSize
- * @return A value converted from C/C++ "cocos2d::CCSize"
- */
-getContentSize : function () {},
-
-/**
- * @method doLayout
- */
-doLayout : function () {},
-
-/**
- * @method setClippingEnabled
  * @param {bool}
  */
-setClippingEnabled : function () {},
-
-/**
- * @method setClippingEnable
- * @param {bool}
- */
-setClippingEnable : function () {},
-
-/**
- * @method setBackGroundColorOpacity
- * @param {int}
- */
-setBackGroundColorOpacity : function () {},
-
-/**
- * @method getLayoutType
- * @return A value converted from C/C++ "cocos2d::extension::LayoutType"
- */
-getLayoutType : function () {},
-
-/**
- * @method setBackGroundImageCapInsets
- * @param {cocos2d::CCRect}
- */
-setBackGroundImageCapInsets : function () {},
-
-/**
- * @method setBackGroundImageScale9Enable
- * @param {bool}
- */
-setBackGroundImageScale9Enable : function () {},
-
-/**
- * @method getBackGroundImageTextureSize
- * @return A value converted from C/C++ "cocos2d::CCSize"
- */
-getBackGroundImageTextureSize : function () {},
-
-/**
- * @method setColor
- * @param {cocos2d::ccColor3B}
- */
-setColor : function () {},
+removeChildByTag : function () {},
 
 /**
  * @method hitTest
@@ -2279,73 +1967,203 @@ setColor : function () {},
 hitTest : function () {},
 
 /**
+ * @method removeChild
+ * @param {cocos2d::CCNode*}
+ * @param {bool}
+ */
+removeChild : function () {},
+
+/**
+ * @method isFocused
+ * @return A value converted from C/C++ "bool"
+ */
+isFocused : function () {},
+
+/**
+ * @method onEnter
+ */
+onEnter : function () {},
+
+/**
+ * @method setSizeType
+ * @param {cocos2d::gui::SizeType}
+ */
+setSizeType : function () {},
+
+/**
+ * @method checkChildInfo
+ * @param {int}
+ * @param {cocos2d::gui::Widget*}
+ * @param {cocos2d::CCPoint}
+ */
+checkChildInfo : function () {},
+
+/**
+ * @method setSize
+ * @param {cocos2d::CCSize}
+ */
+setSize : function () {},
+
+/**
+ * @method setBright
+ * @param {bool}
+ */
+setBright : function () {},
+
+/**
+ * @method getChildrenCount
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getChildrenCount : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
+ */
+create : function () {},
+
+/**
+ * @method Widget
+ * @constructor
+ */
+Widget : function () {},
+
+};
+
+/**
+ * @class Layout
+ */
+ccs.Layout = {
+
+/**
+ * @method setBackGroundColorVector
+ * @param {cocos2d::CCPoint}
+ */
+setBackGroundColorVector : function () {},
+
+/**
+ * @method getBackGroundImageTextureSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getBackGroundImageTextureSize : function () {},
+
+/**
+ * @method getLayoutType
+ * @return A value converted from C/C++ "cocos2d::gui::LayoutType"
+ */
+getLayoutType : function () {},
+
+/**
+ * @method setClippingType
+ * @param {cocos2d::gui::LayoutClippingType}
+ */
+setClippingType : function () {},
+
+/**
+ * @method visit
+ */
+visit : function () {},
+
+/**
+ * @method setBackGroundColorType
+ * @param {cocos2d::gui::LayoutBackGroundColorType}
+ */
+setBackGroundColorType : function () {},
+
+/**
+ * @method setBackGroundImage
+ * @param {const char*}
+ * @param {cocos2d::gui::TextureResType}
+ */
+setBackGroundImage : function () {},
+
+/**
+ * @method getDescription
+ * @return A value converted from C/C++ "std::string"
+ */
+getDescription : function () {},
+
+/**
+ * @method requestDoLayout
+ */
+requestDoLayout : function () {},
+
+/**
+ * @method sortAllChildren
+ */
+sortAllChildren : function () {},
+
+/**
+ * @method isClippingEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isClippingEnabled : function () {},
+
+/**
+ * @method setBackGroundColorOpacity
+ * @param {int}
+ */
+setBackGroundColorOpacity : function () {},
+
+/**
+ * @method setBackGroundImageCapInsets
+ * @param {cocos2d::CCRect}
+ */
+setBackGroundImageCapInsets : function () {},
+
+/**
+ * @method removeBackGroundImage
+ */
+removeBackGroundImage : function () {},
+
+/**
  * @method setBackGroundImageScale9Enabled
  * @param {bool}
  */
 setBackGroundImageScale9Enabled : function () {},
 
 /**
+ * @method setClippingEnabled
+ * @param {bool}
+ */
+setClippingEnabled : function () {},
+
+/**
  * @method setLayoutType
- * @param {cocos2d::extension::LayoutType}
+ * @param {cocos2d::gui::LayoutType}
  */
 setLayoutType : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UILayout*"
+ * @return A value converted from C/C++ "cocos2d::gui::Layout*"
  */
 create : function () {},
 
 /**
- * @method UILayout
+ * @method Layout
  * @constructor
  */
-UILayout : function () {},
+Layout : function () {},
 
 };
 
 /**
- * @class UIRootWidget
+ * @class Button
  */
-ccs.UIRootWidget = {
+ccs.Button = {
 
 /**
- * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
  */
-getDescription : function () {},
-
-/**
- * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UIRootWidget*"
- */
-create : function () {},
-
-/**
- * @method UIRootWidget
- * @constructor
- */
-UIRootWidget : function () {},
-
-};
-
-/**
- * @class UIButton
- */
-ccs.UIButton = {
+setAnchorPoint : function () {},
 
 /**
  * @method getVirtualRenderer
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
 getVirtualRenderer : function () {},
-
-/**
- * @method setNormalTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setNormalTexture : function () {},
 
 /**
  * @method getTitleText
@@ -2361,7 +2179,7 @@ setTitleFontSize : function () {},
 
 /**
  * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @return A value converted from C/C++ "std::string"
  */
 getDescription : function () {},
 
@@ -2376,21 +2194,6 @@ setScale9Enabled : function () {},
  * @param {cocos2d::ccColor3B}
  */
 setTitleColor : function () {},
-
-/**
- * @method setFontName
- * @param {const char*}
- */
-setFontName : function () {},
-
-/**
- * @method setTextures
- * @param {const char*}
- * @param {const char*}
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setTextures : function () {},
 
 /**
  * @method ignoreContentAdaptWithSize
@@ -2419,17 +2222,9 @@ isFlipY : function () {},
 /**
  * @method loadTextureDisabled
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadTextureDisabled : function () {},
-
-/**
- * @method setTextColor
- * @param {int}
- * @param {int}
- * @param {int}
- */
-setTextColor : function () {},
 
 /**
  * @method getContentSize
@@ -2439,7 +2234,7 @@ getContentSize : function () {},
 
 /**
  * @method setTitleText
- * @param {const char*}
+ * @param {std::string}
  */
 setTitleText : function () {},
 
@@ -2452,7 +2247,7 @@ setCapInsetsNormalRenderer : function () {},
 /**
  * @method loadTexturePressed
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadTexturePressed : function () {},
 
@@ -2475,25 +2270,13 @@ setFlipX : function () {},
 setTitleFontName : function () {},
 
 /**
- * @method setFontSize
- * @param {int}
- */
-setFontSize : function () {},
-
-/**
  * @method loadTextures
  * @param {const char*}
  * @param {const char*}
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadTextures : function () {},
-
-/**
- * @method setScale9Size
- * @param {cocos2d::CCSize}
- */
-setScale9Size : function () {},
 
 /**
  * @method getTitleColor
@@ -2504,16 +2287,9 @@ getTitleColor : function () {},
 /**
  * @method loadTextureNormal
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadTextureNormal : function () {},
-
-/**
- * @method setPressedTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setPressedTexture : function () {},
 
 /**
  * @method setColor
@@ -2528,12 +2304,6 @@ setColor : function () {},
 setCapInsetsPressedRenderer : function () {},
 
 /**
- * @method setText
- * @param {const char*}
- */
-setText : function () {},
-
-/**
  * @method getTitleFontSize
  * @return A value converted from C/C++ "float"
  */
@@ -2546,23 +2316,10 @@ getTitleFontSize : function () {},
 getTitleFontName : function () {},
 
 /**
- * @method setScale9Enable
- * @param {bool}
- */
-setScale9Enable : function () {},
-
-/**
  * @method setCapInsets
  * @param {cocos2d::CCRect}
  */
 setCapInsets : function () {},
-
-/**
- * @method setDisabledTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setDisabledTexture : function () {},
 
 /**
  * @method setPressedActionEnabled
@@ -2572,66 +2329,66 @@ setPressedActionEnabled : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UIButton*"
+ * @return A value converted from C/C++ "cocos2d::gui::Button*"
  */
 create : function () {},
 
 /**
- * @method UIButton
+ * @method Button
  * @constructor
  */
-UIButton : function () {},
+Button : function () {},
 
 };
 
 /**
- * @class UICheckBox
+ * @class CheckBox
  */
-ccs.UICheckBox = {
+ccs.CheckBox = {
 
 /**
- * @method getVirtualRenderer
- * @return A value converted from C/C++ "cocos2d::CCNode*"
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
  */
-getVirtualRenderer : function () {},
+setAnchorPoint : function () {},
 
 /**
- * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @method getSelectedState
+ * @return A value converted from C/C++ "bool"
  */
-getDescription : function () {},
+getSelectedState : function () {},
 
 /**
- * @method setBackGroundDisabledTexture
+ * @method loadTextureBackGroundSelected
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
-setBackGroundDisabledTexture : function () {},
-
-/**
- * @method setTextures
- * @param {const char*}
- * @param {const char*}
- * @param {const char*}
- * @param {const char*}
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setTextures : function () {},
+loadTextureBackGroundSelected : function () {},
 
 /**
  * @method loadTextureBackGroundDisabled
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadTextureBackGroundDisabled : function () {},
 
 /**
- * @method setBackGroundSelectedTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @method getDescription
+ * @return A value converted from C/C++ "std::string"
  */
-setBackGroundSelectedTexture : function () {},
+getDescription : function () {},
+
+/**
+ * @method setFlipY
+ * @param {bool}
+ */
+setFlipY : function () {},
+
+/**
+ * @method setFlipX
+ * @param {bool}
+ */
+setFlipX : function () {},
 
 /**
  * @method isFlipX
@@ -2648,9 +2405,15 @@ isFlipY : function () {},
 /**
  * @method loadTextureFrontCross
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadTextureFrontCross : function () {},
+
+/**
+ * @method getVirtualRenderer
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getVirtualRenderer : function () {},
 
 /**
  * @method getContentSize
@@ -2659,9 +2422,27 @@ loadTextureFrontCross : function () {},
 getContentSize : function () {},
 
 /**
+ * @method loadTextures
+ * @param {const char*}
+ * @param {const char*}
+ * @param {const char*}
+ * @param {const char*}
+ * @param {const char*}
+ * @param {cocos2d::gui::TextureResType}
+ */
+loadTextures : function () {},
+
+/**
+ * @method onTouchEnded
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchEnded : function () {},
+
+/**
  * @method loadTextureBackGround
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadTextureBackGround : function () {},
 
@@ -2672,17 +2453,61 @@ loadTextureBackGround : function () {},
 setSelectedState : function () {},
 
 /**
- * @method setFrontCrossDisabledTexture
+ * @method loadTextureFrontCrossDisabled
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
-setFrontCrossDisabledTexture : function () {},
+loadTextureFrontCrossDisabled : function () {},
 
 /**
- * @method getSelectedState
- * @return A value converted from C/C++ "bool"
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::gui::CheckBox*"
  */
-getSelectedState : function () {},
+create : function () {},
+
+/**
+ * @method CheckBox
+ * @constructor
+ */
+CheckBox : function () {},
+
+};
+
+/**
+ * @class ImageView
+ */
+ccs.ImageView = {
+
+/**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
+
+/**
+ * @method getVirtualRenderer
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getVirtualRenderer : function () {},
+
+/**
+ * @method ignoreContentAdaptWithSize
+ * @param {bool}
+ */
+ignoreContentAdaptWithSize : function () {},
+
+/**
+ * @method loadTexture
+ * @param {const char*}
+ * @param {cocos2d::gui::TextureResType}
+ */
+loadTexture : function () {},
+
+/**
+ * @method getDescription
+ * @return A value converted from C/C++ "std::string"
+ */
+getDescription : function () {},
 
 /**
  * @method setFlipY
@@ -2695,101 +2520,6 @@ setFlipY : function () {},
  * @param {bool}
  */
 setFlipX : function () {},
-
-/**
- * @method loadTextures
- * @param {const char*}
- * @param {const char*}
- * @param {const char*}
- * @param {const char*}
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-loadTextures : function () {},
-
-/**
- * @method loadTextureFrontCrossDisabled
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-loadTextureFrontCrossDisabled : function () {},
-
-/**
- * @method loadTextureBackGroundSelected
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-loadTextureBackGroundSelected : function () {},
-
-/**
- * @method setFrontCrossTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setFrontCrossTexture : function () {},
-
-/**
- * @method setBackGroundTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setBackGroundTexture : function () {},
-
-/**
- * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UICheckBox*"
- */
-create : function () {},
-
-/**
- * @method UICheckBox
- * @constructor
- */
-UICheckBox : function () {},
-
-};
-
-/**
- * @class UIImageView
- */
-ccs.UIImageView = {
-
-/**
- * @method getVirtualRenderer
- * @return A value converted from C/C++ "cocos2d::CCNode*"
- */
-getVirtualRenderer : function () {},
-
-/**
- * @method setTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setTexture : function () {},
-
-/**
- * @method getDescription
- * @return A value converted from C/C++ "const char*"
- */
-getDescription : function () {},
-
-/**
- * @method setScale9Enabled
- * @param {bool}
- */
-setScale9Enabled : function () {},
-
-/**
- * @method checkDoubleClick
- * @param {float}
- */
-checkDoubleClick : function () {},
-
-/**
- * @method ignoreContentAdaptWithSize
- * @param {bool}
- */
-ignoreContentAdaptWithSize : function () {},
 
 /**
  * @method isFlipX
@@ -2804,53 +2534,16 @@ isFlipX : function () {},
 isFlipY : function () {},
 
 /**
+ * @method setScale9Enabled
+ * @param {bool}
+ */
+setScale9Enabled : function () {},
+
+/**
  * @method setTextureRect
  * @param {cocos2d::CCRect}
  */
 setTextureRect : function () {},
-
-/**
- * @method getContentSize
- * @return A value converted from C/C++ "cocos2d::CCSize"
- */
-getContentSize : function () {},
-
-/**
- * @method loadTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-loadTexture : function () {},
-
-/**
- * @method setFlipY
- * @param {bool}
- */
-setFlipY : function () {},
-
-/**
- * @method setFlipX
- * @param {bool}
- */
-setFlipX : function () {},
-
-/**
- * @method setScale9Size
- * @param {cocos2d::CCSize}
- */
-setScale9Size : function () {},
-
-/**
- * @method setDoubleClickEnabled
- * @param {bool}
- */
-setDoubleClickEnabled : function () {},
-
-/**
- * @method setScale9Enable
- * @param {bool}
- */
-setScale9Enable : function () {},
 
 /**
  * @method setCapInsets
@@ -2859,23 +2552,35 @@ setScale9Enable : function () {},
 setCapInsets : function () {},
 
 /**
+ * @method getContentSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getContentSize : function () {},
+
+/**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UIImageView*"
+ * @return A value converted from C/C++ "cocos2d::gui::ImageView*"
  */
 create : function () {},
 
 /**
- * @method UIImageView
+ * @method ImageView
  * @constructor
  */
-UIImageView : function () {},
+ImageView : function () {},
 
 };
 
 /**
- * @class UILabel
+ * @class Label
  */
-ccs.UILabel = {
+ccs.Label = {
+
+/**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
 
 /**
  * @method getVirtualRenderer
@@ -2891,7 +2596,7 @@ getStringValue : function () {},
 
 /**
  * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @return A value converted from C/C++ "std::string"
  */
 getDescription : function () {},
 
@@ -2909,7 +2614,7 @@ setTextVerticalAlignment : function () {},
 
 /**
  * @method setFontName
- * @param {const char*}
+ * @param {std::string}
  */
 setFontName : function () {},
 
@@ -2980,12 +2685,6 @@ setFlipY : function () {},
 setFlipX : function () {},
 
 /**
- * @method setTouchScaleChangeAble
- * @param {bool}
- */
-setTouchScaleChangeAble : function () {},
-
-/**
  * @method setFontSize
  * @param {int}
  */
@@ -2993,15 +2692,9 @@ setFontSize : function () {},
 
 /**
  * @method setText
- * @param {const char*}
+ * @param {std::string}
  */
 setText : function () {},
-
-/**
- * @method getTouchScaleChangeAble
- * @return A value converted from C/C++ "bool"
- */
-getTouchScaleChangeAble : function () {},
 
 /**
  * @method setTextHorizontalAlignment
@@ -3011,22 +2704,28 @@ setTextHorizontalAlignment : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UILabel*"
+ * @return A value converted from C/C++ "cocos2d::gui::Label*"
  */
 create : function () {},
 
 /**
- * @method UILabel
+ * @method Label
  * @constructor
  */
-UILabel : function () {},
+Label : function () {},
 
 };
 
 /**
- * @class UILabelAtlas
+ * @class LabelAtlas
  */
-ccs.UILabelAtlas = {
+ccs.LabelAtlas = {
+
+/**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
 
 /**
  * @method getVirtualRenderer
@@ -3042,7 +2741,7 @@ getStringValue : function () {},
 
 /**
  * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @return A value converted from C/C++ "std::string"
  */
 getDescription : function () {},
 
@@ -3054,38 +2753,38 @@ getContentSize : function () {},
 
 /**
  * @method setProperty
- * @param {const char*}
- * @param {const char*}
+ * @param {std::string}
+ * @param {std::string}
  * @param {int}
  * @param {int}
- * @param {const char*}
+ * @param {std::string}
  */
 setProperty : function () {},
 
 /**
  * @method setStringValue
- * @param {const char*}
+ * @param {std::string}
  */
 setStringValue : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UILabelAtlas*"
+ * @return A value converted from C/C++ "cocos2d::gui::LabelAtlas*"
  */
 create : function () {},
 
 /**
- * @method UILabelAtlas
+ * @method LabelAtlas
  * @constructor
  */
-UILabelAtlas : function () {},
+LabelAtlas : function () {},
 
 };
 
 /**
- * @class UILoadingBar
+ * @class LoadingBar
  */
-ccs.UILoadingBar = {
+ccs.LoadingBar = {
 
 /**
  * @method setPercent
@@ -3100,13 +2799,6 @@ setPercent : function () {},
 getVirtualRenderer : function () {},
 
 /**
- * @method setTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setTexture : function () {},
-
-/**
  * @method ignoreContentAdaptWithSize
  * @param {bool}
  */
@@ -3115,19 +2807,19 @@ ignoreContentAdaptWithSize : function () {},
 /**
  * @method loadTexture
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadTexture : function () {},
 
 /**
  * @method setDirection
- * @param {cocos2d::extension::LoadingBarType}
+ * @param {cocos2d::gui::LoadingBarType}
  */
 setDirection : function () {},
 
 /**
  * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @return A value converted from C/C++ "std::string"
  */
 getDescription : function () {},
 
@@ -3136,18 +2828,6 @@ getDescription : function () {},
  * @param {bool}
  */
 setScale9Enabled : function () {},
-
-/**
- * @method setScale9Size
- * @param {cocos2d::CCSize}
- */
-setScale9Size : function () {},
-
-/**
- * @method setScale9Enable
- * @param {bool}
- */
-setScale9Enable : function () {},
 
 /**
  * @method setCapInsets
@@ -3175,29 +2855,22 @@ getPercent : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UILoadingBar*"
+ * @return A value converted from C/C++ "cocos2d::gui::LoadingBar*"
  */
 create : function () {},
 
 /**
- * @method UILoadingBar
+ * @method LoadingBar
  * @constructor
  */
-UILoadingBar : function () {},
+LoadingBar : function () {},
 
 };
 
 /**
- * @class UIScrollView
+ * @class ScrollView
  */
-ccs.UIScrollView = {
-
-/**
- * @method addChild
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::extension::UIWidget*}
- */
-addChild : function () {},
+ccs.ScrollView = {
 
 /**
  * @method scrollToTop
@@ -3205,6 +2878,13 @@ addChild : function () {},
  * @param {bool}
  */
 scrollToTop : function () {},
+
+/**
+ * @method onTouchEnded
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchEnded : function () {},
 
 /**
  * @method scrollToPercentHorizontal
@@ -3216,7 +2896,7 @@ scrollToPercentHorizontal : function () {},
 
 /**
  * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @return A value converted from C/C++ "std::string"
  */
 getDescription : function () {},
 
@@ -3241,9 +2921,22 @@ getChildren : function () {},
 
 /**
  * @method getDirection
- * @return A value converted from C/C++ "cocos2d::extension::SCROLLVIEW_DIR"
+ * @return A value converted from C/C++ "cocos2d::gui::SCROLLVIEW_DIR"
  */
 getDirection : function () {},
+
+/**
+ * @method getChildByTag
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ * @param {int}
+ */
+getChildByTag : function () {},
+
+/**
+ * @method onTouchLongClicked
+ * @param {cocos2d::CCPoint}
+ */
+onTouchLongClicked : function () {},
 
 /**
  * @method scrollToBottomLeft
@@ -3254,7 +2947,7 @@ scrollToBottomLeft : function () {},
 
 /**
  * @method getInnerContainer
- * @return A value converted from C/C++ "cocos2d::extension::UILayout*"
+ * @return A value converted from C/C++ "cocos2d::gui::Layout*"
  */
 getInnerContainer : function () {},
 
@@ -3264,8 +2957,15 @@ getInnerContainer : function () {},
 jumpToBottom : function () {},
 
 /**
+ * @method getChildByName
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
+ * @param {const char*}
+ */
+getChildByName : function () {},
+
+/**
  * @method setDirection
- * @param {cocos2d::extension::SCROLLVIEW_DIR}
+ * @param {cocos2d::gui::SCROLLVIEW_DIR}
  */
 setDirection : function () {},
 
@@ -3317,15 +3017,17 @@ isBounceEnabled : function () {},
 jumpToPercentVertical : function () {},
 
 /**
- * @method doLayout
- */
-doLayout : function () {},
-
-/**
  * @method setInertiaScrollEnabled
  * @param {bool}
  */
 setInertiaScrollEnabled : function () {},
+
+/**
+ * @method onTouchMoved
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchMoved : function () {},
 
 /**
  * @method jumpToTopLeft
@@ -3351,9 +3053,30 @@ update : function () {},
 
 /**
  * @method getLayoutType
- * @return A value converted from C/C++ "cocos2d::extension::LayoutType"
+ * @return A value converted from C/C++ "cocos2d::gui::LayoutType"
  */
 getLayoutType : function () {},
+
+/**
+ * @method removeAllChildrenWithCleanup
+ * @param {bool}
+ */
+removeAllChildrenWithCleanup : function () {},
+
+/**
+ * @method onTouchCancelled
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchCancelled : function () {},
+
+/**
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchBegan : function () {},
 
 /**
  * @method setBounceEnabled
@@ -3415,14 +3138,14 @@ scrollToRight : function () {},
 
 /**
  * @method removeChild
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::extension::UIWidget*}
+ * @param {cocos2d::CCNode*}
+ * @param {bool}
  */
 removeChild : function () {},
 
 /**
  * @method setLayoutType
- * @param {cocos2d::extension::LayoutType}
+ * @param {cocos2d::gui::LayoutType}
  */
 setLayoutType : function () {},
 
@@ -3430,6 +3153,12 @@ setLayoutType : function () {},
  * @method jumpToRight
  */
 jumpToRight : function () {},
+
+/**
+ * @method getChildrenCount
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getChildrenCount : function () {},
 
 /**
  * @method scrollToTopRight
@@ -3440,22 +3169,22 @@ scrollToTopRight : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UIScrollView*"
+ * @return A value converted from C/C++ "cocos2d::gui::ScrollView*"
  */
 create : function () {},
 
 /**
- * @method UIScrollView
+ * @method ScrollView
  * @constructor
  */
-UIScrollView : function () {},
+ScrollView : function () {},
 
 };
 
 /**
- * @class UISlider
+ * @class Slider
  */
-ccs.UISlider = {
+ccs.Slider = {
 
 /**
  * @method setPercent
@@ -3464,120 +3193,48 @@ ccs.UISlider = {
 setPercent : function () {},
 
 /**
- * @method getVirtualRenderer
- * @return A value converted from C/C++ "cocos2d::CCNode*"
+ * @method onTouchMoved
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
  */
-getVirtualRenderer : function () {},
+onTouchMoved : function () {},
+
+/**
+ * @method onTouchEnded
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchEnded : function () {},
 
 /**
  * @method loadSlidBallTextureNormal
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadSlidBallTextureNormal : function () {},
 
 /**
+ * @method loadBarTexture
+ * @param {const char*}
+ * @param {cocos2d::gui::TextureResType}
+ */
+loadBarTexture : function () {},
+
+/**
  * @method loadProgressBarTexture
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadProgressBarTexture : function () {},
-
-/**
- * @method getDescription
- * @return A value converted from C/C++ "const char*"
- */
-getDescription : function () {},
-
-/**
- * @method setScale9Enabled
- * @param {bool}
- */
-setScale9Enabled : function () {},
-
-/**
- * @method setBarTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setBarTexture : function () {},
-
-/**
- * @method ignoreContentAdaptWithSize
- * @param {bool}
- */
-ignoreContentAdaptWithSize : function () {},
 
 /**
  * @method loadSlidBallTextures
  * @param {const char*}
  * @param {const char*}
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadSlidBallTextures : function () {},
-
-/**
- * @method setSlidBallDisabledTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setSlidBallDisabledTexture : function () {},
-
-/**
- * @method setSlidBallTextures
- * @param {const char*}
- * @param {const char*}
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setSlidBallTextures : function () {},
-
-/**
- * @method getContentSize
- * @return A value converted from C/C++ "cocos2d::CCSize"
- */
-getContentSize : function () {},
-
-/**
- * @method setSlidBallNormalTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setSlidBallNormalTexture : function () {},
-
-/**
- * @method loadBarTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-loadBarTexture : function () {},
-
-/**
- * @method setSlidBallPercent
- * @param {int}
- */
-setSlidBallPercent : function () {},
-
-/**
- * @method loadSlidBallTexturePressed
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-loadSlidBallTexturePressed : function () {},
-
-/**
- * @method setSlidBallPressedTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
- */
-setSlidBallPressedTexture : function () {},
-
-/**
- * @method setScale9Size
- * @param {cocos2d::CCSize}
- */
-setScale9Size : function () {},
 
 /**
  * @method setCapInsetProgressBarRebderer
@@ -3592,10 +3249,37 @@ setCapInsetProgressBarRebderer : function () {},
 setCapInsetsBarRenderer : function () {},
 
 /**
- * @method setScale9Enable
+ * @method getDescription
+ * @return A value converted from C/C++ "std::string"
+ */
+getDescription : function () {},
+
+/**
+ * @method onTouchCancelled
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchCancelled : function () {},
+
+/**
+ * @method setScale9Enabled
  * @param {bool}
  */
-setScale9Enable : function () {},
+setScale9Enabled : function () {},
+
+/**
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchBegan : function () {},
+
+/**
+ * @method getVirtualRenderer
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getVirtualRenderer : function () {},
 
 /**
  * @method setCapInsets
@@ -3604,18 +3288,30 @@ setScale9Enable : function () {},
 setCapInsets : function () {},
 
 /**
- * @method setProgressBarTexture
- * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @method ignoreContentAdaptWithSize
+ * @param {bool}
  */
-setProgressBarTexture : function () {},
+ignoreContentAdaptWithSize : function () {},
+
+/**
+ * @method loadSlidBallTexturePressed
+ * @param {const char*}
+ * @param {cocos2d::gui::TextureResType}
+ */
+loadSlidBallTexturePressed : function () {},
 
 /**
  * @method loadSlidBallTextureDisabled
  * @param {const char*}
- * @param {cocos2d::extension::TextureResType}
+ * @param {cocos2d::gui::TextureResType}
  */
 loadSlidBallTextureDisabled : function () {},
+
+/**
+ * @method getContentSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getContentSize : function () {},
 
 /**
  * @method getPercent
@@ -3625,22 +3321,28 @@ getPercent : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UISlider*"
+ * @return A value converted from C/C++ "cocos2d::gui::Slider*"
  */
 create : function () {},
 
 /**
- * @method UISlider
+ * @method Slider
  * @constructor
  */
-UISlider : function () {},
+Slider : function () {},
 
 };
 
 /**
- * @class UITextField
+ * @class TextField
  */
-ccs.UITextField = {
+ccs.TextField = {
+
+/**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
 
 /**
  * @method setAttachWithIME
@@ -3656,7 +3358,7 @@ getStringValue : function () {},
 
 /**
  * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @return A value converted from C/C++ "std::string"
  */
 getDescription : function () {},
 
@@ -3680,7 +3382,7 @@ getAttachWithIME : function () {},
 
 /**
  * @method setFontName
- * @param {const char*}
+ * @param {std::string}
  */
 setFontName : function () {},
 
@@ -3700,12 +3402,6 @@ initRenderer : function () {},
  * @return A value converted from C/C++ "bool"
  */
 getDetachWithIME : function () {},
-
-/**
- * @method setOpacity
- * @param {int}
- */
-setOpacity : function () {},
 
 /**
  * @method init
@@ -3736,22 +3432,10 @@ isPasswordEnabled : function () {},
 attachWithIME : function () {},
 
 /**
- * @method setMaxLengthEnable
- * @param {bool}
- */
-setMaxLengthEnable : function () {},
-
-/**
  * @method setPasswordEnabled
  * @param {bool}
  */
 setPasswordEnabled : function () {},
-
-/**
- * @method setPasswordEnable
- * @param {bool}
- */
-setPasswordEnable : function () {},
 
 /**
  * @method update
@@ -3779,15 +3463,17 @@ setFontSize : function () {},
 
 /**
  * @method setPlaceHolder
- * @param {const char*}
+ * @param {std::string}
  */
 setPlaceHolder : function () {},
 
 /**
- * @method setColor
- * @param {cocos2d::ccColor3B}
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
  */
-setColor : function () {},
+onTouchBegan : function () {},
 
 /**
  * @method getMaxLength
@@ -3809,7 +3495,7 @@ setDetachWithIME : function () {},
 
 /**
  * @method setText
- * @param {const char*}
+ * @param {std::string}
  */
 setText : function () {},
 
@@ -3839,125 +3525,153 @@ setDeleteBackward : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UITextField*"
+ * @return A value converted from C/C++ "cocos2d::gui::TextField*"
  */
 create : function () {},
 
 /**
- * @method UITextField
+ * @method TextField
  * @constructor
  */
-UITextField : function () {},
+TextField : function () {},
 
 };
 
 /**
- * @class UIListView
+ * @class ListView
  */
-ccs.UIListView = {
+ccs.ListView = {
 
 /**
- * @method addChild
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::extension::UIWidget*}
+ * @method getIndex
+ * @return A value converted from C/C++ "unsigned int"
+ * @param {cocos2d::gui::Widget*}
  */
-addChild : function () {},
+getIndex : function () {},
 
 /**
- * @method initChildWithDataLength
- * @param {int}
+ * @method removeAllItems
  */
-initChildWithDataLength : function () {},
+removeAllItems : function () {},
 
 /**
- * @method getDataLength
- * @return A value converted from C/C++ "int"
+ * @method setGravity
+ * @param {cocos2d::gui::ListViewGravity}
  */
-getDataLength : function () {},
+setGravity : function () {},
 
 /**
- * @method getUpdateChild
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
+ * @method pushBackCustomItem
+ * @param {cocos2d::gui::Widget*}
  */
-getUpdateChild : function () {},
-
-/**
- * @method update
- * @param {float}
- */
-update : function () {},
+pushBackCustomItem : function () {},
 
 /**
  * @method setDirection
- * @param {cocos2d::extension::ListViewDirection}
+ * @param {cocos2d::gui::SCROLLVIEW_DIR}
  */
 setDirection : function () {},
 
 /**
- * @method setUpdateSuccess
- * @param {bool}
+ * @method getItems
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
  */
-setUpdateSuccess : function () {},
-
-/**
- * @method removeAllChildren
- */
-removeAllChildren : function () {},
-
-/**
- * @method removeChild
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::extension::UIWidget*}
- */
-removeChild : function () {},
-
-/**
- * @method getDirection
- * @return A value converted from C/C++ "cocos2d::extension::ListViewDirection"
- */
-getDirection : function () {},
-
-/**
- * @method getUpdateSuccess
- * @return A value converted from C/C++ "bool"
- */
-getUpdateSuccess : function () {},
-
-/**
- * @method doLayout
- */
-doLayout : function () {},
-
-/**
- * @method getUpdateDataIndex
- * @return A value converted from C/C++ "int"
- */
-getUpdateDataIndex : function () {},
+getItems : function () {},
 
 /**
  * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @return A value converted from C/C++ "std::string"
  */
 getDescription : function () {},
 
 /**
+ * @method removeItem
+ * @param {int}
+ */
+removeItem : function () {},
+
+/**
+ * @method getCurSelectedIndex
+ * @return A value converted from C/C++ "int"
+ */
+getCurSelectedIndex : function () {},
+
+/**
+ * @method insertDefaultItem
+ * @param {int}
+ */
+insertDefaultItem : function () {},
+
+/**
+ * @method sortAllChildren
+ */
+sortAllChildren : function () {},
+
+/**
+ * @method setItemsMargin
+ * @param {float}
+ */
+setItemsMargin : function () {},
+
+/**
+ * @method removeLastItem
+ */
+removeLastItem : function () {},
+
+/**
+ * @method getItem
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
+ * @param {unsigned int}
+ */
+getItem : function () {},
+
+/**
+ * @method setItemModel
+ * @param {cocos2d::gui::Widget*}
+ */
+setItemModel : function () {},
+
+/**
+ * @method requestRefreshView
+ */
+requestRefreshView : function () {},
+
+/**
+ * @method pushBackDefaultItem
+ */
+pushBackDefaultItem : function () {},
+
+/**
+ * @method insertCustomItem
+ * @param {cocos2d::gui::Widget*}
+ * @param {int}
+ */
+insertCustomItem : function () {},
+
+/**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UIListView*"
+ * @return A value converted from C/C++ "cocos2d::gui::ListView*"
  */
 create : function () {},
 
 /**
- * @method UIListView
+ * @method ListView
  * @constructor
  */
-UIListView : function () {},
+ListView : function () {},
 
 };
 
 /**
- * @class UILabelBMFont
+ * @class LabelBMFont
  */
-ccs.UILabelBMFont = {
+ccs.LabelBMFont = {
+
+/**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
 
 /**
  * @method getVirtualRenderer
@@ -3979,7 +3693,7 @@ setText : function () {},
 
 /**
  * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @return A value converted from C/C++ "std::string"
  */
 getDescription : function () {},
 
@@ -3997,28 +3711,42 @@ setFntFile : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UILabelBMFont*"
+ * @return A value converted from C/C++ "cocos2d::gui::LabelBMFont*"
  */
 create : function () {},
 
 /**
- * @method UILabelBMFont
+ * @method LabelBMFont
  * @constructor
  */
-UILabelBMFont : function () {},
+LabelBMFont : function () {},
 
 };
 
 /**
- * @class UIPageView
+ * @class PageView
  */
-ccs.UIPageView = {
+ccs.PageView = {
+
+/**
+ * @method onTouchMoved
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchMoved : function () {},
 
 /**
  * @method getLayoutType
- * @return A value converted from C/C++ "cocos2d::extension::LayoutType"
+ * @return A value converted from C/C++ "cocos2d::gui::LayoutType"
  */
 getLayoutType : function () {},
+
+/**
+ * @method onTouchEnded
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchEnded : function () {},
 
 /**
  * @method getCurPageIndex
@@ -4028,28 +3756,56 @@ getCurPageIndex : function () {},
 
 /**
  * @method addWidgetToPage
- * @param {cocos2d::extension::UIWidget*}
+ * @param {cocos2d::gui::Widget*}
  * @param {int}
  * @param {bool}
  */
 addWidgetToPage : function () {},
 
 /**
+ * @method getPage
+ * @return A value converted from C/C++ "cocos2d::gui::Layout*"
+ * @param {int}
+ */
+getPage : function () {},
+
+/**
+ * @method removePage
+ * @param {cocos2d::gui::Layout*}
+ */
+removePage : function () {},
+
+/**
  * @method getDescription
- * @return A value converted from C/C++ "const char*"
+ * @return A value converted from C/C++ "std::string"
  */
 getDescription : function () {},
 
 /**
+ * @method onTouchCancelled
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchCancelled : function () {},
+
+/**
+ * @method onTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+onTouchBegan : function () {},
+
+/**
  * @method insertPage
- * @param {cocos2d::extension::UILayout*}
+ * @param {cocos2d::gui::Layout*}
  * @param {int}
  */
 insertPage : function () {},
 
 /**
  * @method setLayoutType
- * @param {cocos2d::extension::LayoutType}
+ * @param {cocos2d::gui::LayoutType}
  */
 setLayoutType : function () {},
 
@@ -4066,9 +3822,10 @@ scrollToPage : function () {},
 update : function () {},
 
 /**
- * @method doLayout
+ * @method removePageAtIndex
+ * @param {int}
  */
-doLayout : function () {},
+removePageAtIndex : function () {},
 
 /**
  * @method getPages
@@ -4083,21 +3840,21 @@ removeAllPages : function () {},
 
 /**
  * @method addPage
- * @param {cocos2d::extension::UILayout*}
+ * @param {cocos2d::gui::Layout*}
  */
 addPage : function () {},
 
 /**
  * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UIPageView*"
+ * @return A value converted from C/C++ "cocos2d::gui::PageView*"
  */
 create : function () {},
 
 /**
- * @method UIPageView
+ * @method PageView
  * @constructor
  */
-UIPageView : function () {},
+PageView : function () {},
 
 };
 
@@ -4108,32 +3865,32 @@ ccs.UIHelper = {
 
 /**
  * @method seekActionWidgetByActionTag
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
- * @param {cocos2d::extension::UIWidget*}
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
+ * @param {cocos2d::gui::Widget*}
  * @param {int}
  */
 seekActionWidgetByActionTag : function () {},
 
 /**
  * @method seekWidgetByTag
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
- * @param {cocos2d::extension::UIWidget*}
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
+ * @param {cocos2d::gui::Widget*}
  * @param {int}
  */
 seekWidgetByTag : function () {},
 
 /**
  * @method seekWidgetByRelativeName
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
- * @param {cocos2d::extension::UIWidget*}
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
+ * @param {cocos2d::gui::Widget*}
  * @param {const char*}
  */
 seekWidgetByRelativeName : function () {},
 
 /**
  * @method seekWidgetByName
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
- * @param {cocos2d::extension::UIWidget*}
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
+ * @param {cocos2d::gui::Widget*}
  * @param {const char*}
  */
 seekWidgetByName : function () {},
@@ -4147,7 +3904,7 @@ ccs.GUIReader = {
 
 /**
  * @method widgetFromJsonFile
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
  * @param {const char*}
  */
 widgetFromJsonFile : function () {},
@@ -4162,86 +3919,6 @@ purgeGUIReader : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::GUIReader*"
  */
 shareReader : function () {},
-
-};
-
-/**
- * @class UILayer
- */
-ccs.UILayer = {
-
-/**
- * @method removeWidget
- * @param {cocos2d::extension::UIWidget*}
- */
-removeWidget : function () {},
-
-/**
- * @method clear
- */
-clear : function () {},
-
-/**
- * @method setVisible
- * @param {bool}
- */
-setVisible : function () {},
-
-/**
- * @method getWidgetByTag
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
- * @param {int}
- */
-getWidgetByTag : function () {},
-
-/**
- * @method dispose
- */
-dispose : function () {},
-
-/**
- * @method getRootWidget
- * @return A value converted from C/C++ "cocos2d::extension::UIRootWidget*"
- */
-getRootWidget : function () {},
-
-/**
- * @method init
- * @return A value converted from C/C++ "bool"
- */
-init : function () {},
-
-/**
- * @method removeWidgetAndCleanUp
- * @param {cocos2d::extension::UIWidget*}
- * @param {bool}
- */
-removeWidgetAndCleanUp : function () {},
-
-/**
- * @method getWidgetByName
- * @return A value converted from C/C++ "cocos2d::extension::UIWidget*"
- * @param {const char*}
- */
-getWidgetByName : function () {},
-
-/**
- * @method addWidget
- * @param {cocos2d::extension::UIWidget*}
- */
-addWidget : function () {},
-
-/**
- * @method create
- * @return A value converted from C/C++ "cocos2d::extension::UILayer*"
- */
-create : function () {},
-
-/**
- * @method UILayer
- * @constructor
- */
-UILayer : function () {},
 
 };
 
