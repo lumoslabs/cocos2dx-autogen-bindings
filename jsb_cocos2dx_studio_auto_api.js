@@ -103,6 +103,32 @@ ccs.ColliderFilter = {
 };
 
 /**
+ * @class ColliderBody
+ */
+ccs.ColliderBody = {
+
+/**
+ * @method getContourData
+ * @return A value converted from C/C++ "cocos2d::extension::CCContourData*"
+ */
+getContourData : function () {},
+
+/**
+ * @method getCalculatedVertexList
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getCalculatedVertexList : function () {},
+
+/**
+ * @method ColliderBody
+ * @constructor
+ * @param {cocos2d::extension::CCContourData*}
+ */
+ColliderBody : function () {},
+
+};
+
+/**
  * @class CCDisplayManager
  */
 ccs.DisplayManager = {
@@ -3919,6 +3945,112 @@ purgeGUIReader : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::GUIReader*"
  */
 shareReader : function () {},
+
+};
+
+/**
+ * @class TouchGroup
+ */
+ccs.UILayer = {
+
+/**
+ * @method removeWidget
+ * @param {cocos2d::gui::Widget*}
+ */
+removeWidget : function () {},
+
+/**
+ * @method onEnter
+ */
+onEnter : function () {},
+
+/**
+ * @method onExit
+ */
+onExit : function () {},
+
+/**
+ * @method ccTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchBegan : function () {},
+
+/**
+ * @method getWidgetByTag
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
+ * @param {int}
+ */
+getWidgetByTag : function () {},
+
+/**
+ * @method getRootWidget
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
+ */
+getRootWidget : function () {},
+
+/**
+ * @method ccTouchCancelled
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchCancelled : function () {},
+
+/**
+ * @method ccTouchEnded
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchEnded : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method getWidgetByName
+ * @return A value converted from C/C++ "cocos2d::gui::Widget*"
+ * @param {const char*}
+ */
+getWidgetByName : function () {},
+
+/**
+ * @method ccTouchMoved
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchMoved : function () {},
+
+/**
+ * @method addWidget
+ * @param {cocos2d::gui::Widget*}
+ */
+addWidget : function () {},
+
+/**
+ * @method clear
+ */
+clear : function () {},
+
+/**
+ * @method onEnterTransitionDidFinish
+ */
+onEnterTransitionDidFinish : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::gui::TouchGroup*"
+ */
+create : function () {},
+
+/**
+ * @method TouchGroup
+ * @constructor
+ */
+TouchGroup : function () {},
 
 };
 

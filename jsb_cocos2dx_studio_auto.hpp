@@ -41,6 +41,17 @@ void js_cocos2dx_studio_CCColliderFilter_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_CCColliderFilter(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
 
+extern JSClass  *jsb_ColliderBody_class;
+extern JSObject *jsb_ColliderBody_prototype;
+
+JSBool js_cocos2dx_studio_ColliderBody_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_studio_ColliderBody_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_studio_ColliderBody(JSContext *cx, JSObject *global);
+void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_studio_ColliderBody_getContourData(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ColliderBody_getCalculatedVertexList(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ColliderBody_ColliderBody(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *jsb_CCDisplayManager_class;
 extern JSObject *jsb_CCDisplayManager_prototype;
 
@@ -889,6 +900,30 @@ void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_studio_GUIReader_widgetFromJsonFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_GUIReader_purgeGUIReader(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_GUIReader_shareReader(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_TouchGroup_class;
+extern JSObject *jsb_TouchGroup_prototype;
+
+JSBool js_cocos2dx_studio_TouchGroup_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_studio_TouchGroup_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_studio_TouchGroup(JSContext *cx, JSObject *global);
+void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_studio_TouchGroup_removeWidget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_onEnter(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_onExit(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_ccTouchBegan(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_getWidgetByTag(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_getRootWidget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_ccTouchCancelled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_ccTouchEnded(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_init(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_getWidgetByName(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_ccTouchMoved(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_addWidget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_clear(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_onEnterTransitionDidFinish(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TouchGroup_TouchGroup(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_SceneReader_class;
 extern JSObject *jsb_SceneReader_prototype;
