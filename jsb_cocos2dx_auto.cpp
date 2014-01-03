@@ -52117,6 +52117,16 @@ JSBool js_cocos2dx_CCAnimationCache_addAnimationsWithDictionary(JSContext *cx, u
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
+	if (argc == 2) {
+		cocos2d::CCDictionary* arg0;
+		const char* arg1;
+		ok &= jsval_to_ccdictionary(cx, argv[0], &arg0);
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->addAnimationsWithDictionary(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;

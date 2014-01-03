@@ -10465,6 +10465,7 @@ init : function () {},
 /**
  * @method addAnimationsWithDictionary
  * @param {cocos2d::CCDictionary*}
+ * @param {const char*}
  */
 addAnimationsWithDictionary : function () {},
 
