@@ -107,25 +107,6 @@ ccs.ColliderFilter = {
  */
 ccs.ColliderBody = {
 
-/**
- * @method getContourData
- * @return A value converted from C/C++ "cocos2d::extension::CCContourData*"
- */
-getContourData : function () {},
-
-/**
- * @method getCalculatedVertexList
- * @return A value converted from C/C++ "cocos2d::CCArray*"
- */
-getCalculatedVertexList : function () {},
-
-/**
- * @method ColliderBody
- * @constructor
- * @param {cocos2d::extension::CCContourData*}
- */
-ColliderBody : function () {},
-
 };
 
 /**
@@ -378,12 +359,6 @@ getIgnoreMovementBoneData : function () {},
 setIgnoreMovementBoneData : function () {},
 
 /**
- * @method getBlendFunc
- * @return A value converted from C/C++ "ccBlendFunc"
- */
-getBlendFunc : function () {},
-
-/**
  * @method setName
  * @param {std::string}
  */
@@ -451,12 +426,6 @@ setColor : function () {},
 removeChildBone : function () {},
 
 /**
- * @method setBlendFunc
- * @param {cocos2d::ccBlendFunc}
- */
-setBlendFunc : function () {},
-
-/**
  * @method getDisplayManager
  * @return A value converted from C/C++ "cocos2d::extension::CCDisplayManager*"
  */
@@ -506,11 +475,6 @@ ccs.BatchNode = {
  * @param {cocos2d::CCTexture2D*}
  */
 getTexureAtlasWithTexture : function () {},
-
-/**
- * @method visit
- */
-visit : function () {},
 
 /**
  * @method removeChild
@@ -573,12 +537,6 @@ setSpeedScale : function () {},
 init : function () {},
 
 /**
- * @method getUserObject
- * @return A value converted from C/C++ "cocos2d::CCObject*"
- */
-getUserObject : function () {},
-
-/**
  * @method getAnimationScale
  * @return A value converted from C/C++ "float"
  */
@@ -593,12 +551,6 @@ getAnimationScale : function () {},
  * @param {int}
  */
 play : function () {},
-
-/**
- * @method setUserObject
- * @param {cocos2d::CCObject*}
- */
-setUserObject : function () {},
 
 /**
  * @method gotoAndPause
@@ -719,11 +671,6 @@ getBone : function () {},
 changeBoneParent : function () {},
 
 /**
- * @method onEnter
- */
-onEnter : function () {},
-
-/**
  * @method getTexureAtlasWithTexture
  * @return A value converted from C/C++ "cocos2d::CCTextureAtlas*"
  * @param {cocos2d::CCTexture2D*}
@@ -793,11 +740,6 @@ getArmatureTransformDirty : function () {},
 getName : function () {},
 
 /**
- * @method visit
- */
-visit : function () {},
-
-/**
  * @method setParentBone
  * @param {cocos2d::extension::CCBone*}
  */
@@ -818,12 +760,6 @@ setBatchNode : function () {},
  * @method draw
  */
 draw : function () {},
-
-/**
- * @method getBlendFunc
- * @return A value converted from C/C++ "ccBlendFunc"
- */
-getBlendFunc : function () {},
 
 /**
  * @method nodeToParentTransform
@@ -879,17 +815,6 @@ getVersion : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::CCArmatureAnimation*"
  */
 getAnimation : function () {},
-
-/**
- * @method onExit
- */
-onExit : function () {},
-
-/**
- * @method setBlendFunc
- * @param {ccBlendFunc}
- */
-setBlendFunc : function () {},
 
 /**
  * @method getBoneDic
@@ -1119,11 +1044,6 @@ ccs.ComAudio = {
 stopAllEffects : function () {},
 
 /**
- * @method onEnter
- */
-onEnter : function () {},
-
-/**
  * @method getEffectsVolume
  * @return A value converted from C/C++ "float"
  */
@@ -1227,11 +1147,6 @@ unloadEffect : function () {},
 rewindBackgroundMusic : function () {},
 
 /**
- * @method onExit
- */
-onExit : function () {},
-
-/**
  * @method preloadEffect
  * @param {const char*}
  */
@@ -1310,46 +1225,10 @@ getTouchMode : function () {},
 setAccelerometerEnabled : function () {},
 
 /**
- * @method ccTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchBegan : function () {},
-
-/**
  * @method isKeypadEnabled
  * @return A value converted from C/C++ "bool"
  */
 isKeypadEnabled : function () {},
-
-/**
- * @method ccTouchesCancelled
- * @param {cocos2d::CCSet*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchesCancelled : function () {},
-
-/**
- * @method ccTouchesEnded
- * @param {cocos2d::CCSet*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchesEnded : function () {},
-
-/**
- * @method ccTouchCancelled
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchCancelled : function () {},
-
-/**
- * @method ccTouchEnded
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchEnded : function () {},
 
 /**
  * @method isTouchEnabled
@@ -1358,31 +1237,10 @@ ccTouchEnded : function () {},
 isTouchEnabled : function () {},
 
 /**
- * @method ccTouchesBegan
- * @param {cocos2d::CCSet*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchesBegan : function () {},
-
-/**
  * @method setTouchPriority
  * @param {int}
  */
 setTouchPriority : function () {},
-
-/**
- * @method ccTouchesMoved
- * @param {cocos2d::CCSet*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchesMoved : function () {},
-
-/**
- * @method ccTouchMoved
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchMoved : function () {},
 
 /**
  * @method getTouchPriority
@@ -1414,16 +1272,6 @@ ccs.ComController = {
  * @param {bool}
  */
 setEnabled : function () {},
-
-/**
- * @method onEnter
- */
-onEnter : function () {},
-
-/**
- * @method onExit
- */
-onExit : function () {},
 
 /**
  * @method isEnabled
@@ -1467,16 +1315,6 @@ ccs.ComRender = {
  * @param {cocos2d::CCNode*}
  */
 setNode : function () {},
-
-/**
- * @method onEnter
- */
-onEnter : function () {},
-
-/**
- * @method onExit
- */
-onExit : function () {},
 
 /**
  * @method getNode
@@ -1623,19 +1461,6 @@ getVirtualRenderer : function () {},
 setSizePercent : function () {},
 
 /**
- * @method setPositionType
- * @param {cocos2d::gui::PositionType}
- */
-setPositionType : function () {},
-
-/**
- * @method onTouchMoved
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchMoved : function () {},
-
-/**
  * @method isFlipX
  * @return A value converted from C/C++ "bool"
  */
@@ -1697,22 +1522,9 @@ getName : function () {},
 isIgnoreContentAdaptWithSize : function () {},
 
 /**
- * @method onTouchEnded
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchEnded : function () {},
-
-/**
  * @method updateSizeAndPosition
  */
 updateSizeAndPosition : function () {},
-
-/**
- * @method onTouchLongClicked
- * @param {cocos2d::CCPoint}
- */
-onTouchLongClicked : function () {},
 
 /**
  * @method getBottomInParent
@@ -1753,21 +1565,10 @@ getWidgetType : function () {},
 getChildByName : function () {},
 
 /**
- * @method setPosition
- * @param {cocos2d::CCPoint}
- */
-setPosition : function () {},
-
-/**
  * @method isEnabled
  * @return A value converted from C/C++ "bool"
  */
 isEnabled : function () {},
-
-/**
- * @method visit
- */
-visit : function () {},
 
 /**
  * @method isFlipY
@@ -1875,13 +1676,6 @@ setFlipX : function () {},
 removeAllChildrenWithCleanup : function () {},
 
 /**
- * @method onTouchCancelled
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchCancelled : function () {},
-
-/**
  * @method sortAllChildren
  */
 sortAllChildren : function () {},
@@ -1916,19 +1710,6 @@ removeFromParentAndCleanup : function () {},
  * @return A value converted from C/C++ "float"
  */
 getTopInParent : function () {},
-
-/**
- * @method onTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchBegan : function () {},
-
-/**
- * @method onExit
- */
-onExit : function () {},
 
 /**
  * @method isUpdateEnabled
@@ -1967,12 +1748,6 @@ ignoreContentAdaptWithSize : function () {},
 getWorldPosition : function () {},
 
 /**
- * @method setPositionPercent
- * @param {cocos2d::CCPoint}
- */
-setPositionPercent : function () {},
-
-/**
  * @method getPositionPercent
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
@@ -2004,11 +1779,6 @@ removeChild : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isFocused : function () {},
-
-/**
- * @method onEnter
- */
-onEnter : function () {},
 
 /**
  * @method setSizeType
@@ -2084,11 +1854,6 @@ getLayoutType : function () {},
  * @param {cocos2d::gui::LayoutClippingType}
  */
 setClippingType : function () {},
-
-/**
- * @method visit
- */
-visit : function () {},
 
 /**
  * @method setBackGroundColorType
@@ -2178,12 +1943,6 @@ Layout : function () {},
  * @class Button
  */
 ccs.Button = {
-
-/**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
 
 /**
  * @method getVirtualRenderer
@@ -2373,12 +2132,6 @@ Button : function () {},
 ccs.CheckBox = {
 
 /**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
-
-/**
  * @method getSelectedState
  * @return A value converted from C/C++ "bool"
  */
@@ -2459,13 +2212,6 @@ getContentSize : function () {},
 loadTextures : function () {},
 
 /**
- * @method onTouchEnded
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchEnded : function () {},
-
-/**
  * @method loadTextureBackGround
  * @param {const char*}
  * @param {cocos2d::gui::TextureResType}
@@ -2503,12 +2249,6 @@ CheckBox : function () {},
  * @class ImageView
  */
 ccs.ImageView = {
-
-/**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
 
 /**
  * @method getVirtualRenderer
@@ -2601,12 +2341,6 @@ ImageView : function () {},
  * @class Label
  */
 ccs.Label = {
-
-/**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
 
 /**
  * @method getVirtualRenderer
@@ -2746,12 +2480,6 @@ Label : function () {},
  * @class LabelAtlas
  */
 ccs.LabelAtlas = {
-
-/**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
 
 /**
  * @method getVirtualRenderer
@@ -2906,13 +2634,6 @@ ccs.ScrollView = {
 scrollToTop : function () {},
 
 /**
- * @method onTouchEnded
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchEnded : function () {},
-
-/**
  * @method scrollToPercentHorizontal
  * @param {float}
  * @param {float}
@@ -2957,12 +2678,6 @@ getDirection : function () {},
  * @param {int}
  */
 getChildByTag : function () {},
-
-/**
- * @method onTouchLongClicked
- * @param {cocos2d::CCPoint}
- */
-onTouchLongClicked : function () {},
 
 /**
  * @method scrollToBottomLeft
@@ -3049,13 +2764,6 @@ jumpToPercentVertical : function () {},
 setInertiaScrollEnabled : function () {},
 
 /**
- * @method onTouchMoved
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchMoved : function () {},
-
-/**
  * @method jumpToTopLeft
  */
 jumpToTopLeft : function () {},
@@ -3088,21 +2796,6 @@ getLayoutType : function () {},
  * @param {bool}
  */
 removeAllChildrenWithCleanup : function () {},
-
-/**
- * @method onTouchCancelled
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchCancelled : function () {},
-
-/**
- * @method onTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchBegan : function () {},
 
 /**
  * @method setBounceEnabled
@@ -3219,20 +2912,6 @@ ccs.Slider = {
 setPercent : function () {},
 
 /**
- * @method onTouchMoved
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchMoved : function () {},
-
-/**
- * @method onTouchEnded
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchEnded : function () {},
-
-/**
  * @method loadSlidBallTextureNormal
  * @param {const char*}
  * @param {cocos2d::gui::TextureResType}
@@ -3281,25 +2960,10 @@ setCapInsetsBarRenderer : function () {},
 getDescription : function () {},
 
 /**
- * @method onTouchCancelled
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchCancelled : function () {},
-
-/**
  * @method setScale9Enabled
  * @param {bool}
  */
 setScale9Enabled : function () {},
-
-/**
- * @method onTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchBegan : function () {},
 
 /**
  * @method getVirtualRenderer
@@ -3363,12 +3027,6 @@ Slider : function () {},
  * @class TextField
  */
 ccs.TextField = {
-
-/**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
 
 /**
  * @method setAttachWithIME
@@ -3492,14 +3150,6 @@ setFontSize : function () {},
  * @param {std::string}
  */
 setPlaceHolder : function () {},
-
-/**
- * @method onTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchBegan : function () {},
 
 /**
  * @method getMaxLength
@@ -3694,12 +3344,6 @@ ListView : function () {},
 ccs.LabelBMFont = {
 
 /**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
-
-/**
  * @method getVirtualRenderer
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
@@ -3755,24 +3399,10 @@ LabelBMFont : function () {},
 ccs.PageView = {
 
 /**
- * @method onTouchMoved
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchMoved : function () {},
-
-/**
  * @method getLayoutType
  * @return A value converted from C/C++ "cocos2d::gui::LayoutType"
  */
 getLayoutType : function () {},
-
-/**
- * @method onTouchEnded
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchEnded : function () {},
 
 /**
  * @method getCurPageIndex
@@ -3806,21 +3436,6 @@ removePage : function () {},
  * @return A value converted from C/C++ "std::string"
  */
 getDescription : function () {},
-
-/**
- * @method onTouchCancelled
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchCancelled : function () {},
-
-/**
- * @method onTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-onTouchBegan : function () {},
 
 /**
  * @method insertPage
@@ -3960,24 +3575,6 @@ ccs.UILayer = {
 removeWidget : function () {},
 
 /**
- * @method onEnter
- */
-onEnter : function () {},
-
-/**
- * @method onExit
- */
-onExit : function () {},
-
-/**
- * @method ccTouchBegan
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchBegan : function () {},
-
-/**
  * @method getWidgetByTag
  * @return A value converted from C/C++ "cocos2d::gui::Widget*"
  * @param {int}
@@ -3989,20 +3586,6 @@ getWidgetByTag : function () {},
  * @return A value converted from C/C++ "cocos2d::gui::Widget*"
  */
 getRootWidget : function () {},
-
-/**
- * @method ccTouchCancelled
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchCancelled : function () {},
-
-/**
- * @method ccTouchEnded
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchEnded : function () {},
 
 /**
  * @method init
@@ -4018,13 +3601,6 @@ init : function () {},
 getWidgetByName : function () {},
 
 /**
- * @method ccTouchMoved
- * @param {cocos2d::CCTouch*}
- * @param {cocos2d::CCEvent*}
- */
-ccTouchMoved : function () {},
-
-/**
  * @method addWidget
  * @param {cocos2d::gui::Widget*}
  */
@@ -4034,11 +3610,6 @@ addWidget : function () {},
  * @method clear
  */
 clear : function () {},
-
-/**
- * @method onEnterTransitionDidFinish
- */
-onEnterTransitionDidFinish : function () {},
 
 /**
  * @method create
