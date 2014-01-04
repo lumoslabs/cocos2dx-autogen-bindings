@@ -1491,6 +1491,12 @@ getLeftInParent : function () {},
 setUpdateEnabled : function () {},
 
 /**
+ * @method isFlipY
+ * @return A value converted from C/C++ "bool"
+ */
+isFlipY : function () {},
+
+/**
  * @method getTouchEndPos
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
@@ -1501,6 +1507,12 @@ getTouchEndPos : function () {},
  * @return A value converted from C/C++ "cocos2d::CCArray*"
  */
 getChildren : function () {},
+
+/**
+ * @method getNodes
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getNodes : function () {},
 
 /**
  * @method getChildByTag
@@ -1552,10 +1564,10 @@ getLayoutParameter : function () {},
 getPositionType : function () {},
 
 /**
- * @method getWidgetType
- * @return A value converted from C/C++ "cocos2d::gui::WidgetType"
+ * @method setName
+ * @param {const char*}
  */
-getWidgetType : function () {},
+setName : function () {},
 
 /**
  * @method getChildByName
@@ -1571,10 +1583,10 @@ getChildByName : function () {},
 isEnabled : function () {},
 
 /**
- * @method isFlipY
- * @return A value converted from C/C++ "bool"
+ * @method removeNodeByTag
+ * @param {int}
  */
-isFlipY : function () {},
+removeNodeByTag : function () {},
 
 /**
  * @method removeAllChildren
@@ -1641,12 +1653,6 @@ setEnabled : function () {},
 setBrightStyle : function () {},
 
 /**
- * @method setName
- * @param {const char*}
- */
-setName : function () {},
-
-/**
  * @method removeFromParent
  */
 removeFromParent : function () {},
@@ -1679,6 +1685,12 @@ removeAllChildrenWithCleanup : function () {},
  * @method sortAllChildren
  */
 sortAllChildren : function () {},
+
+/**
+ * @method ignoreContentAdaptWithSize
+ * @param {bool}
+ */
+ignoreContentAdaptWithSize : function () {},
 
 /**
  * @method isBright
@@ -1718,6 +1730,19 @@ getTopInParent : function () {},
 isUpdateEnabled : function () {},
 
 /**
+ * @method getWidgetType
+ * @return A value converted from C/C++ "cocos2d::gui::WidgetType"
+ */
+getWidgetType : function () {},
+
+/**
+ * @method getNodeByTag
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ * @param {int}
+ */
+getNodeByTag : function () {},
+
+/**
  * @method getSize
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
@@ -1736,10 +1761,15 @@ getRightInParent : function () {},
 getSizeType : function () {},
 
 /**
- * @method ignoreContentAdaptWithSize
- * @param {bool}
+ * @method removeNode
+ * @param {cocos2d::CCNode*}
  */
-ignoreContentAdaptWithSize : function () {},
+removeNode : function () {},
+
+/**
+ * @method removeAllNodes
+ */
+removeAllNodes : function () {},
 
 /**
  * @method getWorldPosition
