@@ -11596,12 +11596,6 @@ cc.Component = {
 setEnabled : function () {},
 
 /**
- * @method setNode
- * @param {cocos2d::CCNode*}
- */
-setNode : function () {},
-
-/**
  * @method setName
  * @param {const char*}
  */
@@ -11648,12 +11642,6 @@ setOwner : function () {},
  * @return A value converted from C/C++ "const char*"
  */
 getName : function () {},
-
-/**
- * @method getNode
- * @return A value converted from C/C++ "cocos2d::CCNode*"
- */
-getNode : function () {},
 
 /**
  * @method create

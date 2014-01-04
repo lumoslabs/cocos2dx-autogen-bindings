@@ -1005,6 +1005,13 @@ getBool : function () {},
 setInt : function () {},
 
 /**
+ * @method parse
+ * @return A value converted from C/C++ "bool"
+ * @param {std::string}
+ */
+parse : function () {},
+
+/**
  * @method getInt
  * @return A value converted from C/C++ "int"
  * @param {const char*}
@@ -3581,9 +3588,9 @@ ccs.GUIReader = {
 widgetFromJsonFile : function () {},
 
 /**
- * @method purgeGUIReader
+ * @method purge
  */
-purgeGUIReader : function () {},
+purge : function () {},
 
 /**
  * @method shareReader
@@ -3661,11 +3668,6 @@ TouchGroup : function () {},
 ccs.SceneReader = {
 
 /**
- * @method purgeSceneReader
- */
-purgeSceneReader : function () {},
-
-/**
  * @method createNodeWithSceneFile
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  * @param {const char*}
@@ -3678,6 +3680,11 @@ createNodeWithSceneFile : function () {},
  * @param {int}
  */
 getNodeByTag : function () {},
+
+/**
+ * @method purge
+ */
+purge : function () {},
 
 /**
  * @method sceneReaderVersion
@@ -3819,9 +3826,9 @@ getActionByName : function () {},
 releaseActions : function () {},
 
 /**
- * @method purgeActionManager
+ * @method purge
  */
-purgeActionManager : function () {},
+purge : function () {},
 
 /**
  * @method shareManager

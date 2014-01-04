@@ -4894,6 +4894,28 @@ JSBool js_cocos2dx_studio_CCComAttribute_setInt(JSContext *cx, uint32_t argc, js
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_studio_CCComAttribute_parse(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCComAttribute* cobj = (cocos2d::extension::CCComAttribute *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		std::string arg0;
+		ok &= jsval_to_std_string(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		bool ret = cobj->parse(arg0);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_studio_CCComAttribute_getInt(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -5019,6 +5041,7 @@ void js_register_cocos2dx_studio_CCComAttribute(JSContext *cx, JSObject *global)
 		JS_FN("getCString", js_cocos2dx_studio_CCComAttribute_getCString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getBool", js_cocos2dx_studio_CCComAttribute_getBool, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setInt", js_cocos2dx_studio_CCComAttribute_setInt, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("parse", js_cocos2dx_studio_CCComAttribute_parse, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInt", js_cocos2dx_studio_CCComAttribute_getInt, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_studio_CCComAttribute_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setBool", js_cocos2dx_studio_CCComAttribute_setBool, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -15570,10 +15593,10 @@ JSBool js_cocos2dx_studio_GUIReader_widgetFromJsonFile(JSContext *cx, uint32_t a
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_studio_GUIReader_purgeGUIReader(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_studio_GUIReader_purge(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
-		cocos2d::extension::GUIReader::purgeGUIReader();
+		cocos2d::extension::GUIReader::purge();
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -15631,7 +15654,7 @@ void js_register_cocos2dx_studio_GUIReader(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("purge", js_cocos2dx_studio_GUIReader_purgeGUIReader, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("purge", js_cocos2dx_studio_GUIReader_purge, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInstance", js_cocos2dx_studio_GUIReader_shareReader, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
@@ -15966,21 +15989,6 @@ void js_register_cocos2dx_studio_TouchGroup(JSContext *cx, JSObject *global) {
 JSClass  *jsb_SceneReader_class;
 JSObject *jsb_SceneReader_prototype;
 
-JSBool js_cocos2dx_studio_SceneReader_purgeSceneReader(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::extension::SceneReader* cobj = (cocos2d::extension::SceneReader *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->purgeSceneReader();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_studio_SceneReader_createNodeWithSceneFile(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -16039,6 +16047,17 @@ JSBool js_cocos2dx_studio_SceneReader_getNodeByTag(JSContext *cx, uint32_t argc,
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_studio_SceneReader_purge(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	if (argc == 0) {
+		cocos2d::extension::SceneReader::purge();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
 JSBool js_cocos2dx_studio_SceneReader_sceneReaderVersion(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
@@ -16097,13 +16116,13 @@ void js_register_cocos2dx_studio_SceneReader(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("purge", js_cocos2dx_studio_SceneReader_purgeSceneReader, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("createNodeWithSceneFile", js_cocos2dx_studio_SceneReader_createNodeWithSceneFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getNodeByTag", js_cocos2dx_studio_SceneReader_getNodeByTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
+		JS_FN("purge", js_cocos2dx_studio_SceneReader_purge, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("sceneReaderVersion", js_cocos2dx_studio_SceneReader_sceneReaderVersion, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInstance", js_cocos2dx_studio_SceneReader_sharedSceneReader, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
@@ -16719,10 +16738,10 @@ JSBool js_cocos2dx_studio_ActionManager_releaseActions(JSContext *cx, uint32_t a
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_studio_ActionManager_purgeActionManager(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_studio_ActionManager_purge(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
-		cocos2d::extension::ActionManager::purgeActionManager();
+		cocos2d::extension::ActionManager::purge();
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -16782,7 +16801,7 @@ void js_register_cocos2dx_studio_ActionManager(JSContext *cx, JSObject *global) 
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("purge", js_cocos2dx_studio_ActionManager_purgeActionManager, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("purge", js_cocos2dx_studio_ActionManager_purge, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInstance", js_cocos2dx_studio_ActionManager_shareManager, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};

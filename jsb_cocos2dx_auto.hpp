@@ -3341,7 +3341,6 @@ void js_cocos2dx_CCComponent_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCComponent(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCComponent_setEnabled(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCComponent_setNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCComponent_setName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCComponent_isEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCComponent_serialize(JSContext *cx, uint32_t argc, jsval *vp);
@@ -3350,7 +3349,6 @@ JSBool js_cocos2dx_CCComponent_getOwner(JSContext *cx, uint32_t argc, jsval *vp)
 JSBool js_cocos2dx_CCComponent_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCComponent_setOwner(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCComponent_getName(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCComponent_getNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCComponent_create(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_SimpleAudioEngine_class;

@@ -256,6 +256,7 @@ JSBool js_cocos2dx_studio_CCComAttribute_setCString(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_studio_CCComAttribute_getCString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_getBool(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_setInt(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_parse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_getInt(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_setBool(JSContext *cx, uint32_t argc, jsval *vp);
@@ -843,7 +844,7 @@ void js_cocos2dx_studio_GUIReader_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_GUIReader(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_studio_GUIReader_widgetFromJsonFile(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_GUIReader_purgeGUIReader(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_GUIReader_purge(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_GUIReader_shareReader(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_TouchGroup_class;
@@ -870,9 +871,9 @@ JSBool js_cocos2dx_studio_SceneReader_constructor(JSContext *cx, uint32_t argc, 
 void js_cocos2dx_studio_SceneReader_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_SceneReader(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_studio_SceneReader_purgeSceneReader(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_SceneReader_createNodeWithSceneFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_SceneReader_getNodeByTag(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_SceneReader_purge(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_SceneReader_sceneReaderVersion(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_SceneReader_sharedSceneReader(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -912,7 +913,7 @@ void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_studio_ActionManager_playActionByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionManager_getActionByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionManager_releaseActions(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_ActionManager_purgeActionManager(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ActionManager_purge(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ActionManager_shareManager(JSContext *cx, uint32_t argc, jsval *vp);
 #endif
 
