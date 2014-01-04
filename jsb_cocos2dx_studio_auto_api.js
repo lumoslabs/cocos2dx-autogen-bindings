@@ -158,17 +158,24 @@ init : function () {},
 getContentSize : function () {},
 
 /**
- * @method changeDisplayByName
- * @param {const char*}
- * @param {bool}
- */
-changeDisplayByName : function () {},
-
-/**
  * @method getBoundingBox
  * @return A value converted from C/C++ "cocos2d::CCRect"
  */
 getBoundingBox : function () {},
+
+/**
+ * @method changeDisplayWithIndex
+ * @param {int}
+ * @param {bool}
+ */
+changeDisplayWithIndex : function () {},
+
+/**
+ * @method changeDisplayWithName
+ * @param {const char*}
+ * @param {bool}
+ */
+changeDisplayWithName : function () {},
 
 /**
  * @method getCurrentDisplayIndex
@@ -177,10 +184,10 @@ getBoundingBox : function () {},
 getCurrentDisplayIndex : function () {},
 
 /**
- * @method setVisible
- * @param {bool}
+ * @method getForceChangeDisplay
+ * @return A value converted from C/C++ "bool"
  */
-setVisible : function () {},
+getForceChangeDisplay : function () {},
 
 /**
  * @method getAnchorPoint
@@ -195,23 +202,16 @@ getAnchorPoint : function () {},
 getDecorativeDisplayList : function () {},
 
 /**
- * @method changeDisplayByIndex
- * @param {int}
- * @param {bool}
- */
-changeDisplayByIndex : function () {},
-
-/**
  * @method isVisible
  * @return A value converted from C/C++ "bool"
  */
 isVisible : function () {},
 
 /**
- * @method getForceChangeDisplay
- * @return A value converted from C/C++ "bool"
+ * @method setVisible
+ * @param {bool}
  */
-getForceChangeDisplay : function () {},
+setVisible : function () {},
 
 /**
  * @method create
@@ -334,13 +334,6 @@ removeDisplay : function () {},
 updateDisplayedOpacity : function () {},
 
 /**
- * @method changeDisplayByName
- * @param {const char*}
- * @param {bool}
- */
-changeDisplayByName : function () {},
-
-/**
  * @method setZOrder
  * @param {int}
  */
@@ -395,6 +388,20 @@ setDisplayManager : function () {},
 getChildArmature : function () {},
 
 /**
+ * @method changeDisplayWithIndex
+ * @param {int}
+ * @param {bool}
+ */
+changeDisplayWithIndex : function () {},
+
+/**
+ * @method changeDisplayWithName
+ * @param {const char*}
+ * @param {bool}
+ */
+changeDisplayWithName : function () {},
+
+/**
  * @method getColliderBodyList
  * @return A value converted from C/C++ "cocos2d::CCArray*"
  */
@@ -436,13 +443,6 @@ getDisplayManager : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::CCArmature*"
  */
 getArmature : function () {},
-
-/**
- * @method changeDisplayByIndex
- * @param {int}
- * @param {bool}
- */
-changeDisplayByIndex : function () {},
 
 /**
  * @method nodeToArmatureTransform
