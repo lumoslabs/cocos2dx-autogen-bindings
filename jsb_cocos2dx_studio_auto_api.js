@@ -1912,18 +1912,6 @@ ccs.Layout = {
 setBackGroundColorVector : function () {},
 
 /**
- * @method getBackGroundImageTextureSize
- * @return A value converted from C/C++ "cocos2d::CCSize"
- */
-getBackGroundImageTextureSize : function () {},
-
-/**
- * @method getLayoutType
- * @return A value converted from C/C++ "cocos2d::gui::LayoutType"
- */
-getLayoutType : function () {},
-
-/**
  * @method setClippingType
  * @param {cocos2d::gui::LayoutClippingType}
  */
@@ -1936,6 +1924,17 @@ setClippingType : function () {},
 setBackGroundColorType : function () {},
 
 /**
+ * @method getDescription
+ * @return A value converted from C/C++ "std::string"
+ */
+getDescription : function () {},
+
+/**
+ * @method removeBackGroundImage
+ */
+removeBackGroundImage : function () {},
+
+/**
  * @method setBackGroundImage
  * @param {const char*}
  * @param {cocos2d::gui::TextureResType}
@@ -1943,20 +1942,9 @@ setBackGroundColorType : function () {},
 setBackGroundImage : function () {},
 
 /**
- * @method getDescription
- * @return A value converted from C/C++ "std::string"
- */
-getDescription : function () {},
-
-/**
  * @method requestDoLayout
  */
 requestDoLayout : function () {},
-
-/**
- * @method sortAllChildren
- */
-sortAllChildren : function () {},
 
 /**
  * @method isClippingEnabled
@@ -1965,10 +1953,27 @@ sortAllChildren : function () {},
 isClippingEnabled : function () {},
 
 /**
+ * @method setClippingEnabled
+ * @param {bool}
+ */
+setClippingEnabled : function () {},
+
+/**
  * @method setBackGroundColorOpacity
  * @param {int}
  */
 setBackGroundColorOpacity : function () {},
+
+/**
+ * @method getLayoutType
+ * @return A value converted from C/C++ "cocos2d::gui::LayoutType"
+ */
+getLayoutType : function () {},
+
+/**
+ * @method sortAllChildren
+ */
+sortAllChildren : function () {},
 
 /**
  * @method setBackGroundImageCapInsets
@@ -1977,21 +1982,16 @@ setBackGroundColorOpacity : function () {},
 setBackGroundImageCapInsets : function () {},
 
 /**
- * @method removeBackGroundImage
+ * @method getBackGroundImageTextureSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
  */
-removeBackGroundImage : function () {},
+getBackGroundImageTextureSize : function () {},
 
 /**
  * @method setBackGroundImageScale9Enabled
  * @param {bool}
  */
 setBackGroundImageScale9Enabled : function () {},
-
-/**
- * @method setClippingEnabled
- * @param {bool}
- */
-setClippingEnabled : function () {},
 
 /**
  * @method setLayoutType

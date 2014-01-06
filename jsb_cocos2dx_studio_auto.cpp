@@ -8849,40 +8849,6 @@ JSBool js_cocos2dx_studio_Layout_addChild(JSContext *cx, uint32_t argc, jsval *v
 	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_studio_Layout_getBackGroundImageTextureSize(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cocos2d::CCSize ret = cobj->getBackGroundImageTextureSize();
-		jsval jsret;
-		jsret = ccsize_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_studio_Layout_getLayoutType(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cocos2d::gui::LayoutType ret = cobj->getLayoutType();
-		jsval jsret;
-		jsret = int32_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_studio_Layout_setClippingType(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -8921,6 +8887,38 @@ JSBool js_cocos2dx_studio_Layout_setBackGroundColorType(JSContext *cx, uint32_t 
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_studio_Layout_getDescription(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		std::string ret = cobj->getDescription();
+		jsval jsret;
+		jsret = std_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_studio_Layout_removeBackGroundImage(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->removeBackGroundImage();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_studio_Layout_setBackGroundImage(JSContext *cx, uint32_t argc, jsval *vp)
@@ -8992,23 +8990,6 @@ JSBool js_cocos2dx_studio_Layout_setBackGroundColor(JSContext *cx, uint32_t argc
 	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_studio_Layout_getDescription(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		std::string ret = cobj->getDescription();
-		jsval jsret;
-		jsret = std_string_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_studio_Layout_requestDoLayout(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -9017,21 +8998,6 @@ JSBool js_cocos2dx_studio_Layout_requestDoLayout(JSContext *cx, uint32_t argc, j
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
 		cobj->requestDoLayout();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_studio_Layout_sortAllChildren(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->sortAllChildren();
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -9056,6 +9022,26 @@ JSBool js_cocos2dx_studio_Layout_isClippingEnabled(JSContext *cx, uint32_t argc,
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_studio_Layout_setClippingEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setClippingEnabled(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_studio_Layout_setBackGroundColorOpacity(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -9074,6 +9060,38 @@ JSBool js_cocos2dx_studio_Layout_setBackGroundColorOpacity(JSContext *cx, uint32
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_studio_Layout_getLayoutType(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::gui::LayoutType ret = cobj->getLayoutType();
+		jsval jsret;
+		jsret = int32_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_studio_Layout_sortAllChildren(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->sortAllChildren();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_studio_Layout_setBackGroundImageCapInsets(JSContext *cx, uint32_t argc, jsval *vp)
@@ -9096,15 +9114,17 @@ JSBool js_cocos2dx_studio_Layout_setBackGroundImageCapInsets(JSContext *cx, uint
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_studio_Layout_removeBackGroundImage(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_studio_Layout_getBackGroundImageTextureSize(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy = jsb_get_js_proxy(obj);
 	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cobj->removeBackGroundImage();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		cocos2d::CCSize ret = cobj->getBackGroundImageTextureSize();
+		jsval jsret;
+		jsret = ccsize_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
 
@@ -9124,26 +9144,6 @@ JSBool js_cocos2dx_studio_Layout_setBackGroundImageScale9Enabled(JSContext *cx, 
 		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setBackGroundImageScale9Enabled(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_studio_Layout_setClippingEnabled(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setClippingEnabled(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -9255,21 +9255,21 @@ void js_register_cocos2dx_studio_Layout(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("setBackGroundColorVector", js_cocos2dx_studio_Layout_setBackGroundColorVector, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addChild", js_cocos2dx_studio_Layout_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getBackGroundImageTextureSize", js_cocos2dx_studio_Layout_getBackGroundImageTextureSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getLayoutType", js_cocos2dx_studio_Layout_getLayoutType, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setClippingType", js_cocos2dx_studio_Layout_setClippingType, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setBackGroundColorType", js_cocos2dx_studio_Layout_setBackGroundColorType, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDescription", js_cocos2dx_studio_Layout_getDescription, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeBackGroundImage", js_cocos2dx_studio_Layout_removeBackGroundImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setBackGroundImage", js_cocos2dx_studio_Layout_setBackGroundImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setBackGroundColor", js_cocos2dx_studio_Layout_setBackGroundColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getDescription", js_cocos2dx_studio_Layout_getDescription, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("requestDoLayout", js_cocos2dx_studio_Layout_requestDoLayout, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("sortAllChildren", js_cocos2dx_studio_Layout_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isClippingEnabled", js_cocos2dx_studio_Layout_isClippingEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setBackGroundColorOpacity", js_cocos2dx_studio_Layout_setBackGroundColorOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setBackGroundImageCapInsets", js_cocos2dx_studio_Layout_setBackGroundImageCapInsets, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("removeBackGroundImage", js_cocos2dx_studio_Layout_removeBackGroundImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setBackGroundImageScale9Enabled", js_cocos2dx_studio_Layout_setBackGroundImageScale9Enabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setClippingEnabled", js_cocos2dx_studio_Layout_setClippingEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBackGroundColorOpacity", js_cocos2dx_studio_Layout_setBackGroundColorOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLayoutType", js_cocos2dx_studio_Layout_getLayoutType, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("sortAllChildren", js_cocos2dx_studio_Layout_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBackGroundImageCapInsets", js_cocos2dx_studio_Layout_setBackGroundImageCapInsets, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getBackGroundImageTextureSize", js_cocos2dx_studio_Layout_getBackGroundImageTextureSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBackGroundImageScale9Enabled", js_cocos2dx_studio_Layout_setBackGroundImageScale9Enabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setLayoutType", js_cocos2dx_studio_Layout_setLayoutType, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_studio_Layout_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
