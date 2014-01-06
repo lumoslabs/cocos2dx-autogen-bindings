@@ -968,6 +968,14 @@ ccs.ComAttribute = {
 getFloat : function () {},
 
 /**
+ * @method getBool
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {bool}
+ */
+getBool : function () {},
+
+/**
  * @method setFloat
  * @param {const char*}
  * @param {float}
@@ -990,12 +998,11 @@ setCString : function () {},
 getCString : function () {},
 
 /**
- * @method getBool
+ * @method serialize
  * @return A value converted from C/C++ "bool"
- * @param {const char*}
- * @param {bool}
+ * @param {void*}
  */
-getBool : function () {},
+serialize : function () {},
 
 /**
  * @method setInt
@@ -1038,6 +1045,12 @@ setBool : function () {},
  */
 create : function () {},
 
+/**
+ * @method createInstance
+ * @return A value converted from C/C++ "cocos2d::CCObject*"
+ */
+createInstance : function () {},
+
 };
 
 /**
@@ -1049,6 +1062,13 @@ ccs.ComAudio = {
  * @method stopAllEffects
  */
 stopAllEffects : function () {},
+
+/**
+ * @method serialize
+ * @return A value converted from C/C++ "bool"
+ * @param {void*}
+ */
+serialize : function () {},
 
 /**
  * @method getEffectsVolume
@@ -1200,6 +1220,12 @@ resumeEffect : function () {},
  */
 create : function () {},
 
+/**
+ * @method createInstance
+ * @return A value converted from C/C++ "cocos2d::CCObject*"
+ */
+createInstance : function () {},
+
 };
 
 /**
@@ -1305,6 +1331,12 @@ init : function () {},
 create : function () {},
 
 /**
+ * @method createInstance
+ * @return A value converted from C/C++ "cocos2d::CCObject*"
+ */
+createInstance : function () {},
+
+/**
  * @method CCComController
  * @constructor
  */
@@ -1324,18 +1356,23 @@ ccs.ComRender = {
 setNode : function () {},
 
 /**
+ * @method serialize
+ * @return A value converted from C/C++ "bool"
+ * @param {void*}
+ */
+serialize : function () {},
+
+/**
  * @method getNode
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
 getNode : function () {},
 
 /**
- * @method create
- * @return A value converted from C/C++ "cocos2d::extension::CCComRender*"
- * @param {cocos2d::CCNode*}
- * @param {const char*}
+ * @method createInstance
+ * @return A value converted from C/C++ "cocos2d::CCObject*"
  */
-create : function () {},
+createInstance : function () {},
 
 };
 

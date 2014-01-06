@@ -11609,6 +11609,7 @@ isEnabled : function () {},
 
 /**
  * @method serialize
+ * @return A value converted from C/C++ "bool"
  * @param {void*}
  */
 serialize : function () {},

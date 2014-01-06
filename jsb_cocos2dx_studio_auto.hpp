@@ -251,16 +251,18 @@ void js_cocos2dx_studio_CCComAttribute_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_CCComAttribute(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_studio_CCComAttribute_getFloat(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_getBool(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_setFloat(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_setCString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_getCString(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CCComAttribute_getBool(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_serialize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_setInt(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_parse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_getInt(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_setBool(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAttribute_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAttribute_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCComAudio_class;
 extern JSObject *jsb_CCComAudio_prototype;
@@ -270,6 +272,7 @@ void js_cocos2dx_studio_CCComAudio_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_CCComAudio(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_studio_CCComAudio_stopAllEffects(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAudio_serialize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAudio_getEffectsVolume(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAudio_stopEffect(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAudio_getBackgroundMusicVolume(JSContext *cx, uint32_t argc, jsval *vp);
@@ -299,6 +302,7 @@ JSBool js_cocos2dx_studio_CCComAudio_setEffectsVolume(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_studio_CCComAudio_getFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAudio_resumeEffect(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComAudio_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComAudio_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCInputDelegate_class;
 extern JSObject *jsb_CCInputDelegate_prototype;
@@ -330,6 +334,7 @@ JSBool js_cocos2dx_studio_CCComController_isEnabled(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_studio_CCComController_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComController_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComController_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComController_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComController_CCComController(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCComRender_class;
@@ -340,8 +345,10 @@ void js_cocos2dx_studio_CCComRender_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_CCComRender(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_studio_CCComRender_setNode(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComRender_serialize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComRender_getNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCComRender_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCComRender_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_LayoutParameter_class;
 extern JSObject *jsb_LayoutParameter_prototype;
