@@ -7310,26 +7310,6 @@ JSBool js_cocos2dx_studio_Widget_getLeftInParent(JSContext *cx, uint32_t argc, j
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_studio_Widget_setUpdateEnabled(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::gui::Widget* cobj = (cocos2d::gui::Widget *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setUpdateEnabled(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_studio_Widget_isFlipY(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -8151,23 +8131,6 @@ JSBool js_cocos2dx_studio_Widget_getTopInParent(JSContext *cx, uint32_t argc, js
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_studio_Widget_isUpdateEnabled(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::gui::Widget* cobj = (cocos2d::gui::Widget *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		bool ret = cobj->isUpdateEnabled();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_studio_Widget_getWidgetType(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -8651,7 +8614,6 @@ void js_register_cocos2dx_studio_Widget(JSContext *cx, JSObject *global) {
 		JS_FN("setActionTag", js_cocos2dx_studio_Widget_setActionTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDescription", js_cocos2dx_studio_Widget_getDescription, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getLeftInParent", js_cocos2dx_studio_Widget_getLeftInParent, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setUpdateEnabled", js_cocos2dx_studio_Widget_setUpdateEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isFlipY", js_cocos2dx_studio_Widget_isFlipY, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTouchEndPos", js_cocos2dx_studio_Widget_getTouchEndPos, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getChildren", js_cocos2dx_studio_Widget_getChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -8692,7 +8654,6 @@ void js_register_cocos2dx_studio_Widget(JSContext *cx, JSObject *global) {
 		JS_FN("getSizePercent", js_cocos2dx_studio_Widget_getSizePercent, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeFromParentAndCleanup", js_cocos2dx_studio_Widget_removeFromParentAndCleanup, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTopInParent", js_cocos2dx_studio_Widget_getTopInParent, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("isUpdateEnabled", js_cocos2dx_studio_Widget_isUpdateEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getWidgetType", js_cocos2dx_studio_Widget_getWidgetType, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getNodeByTag", js_cocos2dx_studio_Widget_getNodeByTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getSize", js_cocos2dx_studio_Widget_getSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -9131,6 +9092,28 @@ JSBool js_cocos2dx_studio_Layout_getBackGroundImageTextureSize(JSContext *cx, ui
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_studio_Layout_hitTest(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::gui::Layout* cobj = (cocos2d::gui::Layout *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCPoint arg0;
+		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		bool ret = cobj->hitTest(arg0);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_studio_Layout_setBackGroundImageScale9Enabled(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -9269,6 +9252,7 @@ void js_register_cocos2dx_studio_Layout(JSContext *cx, JSObject *global) {
 		JS_FN("sortAllChildren", js_cocos2dx_studio_Layout_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setBackGroundImageCapInsets", js_cocos2dx_studio_Layout_setBackGroundImageCapInsets, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getBackGroundImageTextureSize", js_cocos2dx_studio_Layout_getBackGroundImageTextureSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("hitTest", js_cocos2dx_studio_Layout_hitTest, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setBackGroundImageScale9Enabled", js_cocos2dx_studio_Layout_setBackGroundImageScale9Enabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setLayoutType", js_cocos2dx_studio_Layout_setLayoutType, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_studio_Layout_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -13803,19 +13787,24 @@ JSBool js_cocos2dx_studio_TextField_getInsertText(JSContext *cx, uint32_t argc, 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_studio_TextField_initRenderer(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_studio_TextField_setInsertText(JSContext *cx, uint32_t argc, jsval *vp)
 {
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy = jsb_get_js_proxy(obj);
 	cocos2d::gui::TextField* cobj = (cocos2d::gui::TextField *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->initRenderer();
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setInsertText(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_studio_TextField_getDetachWithIME(JSContext *cx, uint32_t argc, jsval *vp)
@@ -13826,23 +13815,6 @@ JSBool js_cocos2dx_studio_TextField_getDetachWithIME(JSContext *cx, uint32_t arg
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
 		bool ret = cobj->getDetachWithIME();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_studio_TextField_init(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::gui::TextField* cobj = (cocos2d::gui::TextField *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		bool ret = cobj->init();
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -14110,26 +14082,6 @@ JSBool js_cocos2dx_studio_TextField_setText(JSContext *cx, uint32_t argc, jsval 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_studio_TextField_setInsertText(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::gui::TextField* cobj = (cocos2d::gui::TextField *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setInsertText(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_studio_TextField_setMaxLength(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -14280,9 +14232,8 @@ void js_register_cocos2dx_studio_TextField(JSContext *cx, JSObject *global) {
 		JS_FN("getAttachWithIME", js_cocos2dx_studio_TextField_getAttachWithIME, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setFontName", js_cocos2dx_studio_TextField_setFontName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInsertText", js_cocos2dx_studio_TextField_getInsertText, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("initRenderer", js_cocos2dx_studio_TextField_initRenderer, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setInsertText", js_cocos2dx_studio_TextField_setInsertText, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDetachWithIME", js_cocos2dx_studio_TextField_getDetachWithIME, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("init", js_cocos2dx_studio_TextField_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getContentSize", js_cocos2dx_studio_TextField_getContentSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("didNotSelectSelf", js_cocos2dx_studio_TextField_didNotSelectSelf, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isPasswordEnabled", js_cocos2dx_studio_TextField_isPasswordEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -14297,7 +14248,6 @@ void js_register_cocos2dx_studio_TextField(JSContext *cx, JSObject *global) {
 		JS_FN("isMaxLengthEnabled", js_cocos2dx_studio_TextField_isMaxLengthEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDetachWithIME", js_cocos2dx_studio_TextField_setDetachWithIME, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setText", js_cocos2dx_studio_TextField_setText, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setInsertText", js_cocos2dx_studio_TextField_setInsertText, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setMaxLength", js_cocos2dx_studio_TextField_setMaxLength, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTouchSize", js_cocos2dx_studio_TextField_setTouchSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDeleteBackward", js_cocos2dx_studio_TextField_setDeleteBackward, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),

@@ -403,7 +403,6 @@ JSBool js_cocos2dx_studio_Widget_isFlipX(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_studio_Widget_setActionTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getLeftInParent(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Widget_setUpdateEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_isFlipY(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getTouchEndPos(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getChildren(JSContext *cx, uint32_t argc, jsval *vp);
@@ -444,7 +443,6 @@ JSBool js_cocos2dx_studio_Widget_clippingParentAreaContainPoint(JSContext *cx, u
 JSBool js_cocos2dx_studio_Widget_getSizePercent(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_removeFromParentAndCleanup(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getTopInParent(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Widget_isUpdateEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getWidgetType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getNodeByTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getSize(JSContext *cx, uint32_t argc, jsval *vp);
@@ -489,6 +487,7 @@ JSBool js_cocos2dx_studio_Layout_getLayoutType(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_studio_Layout_sortAllChildren(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_setBackGroundImageCapInsets(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_getBackGroundImageTextureSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_hitTest(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_setBackGroundImageScale9Enabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_setLayoutType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_create(JSContext *cx, uint32_t argc, jsval *vp);
@@ -739,9 +738,8 @@ JSBool js_cocos2dx_studio_TextField_getDeleteBackward(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_studio_TextField_getAttachWithIME(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setFontName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_getInsertText(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_TextField_initRenderer(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TextField_setInsertText(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_getDetachWithIME(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_TextField_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_getContentSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_didNotSelectSelf(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_isPasswordEnabled(JSContext *cx, uint32_t argc, jsval *vp);
@@ -756,7 +754,6 @@ JSBool js_cocos2dx_studio_TextField_getMaxLength(JSContext *cx, uint32_t argc, j
 JSBool js_cocos2dx_studio_TextField_isMaxLengthEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setDetachWithIME(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setText(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_TextField_setInsertText(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setMaxLength(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setTouchSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setDeleteBackward(JSContext *cx, uint32_t argc, jsval *vp);

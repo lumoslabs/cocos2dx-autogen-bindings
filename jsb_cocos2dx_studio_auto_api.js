@@ -1529,12 +1529,6 @@ getDescription : function () {},
 getLeftInParent : function () {},
 
 /**
- * @method setUpdateEnabled
- * @param {bool}
- */
-setUpdateEnabled : function () {},
-
-/**
  * @method isFlipY
  * @return A value converted from C/C++ "bool"
  */
@@ -1768,12 +1762,6 @@ removeFromParentAndCleanup : function () {},
 getTopInParent : function () {},
 
 /**
- * @method isUpdateEnabled
- * @return A value converted from C/C++ "bool"
- */
-isUpdateEnabled : function () {},
-
-/**
  * @method getWidgetType
  * @return A value converted from C/C++ "cocos2d::gui::WidgetType"
  */
@@ -1986,6 +1974,13 @@ setBackGroundImageCapInsets : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getBackGroundImageTextureSize : function () {},
+
+/**
+ * @method hitTest
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCPoint}
+ */
+hitTest : function () {},
 
 /**
  * @method setBackGroundImageScale9Enabled
@@ -3151,21 +3146,16 @@ setFontName : function () {},
 getInsertText : function () {},
 
 /**
- * @method initRenderer
+ * @method setInsertText
+ * @param {bool}
  */
-initRenderer : function () {},
+setInsertText : function () {},
 
 /**
  * @method getDetachWithIME
  * @return A value converted from C/C++ "bool"
  */
 getDetachWithIME : function () {},
-
-/**
- * @method init
- * @return A value converted from C/C++ "bool"
- */
-init : function () {},
 
 /**
  * @method getContentSize
@@ -3248,12 +3238,6 @@ setDetachWithIME : function () {},
  * @param {std::string}
  */
 setText : function () {},
-
-/**
- * @method setInsertText
- * @param {bool}
- */
-setInsertText : function () {},
 
 /**
  * @method setMaxLength
