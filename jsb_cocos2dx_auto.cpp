@@ -3109,22 +3109,47 @@ JSBool js_cocos2dx_CCNode_removeComponent(JSContext *cx, uint32_t argc, jsval *v
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		const char* arg0;
-		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		bool ret = cobj->removeComponent(arg0);
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	JSObject *obj = NULL;
+	cocos2d::CCNode* cobj = NULL;
+	obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	do {
+		if (argc == 1) {
+			cocos2d::CCComponent* arg0;
+			do {
+				if (!argv[0].isObject()) { ok = JS_FALSE; break; }
+				js_proxy_t *proxy;
+				JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+				proxy = jsb_get_js_proxy(tmpObj);
+				arg0 = (cocos2d::CCComponent*)(proxy ? proxy->ptr : NULL);
+				JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+			} while (0);
+			if (!ok) { ok = JS_TRUE; break; }
+			bool ret = cobj->removeComponent(arg0);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
+			JS_SET_RVAL(cx, vp, jsret);
+			return JS_TRUE;
+		}
+	} while(0);
+
+	do {
+		if (argc == 1) {
+			const char* arg0;
+			std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+			if (!ok) { ok = JS_TRUE; break; }
+			bool ret = cobj->removeComponent(arg0);
+			jsval jsret;
+			jsret = BOOLEAN_TO_JSVAL(ret);
+			JS_SET_RVAL(cx, vp, jsret);
+			return JS_TRUE;
+		}
+	} while(0);
+
+	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCNode_removeAllComponents(JSContext *cx, uint32_t argc, jsval *vp)

@@ -710,13 +710,6 @@ CCTexture2D : function () {},
 cc.Node = {
 
 /**
- * @method removeComponent
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
- */
-removeComponent : function () {},
-
-/**
  * @method removeAllComponents
  */
 removeAllComponents : function () {},
