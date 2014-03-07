@@ -3905,18 +3905,6 @@ seekWidgetByName : function () {},
 ccs.GUIReader = {
 
 /**
- * @method getParseObjectMap
- * @return A value converted from C/C++ "ParseObjectMap"
- */
-getParseObjectMap : function () {},
-
-/**
- * @method getParseCallBackMap
- * @return A value converted from C/C++ "ParseCallBackMap"
- */
-getParseCallBackMap : function () {},
-
-/**
  * @method widgetFromJsonFile
  * @return A value converted from C/C++ "cocos2d::ui::Widget*"
  * @param {const char*}

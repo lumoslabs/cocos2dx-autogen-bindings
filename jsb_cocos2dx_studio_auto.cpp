@@ -16895,40 +16895,6 @@ void js_register_cocos2dx_studio_UIHelper(JSContext *cx, JSObject *global) {
 JSClass  *jsb_GUIReader_class;
 JSObject *jsb_GUIReader_prototype;
 
-JSBool js_cocos2dx_studio_GUIReader_getParseObjectMap(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::extension::GUIReader* cobj = (cocos2d::extension::GUIReader *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		ParseObjectMap ret = cobj->getParseObjectMap();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ParseObjectMap;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_studio_GUIReader_getParseCallBackMap(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::extension::GUIReader* cobj = (cocos2d::extension::GUIReader *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		ParseCallBackMap ret = cobj->getParseCallBackMap();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ParseCallBackMap;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_studio_GUIReader_widgetFromJsonFile(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -17031,8 +16997,6 @@ void js_register_cocos2dx_studio_GUIReader(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getParseObjectMap", js_cocos2dx_studio_GUIReader_getParseObjectMap, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getParseCallBackMap", js_cocos2dx_studio_GUIReader_getParseCallBackMap, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("widgetFromJsonFile", js_cocos2dx_studio_GUIReader_widgetFromJsonFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getFilePath", js_cocos2dx_studio_GUIReader_getFilePath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
