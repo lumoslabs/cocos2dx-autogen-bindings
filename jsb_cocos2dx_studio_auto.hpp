@@ -404,8 +404,9 @@ void js_cocos2dx_studio_Widget_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_Widget(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_studio_Widget_addChild(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Widget_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_setSizePercent(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Widget_updateSizeAndPosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Widget_getCustomSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_isFlipX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_setActionTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
@@ -417,7 +418,8 @@ JSBool js_cocos2dx_studio_Widget_getNodes(JSContext *cx, uint32_t argc, jsval *v
 JSBool js_cocos2dx_studio_Widget_getChildByTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_isIgnoreContentAdaptWithSize(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Widget_updateSizeAndPosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Widget_getWidgetType(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Widget_setLayoutParameter(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getBottomInParent(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getActionTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getLayoutParameter(JSContext *cx, uint32_t argc, jsval *vp);
@@ -436,10 +438,11 @@ JSBool js_cocos2dx_studio_Widget_setTouchEnabled(JSContext *cx, uint32_t argc, j
 JSBool js_cocos2dx_studio_Widget_clone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getTouchMovePos(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_setEnabled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Widget_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_setBrightStyle(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_addNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_removeFromParent(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Widget_setLayoutParameter(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Widget_getColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_setFlipY(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_setFlipX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp);
@@ -449,8 +452,10 @@ JSBool js_cocos2dx_studio_Widget_isBright(JSContext *cx, uint32_t argc, jsval *v
 JSBool js_cocos2dx_studio_Widget_clippingParentAreaContainPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getSizePercent(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_removeFromParentAndCleanup(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Widget_setOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getTopInParent(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Widget_getWidgetType(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Widget_getOpacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Widget_setColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getNodeByTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getRightInParent(JSContext *cx, uint32_t argc, jsval *vp);
@@ -482,34 +487,39 @@ JSBool js_cocos2dx_studio_Layout_setBackGroundColorVector(JSContext *cx, uint32_
 JSBool js_cocos2dx_studio_Layout_addChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_setClippingType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_setBackGroundColorType(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Layout_getBackGroundColorType(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_setBackGroundImageColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_getBackGroundColorVector(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_removeAllChildren(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_getClippingType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_removeBackGroundImage(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_getBackGroundColorOpacity(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Layout_getBackGroundImageCapInsets(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_isClippingEnabled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_setBackGroundImageOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_setBackGroundImage(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_setBackGroundColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_requestDoLayout(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Layout_isClippingEnabled(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Layout_setBackGroundColorOpacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_getBackGroundImageCapInsets(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_getBackGroundColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_setClippingEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_getBackGroundImageColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_isBackGroundImageScale9Enabled(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Layout_getLayoutType(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_getBackGroundColorType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_getBackGroundEndColor(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Layout_getClippingType(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Layout_getBackGroundColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_setBackGroundColorOpacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_getBackGroundImageOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_sortAllChildren(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_setBackGroundImageCapInsets(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_getBackGroundImageTextureSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_getLayoutType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_getBackGroundStartColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_hitTest(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_removeChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_setBackGroundImageScale9Enabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_setLayoutType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Layout_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Layout_Layout(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_Button_class;
@@ -521,36 +531,32 @@ void js_register_cocos2dx_studio_Button(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_studio_Button_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_getTitleText(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Button_getCapInsetPressedRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_setTitleFontSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_setScale9Enabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_setTitleColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_ignoreContentAdaptWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_setCapInsetsDisabledRenderer(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Button_isFlipX(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Button_isFlipY(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Button_getCapInsetPressedRenderer(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Button_getTitleColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_loadTextureDisabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_getContentSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_setTitleText(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_getCapInsetNormalRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_setCapInsetsNormalRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_loadTexturePressed(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Button_setFlipY(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Button_setFlipX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_setTitleFontName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_loadTextures(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_isScale9Enabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_getCapInsetDisabledRenderer(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Button_getTitleColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_loadTextureNormal(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Button_setColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_setCapInsetsPressedRenderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_getTitleFontSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_getTitleFontName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_setCapInsets(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_setPressedActionEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Button_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Button_Button(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CheckBox_class;
@@ -564,18 +570,15 @@ JSBool js_cocos2dx_studio_CheckBox_getSelectedState(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_studio_CheckBox_loadTextureBackGroundSelected(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CheckBox_loadTextureBackGroundDisabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CheckBox_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CheckBox_setFlipY(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CheckBox_setFlipX(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CheckBox_isFlipX(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CheckBox_isFlipY(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_CheckBox_loadTextureFrontCross(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CheckBox_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CheckBox_loadTextureFrontCross(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CheckBox_getContentSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CheckBox_loadTextures(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CheckBox_loadTextureBackGround(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CheckBox_setSelectedState(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CheckBox_loadTextureFrontCrossDisabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CheckBox_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CheckBox_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CheckBox_CheckBox(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_ImageView_class;
@@ -589,10 +592,6 @@ JSBool js_cocos2dx_studio_ImageView_getVirtualRenderer(JSContext *cx, uint32_t a
 JSBool js_cocos2dx_studio_ImageView_ignoreContentAdaptWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ImageView_loadTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ImageView_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_ImageView_setFlipY(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_ImageView_setFlipX(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_ImageView_isFlipX(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_ImageView_isFlipY(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ImageView_setScale9Enabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ImageView_setTextureRect(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ImageView_setCapInsets(JSContext *cx, uint32_t argc, jsval *vp);
@@ -600,6 +599,7 @@ JSBool js_cocos2dx_studio_ImageView_getCapInsets(JSContext *cx, uint32_t argc, j
 JSBool js_cocos2dx_studio_ImageView_getContentSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ImageView_isScale9Enabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ImageView_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ImageView_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ImageView_ImageView(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_Label_class;
@@ -609,32 +609,26 @@ JSBool js_cocos2dx_studio_Label_constructor(JSContext *cx, uint32_t argc, jsval 
 void js_cocos2dx_studio_Label_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_Label(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_studio_Label_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_getFontSize(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_getStringValue(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_setScale(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_getTextAreaSize(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_setTextVerticalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_getStringLength(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Label_setFontName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Label_setTouchScaleChangeEnabled(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_isFlipX(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_isFlipY(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_getFontSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_getTextVerticalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_getStringValue(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_setText(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_getDescription(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_getVirtualRenderer(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_getTextHorizontalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_getTextAreaSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_setTextVerticalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Label_getContentSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_setFontSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Label_isTouchScaleChangeEnabled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_setTextHorizontalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Label_getFontName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Label_setTextAreaSize(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_getStringLength(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_setScaleY(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_setScaleX(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_setFlipY(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_setFlipX(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_getTextHorizontalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_setFontSize(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_setText(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_setTextHorizontalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_Label_getTextVerticalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Label_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Label_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Label_Label(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_LabelAtlas_class;
@@ -651,6 +645,7 @@ JSBool js_cocos2dx_studio_LabelAtlas_getContentSize(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_studio_LabelAtlas_setProperty(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_LabelAtlas_setStringValue(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_LabelAtlas_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_LabelAtlas_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_LabelAtlas_LabelAtlas(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_LoadingBar_class;
@@ -674,6 +669,7 @@ JSBool js_cocos2dx_studio_LoadingBar_getContentSize(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_studio_LoadingBar_isScale9Enabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_LoadingBar_getPercent(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_LoadingBar_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_LoadingBar_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_LoadingBar_LoadingBar(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_ScrollView_class;
@@ -733,6 +729,7 @@ JSBool js_cocos2dx_studio_ScrollView_jumpToRight(JSContext *cx, uint32_t argc, j
 JSBool js_cocos2dx_studio_ScrollView_getChildrenCount(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ScrollView_scrollToTopRight(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ScrollView_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ScrollView_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ScrollView_ScrollView(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_Slider_class;
@@ -762,6 +759,7 @@ JSBool js_cocos2dx_studio_Slider_loadSlidBallTextureDisabled(JSContext *cx, uint
 JSBool js_cocos2dx_studio_Slider_getPercent(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Slider_getCapInsetProgressBarRebderer(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Slider_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Slider_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Slider_Slider(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_TextField_class;
@@ -783,12 +781,14 @@ JSBool js_cocos2dx_studio_TextField_setFontName(JSContext *cx, uint32_t argc, js
 JSBool js_cocos2dx_studio_TextField_getInsertText(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setInsertText(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_getDetachWithIME(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TextField_setTextVerticalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_getContentSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_didNotSelectSelf(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_getFontName(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TextField_setTextAreaSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_attachWithIME(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_studio_TextField_setPasswordEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_getPasswordStyleText(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TextField_setPasswordEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setMaxLengthEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_isPasswordEnabled(JSContext *cx, uint32_t argc, jsval *vp);
@@ -796,14 +796,18 @@ JSBool js_cocos2dx_studio_TextField_setDeleteBackward(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_studio_TextField_setFontSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setPasswordStyleText(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TextField_setTextHorizontalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_getMaxLength(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_isMaxLengthEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setDetachWithIME(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setText(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TextField_setTouchAreaEnabled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TextField_hitTest(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setMaxLength(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_setTouchSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_getTouchSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_TextField_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_TextField_TextField(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_ListView_class;
@@ -825,6 +829,7 @@ JSBool js_cocos2dx_studio_ListView_getCurSelectedIndex(JSContext *cx, uint32_t a
 JSBool js_cocos2dx_studio_ListView_insertDefaultItem(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ListView_sortAllChildren(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ListView_setItemsMargin(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ListView_refreshView(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ListView_removeLastItem(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ListView_getItemsMargin(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ListView_getItem(JSContext *cx, uint32_t argc, jsval *vp);
@@ -833,6 +838,7 @@ JSBool js_cocos2dx_studio_ListView_requestRefreshView(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_studio_ListView_pushBackDefaultItem(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ListView_insertCustomItem(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ListView_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_ListView_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_ListView_ListView(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_LabelBMFont_class;
@@ -849,6 +855,7 @@ JSBool js_cocos2dx_studio_LabelBMFont_getDescription(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_studio_LabelBMFont_getContentSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_LabelBMFont_setFntFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_LabelBMFont_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_LabelBMFont_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_LabelBMFont_LabelBMFont(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_PageView_class;
@@ -873,6 +880,7 @@ JSBool js_cocos2dx_studio_PageView_getPages(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_studio_PageView_removeAllPages(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_PageView_addPage(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_PageView_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_PageView_createInstance(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_PageView_PageView(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_UIHelper_class;
@@ -894,7 +902,10 @@ JSBool js_cocos2dx_studio_GUIReader_constructor(JSContext *cx, uint32_t argc, js
 void js_cocos2dx_studio_GUIReader_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_GUIReader(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_studio_GUIReader_getParseObjectMap(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_GUIReader_getParseCallBackMap(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_GUIReader_widgetFromJsonFile(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_GUIReader_getFilePath(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_GUIReader_purge(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_GUIReader_shareReader(JSContext *cx, uint32_t argc, jsval *vp);
 
