@@ -10662,6 +10662,13 @@ cc.TextureCache = {
 dumpCachedTextureInfo : function () {},
 
 /**
+ * @method reloadTexture
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ */
+reloadTexture : function () {},
+
+/**
  * @method addETCImage
  * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
  * @param {const char*}
