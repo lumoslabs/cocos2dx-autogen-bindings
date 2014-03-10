@@ -3116,6 +3116,7 @@ void js_cocos2dx_CCTextureCache_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCTextureCache(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTextureCache_dumpCachedTextureInfo(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTextureCache_reloadTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTextureCache_addETCImage(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTextureCache_addUIImage(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTextureCache_removeTextureForKey(JSContext *cx, uint32_t argc, jsval *vp);
