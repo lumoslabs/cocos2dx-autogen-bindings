@@ -1541,11 +1541,6 @@ ccs.Widget = {
 setSizePercent : function () {},
 
 /**
- * @method updateSizeAndPosition
- */
-updateSizeAndPosition : function () {},
-
-/**
  * @method getCustomSize
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
@@ -1598,6 +1593,12 @@ getChildren : function () {},
  * @return A value converted from C/C++ "cocos2d::CCArray*"
  */
 getNodes : function () {},
+
+/**
+ * @method getLayoutSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getLayoutSize : function () {},
 
 /**
  * @method getChildByTag

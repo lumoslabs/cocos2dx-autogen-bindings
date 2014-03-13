@@ -415,6 +415,7 @@ JSBool js_cocos2dx_studio_Widget_isFlipY(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_studio_Widget_getTouchEndPos(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getChildren(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getNodes(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_Widget_getLayoutSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getChildByTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_getName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_Widget_isIgnoreContentAdaptWithSize(JSContext *cx, uint32_t argc, jsval *vp);

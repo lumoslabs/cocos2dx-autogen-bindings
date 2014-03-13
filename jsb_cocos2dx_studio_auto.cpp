@@ -7401,17 +7401,35 @@ JSBool js_cocos2dx_studio_Widget_setSizePercent(JSContext *cx, uint32_t argc, js
 }
 JSBool js_cocos2dx_studio_Widget_updateSizeAndPosition(JSContext *cx, uint32_t argc, jsval *vp)
 {
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::ui::Widget* cobj = (cocos2d::ui::Widget *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->updateSizeAndPosition();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	JSObject *obj = NULL;
+	cocos2d::ui::Widget* cobj = NULL;
+	obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cobj = (cocos2d::ui::Widget *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	do {
+		if (argc == 1) {
+			cocos2d::CCSize arg0;
+			ok &= jsval_to_ccsize(cx, argv[0], &arg0);
+			if (!ok) { ok = JS_TRUE; break; }
+			cobj->updateSizeAndPosition(arg0);
+			JS_SET_RVAL(cx, vp, JSVAL_VOID);
+			return JS_TRUE;
+		}
+	} while(0);
+
+	do {
+		if (argc == 0) {
+			cobj->updateSizeAndPosition();
+			JS_SET_RVAL(cx, vp, JSVAL_VOID);
+			return JS_TRUE;
+		}
+	} while(0);
+
+	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_studio_Widget_getCustomSize(JSContext *cx, uint32_t argc, jsval *vp)
@@ -7563,6 +7581,23 @@ JSBool js_cocos2dx_studio_Widget_getNodes(JSContext *cx, uint32_t argc, jsval *v
 		cocos2d::CCArray* ret = cobj->getNodes();
 		jsval jsret;
 		jsret = ccarray_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_studio_Widget_getLayoutSize(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::ui::Widget* cobj = (cocos2d::ui::Widget *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCSize ret = cobj->getLayoutSize();
+		jsval jsret;
+		jsret = ccsize_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -8895,6 +8930,7 @@ void js_register_cocos2dx_studio_Widget(JSContext *cx, JSObject *global) {
 		JS_FN("getTouchEndPos", js_cocos2dx_studio_Widget_getTouchEndPos, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getChildren", js_cocos2dx_studio_Widget_getChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getNodes", js_cocos2dx_studio_Widget_getNodes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLayoutSize", js_cocos2dx_studio_Widget_getLayoutSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getChildByTag", js_cocos2dx_studio_Widget_getChildByTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getName", js_cocos2dx_studio_Widget_getName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isIgnoreContentAdaptWithSize", js_cocos2dx_studio_Widget_isIgnoreContentAdaptWithSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
