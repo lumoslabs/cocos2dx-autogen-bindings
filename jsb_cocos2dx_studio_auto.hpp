@@ -932,6 +932,7 @@ JSBool js_cocos2dx_studio_SceneReader_constructor(JSContext *cx, uint32_t argc, 
 void js_cocos2dx_studio_SceneReader_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_studio_SceneReader(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_studio(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_studio_SceneReader_getAttachComponentType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_SceneReader_createNodeWithSceneFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_SceneReader_getNodeByTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_SceneReader_purge(JSContext *cx, uint32_t argc, jsval *vp);

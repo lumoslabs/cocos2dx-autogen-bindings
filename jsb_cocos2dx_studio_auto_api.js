@@ -3999,9 +3999,16 @@ TouchGroup : function () {},
 ccs.SceneReader = {
 
 /**
+ * @method getAttachComponentType
+ * @return A value converted from C/C++ "cocos2d::extension::AttachComponentType"
+ */
+getAttachComponentType : function () {},
+
+/**
  * @method createNodeWithSceneFile
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  * @param {const char*}
+ * @param {cocos2d::extension::AttachComponentType}
  */
 createNodeWithSceneFile : function () {},
 

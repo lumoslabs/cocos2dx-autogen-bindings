@@ -17374,6 +17374,23 @@ void js_register_cocos2dx_studio_TouchGroup(JSContext *cx, JSObject *global) {
 JSClass  *jsb_SceneReader_class;
 JSObject *jsb_SceneReader_prototype;
 
+JSBool js_cocos2dx_studio_SceneReader_getAttachComponentType(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::SceneReader* cobj = (cocos2d::extension::SceneReader *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::extension::AttachComponentType ret = cobj->getAttachComponentType();
+		jsval jsret;
+		jsret = int32_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_studio_SceneReader_createNodeWithSceneFile(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -17387,6 +17404,25 @@ JSBool js_cocos2dx_studio_SceneReader_createNodeWithSceneFile(JSContext *cx, uin
 		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cocos2d::CCNode* ret = cobj->createNodeWithSceneFile(arg0);
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCNode>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	if (argc == 2) {
+		const char* arg0;
+		cocos2d::extension::AttachComponentType arg1;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::CCNode* ret = cobj->createNodeWithSceneFile(arg0, arg1);
 		jsval jsret;
 		do {
 			if (ret) {
@@ -17501,6 +17537,7 @@ void js_register_cocos2dx_studio_SceneReader(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
+		JS_FN("getAttachComponentType", js_cocos2dx_studio_SceneReader_getAttachComponentType, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("createNodeWithSceneFile", js_cocos2dx_studio_SceneReader_createNodeWithSceneFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getNodeByTag", js_cocos2dx_studio_SceneReader_getNodeByTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
