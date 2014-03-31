@@ -8883,7 +8883,7 @@ JSBool js_cocos2dx_studio_Widget_constructor(JSContext *cx, uint32_t argc, jsval
 
 
 
-extern JSObject *jsb_CCNode_prototype;
+extern JSObject *jsb_CCNodeRGBA_prototype;
 
 void js_cocos2dx_studio_Widget_finalize(JSFreeOp *fop, JSObject *obj) {
     CCLOGINFO("jsbindings: finalizing JS object %p (Widget)", obj);
@@ -9000,7 +9000,7 @@ void js_register_cocos2dx_studio_Widget(JSContext *cx, JSObject *global) {
 
 	jsb_Widget_prototype = JS_InitClass(
 		cx, global,
-		jsb_CCNode_prototype,
+		jsb_CCNodeRGBA_prototype,
 		jsb_Widget_class,
 		js_cocos2dx_studio_Widget_constructor, 0, // constructor
 		properties,
@@ -9021,7 +9021,7 @@ void js_register_cocos2dx_studio_Widget(JSContext *cx, JSObject *global) {
 		p->type = typeId;
 		p->jsclass = jsb_Widget_class;
 		p->proto = jsb_Widget_prototype;
-		p->parentProto = jsb_CCNode_prototype;
+		p->parentProto = jsb_CCNodeRGBA_prototype;
 		HASH_ADD_INT(_js_global_type_ht, type, p);
 	}
 }
