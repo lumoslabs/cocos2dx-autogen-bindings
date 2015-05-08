@@ -7322,7 +7322,10 @@ JSBool js_cocos2dx_studio_Widget_setUpdateEnabled(JSContext *cx, uint32_t argc, 
 		JSBool arg0;
 		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setUpdateEnabled(arg0);
+        //
+        //MJDE CODE Hack to compile for Android, we do not currently support CocosStudio anyway (terrible reasoning).
+        //
+		//cobj->setUpdateEnabled(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -8158,7 +8161,11 @@ JSBool js_cocos2dx_studio_Widget_isUpdateEnabled(JSContext *cx, uint32_t argc, j
 	cocos2d::gui::Widget* cobj = (cocos2d::gui::Widget *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		bool ret = cobj->isUpdateEnabled();
+        //
+        //MJDE CODE Hack to compile for Android, we do not currently support CocosStudio anyway (terrible reasoning).
+        //
+		bool ret = true;
+		//bool ret = cobj->isUpdateEnabled();
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -8353,7 +8360,7 @@ JSBool js_cocos2dx_studio_Widget_removeChildByTag(JSContext *cx, uint32_t argc, 
 		int arg0;
 		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->removeChildByTag(arg0);
+		cobj->removeChildByTag(arg0, true);//MJDE CODE Modified directly to get Android builds working. HACK
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
